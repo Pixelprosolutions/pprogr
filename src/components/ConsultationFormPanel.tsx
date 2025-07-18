@@ -87,18 +87,15 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
   };
 
   return (
-    <div
-      className="fixed inset-0 w-full h-full flex items-center justify-center bg-black/80 backdrop-blur-lg z-[9999] p-4"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) {
-          onClose();
-        }
-      }}
-    >
-      {/* Centered glass card */}
-      <div
-        className="w-full max-w-md max-h-[90vh] bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-8 overflow-y-auto"
-      >
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+      {/* Background overlay */}
+      <div 
+        className="absolute inset-0 bg-black/80 backdrop-blur-lg"
+        onClick={onClose}
+      />
+      
+      {/* Modal content */}
+      <div className="relative w-full max-w-md bg-gradient-to-br from-black/60 to-black/80 backdrop-blur-sm border border-white/20 rounded-xl p-8 max-h-[90vh] overflow-y-auto shadow-2xl">
         {/* Header with title, back button and language selector */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center">
@@ -144,21 +141,21 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
               <input
                 type="text"
                 placeholder={language === 'el' ? 'Το Όνομά σας' : 'Your Name'}
-                className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/50"
               />
               <input
                 type="email"
                 placeholder={language === 'el' ? 'Το Email σας' : 'Your Email'}
-                className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/50"
               />
               <input
                 type="tel"
                 placeholder={language === 'el' ? 'Το Τηλέφωνό σας' : 'Your Phone'}
-                className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/50"
               />
             </div>
             <button
-              className="mt-6 px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center glow-on-hover interactive"
+              className="mt-6 px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center w-full"
               onClick={nextStep}
             >
               Επόμενο <ArrowRight className="h-4 w-4 inline-block ml-2" />
@@ -192,40 +189,40 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
               <input
                 type="text"
                 placeholder={language === 'el' ? 'Όνομα Επιχείρησης' : 'Business Name'}
-                className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/50"
               />
               <input
                 type="text"
                 placeholder={language === 'el' ? 'Τύπος Επιχείρησης' : 'Business Type'}
-                className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/50"
               />
               <input
                 type="url"
                 placeholder={language === 'el' ? 'URL Ιστότοπου' : 'Website URL'}
-                className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/50"
               />
               {isUKBusiness && (
                 <input
                   type="text"
                   placeholder={language === 'el' ? 'Αριθμός Εταιρείας (UK)' : 'Company Number (UK)'}
-                  className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                  className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/50"
                 />
               )}
               <textarea
                 placeholder={language === 'el' ? 'Επιχειρηματικοί Στόχοι' : 'Business Goals'}
-                className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/50"
                 rows={3}
               />
             </div>
-            <div className="flex justify-between mt-6">
+            <div className="flex justify-between mt-6 gap-4">
               <button
-                className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
+                className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors flex items-center"
                 onClick={prevStep}
               >
                 <ArrowLeft className="h-4 w-4 inline-block mr-2" /> Πίσω
               </button>
               <button
-                className="px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center glow-on-hover interactive"
+                className="px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition-colors flex items-center"
                 onClick={nextStep}
               >
                 Επόμενο <ArrowRight className="h-4 w-4 inline-block ml-2" />
@@ -240,17 +237,17 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
             <p className="text-gray-300 mb-4">Επιλέξτε μια ημερομηνία και ώρα για τη συμβουλή σας.</p>
             {renderCalendar()}
             {renderTimeSlots()}
-            <div className="flex justify-between mt-6">
+            <div className="flex justify-between mt-6 gap-4">
               <button
-                className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
+                className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors flex items-center"
                 onClick={prevStep}
               >
                 <ArrowLeft className="h-4 w-4 inline-block mr-2" /> Πίσω
               </button>
               <button
-                className="px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center glow-on-hover interactive"
+                className="px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition-colors flex items-center"
                 onClick={nextStep}
-                disabled={!selectedDate || !selectedTime} // Disable if date or time not selected
+                disabled={!selectedDate || !selectedTime}
               >
                 Επόμενο <ArrowRight className="h-4 w-4 inline-block ml-2" />
               </button>
@@ -279,22 +276,21 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
               <p><strong>{language === 'el' ? 'Ημερομηνία' : 'Date'}:</strong> {selectedDate?.toLocaleDateString()}</p>
               <p><strong>{language === 'el' ? 'Ώρα' : 'Time'}:</strong> {selectedTime}</p>
             </div>
-            <div className="flex justify-between mt-6">
+            <div className="flex justify-between mt-6 gap-4">
               <button
-                className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
+                className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors flex items-center"
                 onClick={prevStep}
               >
-                <ArrowLeft className="h-4 w-4 inline-block mr-2" /> Back
+                <ArrowLeft className="h-4 w-4 inline-block mr-2" /> Πίσω
               </button>
               <button
-                className="px-6 py-3 bg-green-500 text-black font-medium rounded-md hover:bg-green-700 transition-colors flex items-center justify-center glow-on-hover interactive"
-                // Add actual booking logic here
+                className="px-6 py-3 bg-green-500 text-white font-medium rounded-md hover:bg-green-600 transition-colors flex items-center"
                 onClick={() => {
                   console.log("Booking Confirmed!");
                   setIsSubmitted(true);
                   setTimeout(() => {
                     onClose();
-                  }, 2000); // Close after 2 seconds
+                  }, 2000);
                 }}
               >
                 Επιβεβαίωση Κράτησης
@@ -305,12 +301,15 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
 
         {/* Success Animation */}
         {isSubmitted && (
-          <div className="fixed inset-0 flex items-center justify-center bg-black/80 z-[10000]">
-            <div className="success-animation">
-              <svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                <circle className="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
-                <path className="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-              </svg>
+          <div className="absolute inset-0 flex items-center justify-center bg-black/90 rounded-xl">
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-green-500 flex items-center justify-center">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Επιτυχία!</h3>
+              <p className="text-gray-300">Η κράτησή σας επιβεβαιώθηκε</p>
             </div>
           </div>
         )}
