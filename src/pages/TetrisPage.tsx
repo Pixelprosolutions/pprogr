@@ -376,9 +376,9 @@ const TetrisPage: React.FC = () => {
         </button>
 
         <div className="max-w-7xl mx-auto w-full">
-          <div className="grid grid-cols-1 xl:grid-cols-4 gap-6 items-start">
+          <div className="flex gap-4 items-start">
             {/* Game Board */}
-            <div className="xl:col-span-3 flex justify-center">
+            <div className="flex-1 flex justify-center">
               <div className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-4 md:p-8 relative">
                 {gameOver && (
                   <div className="absolute inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center rounded-xl z-10">
@@ -411,20 +411,20 @@ const TetrisPage: React.FC = () => {
             </div>
 
             {/* Side Panel */}
-            <div className="xl:col-span-1 space-y-4 xl:space-y-6">
+            <div className="w-64 space-y-4 hidden lg:block">
               {/* Score */}
-              <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-white mb-4">Σκορ</h3>
-                <p className="text-3xl font-bold text-white mb-4">{score}</p>
-                <div className="space-y-2 text-gray-300">
+              <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-4">
+                <h3 className="text-lg font-bold text-white mb-2">Σκορ</h3>
+                <p className="text-2xl font-bold text-white mb-2">{score}</p>
+                <div className="space-y-1 text-gray-300 text-sm">
                   <p>Επίπεδο: {level}</p>
                   <p>Γραμμές: {lines}</p>
                 </div>
               </div>
 
               {/* Next Piece */}
-              <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-white mb-4">Επόμενο</h3>
+              <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-4">
+                <h3 className="text-lg font-bold text-white mb-2">Επόμενο</h3>
                 <div className="flex justify-center">
                   <div className="space-y-1">
                     {renderNextPiece()}
@@ -433,20 +433,20 @@ const TetrisPage: React.FC = () => {
               </div>
 
               {/* Controls - Hidden on mobile, shown on desktop */}
-              <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-white mb-4">Χειριστήρια</h3>
-                <div className="space-y-3 text-gray-300">
+              <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-4">
+                <h3 className="text-lg font-bold text-white mb-2">Χειριστήρια</h3>
+                <div className="space-y-2 text-gray-300 text-sm">
                   <p className="flex items-center">
-                    <ArrowLeft className="inline w-4 h-4 mr-2" />
-                    <ArrowRight className="inline w-4 h-4 mr-2" />
+                    <ArrowLeft className="inline w-3 h-3 mr-1" />
+                    <ArrowRight className="inline w-3 h-3 mr-1" />
                     Κίνηση
                   </p>
                   <p className="flex items-center">
-                    <ArrowDown className="inline w-4 h-4 mr-2" />
+                    <ArrowDown className="inline w-3 h-3 mr-1" />
                     Γρήγορη Πτώση
                   </p>
                   <p className="flex items-center">
-                    <RotateCw className="inline w-4 h-4 mr-2" />
+                    <RotateCw className="inline w-3 h-3 mr-1" />
                     Περιστροφή (↑ ή Space)
                   </p>
                   <p>Enter: Άμεση Πτώση</p>
@@ -455,59 +455,58 @@ const TetrisPage: React.FC = () => {
               </div>
 
               {/* Game Controls */}
-              <div className="space-y-3 xl:block">
+              <div className="space-y-2">
                 <button
                   onClick={() => setIsPaused(!isPaused)}
                   disabled={gameOver}
-                  className="w-full bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-6 rounded-lg hover:bg-white/30 transition-colors disabled:opacity-50"
+                  className="w-full bg-white/20 backdrop-blur-sm border border-white/30 text-white py-2 px-4 rounded-lg hover:bg-white/30 transition-colors disabled:opacity-50 text-sm"
                 >
                   {isPaused ? 'Συνέχεια' : 'Παύση'}
                 </button>
                 <button
                   onClick={initGame}
-                  className="w-full bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-6 rounded-lg hover:bg-white/30 transition-colors"
+                  className="w-full bg-white/20 backdrop-blur-sm border border-white/30 text-white py-2 px-4 rounded-lg hover:bg-white/30 transition-colors text-sm"
                 >
                   Νέο Παιχνίδι
                 </button>
               </div>
+            </div>
 
-              {/* Mobile Controls - Only show on mobile */}
-              <div className="xl:hidden">
-                <h3 className="text-xl font-bold text-white mb-4">Αφή</h3>
-                <div className="grid grid-cols-3 gap-2 mb-4">
-                  <button
-                    onClick={() => movePiece('left')}
-                    className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg hover:bg-white/30 transition-colors"
-                  >
-                    <ArrowLeft className="h-5 w-5 mx-auto" />
-                  </button>
-                  <button
-                    onClick={handleRotate}
-                    className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg hover:bg-white/30 transition-colors"
-                  >
-                    <RotateCw className="h-5 w-5 mx-auto" />
-                  </button>
-                  <button
-                    onClick={() => movePiece('right')}
-                    className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg hover:bg-white/30 transition-colors"
-                  >
-                    <ArrowRight className="h-5 w-5 mx-auto" />
-                  </button>
-                </div>
-                <div className="grid grid-cols-2 gap-2">
-                  <button
-                    onClick={() => movePiece('down')}
-                    className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg hover:bg-white/30 transition-colors"
-                  >
-                    <ArrowDown className="h-5 w-5 mx-auto" />
-                  </button>
-                  <button
-                    onClick={hardDrop}
-                    className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg hover:bg-white/30 transition-colors text-sm"
-                  >
-                    DROP
-                  </button>
-                </div>
+            {/* Mobile Controls - Only show on mobile */}
+            <div className="lg:hidden fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-4">
+              <div className="grid grid-cols-3 gap-2 mb-2">
+                <button
+                  onClick={() => movePiece('left')}
+                  className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-2 px-3 rounded-lg hover:bg-white/30 transition-colors"
+                >
+                  <ArrowLeft className="h-4 w-4 mx-auto" />
+                </button>
+                <button
+                  onClick={handleRotate}
+                  className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-2 px-3 rounded-lg hover:bg-white/30 transition-colors"
+                >
+                  <RotateCw className="h-4 w-4 mx-auto" />
+                </button>
+                <button
+                  onClick={() => movePiece('right')}
+                  className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-2 px-3 rounded-lg hover:bg-white/30 transition-colors"
+                >
+                  <ArrowRight className="h-4 w-4 mx-auto" />
+                </button>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  onClick={() => movePiece('down')}
+                  className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-2 px-3 rounded-lg hover:bg-white/30 transition-colors"
+                >
+                  <ArrowDown className="h-4 w-4 mx-auto" />
+                </button>
+                <button
+                  onClick={hardDrop}
+                  className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-2 px-3 rounded-lg hover:bg-white/30 transition-colors text-xs"
+                >
+                  DROP
+                </button>
               </div>
             </div>
           </div>
