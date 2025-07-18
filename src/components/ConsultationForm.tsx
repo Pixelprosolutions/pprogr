@@ -7,13 +7,11 @@ const ConsultationForm: React.FC = () => {
   // Function to open the panel
   const openConsultationForm = () => {
     setIsConsultationFormOpen(true);
-    document.body.classList.add('consultation-form-open');
   };
 
   // Function to close the panel
   const closeConsultationForm = () => {
     setIsConsultationFormOpen(false);
-    document.body.classList.remove('consultation-form-open');
   };
 
   return (

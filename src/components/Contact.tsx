@@ -7,12 +7,10 @@ const Contact: React.FC = () => {
 
   const openConsultationForm = () => {
     setIsConsultationFormOpen(true);
-    document.body.classList.add('consultation-form-open');
   };
 
   const closeConsultationForm = () => {
     setIsConsultationFormOpen(false);
-    document.body.classList.remove('consultation-form-open');
   };
 
   return (

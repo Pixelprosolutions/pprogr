@@ -22,7 +22,6 @@ const About: React.FC<AboutProps> = ({ isHomepage = false }) => {
   const [isConsultationFormOpen, setIsConsultationFormOpen] = useState(false);
 
   const openConsultationForm = () => setIsConsultationFormOpen(true);
-  const closeConsultationForm = () => setIsConsultationFormOpen(false);
 
   const testimonials = [
     {

@@ -25,6 +25,14 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
     setSelectedTime(time);
   };
 
+  // Prevent body scroll when modal is open
+  React.useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
+
   const renderCalendar = () => {
     const today = new Date();
     // Ensure date comparison ignores time part
@@ -80,7 +88,7 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
 
   return (
     <div
-      className="fixed inset-0 w-full h-full flex items-center justify-center bg-black/80 backdrop-blur-lg z-[9999]"
+      className="fixed inset-0 w-full h-full flex items-center justify-center bg-black/80 backdrop-blur-lg z-[9999] p-4"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
@@ -89,8 +97,7 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
     >
       {/* Centered glass card */}
       <div
-        className="w-full max-w-md max-h-[90vh] bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg m-4 p-8"
-        ref={(el) => el?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+        className="w-full max-w-md max-h-[90vh] bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-8 overflow-y-auto"
       >
         {/* Header with title, back button and language selector */}
         <div className="flex items-center justify-between mb-6">
