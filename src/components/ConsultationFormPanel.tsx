@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, ArrowLeft, X } from 'lucide-react';
 
 interface ConsultationFormPanelProps {
@@ -13,6 +13,14 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
   const [language, setLanguage] = useState<'el'|'en'>('el');
   const [isUKBusiness, setIsUKBusiness] = useState(false);
 
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
+
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
 
@@ -23,14 +31,6 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
   const handleTimeSelect = (time: string) => {
     setSelectedTime(time);
   };
-
-  // Prevent body scroll when modal is open
-  React.useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, []);
 
   const renderCalendar = () => {
     const today = new Date();
@@ -52,10 +52,10 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
           key={day}
           className={`w-10 h-10 rounded-md flex items-center justify-center text-sm ${
             isPastDate || isWeekend 
-              ? 'bg-gray-700 text-gray-500 cursor-not-allowed' 
+              ? 'bg-gray-200 text-gray-400 cursor-not-allowed' 
               : isSelected 
                 ? 'bg-blue-500 text-white' 
-                : 'bg-gray-600 hover:bg-gray-500 text-white cursor-pointer'
+                : 'bg-gray-100 hover:bg-gray-200 text-gray-900 cursor-pointer'
           }`}
           onClick={() => !isPastDate && !isWeekend && handleDateSelect(date)}
           disabled={isPastDate || isWeekend}
@@ -76,8 +76,10 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
         {timeSlots.map(time => (
           <button
             key={time}
-            className={`px-4 py-2 rounded-md text-white text-sm ${
-              selectedTime === time ? 'bg-blue-500' : 'bg-gray-600 hover:bg-gray-500'
+            className={`px-4 py-2 rounded-md text-sm ${
+              selectedTime === time 
+                ? 'bg-blue-500 text-white' 
+                : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
             } transition-colors`}
             onClick={() => handleTimeSelect(time)}
           >
@@ -90,9 +92,9 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
 
   if (isSubmitted) {
     return (
-      <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-        <div className="absolute inset-0 bg-black/80 backdrop-blur-lg" onClick={onClose} />
-        <div className="relative bg-white rounded-xl p-8 max-w-md w-full text-center">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="absolute inset-0 bg-black/50" onClick={onClose} />
+        <div className="relative bg-white rounded-xl p-8 max-w-md w-full text-center shadow-2xl">
           <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-green-500 flex items-center justify-center">
             <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -106,10 +108,10 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
   }
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Background overlay */}
       <div 
-        className="absolute inset-0 bg-black/80 backdrop-blur-lg"
+        className="absolute inset-0 bg-black/50"
         onClick={onClose}
       />
       
