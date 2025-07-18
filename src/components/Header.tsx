@@ -127,52 +127,52 @@ const Header: React.FC = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden lg:flex space-x-4 xl:space-x-8">
           <Link 
             to="/" 
-            className="text-white hover:text-gray-300 transition-colors glow-on-hover"
+            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
           >
             Αρχική
           </Link>
           <Link 
             to="/services" 
-            className="text-white hover:text-gray-300 transition-colors glow-on-hover"
+            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
           >
             Υπηρεσίες
           </Link>
           <Link 
             to="/how-we-work" 
-            className="text-white hover:text-gray-300 transition-colors glow-on-hover"
+            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
           >
             Πώς Δουλεύουμε
           </Link>
           <Link 
             to="/projects" 
-            className="text-white hover:text-gray-300 transition-colors glow-on-hover"
+            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
           >
             Έργα
           </Link>
           <Link 
             to="/about" 
-            className="text-white hover:text-gray-300 transition-colors glow-on-hover"
+            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
           >
             Σχετικά
           </Link>
           <Link
             to="/faq"
-            className="text-white hover:text-gray-300 transition-colors glow-on-hover"
+            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
           >
             Συχνές Ερωτήσεις
           </Link>
           <Link 
             to="/contact" 
-            className="text-white hover:text-gray-300 transition-colors glow-on-hover"
+            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
           >
             Επικοινωνία
           </Link>
           <Link 
             to="/consultation" 
-            className="bg-white/10 backdrop-blur-sm border border-white/20 text-white py-2 px-4 rounded-lg font-medium hover:bg-white/20 transition-all duration-300 glow-on-hover"
+            className="bg-white/10 backdrop-blur-sm border border-white/20 text-white py-2 px-3 xl:px-4 rounded-lg font-medium hover:bg-white/20 transition-all duration-300 glow-on-hover text-sm xl:text-base whitespace-nowrap"
           >
             Δωρεάν Συμβουλευτική
           </Link>
@@ -180,7 +180,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-white interactive"
+          className="lg:hidden text-white interactive"
           onClick={toggleMobileMenu}
         >
           <Menu className="h-6 w-6" />
@@ -189,7 +189,7 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-black/90 backdrop-blur-lg">
+        <div className="lg:hidden bg-black/90 backdrop-blur-lg">
           <div className="container mx-auto px-4 py-4">
             <nav className="flex flex-col space-y-4">
               <Link 
