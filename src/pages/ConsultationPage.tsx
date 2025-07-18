@@ -543,7 +543,7 @@ const ConsultationPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={prevStep}
-                  className="px-6 py-3 bg-transparent border border-white/30 text-white font-medium rounded-lg hover:bg-white/10 transition-colors"
+                  className="px-6 py-3 bg-transparent border border-white/30 text-white font-medium rounded-lg hover:bg-white/10 transition-colors glow-on-hover interactive"
                 >
                   Προηγούμενο
                 </button>
