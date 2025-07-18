@@ -104,8 +104,8 @@ const ConsultationPage: React.FC = () => {
     return (
       <main className="pt-32 pb-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-12">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-8 min-h-[600px] flex flex-col items-center justify-center text-center">
               <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-6" />
               <h1 className="text-3xl font-bold text-white mb-4">Ευχαριστούμε!</h1>
               <p className="text-gray-300 text-lg mb-6">
