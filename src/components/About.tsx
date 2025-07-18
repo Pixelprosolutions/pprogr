@@ -189,7 +189,7 @@ const About: React.FC<AboutProps> = ({ isHomepage = false }) => {
                   onClick={() => navigate('/consultation')}
                   className="bg-accent-500 backdrop-blur-sm border border-white/20 text-white py-3 px-6 rounded-lg font-medium hover:bg-accent-600 transition-all duration-300 shadow-lg hover:shadow-accent/20"
                 >
-                  Δωρεάν Συμβουλή
+                  Δωρεάν Συμβουλευτική
                 </button>
               </div>
             </section>

@@ -22,14 +22,14 @@ const Hero: React.FC = () => {
                 className="px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center glow-on-hover interactive"
                 onClick={() => navigate('/consultation')}
               >
-                Δωρεάν Συμβουλή
+                Δωρεάν Συμβουλευτική
                 <ArrowRight className="ml-2 h-4 w-4" />
               </button>
               <button
                 className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
-                onClick={() => navigate('/contact')}
+                onClick={() => {}}
               >
-                Επικοινωνήστε μαζί μας
+                Σπατάλησε το Χρονο Σου
               </button>
             </div>
           </div>

@@ -109,7 +109,7 @@ const ConsultationPage: React.FC = () => {
               <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-6" />
               <h1 className="text-3xl font-bold text-white mb-4">Ευχαριστούμε!</h1>
               <p className="text-gray-300 text-lg mb-6">
-                Η αίτησή σας για δωρεάν συμβουλή έχει σταλεί επιτυχώς. Θα επικοινωνήσουμε μαζί σας εντός 24 ωρών.
+                Η αίτησή σας για δωρεάν συμβουλευτική έχει σταλεί επιτυχώς. Θα επικοινωνήσουμε μαζί σας εντός 24 ωρών.
               </p>
               <p className="text-gray-400">
                 Στο μεταξύ, μπορείτε να εξερευνήσετε τα έργα μας ή να μάθετε περισσότερα για τις υπηρεσίες μας.
@@ -127,10 +127,10 @@ const ConsultationPage: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Δωρεάν Συμβουλή
+              Δωρεάν Συμβουλευτική
             </h1>
             <p className="text-gray-300 text-xl">
-              Συμπληρώστε τη φόρμα παρακάτω και θα επικοινωνήσουμε μαζί σας για μια δωρεάν συμβουλή 30 λεπτών
+              Συμπληρώστε τη φόρμα παρακάτω και θα επικοινωνήσουμε μαζί σας για μια δωρεάν συμβουλευτική 30 λεπτών
             </p>
           </div>
 

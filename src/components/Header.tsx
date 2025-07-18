@@ -174,7 +174,7 @@ const Header: React.FC = () => {
             to="/consultation" 
             className="bg-white/10 backdrop-blur-sm border border-white/20 text-white py-2 px-4 rounded-lg font-medium hover:bg-white/20 transition-all duration-300 glow-on-hover"
           >
-            Δωρεάν Συμβουλή
+            Δωρεάν Συμβουλευτική
           </Link>
         </nav>
 
@@ -246,7 +246,7 @@ const Header: React.FC = () => {
                 className="bg-white/10 backdrop-blur-sm border border-white/20 text-white py-3 px-4 rounded-lg font-medium hover:bg-white/20 transition-all duration-300"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Δωρεάν Συμβουλή
+                Δωρεάν Συμβουλευτική
               </Link>
             </nav>
           </div>

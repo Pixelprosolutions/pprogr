@@ -195,7 +195,7 @@ const Pricing: React.FC = () => {
               className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
               onClick={() => navigate('/consultation')}
             >
-              Δεν είστε σίγουροι; Δωρεάν Συμβουλή
+              Δεν είστε σίγουροι; Δωρεάν Συμβουλευτική
             </button>
           </div>
           
