@@ -45,13 +45,13 @@ const PIECES = [
 ];
 
 const PIECE_COLORS = [
-  '#00f5ff', // I-piece - cyan
-  '#ffff00', // O-piece - yellow
-  '#800080', // T-piece - purple
-  '#00ff00', // S-piece - green
-  '#ff0000', // Z-piece - red
-  '#0000ff', // J-piece - blue
-  '#ffa500'  // L-piece - orange
+  'rgba(196, 132, 252, 0.9)', // I-piece - purple-400
+  'rgba(219, 39, 119, 0.9)',  // O-piece - pink-600
+  'rgba(168, 85, 247, 0.9)',  // T-piece - purple-500
+  'rgba(244, 114, 182, 0.9)', // S-piece - pink-400
+  'rgba(147, 51, 234, 0.9)',  // Z-piece - purple-600
+  'rgba(236, 72, 153, 0.9)',  // J-piece - pink-500
+  'rgba(192, 132, 252, 0.9)'  // L-piece - purple-400
 ];
 
 interface Position {
@@ -323,7 +323,8 @@ const TetrisPage: React.FC = () => {
             key={x}
             className="w-6 h-6 border border-gray-600"
             style={{
-              backgroundColor: cell === EMPTY_CELL ? '#000' : PIECE_COLORS[cell - 1]
+              backgroundColor: cell === EMPTY_CELL ? 'rgba(0, 0, 0, 0.3)' : PIECE_COLORS[cell - 1],
+              borderColor: cell === EMPTY_CELL ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.3)'
             }}
           />
         ))}
@@ -332,13 +333,13 @@ const TetrisPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white p-4">
+    <div className="min-h-screen bg-gradient-to-br from-black/80 to-black/90 text-white p-4">
       <div className="container mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-8 bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-6">
           <button
             onClick={() => window.history.back()}
-            className="flex items-center text-white hover:text-gray-300 transition-colors"
+            className="flex items-center text-white hover:text-pink-400 transition-colors bg-white/10 backdrop-blur-sm border border-white/20 py-2 px-4 rounded-lg hover:bg-white/20"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
             Πίσω
@@ -352,7 +353,7 @@ const TetrisPage: React.FC = () => {
         <div className="flex flex-col lg:flex-row gap-8 items-start justify-center">
           {/* Game Board */}
           <div className="flex flex-col items-center">
-            <div className="bg-gray-900 p-4 rounded-lg border-2 border-gray-700">
+            <div className="bg-black/50 backdrop-blur-sm border border-white/20 p-4 rounded-xl shadow-lg">
               <div className="flex flex-col">
                 {renderBoard()}
               </div>
@@ -362,21 +363,21 @@ const TetrisPage: React.FC = () => {
             <div className="lg:hidden mt-6 grid grid-cols-3 gap-4 w-full max-w-xs">
               <button
                 onClick={() => movePiece('left')}
-                className="bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex items-center justify-center"
+                className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-4 rounded-lg flex items-center justify-center transition-all duration-300"
                 disabled={!isPlaying || isPaused}
               >
                 <ArrowLeft className="h-6 w-6" />
               </button>
               <button
                 onClick={rotatePieceHandler}
-                className="bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex items-center justify-center"
+                className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-4 rounded-lg flex items-center justify-center transition-all duration-300"
                 disabled={!isPlaying || isPaused}
               >
                 <RotateCw className="h-6 w-6" />
               </button>
               <button
                 onClick={() => movePiece('right')}
-                className="bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex items-center justify-center"
+                className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-4 rounded-lg flex items-center justify-center transition-all duration-300"
                 disabled={!isPlaying || isPaused}
               >
                 <ArrowRight className="h-6 w-6" />
@@ -384,14 +385,14 @@ const TetrisPage: React.FC = () => {
               <div></div>
               <button
                 onClick={() => movePiece('down')}
-                className="bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex items-center justify-center"
+                className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-4 rounded-lg flex items-center justify-center transition-all duration-300"
                 disabled={!isPlaying || isPaused}
               >
                 <ArrowDown className="h-6 w-6" />
               </button>
               <button
                 onClick={dropPiece}
-                className="bg-purple-600 hover:bg-purple-700 p-4 rounded-lg text-sm font-medium"
+                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 p-4 rounded-lg text-sm font-medium transition-all duration-300 shadow-lg"
                 disabled={!isPlaying || isPaused}
               >
                 Drop
@@ -402,39 +403,39 @@ const TetrisPage: React.FC = () => {
           {/* Game Info & Controls */}
           <div className="flex flex-col gap-6">
             {/* Score Panel */}
-            <div className="bg-gray-900 p-6 rounded-lg border border-gray-700">
+            <div className="bg-black/30 backdrop-blur-sm border border-white/10 p-6 rounded-xl">
               <h2 className="text-xl font-bold mb-4">Στατιστικά</h2>
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span>Σκορ:</span>
-                  <span className="font-bold text-yellow-400">{score.toLocaleString()}</span>
+                  <span className="font-bold text-pink-400">{score.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Επίπεδο:</span>
-                  <span className="font-bold text-green-400">{level}</span>
+                  <span className="font-bold text-purple-400">{level}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Γραμμές:</span>
-                  <span className="font-bold text-blue-400">{lines}</span>
+                  <span className="font-bold text-pink-300">{lines}</span>
                 </div>
               </div>
             </div>
 
             {/* Game Controls */}
-            <div className="bg-gray-900 p-6 rounded-lg border border-gray-700">
+            <div className="bg-black/30 backdrop-blur-sm border border-white/10 p-6 rounded-xl">
               <h2 className="text-xl font-bold mb-4">Έλεγχος</h2>
               <div className="space-y-3">
                 {!isPlaying ? (
                   <button
                     onClick={startNewGame}
-                    className="w-full bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-medium transition-colors"
+                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg"
                   >
                     {gameOver ? 'Νέο Παιχνίδι' : 'Έναρξη'}
                   </button>
                 ) : (
                   <button
                     onClick={() => setIsPaused(!isPaused)}
-                    className="w-full bg-yellow-600 hover:bg-yellow-700 text-white py-3 px-6 rounded-lg font-medium transition-colors"
+                    className="w-full bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300"
                   >
                     {isPaused ? 'Συνέχεια' : 'Παύση'}
                   </button>
@@ -446,7 +447,7 @@ const TetrisPage: React.FC = () => {
                       setIsPlaying(false);
                       setGameOver(true);
                     }}
-                    className="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-medium transition-colors"
+                    className="w-full bg-gradient-to-r from-red-500/80 to-pink-500/80 hover:from-red-600/80 hover:to-pink-600/80 backdrop-blur-sm border border-red-400/30 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300"
                   >
                     Τέλος Παιχνιδιού
                   </button>
@@ -455,28 +456,28 @@ const TetrisPage: React.FC = () => {
             </div>
 
             {/* Instructions */}
-            <div className="bg-gray-900 p-6 rounded-lg border border-gray-700">
+            <div className="bg-black/30 backdrop-blur-sm border border-white/10 p-6 rounded-xl">
               <h2 className="text-xl font-bold mb-4">Οδηγίες</h2>
               <div className="space-y-2 text-sm">
-                <div><strong>←/→:</strong> Κίνηση αριστερά/δεξιά</div>
-                <div><strong>↓:</strong> Γρήγορη πτώση</div>
-                <div><strong>↑/Space:</strong> Περιστροφή</div>
-                <div><strong>Enter:</strong> Άμεση πτώση</div>
-                <div><strong>P:</strong> Παύση</div>
+                <div><strong className="text-purple-400">←/→:</strong> Κίνηση αριστερά/δεξιά</div>
+                <div><strong className="text-purple-400">↓:</strong> Γρήγορη πτώση</div>
+                <div><strong className="text-purple-400">↑/Space:</strong> Περιστροφή</div>
+                <div><strong className="text-purple-400">Enter:</strong> Άμεση πτώση</div>
+                <div><strong className="text-purple-400">P:</strong> Παύση</div>
               </div>
             </div>
 
             {/* Game Status */}
             {gameOver && (
-              <div className="bg-red-900 border border-red-700 p-6 rounded-lg text-center">
+              <div className="bg-red-900/30 backdrop-blur-sm border border-red-400/30 p-6 rounded-xl text-center">
                 <h2 className="text-2xl font-bold text-red-400 mb-2">Game Over!</h2>
                 <p className="text-red-300">Τελικό Σκορ: {score.toLocaleString()}</p>
               </div>
             )}
 
             {isPaused && isPlaying && (
-              <div className="bg-yellow-900 border border-yellow-700 p-6 rounded-lg text-center">
-                <h2 className="text-2xl font-bold text-yellow-400">Παύση</h2>
+              <div className="bg-purple-900/30 backdrop-blur-sm border border-purple-400/30 p-6 rounded-xl text-center">
+                <h2 className="text-2xl font-bold text-purple-400">Παύση</h2>
               </div>
             )}
           </div>
