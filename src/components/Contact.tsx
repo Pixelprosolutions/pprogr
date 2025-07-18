@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const Contact: React.FC = () => {
@@ -51,60 +51,44 @@ const Contact: React.FC = () => {
                 </button>
               </div>
             </div>
-            
-            <div className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">Στείλτε μας ένα Μήνυμα</h3>
+
+            <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-8 text-center">
+              <h3 className="text-3xl font-bold text-white mb-4">Έτοιμοι να Ξεκινήσουμε;</h3>
+              <p className="text-gray-300 text-lg mb-8 max-w-md mx-auto">
+                Επικοινωνήστε μαζί μας σήμερα και ας συζητήσουμε πώς μπορούμε να βοηθήσουμε την επιχείρησή σας να αναπτυχθεί στο διαδίκτυο.
+              </p>
               
-              <form className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">Όνομα</label>
-                    <input
-                      type="text"
-                      id="name"
-                      className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
-                      placeholder="Το όνομά σας"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
-                      placeholder="Το email σας"
-                    />
-                  </div>
-                </div>
-                
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-1">Θέμα</label>
-                  <input
-                    type="text"
-                    id="subject"
-                    className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
-                    placeholder="Θέμα"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">Μήνυμα</label>
-                  <textarea
-                    id="message"
-                    rows={5}
-                    className="w-full bg-black/50 border border-white/20 rounded-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
-                    placeholder="Το μήνυμά σας"
-                  ></textarea>
-                </div>
+              <div className="space-y-4">
+                <button
+                  onClick={() => navigate('/contact')}
+                  className="w-full bg-white text-black font-medium py-4 px-8 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center text-lg"
+                >
+                  Επικοινωνήστε Μαζί μας
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </button>
                 
                 <button
-                  type="submit"
-                  className="px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center"
+                  onClick={() => navigate('/consultation')}
+                  className="w-full bg-transparent border border-white/30 text-white font-medium py-4 px-8 rounded-lg hover:bg-white/10 transition-colors flex items-center justify-center text-lg"
                 >
-                  Στείλτε Μήνυμα
-                  <Send className="ml-2 h-4 w-4" />
+                  Δωρεάν Συμβουλευτική
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </button>
-              </form>
+              </div>
+              
+              <div className="mt-8 pt-6 border-t border-white/10">
+                <p className="text-gray-400 text-sm mb-4">Ή επικοινωνήστε απευθείας:</p>
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-gray-300">
+                  <a href="mailto:info@pixelpro.gr" className="flex items-center hover:text-white transition-colors">
+                    <Mail className="h-4 w-4 mr-2" />
+                    info@pixelpro.gr
+                  </a>
+                  <a href="tel:+302101234567" className="flex items-center hover:text-white transition-colors">
+                    <Phone className="h-4 w-4 mr-2" />
+                    +30 210 1234567
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
