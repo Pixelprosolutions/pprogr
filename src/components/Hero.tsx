@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 
 const Hero: React.FC = () => {
-  const navigate = useNavigate();
 
   return (
     <>
@@ -20,14 +18,14 @@ const Hero: React.FC = () => {
             <div className="flex flex-col sm:flex-row justify-center gap-6">
               <button
                 className="px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center glow-on-hover interactive"
-                onClick={() => navigate('/consultation')}
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Δωρεάν Συμβουλευτική
                 <ArrowRight className="ml-2 h-4 w-4" />
               </button>
               <button
                 className="px-6 py-3 bg-transparent border border-white/30 text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
-                onClick={() => navigate('/tetris')}
+                onClick={() => window.open('https://tetris.com', '_blank')}
               >
                 Σπατάλησε το Χρονο Σου
               </button>

@@ -1,17 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PixelBackground from './components/PixelBackground';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
-import ServicesPage from './pages/ServicesPage';
-import ProjectsPage from './pages/ProjectsPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import HowWeWorkPage from './pages/HowWeWorkPage';
-import FAQPage from './pages/FAQPage';
-import ConsultationPage from './pages/ConsultationPage';
-import TetrisPage from './pages/TetrisPage';
 
 function App() {
   const [_, setMousePosition] = useState({ x: 0, y: 0 });
@@ -68,35 +59,17 @@ function App() {
   }, []);
   
   return (
-    <Router>
-      <div className="relative min-h-screen">
-        <Routes>
-          <Route path="/tetris" element={<TetrisPage />} />
-          <Route path="*" element={
-            <>
-              <PixelBackground />
-              <div 
-                className="relative z-10"
-                style={{ transform: headerTransform, transition: 'transform 0.5s ease-out' }}
-              >
-                <Header />
-                <Routes>
-                  <Route path="/" element={<HomePage />} />
-                  <Route path="/services" element={<ServicesPage />} />
-                  <Route path="/projects" element={<ProjectsPage />} />
-                  <Route path="/about" element={<AboutPage />} />
-                  <Route path="/contact" element={<ContactPage />} />
-                  <Route path="/how-we-work" element={<HowWeWorkPage />} />
-                  <Route path="/faq" element={<FAQPage />} />
-                  <Route path="/consultation" element={<ConsultationPage />} />
-                </Routes>
-                <Footer />
-              </div>
-            </>
-          } />
-        </Routes>
+    <div className="relative min-h-screen">
+      <PixelBackground />
+      <div 
+        className="relative z-10"
+        style={{ transform: headerTransform, transition: 'transform 0.5s ease-out' }}
+      >
+        <Header />
+        <HomePage />
+        <Footer />
       </div>
-    </Router>
+    </div>
   );
 }
 

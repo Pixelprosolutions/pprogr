@@ -10,13 +10,25 @@ import Contact from '../components/Contact';
 const HomePage: React.FC = () => {
   return (
     <main>
-      <Hero />
-      <Services />
+      <section id="home">
+        <Hero />
+      </section>
+      <section id="services">
+        <Services />
+      </section>
       <PromoVideo />
-      <Projects />
-      <About isHomepage={true} />
-      <Pricing />
-      <Contact />
+      <section id="projects">
+        <Projects />
+      </section>
+      <section id="about">
+        <About isHomepage={true} />
+      </section>
+      <section id="pricing">
+        <Pricing />
+      </section>
+      <section id="contact">
+        <Contact />
+      </section>
     </main>
   );
 };

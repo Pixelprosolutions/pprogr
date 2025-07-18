@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 
 const Header: React.FC = () => {
@@ -128,54 +127,48 @@ const Header: React.FC = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex space-x-4 xl:space-x-8">
-          <Link 
-            to="/" 
+          <a 
+            href="#home" 
             className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
           >
             Αρχική
-          </Link>
-          <Link 
-            to="/services" 
+          </a>
+          <a 
+            href="#services" 
             className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
           >
             Υπηρεσίες
-          </Link>
-          <Link 
-            to="/how-we-work" 
-            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
-          >
-            Πώς Δουλεύουμε
-          </Link>
-          <Link 
-            to="/projects" 
-            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
-          >
-            Έργα
-          </Link>
-          <Link 
-            to="/about" 
+          </a>
+          <a 
+            href="#about" 
             className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
           >
             Σχετικά
-          </Link>
-          <Link
-            to="/faq"
+          </a>
+          <a 
+            href="#projects" 
             className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
           >
-            Συχνές Ερωτήσεις
-          </Link>
-          <Link 
-            to="/contact" 
+            Έργα
+          </a>
+          <a 
+            href="#pricing" 
+            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
+          >
+            Τιμές
+          </a>
+          <a 
+            href="#contact" 
             className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
           >
             Επικοινωνία
-          </Link>
-          <Link 
-            to="/consultation" 
+          </a>
+          <a 
+            href="#contact" 
             className="bg-white text-black py-2 px-3 xl:px-4 rounded-lg font-medium hover:bg-gray-200 transition-all duration-300 glow-on-hover text-sm xl:text-base whitespace-nowrap"
           >
             Δωρεάν Συμβουλευτική
-          </Link>
+          </a>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -192,62 +185,55 @@ const Header: React.FC = () => {
         <div className="lg:hidden bg-black/90 backdrop-blur-lg">
           <div className="container mx-auto px-4 py-4">
             <nav className="flex flex-col space-y-4">
-              <Link 
-                to="/" 
+              <a 
+                href="#home" 
                 className="text-white hover:text-gray-300 transition-colors py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Αρχική
-              </Link>
-              <Link 
-                to="/services" 
+              </a>
+              <a 
+                href="#services" 
                 className="text-white hover:text-gray-300 transition-colors py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Υπηρεσίες
-              </Link>
-              <Link 
-                to="/how-we-work" 
-                className="text-white hover:text-gray-300 transition-colors py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Πώς Δουλεύουμε
-              </Link>
-              <Link 
-                to="/projects" 
-                className="text-white hover:text-gray-300 transition-colors py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Έργα
-              </Link>
-              <Link 
-                to="/about" 
+              </a>
+              <a 
+                href="#about" 
                 className="text-white hover:text-gray-300 transition-colors py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Σχετικά
-              </Link>
-              <Link
-                to="/faq"
+              </a>
+              <a 
+                href="#projects" 
                 className="text-white hover:text-gray-300 transition-colors py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Συχνές Ερωτήσεις
-              </Link>
-              <Link 
-                to="/contact" 
+                Έργα
+              </a>
+              <a 
+                href="#pricing" 
+                className="text-white hover:text-gray-300 transition-colors py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Τιμές
+              </a>
+              <a 
+                href="#contact" 
                 className="text-white hover:text-gray-300 transition-colors py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Επικοινωνία
-              </Link>
-              <Link 
-                to="/consultation" 
+              </a>
+              <a 
+                href="#contact" 
                 className="bg-white text-black py-3 px-4 rounded-lg font-medium hover:bg-gray-200 transition-all duration-300"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Δωρεάν Συμβουλευτική
-              </Link>
+              </a>
             </nav>
           </div>
         </div>

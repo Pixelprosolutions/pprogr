@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
@@ -33,25 +32,24 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-xl font-bold text-white mb-4">Υπηρεσίες</h3>
             <ul className="space-y-3">
-              <li><Link to="/services" className="text-gray-300 hover:text-white transition-colors">Ανάπτυξη Ιστοτόπων</Link></li>
-              <li><Link to="/services" className="text-gray-300 hover:text-white transition-colors">Σχεδιασμός UI/UX</Link></li>
-              <li><Link to="/services" className="text-gray-300 hover:text-white transition-colors">Λύσεις E-Commerce</Link></li>
-              <li><Link to="/services" className="text-gray-300 hover:text-white transition-colors">Ψηφιακό Μάρκετινγκ</Link></li>
-              <li><Link to="/services" className="text-gray-300 hover:text-white transition-colors">Ανάπτυξη Mobile App</Link></li>
-              <li><Link to="/services" className="text-gray-300 hover:text-white transition-colors">Δημιουργικό Περιεχόμενο</Link></li>
+              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Ανάπτυξη Ιστοτόπων</a></li>
+              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Σχεδιασμός UI/UX</a></li>
+              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Λύσεις E-Commerce</a></li>
+              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Ψηφιακό Μάρκετινγκ</a></li>
+              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Ανάπτυξη Mobile App</a></li>
+              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Δημιουργικό Περιεχόμενο</a></li>
             </ul>
           </div>
           
           <div>
             <h3 className="text-xl font-bold text-white mb-4">Γρήγοροι Σύνδεσμοι</h3>
             <ul className="space-y-3">
-              <li><Link to="/" className="text-gray-300 hover:text-white transition-colors">Αρχική</Link></li>
-              <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">Σχετικά με Εμάς</Link></li>
-              <li><Link to="/services" className="text-gray-300 hover:text-white transition-colors">Υπηρεσίες</Link></li>
-              <li><Link to="/how-we-work" className="text-gray-300 hover:text-white transition-colors">Πώς Δουλεύουμε</Link></li>
-              <li><Link to="/projects" className="text-gray-300 hover:text-white transition-colors">Έργα</Link></li>
-              <li><Link to="/faq" className="text-gray-300 hover:text-white transition-colors">Συχνές Ερωτήσεις</Link></li>
-              <li><Link to="/contact" className="text-gray-300 hover:text-white transition-colors">Επικοινωνία</Link></li>
+              <li><a href="#home" className="text-gray-300 hover:text-white transition-colors">Αρχική</a></li>
+              <li><a href="#about" className="text-gray-300 hover:text-white transition-colors">Σχετικά με Εμάς</a></li>
+              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Υπηρεσίες</a></li>
+              <li><a href="#projects" className="text-gray-300 hover:text-white transition-colors">Έργα</a></li>
+              <li><a href="#pricing" className="text-gray-300 hover:text-white transition-colors">Τιμές</a></li>
+              <li><a href="#contact" className="text-gray-300 hover:text-white transition-colors">Επικοινωνία</a></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Πολιτική Απορρήτου</a></li>
             </ul>
           </div>
