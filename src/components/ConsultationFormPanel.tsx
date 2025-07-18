@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, ArrowLeft, X } from 'lucide-react';
+import { X, ArrowRight, ArrowLeft } from 'lucide-react';
 
 interface ConsultationFormPanelProps {
   onClose: () => void;
@@ -7,11 +7,15 @@ interface ConsultationFormPanelProps {
 
 const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }) => {
   const [step, setStep] = useState(1);
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [selectedTime, setSelectedTime] = useState<string | null>(null);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [language, setLanguage] = useState<'el'|'en'>('el');
-  const [isUKBusiness, setIsUKBusiness] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    businessName: '',
+    businessType: '',
+    website: '',
+    goals: ''
+  });
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -21,91 +25,18 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
     };
   }, []);
 
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
 
-  const handleDateSelect = (date: Date) => {
-    setSelectedDate(date);
+  const handleSubmit = () => {
+    console.log('Form submitted:', formData);
+    alert('Η φόρμα υποβλήθηκε επιτυχώς!');
+    onClose();
   };
-
-  const handleTimeSelect = (time: string) => {
-    setSelectedTime(time);
-  };
-
-  const renderCalendar = () => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0); 
-    const currentMonth = today.getMonth();
-    const currentYear = today.getFullYear();
-    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-
-    const calendarDays = [];
-    for (let day = 1; day <= daysInMonth; day++) {
-      const date = new Date(currentYear, currentMonth, day);
-      date.setHours(0, 0, 0, 0);
-      const isPastDate = date < today;
-      const isWeekend = date.getDay() === 0 || date.getDay() === 6;
-      const isSelected = selectedDate && date.toDateString() === selectedDate.toDateString();
-
-      calendarDays.push(
-        <button
-          key={day}
-          className={`w-10 h-10 rounded-md flex items-center justify-center text-sm ${
-            isPastDate || isWeekend 
-              ? 'bg-gray-200 text-gray-400 cursor-not-allowed' 
-              : isSelected 
-                ? 'bg-blue-500 text-white' 
-                : 'bg-gray-100 hover:bg-gray-200 text-gray-900 cursor-pointer'
-          }`}
-          onClick={() => !isPastDate && !isWeekend && handleDateSelect(date)}
-          disabled={isPastDate || isWeekend}
-        >
-          {day}
-        </button>
-      );
-    }
-
-    return <div className="grid grid-cols-7 gap-2">{calendarDays}</div>;
-  };
-
-  const renderTimeSlots = () => {
-    const timeSlots = ['9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM'];
-
-    return (
-      <div className="grid grid-cols-3 gap-4 mt-4">
-        {timeSlots.map(time => (
-          <button
-            key={time}
-            className={`px-4 py-2 rounded-md text-sm ${
-              selectedTime === time 
-                ? 'bg-blue-500 text-white' 
-                : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
-            } transition-colors`}
-            onClick={() => handleTimeSelect(time)}
-          >
-            {time}
-          </button>
-        ))}
-      </div>
-    );
-  };
-
-  if (isSubmitted) {
-    return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-        <div className="absolute inset-0 bg-black bg-opacity-50" onClick={onClose} />
-        <div className="relative bg-white rounded-xl p-8 max-w-md w-full text-center shadow-2xl">
-          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-green-500 flex items-center justify-center">
-            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <h3 className="text-xl font-bold text-gray-900 mb-2">Επιτυχία!</h3>
-          <p className="text-gray-600">Η κράτησή σας επιβεβαιώθηκε</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -116,195 +47,133 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
       />
       
       {/* Modal content */}
-      <div className="relative bg-white rounded-xl p-8 max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+      <div className="relative bg-white rounded-lg p-6 max-w-md w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center">
-            <button
-              onClick={onClose}
-              className="mr-3 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
-              aria-label="Close"
-            >
-              <X className="h-4 w-4 text-gray-600" />
-            </button>
-            <h2 className="text-2xl font-bold text-gray-900">Δωρεάν Συμβουλή</h2>
-          </div>
-          <select
-            className="bg-gray-100 border border-gray-300 text-gray-900 rounded-md px-3 py-1 text-sm"
-            value={language}
-            onChange={(e) => setLanguage(e.target.value as 'el'|'en')}
+          <h2 className="text-xl font-bold text-gray-900">Δωρεάν Συμβουλή</h2>
+          <button
+            onClick={onClose}
+            className="p-1 hover:bg-gray-100 rounded"
           >
-            <option value="el">Ελληνικά</option>
-            <option value="en">English</option>
-          </select>
+            <X className="h-5 w-5 text-gray-500" />
+          </button>
         </div>
 
-        {/* Step Content */}
+        {/* Step 1: Personal Info */}
         {step === 1 && (
           <div>
-            <h3 className="text-xl font-bold text-gray-900 mb-4">
-              {language === 'el' ? 'Βήμα 1: Προσωπικές Πληροφορίες' : 'Step 1: Personal Information'}
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              Προσωπικές Πληροφορίες
             </h3>
-            <p className="text-gray-600 mb-4">
-              {language === 'el' ? 'Παρακαλούμε δώστε τα βασικά στοιχεία επικοινωνίας σας.' : 'Please provide your basic contact information.'}
-            </p>
             <div className="space-y-4">
               <input
                 type="text"
-                placeholder={language === 'el' ? 'Το Όνομά σας' : 'Your Name'}
-                className="w-full bg-gray-50 border border-gray-300 rounded-md px-4 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Το όνομά σας"
+                value={formData.name}
+                onChange={(e) => handleInputChange('name', e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="email"
-                placeholder={language === 'el' ? 'Το Email σας' : 'Your Email'}
-                className="w-full bg-gray-50 border border-gray-300 rounded-md px-4 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Email"
+                value={formData.email}
+                onChange={(e) => handleInputChange('email', e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="tel"
-                placeholder={language === 'el' ? 'Το Τηλέφωνό σας' : 'Your Phone'}
-                className="w-full bg-gray-50 border border-gray-300 rounded-md px-4 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Τηλέφωνο"
+                value={formData.phone}
+                onChange={(e) => handleInputChange('phone', e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <button
-              className="mt-6 w-full px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors flex items-center justify-center"
               onClick={nextStep}
+              className="w-full mt-6 bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 flex items-center justify-center"
             >
-              Επόμενο <ArrowRight className="h-4 w-4 ml-2" />
+              Επόμενο <ArrowRight className="ml-2 h-4 w-4" />
             </button>
           </div>
         )}
 
+        {/* Step 2: Business Info */}
         {step === 2 && (
           <div>
-            <h3 className="text-xl font-bold text-gray-900 mb-4">
-              {language === 'el' ? 'Βήμα 2: Στοιχεία Επιχείρησης' : 'Step 2: Business Details'}
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              Στοιχεία Επιχείρησης
             </h3>
-            <p className="text-gray-600 mb-4">
-              {language === 'el' ? 'Πείτε μας για την επιχείρησή σας.' : 'Tell us about your business.'}
-            </p>
-            
-            <div className="flex items-center mb-4">
-              <input
-                type="checkbox"
-                id="ukBusiness"
-                checked={isUKBusiness}
-                onChange={() => setIsUKBusiness(!isUKBusiness)}
-                className="mr-2 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-              />
-              <label htmlFor="ukBusiness" className="text-gray-900">
-                {language === 'el' ? 'Επιχείρηση στο Ηνωμένο Βασίλειο' : 'UK-based business'}
-              </label>
-            </div>
-
             <div className="space-y-4">
               <input
                 type="text"
-                placeholder={language === 'el' ? 'Όνομα Επιχείρησης' : 'Business Name'}
-                className="w-full bg-gray-50 border border-gray-300 rounded-md px-4 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Όνομα επιχείρησης"
+                value={formData.businessName}
+                onChange={(e) => handleInputChange('businessName', e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="text"
-                placeholder={language === 'el' ? 'Τύπος Επιχείρησης' : 'Business Type'}
-                className="w-full bg-gray-50 border border-gray-300 rounded-md px-4 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Τύπος επιχείρησης"
+                value={formData.businessType}
+                onChange={(e) => handleInputChange('businessType', e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="url"
-                placeholder={language === 'el' ? 'URL Ιστότοπου' : 'Website URL'}
-                className="w-full bg-gray-50 border border-gray-300 rounded-md px-4 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Website (προαιρετικό)"
+                value={formData.website}
+                onChange={(e) => handleInputChange('website', e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-              {isUKBusiness && (
-                <input
-                  type="text"
-                  placeholder={language === 'el' ? 'Αριθμός Εταιρείας (UK)' : 'Company Number (UK)'}
-                  className="w-full bg-gray-50 border border-gray-300 rounded-md px-4 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-              )}
               <textarea
-                placeholder={language === 'el' ? 'Επιχειρηματικοί Στόχοι' : 'Business Goals'}
-                className="w-full bg-gray-50 border border-gray-300 rounded-md px-4 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Επιχειρηματικοί στόχοι"
+                value={formData.goals}
+                onChange={(e) => handleInputChange('goals', e.target.value)}
                 rows={3}
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
-            <div className="flex justify-between mt-6 gap-4">
+            <div className="flex gap-3 mt-6">
               <button
-                className="px-6 py-3 bg-gray-200 text-gray-800 font-medium rounded-md hover:bg-gray-300 transition-colors flex items-center"
                 onClick={prevStep}
+                className="flex-1 bg-gray-200 text-gray-800 py-3 px-4 rounded-md hover:bg-gray-300 flex items-center justify-center"
               >
-                <ArrowLeft className="h-4 w-4 mr-2" /> Πίσω
+                <ArrowLeft className="mr-2 h-4 w-4" /> Πίσω
               </button>
               <button
-                className="px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors flex items-center"
                 onClick={nextStep}
+                className="flex-1 bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 flex items-center justify-center"
               >
-                Επόμενο <ArrowRight className="h-4 w-4 ml-2" />
+                Επόμενο <ArrowRight className="ml-2 h-4 w-4" />
               </button>
             </div>
           </div>
         )}
 
+        {/* Step 3: Confirmation */}
         {step === 3 && (
           <div>
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Βήμα 3: Ημερολόγιο και Χρονοθυρίδα</h3>
-            <p className="text-gray-600 mb-4">Επιλέξτε μια ημερομηνία και ώρα για τη συμβουλή σας.</p>
-            {renderCalendar()}
-            {renderTimeSlots()}
-            <div className="flex justify-between mt-6 gap-4">
-              <button
-                className="px-6 py-3 bg-gray-200 text-gray-800 font-medium rounded-md hover:bg-gray-300 transition-colors flex items-center"
-                onClick={prevStep}
-              >
-                <ArrowLeft className="h-4 w-4 mr-2" /> Πίσω
-              </button>
-              <button
-                className="px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors flex items-center"
-                onClick={nextStep}
-                disabled={!selectedDate || !selectedTime}
-              >
-                Επόμενο <ArrowRight className="h-4 w-4 ml-2" />
-              </button>
-            </div>
-          </div>
-        )}
-
-        {step === 4 && (
-          <div>
-            <h3 className="text-xl font-bold text-gray-900 mb-4">
-              {language === 'el' ? 'Βήμα 4: Επιβεβαίωση' : 'Step 4: Confirmation'}
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              Επιβεβαίωση
             </h3>
-            <p className="text-gray-600 mb-4">
-              {language === 'el'
-                ? 'Ελέγξτε τις πληροφορίες σας και επιβεβαιώστε την κράτησή σας.'
-                : 'Review your information and confirm your booking.'}
-            </p>
-            <div className="bg-gray-50 border border-gray-200 rounded-md p-4 space-y-2 text-gray-900 mb-6">
-              <p><strong>{language === 'el' ? 'Όνομα' : 'Name'}:</strong> [Όνομα Χρήστη]</p>
-              <p><strong>Email:</strong> [Email Χρήστη]</p>
-              <p><strong>{language === 'el' ? 'Τηλέφωνο' : 'Phone'}:</strong> [Τηλέφωνο Χρήστη]</p>
-              <p><strong>{language === 'el' ? 'Επιχείρηση' : 'Business'}:</strong> [Όνομα Επιχείρησης]</p>
-              {isUKBusiness && (
-                <p><strong>{language === 'el' ? 'Αριθμός Εταιρείας (UK)' : 'UK Company Number'}:</strong> [Company Number]</p>
-              )}
-              <p><strong>{language === 'el' ? 'Ημερομηνία' : 'Date'}:</strong> {selectedDate?.toLocaleDateString()}</p>
-              <p><strong>{language === 'el' ? 'Ώρα' : 'Time'}:</strong> {selectedTime}</p>
+            <div className="bg-gray-50 p-4 rounded-md mb-6">
+              <p className="text-sm text-gray-600 mb-2"><strong>Όνομα:</strong> {formData.name}</p>
+              <p className="text-sm text-gray-600 mb-2"><strong>Email:</strong> {formData.email}</p>
+              <p className="text-sm text-gray-600 mb-2"><strong>Τηλέφωνο:</strong> {formData.phone}</p>
+              <p className="text-sm text-gray-600 mb-2"><strong>Επιχείρηση:</strong> {formData.businessName}</p>
             </div>
-            <div className="flex justify-between mt-6 gap-4">
+            <div className="flex gap-3">
               <button
-                className="px-6 py-3 bg-gray-200 text-gray-800 font-medium rounded-md hover:bg-gray-300 transition-colors flex items-center"
                 onClick={prevStep}
+                className="flex-1 bg-gray-200 text-gray-800 py-3 px-4 rounded-md hover:bg-gray-300 flex items-center justify-center"
               >
-                <ArrowLeft className="h-4 w-4 mr-2" /> Πίσω
+                <ArrowLeft className="mr-2 h-4 w-4" /> Πίσω
               </button>
               <button
-                className="px-6 py-3 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 transition-colors flex items-center"
-                onClick={() => {
-                  console.log("Booking Confirmed!");
-                  setIsSubmitted(true);
-                  setTimeout(() => {
-                    onClose();
-                  }, 2000);
-                }}
+                onClick={handleSubmit}
+                className="flex-1 bg-green-600 text-white py-3 px-4 rounded-md hover:bg-green-700"
               >
-                Επιβεβαίωση Κράτησης
+                Υποβολή
               </button>
             </div>
           </div>
