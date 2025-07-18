@@ -11,6 +11,7 @@ import ContactPage from './pages/ContactPage';
 import HowWeWorkPage from './pages/HowWeWorkPage';
 import FAQPage from './pages/FAQPage';
 import ConsultationPage from './pages/ConsultationPage';
+import TetrisPage from './pages/TetrisPage';
 
 function App() {
   const [_, setMousePosition] = useState({ x: 0, y: 0 });
@@ -84,6 +85,7 @@ function App() {
             <Route path="/how-we-work" element={<HowWeWorkPage />} />
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/consultation" element={<ConsultationPage />} />
+            <Route path="/tetris" element={<TetrisPage />} />
           </Routes>
           <Footer />
         </div>

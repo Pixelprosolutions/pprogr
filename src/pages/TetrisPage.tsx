@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { X, RotateCw, ArrowDown, ArrowLeft, ArrowRight } from 'lucide-react';
+import { RotateCw, ArrowDown, ArrowLeft, ArrowRight, Home } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 // Game constants
 const BOARD_WIDTH = 10;
@@ -58,11 +59,6 @@ const PIECES = {
   }
 };
 
-interface TetrisGameProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
 interface Position {
   x: number;
   y: number;
@@ -74,7 +70,8 @@ interface Piece {
   position: Position;
 }
 
-const TetrisGame: React.FC<TetrisGameProps> = ({ isOpen, onClose }) => {
+const TetrisPage: React.FC = () => {
+  const navigate = useNavigate();
   const [board, setBoard] = useState<(string | null)[][]>(() => 
     Array(BOARD_HEIGHT).fill(null).map(() => Array(BOARD_WIDTH).fill(null))
   );
@@ -253,7 +250,7 @@ const TetrisGame: React.FC<TetrisGameProps> = ({ isOpen, onClose }) => {
 
   // Game loop
   useEffect(() => {
-    if (!gameOver && !isPaused && isOpen) {
+    if (!gameOver && !isPaused) {
       gameLoopRef.current = setInterval(() => {
         movePiece('down');
       }, dropTime);
@@ -264,13 +261,11 @@ const TetrisGame: React.FC<TetrisGameProps> = ({ isOpen, onClose }) => {
         clearInterval(gameLoopRef.current);
       }
     };
-  }, [movePiece, dropTime, gameOver, isPaused, isOpen]);
+  }, [movePiece, dropTime, gameOver, isPaused]);
 
   // Keyboard controls
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
-      if (!isOpen) return;
-      
       switch (e.key) {
         case 'ArrowLeft':
           e.preventDefault();
@@ -298,28 +293,20 @@ const TetrisGame: React.FC<TetrisGameProps> = ({ isOpen, onClose }) => {
           e.preventDefault();
           setIsPaused(prev => !prev);
           break;
-        case 'Escape':
-          e.preventDefault();
-          onClose();
-          break;
       }
     };
 
-    if (isOpen) {
-      window.addEventListener('keydown', handleKeyPress);
-    }
+    window.addEventListener('keydown', handleKeyPress);
 
     return () => {
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, [isOpen, movePiece, handleRotate, hardDrop, onClose]);
+  }, [movePiece, handleRotate, hardDrop]);
 
-  // Initialize game when opened
+  // Initialize game on mount
   useEffect(() => {
-    if (isOpen) {
-      initGame();
-    }
-  }, [isOpen, initGame]);
+    initGame();
+  }, [initGame]);
 
   // Render board with current piece
   const renderBoard = () => {
@@ -376,135 +363,166 @@ const TetrisGame: React.FC<TetrisGameProps> = ({ isOpen, onClose }) => {
     ));
   };
 
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-auto">
+    <main className="pt-24 pb-20 min-h-screen">
+      <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-white">Tetris - Σπατάλησε το Χρόνο Σου!</h2>
+        <div className="text-center mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Tetris - Σπατάλησε το Χρόνο Σου!
+          </h1>
+          <p className="text-gray-300 text-lg">
+            Ένα κλασικό παιχνίδι για να περάσεις την ώρα σου
+          </p>
           <button
-            onClick={onClose}
-            className="text-white hover:text-gray-300 transition-colors"
+            onClick={() => navigate('/')}
+            className="mt-4 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-lg hover:bg-white/20 transition-colors flex items-center mx-auto"
           >
-            <X className="h-6 w-6" />
+            <Home className="w-4 h-4 mr-2" />
+            Επιστροφή στην Αρχική
           </button>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Game Board */}
-          <div className="lg:col-span-2">
-            <div className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-lg p-4 inline-block">
-              {gameOver && (
-                <div className="absolute inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center rounded-lg">
-                  <div className="text-center">
-                    <h3 className="text-3xl font-bold text-white mb-4">Game Over!</h3>
-                    <p className="text-gray-300 mb-4">Score: {score}</p>
-                    <button
-                      onClick={initGame}
-                      className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-2 px-4 rounded-lg hover:bg-white/30 transition-colors"
-                    >
-                      Play Again
-                    </button>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Game Board */}
+            <div className="lg:col-span-2 flex justify-center">
+              <div className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 relative">
+                {gameOver && (
+                  <div className="absolute inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center rounded-xl z-10">
+                    <div className="text-center">
+                      <h3 className="text-3xl font-bold text-white mb-4">Game Over!</h3>
+                      <p className="text-gray-300 mb-6">Final Score: {score}</p>
+                      <button
+                        onClick={initGame}
+                        className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-6 rounded-lg hover:bg-white/30 transition-colors"
+                      >
+                        Παίξε Ξανά
+                      </button>
+                    </div>
+                  </div>
+                )}
+                
+                {isPaused && !gameOver && (
+                  <div className="absolute inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center rounded-xl z-10">
+                    <div className="text-center">
+                      <h3 className="text-3xl font-bold text-white mb-4">Παύση</h3>
+                      <p className="text-gray-300">Πάτησε P για να συνεχίσεις</p>
+                    </div>
+                  </div>
+                )}
+                
+                <div className="game-board">
+                  {renderBoard()}
+                </div>
+              </div>
+            </div>
+
+            {/* Side Panel */}
+            <div className="space-y-6">
+              {/* Score */}
+              <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-6">
+                <h3 className="text-xl font-bold text-white mb-4">Σκορ</h3>
+                <p className="text-3xl font-bold text-white mb-4">{score}</p>
+                <div className="space-y-2 text-gray-300">
+                  <p>Επίπεδο: {level}</p>
+                  <p>Γραμμές: {lines}</p>
+                </div>
+              </div>
+
+              {/* Next Piece */}
+              <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-6">
+                <h3 className="text-xl font-bold text-white mb-4">Επόμενο</h3>
+                <div className="flex justify-center">
+                  <div className="space-y-1">
+                    {renderNextPiece()}
                   </div>
                 </div>
-              )}
-              
-              {isPaused && !gameOver && (
-                <div className="absolute inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center rounded-lg">
-                  <div className="text-center">
-                    <h3 className="text-3xl font-bold text-white mb-4">Paused</h3>
-                    <p className="text-gray-300">Press P to continue</p>
-                  </div>
-                </div>
-              )}
-              
-              <div className="relative">
-                {renderBoard()}
               </div>
-            </div>
-          </div>
 
-          {/* Side Panel */}
-          <div className="space-y-6">
-            {/* Score */}
-            <div className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-4">
-              <h3 className="text-lg font-bold text-white mb-2">Score</h3>
-              <p className="text-2xl font-bold text-white">{score}</p>
-              <div className="mt-2 text-sm text-gray-300">
-                <p>Level: {level}</p>
-                <p>Lines: {lines}</p>
-              </div>
-            </div>
-
-            {/* Next Piece */}
-            <div className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-4">
-              <h3 className="text-lg font-bold text-white mb-2">Next</h3>
-              <div className="flex justify-center">
-                <div className="space-y-1">
-                  {renderNextPiece()}
+              {/* Controls */}
+              <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-6">
+                <h3 className="text-xl font-bold text-white mb-4">Χειριστήρια</h3>
+                <div className="space-y-3 text-gray-300">
+                  <p className="flex items-center">
+                    <ArrowLeft className="inline w-4 h-4 mr-2" />
+                    <ArrowRight className="inline w-4 h-4 mr-2" />
+                    Κίνηση
+                  </p>
+                  <p className="flex items-center">
+                    <ArrowDown className="inline w-4 h-4 mr-2" />
+                    Γρήγορη Πτώση
+                  </p>
+                  <p className="flex items-center">
+                    <RotateCw className="inline w-4 h-4 mr-2" />
+                    Περιστροφή (↑ ή Space)
+                  </p>
+                  <p>Enter: Άμεση Πτώση</p>
+                  <p>P: Παύση</p>
                 </div>
               </div>
-            </div>
 
-            {/* Controls */}
-            <div className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-4">
-              <h3 className="text-lg font-bold text-white mb-3">Controls</h3>
-              <div className="space-y-2 text-sm text-gray-300">
-                <p><ArrowLeft className="inline w-4 h-4" /> <ArrowRight className="inline w-4 h-4" /> Move</p>
-                <p><ArrowDown className="inline w-4 h-4" /> Soft Drop</p>
-                <p><RotateCw className="inline w-4 h-4" /> Rotate (↑ or Space)</p>
-                <p>Enter: Hard Drop</p>
-                <p>P: Pause</p>
-                <p>Esc: Exit</p>
+              {/* Game Controls */}
+              <div className="space-y-3">
+                <button
+                  onClick={() => setIsPaused(!isPaused)}
+                  disabled={gameOver}
+                  className="w-full bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-6 rounded-lg hover:bg-white/30 transition-colors disabled:opacity-50"
+                >
+                  {isPaused ? 'Συνέχεια' : 'Παύση'}
+                </button>
+                <button
+                  onClick={initGame}
+                  className="w-full bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-6 rounded-lg hover:bg-white/30 transition-colors"
+                >
+                  Νέο Παιχνίδι
+                </button>
               </div>
-            </div>
 
-            {/* Mobile Controls */}
-            <div className="lg:hidden grid grid-cols-3 gap-2">
-              <button
-                onClick={() => movePiece('left')}
-                className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg hover:bg-white/30 transition-colors"
-              >
-                <ArrowLeft className="h-5 w-5 mx-auto" />
-              </button>
-              <button
-                onClick={handleRotate}
-                className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg hover:bg-white/30 transition-colors"
-              >
-                <RotateCw className="h-5 w-5 mx-auto" />
-              </button>
-              <button
-                onClick={() => movePiece('right')}
-                className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg hover:bg-white/30 transition-colors"
-              >
-                <ArrowRight className="h-5 w-5 mx-auto" />
-              </button>
-              <button
-                onClick={() => movePiece('down')}
-                className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg hover:bg-white/30 transition-colors col-span-1"
-              >
-                <ArrowDown className="h-5 w-5 mx-auto" />
-              </button>
-              <button
-                onClick={hardDrop}
-                className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg hover:bg-white/30 transition-colors text-xs"
-              >
-                DROP
-              </button>
-              <button
-                onClick={() => setIsPaused(!isPaused)}
-                className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg hover:bg-white/30 transition-colors text-xs"
-              >
-                {isPaused ? 'PLAY' : 'PAUSE'}
-              </button>
+              {/* Mobile Controls */}
+              <div className="lg:hidden">
+                <h3 className="text-xl font-bold text-white mb-4">Αφή</h3>
+                <div className="grid grid-cols-3 gap-2 mb-4">
+                  <button
+                    onClick={() => movePiece('left')}
+                    className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg hover:bg-white/30 transition-colors"
+                  >
+                    <ArrowLeft className="h-5 w-5 mx-auto" />
+                  </button>
+                  <button
+                    onClick={handleRotate}
+                    className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg hover:bg-white/30 transition-colors"
+                  >
+                    <RotateCw className="h-5 w-5 mx-auto" />
+                  </button>
+                  <button
+                    onClick={() => movePiece('right')}
+                    className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg hover:bg-white/30 transition-colors"
+                  >
+                    <ArrowRight className="h-5 w-5 mx-auto" />
+                  </button>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    onClick={() => movePiece('down')}
+                    className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg hover:bg-white/30 transition-colors"
+                  >
+                    <ArrowDown className="h-5 w-5 mx-auto" />
+                  </button>
+                  <button
+                    onClick={hardDrop}
+                    className="bg-white/20 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg hover:bg-white/30 transition-colors text-sm"
+                  >
+                    DROP
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 
-export default TetrisGame;
+export default TetrisPage;
