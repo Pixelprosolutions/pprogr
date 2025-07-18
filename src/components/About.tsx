@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Users, Award, Clock, Star, Target, HeartHandshake, ShieldCheck } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 
 interface StatCardProps {
   value: string;
@@ -19,7 +18,6 @@ interface AboutProps {
 }
 
 const About: React.FC<AboutProps> = ({ isHomepage = false }) => {
-  const navigate = useNavigate();
 
   const testimonials = [
     {
@@ -186,7 +184,10 @@ const About: React.FC<AboutProps> = ({ isHomepage = false }) => {
               </div>
               <div className="text-center mt-16">
                 <button
-                  onClick={() => navigate('/consultation')}
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact');
+                    contactSection?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                   className="bg-accent-500 backdrop-blur-sm border border-white/20 text-white py-3 px-6 rounded-lg font-medium hover:bg-accent-600 transition-all duration-300 shadow-lg hover:shadow-accent/20"
                 >
                   Δωρεάν Συμβουλευτική

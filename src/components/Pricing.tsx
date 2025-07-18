@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { CheckCircle, Info, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 
 interface FAQItemProps {
   question: string;
@@ -9,7 +8,6 @@ interface FAQItemProps {
 
 const Pricing: React.FC = () => {
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
-  const navigate = useNavigate();
 
   const packages = [
     {
@@ -193,7 +191,10 @@ const Pricing: React.FC = () => {
             {/* Consultation Button - For those who don't know what they need */}
             <button 
               className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
-              onClick={() => navigate('/consultation')}
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                contactSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Δεν είστε σίγουροι; Δωρεάν Συμβουλευτική
             </button>
@@ -226,7 +227,10 @@ const Pricing: React.FC = () => {
             {faqItems.map((item, index) => (
               <div key={index} className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden transition-all duration-300 hover:border-white/30 hover:bg-black/40">
                 <button 
-                  className="flex items-center justify-between w-full p-4 text-white font-semibold hover:text-gray-300 transition-colors"
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact');
+                    contactSection?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                   onClick={() => toggleFAQ(index)}
                 >
                   {item.question}
