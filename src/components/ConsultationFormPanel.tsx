@@ -40,17 +40,33 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
     }
   };
 
+  // Handle escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [onClose]);
+
   return (
-    <div 
-      className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+    <div
+      className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
       onClick={handleOverlayClick}
+      style={{ zIndex: 9999 }}
     >
-      <div className="relative bg-gradient-to-br from-black/80 to-black/90 backdrop-blur-sm border border-white/20 rounded-xl p-8 max-w-md w-full mx-auto shadow-2xl">
+      <div 
+        className="relative bg-gradient-to-br from-black/80 to-black/90 backdrop-blur-sm border border-white/20 rounded-xl p-8 max-w-md w-full mx-auto shadow-2xl animate-in fade-in duration-300"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header with navigation buttons */}
         <div className="flex items-center justify-between mb-6">
           <button
             onClick={onClose}
-            className="flex items-center text-gray-300 hover:text-white transition-colors"
+            className="flex items-center text-gray-300 hover:text-white transition-colors p-1 rounded hover:bg-white/10"
             title="Πίσω"
           >
             <ArrowLeft className="h-5 w-5" />
@@ -60,7 +76,7 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
           
           <button
             onClick={onClose}
-            className="text-gray-300 hover:text-white transition-colors"
+            className="text-gray-300 hover:text-white transition-colors p-1 rounded hover:bg-white/10"
             title="Κλείσιμο"
           >
             <X className="h-6 w-6" />

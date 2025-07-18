@@ -8,10 +8,12 @@ const Hero: React.FC = () => {
   const navigate = useNavigate();
 
   const openConsultationForm = () => {
+    console.log('Opening consultation form...');
     setIsConsultationFormOpen(true);
   };
 
   const closeConsultationForm = () => {
+    console.log('Closing consultation form...');
     setIsConsultationFormOpen(false);
   };
 
@@ -38,6 +40,7 @@ const Hero: React.FC = () => {
             <button
               className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
               onClick={openConsultationForm}
+              type="button"
             >
               Λάβετε μια Δωρεάν Συμβουλή
             </button>
