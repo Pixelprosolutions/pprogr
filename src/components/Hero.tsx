@@ -9,13 +9,17 @@ const Hero: React.FC = () => {
 
   // Function to open the panel
   const openConsultationForm = () => {
+    console.log('Opening consultation form...');
     setIsConsultationFormOpen(true);
   };
 
   // Function to close the panel
   const closeConsultationForm = () => {
+    console.log('Closing consultation form...');
     setIsConsultationFormOpen(false);
   };
+
+  console.log('Hero render - isConsultationFormOpen:', isConsultationFormOpen);
 
   return (
     <section className="relative">
@@ -45,8 +49,15 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
+      {console.log('About to render modal, isOpen:', isConsultationFormOpen)}
       {isConsultationFormOpen && (
+        <>
+          {console.log('Rendering ConsultationFormPanel')}
+          <div style={{position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'red', zIndex: 9999}}>
+            <div style={{color: 'white', padding: '20px'}}>TEST MODAL - If you see this, the modal is working</div>
+          </div>
         <ConsultationFormPanel onClose={closeConsultationForm} />
+        </>
       )}
     </section>
   );
