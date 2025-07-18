@@ -364,30 +364,22 @@ const TetrisPage: React.FC = () => {
   };
 
   return (
-    <main className="pt-24 pb-20 min-h-screen">
+    <main className="min-h-screen bg-black flex items-center justify-center p-4">
       <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Tetris - Σπατάλησε το Χρόνο Σου!
-          </h1>
-          <p className="text-gray-300 text-lg">
-            Ένα κλασικό παιχνίδι για να περάσεις την ώρα σου
-          </p>
-          <button
-            onClick={() => navigate('/')}
-            className="mt-4 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-lg hover:bg-white/20 transition-colors flex items-center mx-auto"
-          >
-            <Home className="w-4 h-4 mr-2" />
-            Επιστροφή στην Αρχική
-          </button>
-        </div>
+        {/* Home Button - Fixed position */}
+        <button
+          onClick={() => navigate('/')}
+          className="fixed top-4 left-4 z-50 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-lg hover:bg-white/20 transition-colors flex items-center"
+        >
+          <Home className="w-4 h-4 mr-2" />
+          Επιστροφή στην Αρχική
+        </button>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="grid grid-cols-1 xl:grid-cols-4 gap-6 items-start">
             {/* Game Board */}
-            <div className="lg:col-span-2 flex justify-center">
-              <div className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 relative">
+            <div className="xl:col-span-3 flex justify-center">
+              <div className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-4 md:p-8 relative">
                 {gameOver && (
                   <div className="absolute inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center rounded-xl z-10">
                     <div className="text-center">
@@ -412,14 +404,14 @@ const TetrisPage: React.FC = () => {
                   </div>
                 )}
                 
-                <div className="game-board">
+                <div className="game-board" style={{ transform: 'scale(1.2)', transformOrigin: 'center' }}>
                   {renderBoard()}
                 </div>
               </div>
             </div>
 
             {/* Side Panel */}
-            <div className="space-y-6">
+            <div className="xl:col-span-1 space-y-4 xl:space-y-6">
               {/* Score */}
               <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-6">
                 <h3 className="text-xl font-bold text-white mb-4">Σκορ</h3>
@@ -440,7 +432,7 @@ const TetrisPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Controls */}
+              {/* Controls - Hidden on mobile, shown on desktop */}
               <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-6">
                 <h3 className="text-xl font-bold text-white mb-4">Χειριστήρια</h3>
                 <div className="space-y-3 text-gray-300">
@@ -463,7 +455,7 @@ const TetrisPage: React.FC = () => {
               </div>
 
               {/* Game Controls */}
-              <div className="space-y-3">
+              <div className="space-y-3 xl:block">
                 <button
                   onClick={() => setIsPaused(!isPaused)}
                   disabled={gameOver}
@@ -479,8 +471,8 @@ const TetrisPage: React.FC = () => {
                 </button>
               </div>
 
-              {/* Mobile Controls */}
-              <div className="lg:hidden">
+              {/* Mobile Controls - Only show on mobile */}
+              <div className="xl:hidden">
                 <h3 className="text-xl font-bold text-white mb-4">Αφή</h3>
                 <div className="grid grid-cols-3 gap-2 mb-4">
                   <button

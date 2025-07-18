@@ -70,7 +70,35 @@ function App() {
   return (
     <Router>
       <div className="relative min-h-screen">
-        <PixelBackground />
+        <Routes>
+          <Route path="/tetris" element={<TetrisPage />} />
+          <Route path="*" element={
+            <>
+              <PixelBackground />
+              <div 
+                className="relative z-10"
+                style={{ transform: headerTransform, transition: 'transform 0.5s ease-out' }}
+              >
+                <Header />
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/services" element={<ServicesPage />} />
+                  <Route path="/projects" element={<ProjectsPage />} />
+                  <Route path="/about" element={<AboutPage />} />
+                  <Route path="/contact" element={<ContactPage />} />
+                  <Route path="/how-we-work" element={<HowWeWorkPage />} />
+                  <Route path="/faq" element={<FAQPage />} />
+                  <Route path="/consultation" element={<ConsultationPage />} />
+                </Routes>
+                <Footer />
+              </div>
+            </>
+          } />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
         <div 
           className="relative z-10"
           style={{ transform: headerTransform, transition: 'transform 0.5s ease-out' }}
