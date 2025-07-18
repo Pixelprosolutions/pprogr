@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </button>
               <button
-                className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
+                className="px-6 py-3 bg-transparent border border-white/30 text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
                 onClick={() => navigate('/tetris')}
               >
                 Σπατάλησε το Χρονο Σου

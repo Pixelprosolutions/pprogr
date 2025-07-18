@@ -172,7 +172,7 @@ const Header: React.FC = () => {
           </Link>
           <Link 
             to="/consultation" 
-            className="bg-white/10 backdrop-blur-sm border border-white/20 text-white py-2 px-3 xl:px-4 rounded-lg font-medium hover:bg-white/20 transition-all duration-300 glow-on-hover text-sm xl:text-base whitespace-nowrap"
+            className="bg-white text-black py-2 px-3 xl:px-4 rounded-lg font-medium hover:bg-gray-200 transition-all duration-300 glow-on-hover text-sm xl:text-base whitespace-nowrap"
           >
             Δωρεάν Συμβουλευτική
           </Link>
@@ -243,7 +243,7 @@ const Header: React.FC = () => {
               </Link>
               <Link 
                 to="/consultation" 
-                className="bg-white/10 backdrop-blur-sm border border-white/20 text-white py-3 px-4 rounded-lg font-medium hover:bg-white/20 transition-all duration-300"
+                className="bg-white text-black py-3 px-4 rounded-lg font-medium hover:bg-gray-200 transition-all duration-300"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Δωρεάν Συμβουλευτική

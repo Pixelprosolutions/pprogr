@@ -41,7 +41,7 @@ const Contact: React.FC = () => {
               
               <div className="mt-6">
                 <button
-                  className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
+                  className="px-6 py-3 bg-transparent border border-white/30 text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 >
                   Πάμε στην κορυφή

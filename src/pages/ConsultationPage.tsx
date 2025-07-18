@@ -554,7 +554,7 @@ const ConsultationPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={nextStep}
-                    className="px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-colors flex items-center"
+                    className="px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-colors flex items-center glow-on-hover interactive"
                   >
                     Επόμενο
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -562,7 +562,7 @@ const ConsultationPage: React.FC = () => {
                 ) : (
                   <button
                     type="submit"
-                    className="px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-colors flex items-center"
+                    className="px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-colors flex items-center glow-on-hover interactive"
                   >
                     Υποβολή Αίτησης
                     <ArrowRight className="ml-2 h-4 w-4" />
