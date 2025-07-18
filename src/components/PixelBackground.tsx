@@ -183,7 +183,7 @@ const PixelBackground: React.FC = () => {
     canvas.height = dimensions.height;
 
     // Tuned Physics constants for better stacking
-    const GRAVITY = 0.4; // Balanced gravity
+    const GRAVITY = 0.2; // Lighter, more playful gravity
     const AIR_RESISTANCE = 0.96; // Slight air resistance
     const GROUND_FRICTION = 0.8; // Higher friction
     const ELASTICITY = 0.1; // Much lower bounce
