@@ -51,13 +51,7 @@ const Hero: React.FC = () => {
 
       {console.log('About to render modal, isOpen:', isConsultationFormOpen)}
       {isConsultationFormOpen && (
-        <>
-          {console.log('Rendering ConsultationFormPanel')}
-          <div style={{position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'red', zIndex: 9999}}>
-            <div style={{color: 'white', padding: '20px'}}>TEST MODAL - If you see this, the modal is working</div>
-          </div>
         <ConsultationFormPanel onClose={closeConsultationForm} />
-        </>
       )}
     </section>
   );

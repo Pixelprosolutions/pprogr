@@ -93,7 +93,7 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
   if (isSubmitted) {
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-        <div className="absolute inset-0 bg-black/50" onClick={onClose} />
+        <div className="absolute inset-0 bg-black bg-opacity-50" onClick={onClose} />
         <div className="relative bg-white rounded-xl p-8 max-w-md w-full text-center shadow-2xl">
           <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-green-500 flex items-center justify-center">
             <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -111,7 +111,7 @@ const ConsultationFormPanel: React.FC<ConsultationFormPanelProps> = ({ onClose }
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Background overlay */}
       <div 
-        className="absolute inset-0 bg-black/50"
+        className="absolute inset-0 bg-black bg-opacity-50"
         onClick={onClose}
       />
       
