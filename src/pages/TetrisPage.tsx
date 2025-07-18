@@ -345,7 +345,7 @@ const TetrisPage: React.FC = () => {
             Πίσω
           </button>
           <h1 className="text-4xl font-bold text-center bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
-            Tetris
+            Παιχνίδι
           </h1>
           <div className="w-20"></div>
         </div>
