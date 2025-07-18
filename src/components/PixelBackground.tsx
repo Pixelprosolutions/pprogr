@@ -7,19 +7,15 @@ interface Block {
   height: number;
   velocityX: number;
   velocityY: number;
-  fixed: boolean; // Note: We might rely less on 'fixed' and more on physics for stability
-  rotating: boolean; // Used for mouse interaction only
+  fixed: boolean;
   rotationAngle: number;
   rotationalVelocity: number;
   opacity: number;
   mass: number;
-  elasticity: number; // Reduced for less bounce
-  friction: number; // Increased for stability
+  elasticity: number;
+  friction: number;
   lastCollision: number;
-  angularDamping: number;
   isLogo: boolean;
-  connectedBlocks?: number[];
-  connectionStrength?: number;
   color?: string;
   glowIntensity?: number;
 }
@@ -91,60 +87,36 @@ const PixelBackground: React.FC = () => {
           const dx = e.clientX - prevX;
           const dy = e.clientY - prevY;
 
-          block.x = e.clientX - block.width / 2;
-          block.y = e.clientY - block.height / 2;
-          block.velocityX = dx * 0.3;
+          block.fixed = false;
+          block.velocityY = 0;
           block.velocityY = dy * 0.3;
-          block.rotationalVelocity = dx * 0.01;
+          block.rotationalVelocity = 0;
           block.glowIntensity = 0.025;
-          block.fixed = false; // Ensure block is not fixed when grabbed
-
-          if (block.isLogo && block.connectedBlocks) {
-            block.connectedBlocks.forEach(connectedIndex => {
-              if (connectedIndex < blocksRef.current.length) {
-                const connectedBlock = blocksRef.current[connectedIndex];
-                const relativeX = connectedBlock.x - block.x; // Store initial relative pos? No, update dynamically
-                const relativeY = connectedBlock.y - block.y;
-
-                connectedBlock.x = block.x + relativeX;
-                connectedBlock.y = block.y + relativeY;
-                connectedBlock.velocityX = block.velocityX;
-                connectedBlock.velocityY = block.velocityY;
-                connectedBlock.rotationalVelocity = block.rotationalVelocity;
-                connectedBlock.glowIntensity = 0.02;
-                connectedBlock.fixed = false; // Ensure connected blocks are also not fixed
-              }
-            });
-          }
+          block.fixed = false;
         }
       } else {
         const mouseVelocityX = e.clientX - prevX;
         const mouseVelocityY = e.clientY - prevY;
         const mouseSpeed = Math.sqrt(mouseVelocityX * mouseVelocityX + mouseVelocityY * mouseVelocityY);
 
-        if (mouseSpeed > 5) {
+        if (mouseSpeed > 3) {
           blocksRef.current.forEach(block => {
             const dx = e.clientX - (block.x + block.width / 2);
             const dy = e.clientY - (block.y + block.height / 2);
             const distance = Math.sqrt(dx * dx + dy * dy);
-            const interactionRange = block.isLogo ? 200 : 100;
+            const interactionRange = 80;
 
             if (distance < interactionRange) {
-              const forceMagnitude = (1 - distance / interactionRange) * mouseSpeed * 0.2;
+              const forceMagnitude = (1 - distance / interactionRange) * mouseSpeed * 0.1;
               const forceX = (mouseVelocityX / mouseSpeed) * forceMagnitude;
               const forceY = (mouseVelocityY / mouseSpeed) * forceMagnitude;
-              const accelerationX = forceX / block.mass;
-              const accelerationY = forceY / block.mass;
-              const responseFactor = block.isLogo ? 1.5 : 1.0;
 
-              block.velocityX += accelerationX * responseFactor;
-              block.velocityY += accelerationY * responseFactor;
+              block.velocityX += forceX;
+              block.velocityY += forceY;
 
-              const offCenterX = (dx / block.width) * 0.5;
-              block.rotationalVelocity += offCenterX * forceMagnitude * 0.01 * responseFactor;
+              block.rotationalVelocity += (dx / block.width) * forceMagnitude * 0.005;
               block.glowIntensity = Math.min(0.03, (block.glowIntensity || 0) + 0.01);
 
-              // Unfix block if force is strong enough
               if (block.fixed) {
                  block.fixed = false;
               }
@@ -180,8 +152,6 @@ const PixelBackground: React.FC = () => {
       if (selectedBlockRef.current !== null) {
         const block = blocksRef.current[selectedBlockRef.current];
         if (block) {
-          block.rotating = false; // Stop visual rotation cue
-          // Velocity is already set by mouse move, let physics take over
           setTimeout(() => {
             if (block) block.glowIntensity = 0.02;
           }, 300);
@@ -213,12 +183,10 @@ const PixelBackground: React.FC = () => {
     canvas.height = dimensions.height;
 
     // Tuned Physics constants for better stacking
-    const GRAVITY = 0.08; // Slightly stronger gravity
-    const AIR_RESISTANCE = 0.99; // Slightly less air resistance
-    const GROUND_FRICTION = 0.7; // Friction coefficient with ground
-    const BLOCK_FRICTION = 0.6; // Friction coefficient between blocks
-    const ELASTICITY = 0.15; // Lower elasticity for less bounce
-    const ANGULAR_DAMPING = 0.97; // Dampen rotation
+    const GRAVITY = 0.3; // Stronger gravity for faster falling
+    const AIR_RESISTANCE = 0.98; // More air resistance to slow down chaos
+    const GROUND_FRICTION = 0.8; // Higher friction
+    const ELASTICITY = 0.1; // Much lower bounce
 
     // Create logo blocks pattern
     const createLogoBlock = () => {
@@ -226,41 +194,33 @@ const PixelBackground: React.FC = () => {
       const logoPattern = [
         [1, 1, 1], [1, 0, 1], [1, 1, 1], [1, 0, 0]
       ];
-      const margin = blockSize * 5;
+      const margin = blockSize * 3;
       const minX = margin;
       const maxX = dimensions.width - blockSize * 3 - margin;
       const startX = minX + Math.random() * (maxX - minX);
       const blocks: Block[] = [];
-      const blockIndices: number[] = [];
-      const startIndex = blocksRef.current.length;
       const hue = Math.random() * 30 - 15;
       const baseColor = `hsl(${hue}, 10%, 90%)`;
 
       for (let row = 0; row < logoPattern.length; row++) {
         for (let col = 0; col < logoPattern[row].length; col++) {
           if (logoPattern[row][col] === 1) {
-            const blockIndex = startIndex + blockIndices.length;
-            blockIndices.push(blockIndex);
             blocks.push({
               x: startX + col * blockSize,
               y: -blockSize * (4 - row),
               width: blockSize,
               height: blockSize,
               velocityX: 0,
-              velocityY: 0.3 + Math.random() * 0.3,
+              velocityY: 0.5 + Math.random() * 0.2,
               fixed: false,
-              rotating: false,
               rotationAngle: 0,
-              rotationalVelocity: 0,
+              rotationalVelocity: (Math.random() - 0.5) * 0.02,
               opacity: 0.2 + Math.random() * 0.2,
-              mass: 1 + Math.random() * 0.5,
-              elasticity: ELASTICITY + Math.random() * 0.1, // Logo slightly more elastic
-              friction: BLOCK_FRICTION + Math.random() * 0.1,
+              mass: 1,
+              elasticity: ELASTICITY,
+              friction: GROUND_FRICTION,
               lastCollision: 0,
-              angularDamping: ANGULAR_DAMPING,
               isLogo: true,
-              connectedBlocks: blockIndices.filter(i => i !== blockIndex),
-              connectionStrength: 0.8 + Math.random() * 0.2,
               color: baseColor,
               glowIntensity: 0.02
             });
@@ -281,17 +241,15 @@ const PixelBackground: React.FC = () => {
         width: blockSize,
         height: blockSize,
         velocityX: 0,
-        velocityY: 0.3 + Math.random() * 0.3,
+        velocityY: 0.5 + Math.random() * 0.2,
         fixed: false,
-        rotating: false,
         rotationAngle: 0,
-        rotationalVelocity: 0,
+        rotationalVelocity: (Math.random() - 0.5) * 0.02,
         opacity: 0.2 + Math.random() * 0.2,
-        mass: 1 + Math.random() * 0.5,
-        elasticity: ELASTICITY, // Use base elasticity
-        friction: BLOCK_FRICTION, // Use base friction
+        mass: 1,
+        elasticity: ELASTICITY,
+        friction: GROUND_FRICTION,
         lastCollision: 0,
-        angularDamping: ANGULAR_DAMPING,
         isLogo: false,
         color: color,
         glowIntensity: 0.02
@@ -300,10 +258,6 @@ const PixelBackground: React.FC = () => {
 
     // Check if two blocks are colliding (AABB)
     const checkCollision = (block1: Block, block2: Block) => {
-      if (block1.isLogo && block2.isLogo &&
-          block1.connectedBlocks?.includes(blocksRef.current.indexOf(block2))) {
-        return false;
-      }
       return (
         block1.x < block2.x + block2.width &&
         block1.x + block1.width > block2.x &&
@@ -315,15 +269,11 @@ const PixelBackground: React.FC = () => {
     // Resolve collision between two blocks
     const resolveCollision = (block1: Block, block2: Block, timestamp: number) => {
       // Basic debounce
-      if (timestamp - block1.lastCollision < 16 || timestamp - block2.lastCollision < 16) {
+      if (timestamp - block1.lastCollision < 50 || timestamp - block2.lastCollision < 50) {
          return;
       }
       block1.lastCollision = timestamp;
       block2.lastCollision = timestamp;
-
-      // Make blocks non-fixed on collision
-      block1.fixed = false;
-      block2.fixed = false;
 
       block1.glowIntensity = Math.min(0.03, (block1.glowIntensity || 0) + 0.01);
       block2.glowIntensity = Math.min(0.03, (block2.glowIntensity || 0) + 0.01);
@@ -343,111 +293,24 @@ const PixelBackground: React.FC = () => {
       if (velocityAlongNormal > 0) return; // Moving away
 
       const restitution = Math.min(block1.elasticity, block2.elasticity);
-      const invMass1 = 1 / block1.mass;
-      const invMass2 = 1 / block2.mass;
 
-      let j = -(1 + restitution) * velocityAlongNormal;
-      j /= invMass1 + invMass2;
+      let j = -(1 + restitution) * velocityAlongNormal * 0.5; // Reduced impact
 
       const impulseX = j * nx;
       const impulseY = j * ny;
 
-      block1.velocityX -= impulseX * invMass1;
-      block1.velocityY -= impulseY * invMass1;
-      block2.velocityX += impulseX * invMass2;
-      block2.velocityY += impulseY * invMass2;
+      block1.velocityX -= impulseX * 0.5;
+      block1.velocityY -= impulseY * 0.5;
+      block2.velocityX += impulseX * 0.5;
+      block2.velocityY += impulseY * 0.5;
 
-      // Add rotational impulse (simplified)
-      const hitOffsetX1 = (dx / block1.width) * 0.5;
-      const hitOffsetY1 = (dy / block1.height) * 0.5;
-      block1.rotationalVelocity -= (hitOffsetX1 * impulseY - hitOffsetY1 * impulseX) * 0.05 * invMass1;
-
-      const hitOffsetX2 = (dx / block2.width) * 0.5;
-      const hitOffsetY2 = (dy / block2.height) * 0.5;
-      block2.rotationalVelocity += (hitOffsetX2 * impulseY - hitOffsetY2 * impulseX) * 0.05 * invMass2;
-
-
-      // Friction Impulse
-      const tangentX = -ny;
-      const tangentY = nx;
-      const relativeVelocityTangential = relativeVelocityX * tangentX + relativeVelocityY * tangentY;
-      let jt = -relativeVelocityTangential;
-      jt /= invMass1 + invMass2;
-
-      const frictionCoefficient = Math.sqrt(block1.friction * block2.friction); // Geometric mean
-      const maxFriction = Math.abs(j) * frictionCoefficient;
-      jt = Math.max(-maxFriction, Math.min(maxFriction, jt));
-
-      const frictionImpulseX = jt * tangentX;
-      const frictionImpulseY = jt * tangentY;
-
-      block1.velocityX -= frictionImpulseX * invMass1;
-      block1.velocityY -= frictionImpulseY * invMass1;
-      block2.velocityX += frictionImpulseX * invMass2;
-      block2.velocityY += frictionImpulseY * invMass2;
-
-
-      // Positional Correction (Further Improved for Stacking)
-      const overlapX = (block1.width + block2.width) / 2 - Math.abs(dx);
-      const overlapY = (block1.height + block2.height) / 2 - Math.abs(dy);
-
-      if (overlapX > 0 && overlapY > 0) {
-          const percent = 0.8; // Correction percentage per iteration (kept at 0.8, increasing iterations is often better)
-          const slop = 0.05;   // Allowed overlap
-
-          // Correct along the axis of minimum penetration
-          if (overlapX < overlapY) {
-              // Horizontal correction
-              const correctionAmount = Math.max(overlapX - slop, 0);
-              const correction = (correctionAmount / (invMass1 + invMass2)) * percent;
-              const correctionSign = dx > 0 ? 1 : -1;
-              block1.x -= correction * invMass1 * correctionSign;
-              block2.x += correction * invMass2 * correctionSign;
-          } else {
-              // Vertical correction
-              const correctionAmount = Math.max(overlapY - slop, 0);
-              const correction = (correctionAmount / (invMass1 + invMass2)) * percent;
-              const correctionSign = dy > 0 ? 1 : -1;
-              block1.y -= correction * invMass1 * correctionSign;
-              block2.y += correction * invMass2 * correctionSign;
-
-              // If correcting vertically and relative velocity is low, dampen vertical velocity further
-              if (Math.abs(relativeVelocityY) < GRAVITY * 10) {
-                  block1.velocityY *= 0.7; // Increased dampening
-                  block2.velocityY *= 0.7; // Increased dampening
-              }
-          }
-      }
-    };
-
-    // Maintain connections between logo blocks (simplified force)
-    const maintainConnections = () => {
-      blocksRef.current.forEach((block) => {
-        if (block.isLogo && block.connectedBlocks) {
-          block.connectedBlocks.forEach(connectedIndex => {
-            if (connectedIndex < blocksRef.current.length) {
-              const connectedBlock = blocksRef.current[connectedIndex];
-              // Simple spring-like force (could be improved)
-              const dx = connectedBlock.x - block.x;
-              const dy = connectedBlock.y - block.y;
-              const distance = Math.sqrt(dx*dx + dy*dy);
-              const targetDistance = block.width * 1.1; // Approx target distance
-              const diff = distance - targetDistance;
-              const forceMagnitude = diff * 0.005 * (block.connectionStrength || 0.5);
-
-              if (distance > 0) {
-                const forceX = (dx / distance) * forceMagnitude;
-                const forceY = (dy / distance) * forceMagnitude;
-
-                block.velocityX += forceX;
-                block.velocityY += forceY;
-                connectedBlock.velocityX -= forceX;
-                connectedBlock.velocityY -= forceY;
-              }
-            }
-          });
-        }
-      });
+      // Simple separation
+      const separationX = (dx / distance) * 2;
+      const separationY = (dy / distance) * 2;
+      block1.x -= separationX;
+      block1.y -= separationY;
+      block2.x += separationX;
+      block2.y += separationY;
     };
 
     // Draw background glow effect
@@ -489,20 +352,17 @@ const PixelBackground: React.FC = () => {
       drawBackgroundGlow(ctx);
 
       // Add new blocks
-      if (timestamp - lastBlockTimeRef.current > 3000) {
+      if (timestamp - lastBlockTimeRef.current > 4000) {
         lastBlockTimeRef.current = timestamp;
-        if (Math.random() < 0.1) {
+        if (Math.random() < 0.3) {
           blocksRef.current = [...blocksRef.current, ...createLogoBlock()];
         } else {
           blocksRef.current.push(createBlock());
         }
-        if (blocksRef.current.length > 80) { // Reduced max blocks slightly
-          blocksRef.current = blocksRef.current.slice(-80);
+        if (blocksRef.current.length > 50) {
+          blocksRef.current = blocksRef.current.slice(-50);
         }
       }
-
-      // Maintain logo connections (optional, can be intensive)
-      maintainConnections();
 
       // Update and draw blocks
       blocksRef.current.forEach((block, index) => {
@@ -510,21 +370,6 @@ const PixelBackground: React.FC = () => {
 
         // Skip physics update if selected by mouse
         if (selectedBlockRef.current === index) {
-          // Draw selected block outline
-          ctx.save();
-          ctx.translate(block.x + block.width / 2, block.y + block.height / 2);
-          if (block.rotating) { // Only rotate if mouse interaction flag is set
-             block.rotationAngle += 0.1; // Visual cue rotation
-             ctx.rotate(block.rotationAngle);
-          } else {
-             ctx.rotate(block.rotationAngle); // Keep current physics rotation
-          }
-          ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
-          ctx.lineWidth = 1.5;
-          ctx.shadowColor = 'rgba(255, 255, 255, 0.03)';
-          ctx.shadowBlur = 5;
-          ctx.strokeRect(-block.width / 2, -block.height / 2, block.width, block.height);
-          ctx.restore();
           return; // Skip physics for this block
         }
 
@@ -538,7 +383,7 @@ const PixelBackground: React.FC = () => {
           block.velocityY *= AIR_RESISTANCE;
 
           // Apply rotational damping
-          block.rotationalVelocity *= block.angularDamping;
+          block.rotationalVelocity *= 0.99;
 
           // Update position
           block.x += block.velocityX;
@@ -551,32 +396,18 @@ const PixelBackground: React.FC = () => {
           if (block.y + block.height >= dimensions.height) {
             block.y = dimensions.height - block.height; // Set position exactly
 
-            // Apply bounce only if velocity is significant
-            if (Math.abs(block.velocityY) > GRAVITY * 2) { // Bounce threshold
+            if (Math.abs(block.velocityY) > 1) {
               block.velocityY *= -block.elasticity;
-
-              // Apply friction during bounce
-              block.velocityX *= GROUND_FRICTION * block.friction;
-
-              // Add rotational velocity on bounce
-              if (Math.abs(block.velocityX) > 0.05) {
-                 block.rotationalVelocity += block.velocityX * 0.005 * (block.velocityX > 0 ? -1 : 1);
-              }
+              block.velocityX *= GROUND_FRICTION;
               block.glowIntensity = Math.min(0.03, (block.glowIntensity || 0) + 0.01);
-
             } else {
-              // Block is resting or sliding
-              block.velocityY = 0; // Stop vertical movement
-
-              // Apply stronger ground friction
-              const restingFriction = GROUND_FRICTION * 1.3; // Further increased friction when resting
-              block.velocityX *= restingFriction;
-              block.rotationalVelocity *= restingFriction;
-
-              // Optional: Consider making block 'fixed' if velocity is extremely low for performance
-              // if (Math.abs(block.velocityX) < 0.01 && Math.abs(block.rotationalVelocity) < 0.005) {
-              //    block.fixed = true;
-              // }
+              block.velocityY = 0;
+              block.velocityX *= GROUND_FRICTION;
+              block.rotationalVelocity *= GROUND_FRICTION;
+              
+              if (Math.abs(block.velocityX) < 0.1 && Math.abs(block.rotationalVelocity) < 0.01) {
+                block.fixed = true;
+              }
             }
           }
 
@@ -584,43 +415,32 @@ const PixelBackground: React.FC = () => {
           if (block.x <= 0) {
             block.x = 0;
             block.velocityX *= -block.elasticity;
-            block.rotationalVelocity -= 0.01 * block.elasticity * (block.velocityY > 0 ? 1 : -1); // Spin based on vertical movement
             block.glowIntensity = Math.min(0.03, (block.glowIntensity || 0) + 0.01);
           } else if (block.x + block.width >= dimensions.width) {
             block.x = dimensions.width - block.width;
             block.velocityX *= -block.elasticity;
-            block.rotationalVelocity += 0.01 * block.elasticity * (block.velocityY > 0 ? 1 : -1); // Spin based on vertical movement
             block.glowIntensity = Math.min(0.03, (block.glowIntensity || 0) + 0.01);
           }
         }
       });
 
-      // --- Block-to-Block Collisions (Iterative) ---
-      const collisionIterations = 6; // Increased iterations for more stability
-      for (let iter = 0; iter < collisionIterations; iter++) {
-          for (let i = 0; i < blocksRef.current.length; i++) {
-              for (let j = i + 1; j < blocksRef.current.length; j++) {
-                  const block1 = blocksRef.current[i];
-                  const block2 = blocksRef.current[j];
+      // Simple block-to-block collisions
+      for (let i = 0; i < blocksRef.current.length; i++) {
+        for (let j = i + 1; j < blocksRef.current.length; j++) {
+          const block1 = blocksRef.current[i];
+          const block2 = blocksRef.current[j];
 
-                  // Skip check if both are somehow fixed (shouldn't happen often now)
-                  // if (block1.fixed && block2.fixed) continue;
-                  // Skip check if one is selected
-                  if (selectedBlockRef.current === i || selectedBlockRef.current === j) continue;
+          if (selectedBlockRef.current === i || selectedBlockRef.current === j) continue;
+          if (block1.fixed && block2.fixed) continue;
 
-
-                  if (checkCollision(block1, block2)) {
-                      resolveCollision(block1, block2, timestamp);
-                  }
-              }
+          if (checkCollision(block1, block2)) {
+            resolveCollision(block1, block2, timestamp);
           }
+        }
       }
 
       // Draw blocks
       blocksRef.current.forEach(block => {
-        // Don't redraw selected block if already handled above
-        if (selectedBlockRef.current === blocksRef.current.indexOf(block)) return;
-
         ctx.save();
         ctx.translate(block.x + block.width / 2, block.y + block.height / 2);
         ctx.rotate(block.rotationAngle);
@@ -638,11 +458,10 @@ const PixelBackground: React.FC = () => {
         ctx.restore();
       });
 
-      // Draw connections (optional)
-      // blocksRef.current.forEach(block => { ... });
-
-      // Remove blocks out of bounds (optional// Remove blocks out of bounds (optional, might remove resting blocks)
-      // blocksRef.current = blocksRef.current.filter(block => ...);
+      // Remove blocks that are way off screen
+      blocksRef.current = blocksRef.current.filter(block => 
+        block.y < dimensions.height + 100 && block.x > -100 && block.x < dimensions.width + 100
+      );
 
       animationFrameRef.current = requestAnimationFrame(animate);
     };
