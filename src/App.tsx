@@ -3,10 +3,12 @@ import PixelBackground from './components/PixelBackground';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
+import TetrisPage from './pages/TetrisPage';
 
 function App() {
   const [_, setMousePosition] = useState({ x: 0, y: 0 });
   const [headerTransform, setHeaderTransform] = useState('');
+  const [currentPage, setCurrentPage] = useState<'home' | 'tetris'>('home');
   const sectionsRef = useRef<HTMLElement[]>([]);
   
   useEffect(() => {
@@ -58,6 +60,16 @@ function App() {
     };
   }, []);
   
+  // Handle navigation
+  const navigateToTetris = () => setCurrentPage('tetris');
+  const navigateToHome = () => setCurrentPage('home');
+
+  // Make navigation functions available globally
+  useEffect(() => {
+    (window as any).navigateToTetris = navigateToTetris;
+    (window as any).navigateToHome = navigateToHome;
+  }, []);
+
   return (
     <div className="relative min-h-screen">
       <PixelBackground />
@@ -65,9 +77,15 @@ function App() {
         className="relative z-10"
         style={{ transform: headerTransform, transition: 'transform 0.5s ease-out' }}
       >
-        <Header />
-        <HomePage />
-        <Footer />
+        {currentPage === 'home' ? (
+          <>
+            <Header />
+            <HomePage />
+            <Footer />
+          </>
+        ) : (
+          <TetrisPage />
+        )}
       </div>
     </div>
   );

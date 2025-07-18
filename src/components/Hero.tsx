@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
               </button>
               <button
                 className="px-6 py-3 bg-transparent border border-white/30 text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
-                onClick={() => window.open('https://tetris.com', '_blank')}
+                onClick={() => (window as any).navigateToTetris?.()}
               >
                 Σπατάλησε το Χρονο Σου
               </button>
