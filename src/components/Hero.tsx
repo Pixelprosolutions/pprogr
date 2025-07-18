@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import TetrisGame from './TetrisGame';
 
 const Hero: React.FC = () => {
   const navigate = useNavigate();
+  const [isTetrisOpen, setIsTetrisOpen] = useState(false);
 
   return (
     <div>
@@ -27,7 +29,7 @@ const Hero: React.FC = () => {
               </button>
               <button
                 className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
-                onClick={() => {}}
+                onClick={() => setIsTetrisOpen(true)}
               >
                 Σπατάλησε το Χρονο Σου
               </button>
@@ -35,6 +37,11 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </section>
+      
+      <TetrisGame 
+        isOpen={isTetrisOpen} 
+        onClose={() => setIsTetrisOpen(false)} 
+      />
     </div>
   );
 };
