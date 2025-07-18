@@ -11,9 +11,6 @@ const Contact: React.FC = () => {
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Επικοινωνήστε μαζί μας</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Έχετε ένα έργο στο μυαλό σας ή θέλετε να μάθετε περισσότερα για τις υπηρεσίες μας; Θα χαρούμε να σας ακούσουμε.
-            </p>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
