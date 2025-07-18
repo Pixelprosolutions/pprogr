@@ -197,6 +197,7 @@ const About: React.FC<AboutProps> = ({ isHomepage = false }) => {
         </div>
       </div>
     </>
+  );
 };
 
 export default About;
