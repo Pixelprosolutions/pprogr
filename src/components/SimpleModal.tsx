@@ -10,14 +10,38 @@ interface SimpleModalProps {
 const SimpleModal: React.FC<SimpleModalProps> = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
+  // Prevent body scroll when modal is open
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   return (
     <div 
-      className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4"
-      style={{ zIndex: 10000 }}
+      className="fixed inset-0 bg-black bg-opacity-75 p-4"
+      style={{ 
+        zIndex: 10000,
+        display: 'flex',
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+        paddingTop: '10vh'
+      }}
       onClick={onClose}
     >
       <div 
-        className="bg-gray-900 border border-gray-700 rounded-lg p-6 max-w-md w-full relative"
+        className="bg-gray-900 border border-gray-700 rounded-lg p-6 max-w-md w-full relative animate-in fade-in"
+        style={{
+          maxHeight: '80vh',
+          overflowY: 'auto'
+        }}
         onClick={(e) => e.stopPropagation()}
       >
         <button
