@@ -170,6 +170,12 @@ const Header: React.FC = () => {
           >
             Επικοινωνία
           </Link>
+          <Link 
+            to="/consultation" 
+            className="bg-white/10 backdrop-blur-sm border border-white/20 text-white py-2 px-4 rounded-lg font-medium hover:bg-white/20 transition-all duration-300 glow-on-hover"
+          >
+            Δωρεάν Συμβουλή
+          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -234,6 +240,13 @@ const Header: React.FC = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Επικοινωνία
+              </Link>
+              <Link 
+                to="/consultation" 
+                className="bg-white/10 backdrop-blur-sm border border-white/20 text-white py-3 px-4 rounded-lg font-medium hover:bg-white/20 transition-all duration-300"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Δωρεάν Συμβουλή
               </Link>
             </nav>
           </div>

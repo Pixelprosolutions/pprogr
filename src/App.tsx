@@ -10,6 +10,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import HowWeWorkPage from './pages/HowWeWorkPage';
 import FAQPage from './pages/FAQPage';
+import ConsultationPage from './pages/ConsultationPage';
 
 function App() {
   const [_, setMousePosition] = useState({ x: 0, y: 0 });
@@ -82,6 +83,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/how-we-work" element={<HowWeWorkPage />} />
             <Route path="/faq" element={<FAQPage />} />
+            <Route path="/consultation" element={<ConsultationPage />} />
           </Routes>
           <Footer />
         </div>

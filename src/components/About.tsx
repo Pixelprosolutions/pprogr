@@ -186,10 +186,10 @@ const About: React.FC<AboutProps> = ({ isHomepage = false }) => {
               </div>
               <div className="text-center mt-16">
                 <button
-                  onClick={() => navigate('/contact')}
+                  onClick={() => navigate('/consultation')}
                   className="bg-accent-500 backdrop-blur-sm border border-white/20 text-white py-3 px-6 rounded-lg font-medium hover:bg-accent-600 transition-all duration-300 shadow-lg hover:shadow-accent/20"
                 >
-                  Επικοινωνήστε μαζί μας
+                  Δωρεάν Συμβουλή
                 </button>
               </div>
             </section>

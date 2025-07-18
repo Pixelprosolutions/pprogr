@@ -214,8 +214,8 @@ const FAQPage: React.FC = () => {
           </p>
         </div>
         <div className="flex justify-center">
-          <a href="/contact" className="px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center glow-on-hover interactive">
-            Επικοινωνήστε μαζί μας
+          <a href="/consultation" className="px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center glow-on-hover interactive">
+            Δωρεάν Συμβουλή
             <ArrowRight className="ml-2 h-4 w-4" />
           </a>
         </div>

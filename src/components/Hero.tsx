@@ -20,9 +20,9 @@ const Hero: React.FC = () => {
             <div className="flex flex-col sm:flex-row justify-center gap-6">
               <button
                 className="px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center glow-on-hover interactive"
-                onClick={() => navigate('/how-we-work')}
+                onClick={() => navigate('/consultation')}
               >
-                Δείτε Πώς Μπορούμε να Βοηθήσουμε
+                Δωρεάν Συμβουλή
                 <ArrowRight className="ml-2 h-4 w-4" />
               </button>
               <button
