@@ -159,9 +159,10 @@ const ConsultationPage: React.FC = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-8">
+            <div className="min-h-[600px] flex flex-col">
             {/* Step 1: Personal & Company Information */}
             {currentStep === 1 && (
-              <div className="space-y-6">
+              <div className="space-y-6 flex-grow">
                 <div className="flex items-center mb-6">
                   <Building className="w-6 h-6 text-white mr-3" />
                   <h2 className="text-2xl font-bold text-white">Προσωπικές & Επιχειρηματικές Πληροφορίες</h2>
@@ -284,7 +285,7 @@ const ConsultationPage: React.FC = () => {
 
             {/* Step 2: Project Information */}
             {currentStep === 2 && (
-              <div className="space-y-6">
+              <div className="space-y-6 flex-grow">
                 <div className="flex items-center mb-6">
                   <Globe className="w-6 h-6 text-white mr-3" />
                   <h2 className="text-2xl font-bold text-white">Πληροφορίες Έργου</h2>
@@ -402,7 +403,7 @@ const ConsultationPage: React.FC = () => {
 
             {/* Step 3: Goals & Target Audience */}
             {currentStep === 3 && (
-              <div className="space-y-6">
+              <div className="space-y-6 flex-grow">
                 <div className="flex items-center mb-6">
                   <Target className="w-6 h-6 text-white mr-3" />
                   <h2 className="text-2xl font-bold text-white">Στόχοι & Κοινό-Στόχος</h2>
@@ -465,7 +466,7 @@ const ConsultationPage: React.FC = () => {
 
             {/* Step 4: Additional Information */}
             {currentStep === 4 && (
-              <div className="space-y-6">
+              <div className="space-y-6 flex-grow">
                 <div className="flex items-center mb-6">
                   <Users className="w-6 h-6 text-white mr-3" />
                   <h2 className="text-2xl font-bold text-white">Επιπλέον Πληροφορίες</h2>
@@ -537,7 +538,7 @@ const ConsultationPage: React.FC = () => {
             )}
 
             {/* Navigation Buttons */}
-            <div className="flex justify-between mt-8 pt-6 border-t border-white/10">
+            <div className="flex justify-between mt-auto pt-6 border-t border-white/10">
               {currentStep > 1 && (
                 <button
                   type="button"
@@ -568,6 +569,7 @@ const ConsultationPage: React.FC = () => {
                   </button>
                 )}
               </div>
+            </div>
             </div>
           </form>
         </div>
