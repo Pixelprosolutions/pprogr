@@ -332,7 +332,7 @@ const TetrisPage: React.FC = () => {
         {row.map((cell, x) => (
           <div
             key={x}
-            className="w-6 h-6 border border-white/5"
+            className="w-8 h-8 border border-white/5"
             style={{
               backgroundColor: cell || 'transparent',
               boxShadow: cell ? '0 0 8px rgba(255, 255, 255, 0.3), inset 0 0 4px rgba(255, 255, 255, 0.1)' : 'none',
@@ -353,7 +353,7 @@ const TetrisPage: React.FC = () => {
         {row.map((cell, x) => (
           <div
             key={x}
-            className="w-4 h-4 border border-white/10"
+            className="w-5 h-5 border border-white/10"
             style={{
               backgroundColor: cell ? nextPiece.color : 'transparent',
               boxShadow: cell ? '0 0 6px rgba(255, 255, 255, 0.3), inset 0 0 2px rgba(255, 255, 255, 0.1)' : 'none',
@@ -411,6 +411,7 @@ const TetrisPage: React.FC = () => {
                   <div className="border-2 border-white/20 rounded-lg p-2 bg-black/30">
                     {renderBoard()}
                   </div>
+                </div>
                 </div>
               </div>
             </div>
