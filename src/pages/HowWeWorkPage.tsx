@@ -206,7 +206,7 @@ const HowWeWorkPage: React.FC = () => {
           </p>
         </div>
         <div className="flex justify-center">
-          {showForm && <ConsultationForm />}
+          {showForm && <ConsultationForm onClose={() => setShowForm(false)} />}
         </div>
       </div>
     </main>
