@@ -214,7 +214,6 @@ const FAQPage: React.FC = () => {
           </p>
         </div>
         <div className="flex justify-center">
-          <a href="/consultation" className="px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center glow-on-hover interactive">
           <button
             onClick={() => navigate('/consultation')}
             className="px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center glow-on-hover interactive"
