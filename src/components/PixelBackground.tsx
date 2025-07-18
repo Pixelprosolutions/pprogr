@@ -88,8 +88,8 @@ const PixelBackground: React.FC = () => {
           const dy = e.clientY - prevY;
 
           block.fixed = false;
-          block.velocityY = 0;
-          block.velocityY = dy * 0.3;
+          block.velocityX = dx * 0.5;
+          block.velocityY = dy * 0.5;
           block.rotationalVelocity = 0;
           block.glowIntensity = 0.025;
           block.fixed = false;
@@ -104,17 +104,17 @@ const PixelBackground: React.FC = () => {
             const dx = e.clientX - (block.x + block.width / 2);
             const dy = e.clientY - (block.y + block.height / 2);
             const distance = Math.sqrt(dx * dx + dy * dy);
-            const interactionRange = 80;
+            const interactionRange = 120;
 
             if (distance < interactionRange) {
-              const forceMagnitude = (1 - distance / interactionRange) * mouseSpeed * 0.1;
+              const forceMagnitude = (1 - distance / interactionRange) * mouseSpeed * 0.3;
               const forceX = (mouseVelocityX / mouseSpeed) * forceMagnitude;
               const forceY = (mouseVelocityY / mouseSpeed) * forceMagnitude;
 
               block.velocityX += forceX;
               block.velocityY += forceY;
 
-              block.rotationalVelocity += (dx / block.width) * forceMagnitude * 0.005;
+              block.rotationalVelocity += (dx / block.width) * forceMagnitude * 0.02;
               block.glowIntensity = Math.min(0.03, (block.glowIntensity || 0) + 0.01);
 
               if (block.fixed) {
@@ -141,7 +141,7 @@ const PixelBackground: React.FC = () => {
         const block = blocksRef.current[clickedBlockIndex];
         block.rotating = true; // Start visual rotation cue
         block.fixed = false; // Make sure it can be moved
-        block.velocityY = 0; // Stop gravity temporarily
+        block.velocityY = -2; // Give it a little upward push
         block.velocityX = 0;
         block.rotationalVelocity = 0; // Stop rotation temporarily
         block.glowIntensity = 0.025;
@@ -183,8 +183,8 @@ const PixelBackground: React.FC = () => {
     canvas.height = dimensions.height;
 
     // Tuned Physics constants for better stacking
-    const GRAVITY = 0.3; // Stronger gravity for faster falling
-    const AIR_RESISTANCE = 0.98; // More air resistance to slow down chaos
+    const GRAVITY = 0.4; // Balanced gravity
+    const AIR_RESISTANCE = 0.96; // Slight air resistance
     const GROUND_FRICTION = 0.8; // Higher friction
     const ELASTICITY = 0.1; // Much lower bounce
 
