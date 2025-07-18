@@ -113,7 +113,7 @@ const Header: React.FC = () => {
     <header className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-sm z-50">
       <div className="container mx-auto px-4 py-6 flex justify-between items-center">
         <div className="flex items-center">
-          <Link to="/">
+          <a href="#home">
             <div
               ref={logoRef}
               className="relative h-[60px] w-[45px] logo-container interactive cursor-pointer"
@@ -122,7 +122,7 @@ const Header: React.FC = () => {
             >
               {renderLogo()}
             </div>
-          </Link>
+          </a>
         </div>
 
         {/* Desktop Navigation */}
