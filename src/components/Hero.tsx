@@ -1,22 +1,12 @@
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import ConsultationForm from './ConsultationForm';
 
 const Hero: React.FC = () => {
-  const [isConsultationFormOpen, setIsConsultationFormOpen] = useState(false);
   const navigate = useNavigate();
 
-  const openConsultationForm = () => {
-    setIsConsultationFormOpen(true);
-  };
-
-  const closeConsultationForm = () => {
-    setIsConsultationFormOpen(false);
-  };
-
   return (
-    <>
+    <div>
       <section className="relative">
         <div className="container mx-auto px-6 py-32 md:py-48 flex items-center justify-center min-h-[calc(100vh-80px)]">
           <div className="text-center max-w-3xl space-y-8">
@@ -37,19 +27,15 @@ const Hero: React.FC = () => {
               </button>
               <button
                 className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
-                onClick={openConsultationForm}
+                onClick={() => navigate('/contact')}
               >
-                Λάβετε μια Δωρεάν Συμβουλή
+                Επικοινωνήστε μαζί μας
               </button>
             </div>
           </div>
         </div>
       </section>
-
-      {isConsultationFormOpen && (
-        <ConsultationForm onClose={closeConsultationForm} />
-      )}
-    </>
+    </div>
   );
 };
 

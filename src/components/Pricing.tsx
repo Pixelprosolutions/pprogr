@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { CheckCircle, Info, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
-import ConsultationForm from './ConsultationForm';
-
+import { useNavigate } from 'react-router-dom';
 
 interface FAQItemProps {
   question: string;
@@ -10,6 +9,7 @@ interface FAQItemProps {
 
 const Pricing: React.FC = () => {
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   const packages = [
     {
@@ -65,7 +65,6 @@ const Pricing: React.FC = () => {
   ];
 
   const [showDisclaimer, setShowDisclaimer] = useState(false);
-  const [isConsultationFormOpen, setIsConsultationFormOpen] = useState(false);
 
   const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
 
@@ -81,14 +80,6 @@ const Pricing: React.FC = () => {
 
   const hasSelectedServices = () => {
     return selectedPackage !== null;
-  };
-
-  const openConsultationForm = () => {
-    setIsConsultationFormOpen(true);
-  };
-
-  const closeConsultationForm = () => {
-    setIsConsultationFormOpen(false);
   };
 
   const faqItems: FAQItemProps[] = [
@@ -202,9 +193,9 @@ const Pricing: React.FC = () => {
             {/* Consultation Button - For those who don't know what they need */}
             <button 
               className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
-              onClick={openConsultationForm}
+              onClick={() => navigate('/contact')}
             >
-              Δεν είστε σίγουροι; Προγραμματίστε μια δωρεάν συμβουλή
+              Δεν είστε σίγουροι; Επικοινωνήστε μαζί μας
             </button>
           </div>
           
@@ -249,11 +240,6 @@ const Pricing: React.FC = () => {
           </div>
         </div>
       </div>
-      
-      {/* Conditionally render the consultation form panel */}
-      {isConsultationFormOpen && (
-        <ConsultationForm onClose={closeConsultationForm} />
-      )}
     </section>
   );
 };

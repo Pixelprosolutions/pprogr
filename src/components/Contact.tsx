@@ -1,20 +1,12 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import ConsultationForm from './ConsultationForm';
+import { useNavigate } from 'react-router-dom';
 
 const Contact: React.FC = () => {
-  const [isConsultationFormOpen, setIsConsultationFormOpen] = useState(false);
-
-  const openConsultationForm = () => {
-    setIsConsultationFormOpen(true);
-  };
-
-  const closeConsultationForm = () => {
-    setIsConsultationFormOpen(false);
-  };
+  const navigate = useNavigate();
 
   return (
-    <>
+    <div>
       <section id="contact" className="py-24 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-12">
@@ -53,9 +45,9 @@ const Contact: React.FC = () => {
               <div className="mt-6">
                 <button
                   className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
-                  onClick={openConsultationForm}
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 >
-                  Λάβετε μια Δωρεάν Συμβουλή
+                  Πάμε στην κορυφή
                 </button>
               </div>
             </div>
@@ -117,11 +109,7 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {isConsultationFormOpen && (
-        <ConsultationForm onClose={closeConsultationForm} />
-      )}
-    </>
+    </div>
   );
 };
 

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
-import ConsultationForm from '../components/ConsultationForm';
+import { useNavigate } from 'react-router-dom';
 
 const HowWeWorkPage: React.FC = () => {
-  const [showForm, setShowForm] = useState(false);
+  const navigate = useNavigate();
+  
   return (
     <main className="pt-32 pb-32">
       <div className="container mx-auto px-4 mb-28">
@@ -206,7 +207,13 @@ const HowWeWorkPage: React.FC = () => {
           </p>
         </div>
         <div className="flex justify-center">
-          {showForm && <ConsultationForm onClose={() => setShowForm(false)} />}
+          <button
+            onClick={() => navigate('/contact')}
+            className="px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center glow-on-hover interactive"
+          >
+            Επικοινωνήστε μαζί μας
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </button>
         </div>
       </div>
     </main>
