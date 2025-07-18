@@ -1,30 +1,18 @@
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import SimpleModal from './SimpleModal';
+import ConsultationForm from './ConsultationForm';
 
 const Hero: React.FC = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    business: ''
-  });
+  const [isConsultationFormOpen, setIsConsultationFormOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert('Φόρμα υποβλήθηκε! Θα επικοινωνήσουμε μαζί σας σύντομα.');
-    setShowModal(false);
-    setFormData({ name: '', email: '', phone: '', business: '' });
+  const openConsultationForm = () => {
+    setIsConsultationFormOpen(true);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const closeConsultationForm = () => {
+    setIsConsultationFormOpen(false);
   };
 
   return (
@@ -49,7 +37,7 @@ const Hero: React.FC = () => {
               </button>
               <button
                 className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
-                onClick={() => setShowModal(true)}
+                onClick={openConsultationForm}
               >
                 Λάβετε μια Δωρεάν Συμβουλή
               </button>
@@ -58,63 +46,9 @@ const Hero: React.FC = () => {
         </div>
       </section>
 
-      <SimpleModal isOpen={showModal} onClose={() => setShowModal(false)}>
-        <div className="pt-4">
-          <h3 className="text-xl font-bold text-white mb-4">Δωρεάν Συμβουλή</h3>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Όνομα"
-              value={formData.name}
-              onChange={handleInputChange}
-              required
-              className="w-full p-3 bg-gray-800 border border-gray-600 rounded text-white placeholder-gray-400"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleInputChange}
-              required
-              className="w-full p-3 bg-gray-800 border border-gray-600 rounded text-white placeholder-gray-400"
-            />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Τηλέφωνο"
-              value={formData.phone}
-              onChange={handleInputChange}
-              required
-              className="w-full p-3 bg-gray-800 border border-gray-600 rounded text-white placeholder-gray-400"
-            />
-            <input
-              type="text"
-              name="business"
-              placeholder="Επιχείρηση"
-              value={formData.business}
-              onChange={handleInputChange}
-              className="w-full p-3 bg-gray-800 border border-gray-600 rounded text-white placeholder-gray-400"
-            />
-            <div className="flex gap-3 pt-4">
-              <button
-                type="button"
-                onClick={() => setShowModal(false)}
-                className="flex-1 px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600"
-              >
-                Ακύρωση
-              </button>
-              <button
-                type="submit"
-                className="flex-1 px-4 py-2 bg-white text-black rounded hover:bg-gray-200"
-              >
-                Υποβολή
-              </button>
-            </div>
-          </form>
-        </div>
-      </SimpleModal>
+      {isConsultationFormOpen && (
+        <ConsultationForm onClose={closeConsultationForm} />
+      )}
     </>
   );
 };

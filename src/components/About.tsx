@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Users, Award, Clock, Star, Target, HeartHandshake, ShieldCheck } from 'lucide-react';
-import SimpleModal from './SimpleModal';
+import ConsultationForm from './ConsultationForm';
 
 interface StatCardProps {
   value: string;
@@ -200,7 +200,7 @@ const About: React.FC<AboutProps> = ({ isHomepage = false }) => {
       </div>
 
       {isConsultationFormOpen && (
-        <SimpleModal onClose={closeConsultationForm} />
+        <ConsultationForm onClose={closeConsultationForm} />
       )}
     </>
   );

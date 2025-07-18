@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import SimpleModal from './SimpleModal';
+import ConsultationForm from './ConsultationForm';
 
 const Contact: React.FC = () => {
   const [isConsultationFormOpen, setIsConsultationFormOpen] = useState(false);
@@ -119,7 +119,7 @@ const Contact: React.FC = () => {
       </section>
 
       {isConsultationFormOpen && (
-        <SimpleModal onClose={closeConsultationForm} />
+        <ConsultationForm onClose={closeConsultationForm} />
       )}
     </>
   );
