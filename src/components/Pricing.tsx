@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CheckCircle, Info, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
-import ConsultationFormPanel from './ConsultationFormPanel';
+import SimpleModal from './SimpleModal';
 
 
 interface FAQItemProps {
@@ -252,7 +252,7 @@ const Pricing: React.FC = () => {
       
       {/* Conditionally render the consultation form panel */}
       {isConsultationFormOpen && (
-        <ConsultationFormPanel onClose={closeConsultationForm} />
+        <SimpleModal onClose={closeConsultationForm} />
       )}
     </section>
   );
