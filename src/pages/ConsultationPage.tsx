@@ -116,12 +116,12 @@ const ConsultationPage: React.FC = () => {
                 <div className="text-center text-gray-400 text-sm">
                   <p>Ή επικοινωνήστε απευθείας:</p>
                   <p className="mt-2">
-                    <a href="mailto:info@pixelpro.gr" style={{ color: '#f43f5e' }} className="hover:opacity-80">
-                      info@pixelpro.gr
+                    <a href="mailto:hello@pixelpro.solutions" style={{ color: '#f43f5e' }} className="hover:opacity-80">
+                      hello@pixelpro.solutions
                     </a>
                     {' | '}
-                    <a href="tel:+302101234567" style={{ color: '#f43f5e' }} className="hover:opacity-80">
-                      +302101234567
+                    <a href="tel:+306973517695" style={{ color: '#f43f5e' }} className="hover:opacity-80">
+                      +306973517695
                     </a>
                   </p>
                 </div>

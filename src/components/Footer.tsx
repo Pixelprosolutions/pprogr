@@ -60,8 +60,8 @@ const Footer: React.FC = () => {
               <li className="text-gray-300">Λεωφόρος Βασιλίσσης Σοφίας 123</li>
               <li className="text-gray-300">Τ.Κ. 11521</li>
               <li className="text-gray-300">Αθήνα, Ελλάδα</li>
-              <li className="text-gray-300">info@pixelpro.gr</li>
-              <li className="text-gray-300">+30 210 1234567</li>
+              <li className="text-gray-300">hello@pixelpro.solutions</li>
+              <li className="text-gray-300">+30 697 3517 695</li>
             </ul>
           </div>
         </div>

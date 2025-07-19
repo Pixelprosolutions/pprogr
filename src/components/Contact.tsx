@@ -76,11 +76,11 @@ const Contact: React.FC = () => {
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-gray-300 text-sm md:text-base">
                   <a href="mailto:info@pixelpro.gr" className="flex items-center hover:text-white transition-colors">
                     <Mail className="h-4 w-4 mr-2" />
-                    info@pixelpro.gr
+                    hello@pixelpro.solutions
                   </a>
-                  <a href="tel:+302101234567" className="flex items-center hover:text-white transition-colors">
+                  <a href="tel:+306973517695" className="flex items-center hover:text-white transition-colors">
                     <Phone className="h-4 w-4 mr-2" />
-                    +30 210 1234567
+                    +30 697 3517 695
                   </a>
                 </div>
               </div>
