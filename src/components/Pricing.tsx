@@ -207,7 +207,7 @@ const Pricing: React.FC = () => {
         </div>
 
         {/* Important Note Section */}
-        <div className="mt-6 md:mt-8 bg-red-500/20 backdrop-blur-sm border-2 border-red-500/30 rounded-xl p-4 md:p-6 transition-all duration-300">
+        <div className="mt-6 md:mt-8 backdrop-blur-sm border-2 rounded-xl p-4 md:p-6 transition-all duration-300" style={{ backgroundColor: 'rgba(244, 63, 94, 0.2)', borderColor: 'rgba(244, 63, 94, 0.3)' }}>
           <h4 className="text-base md:text-lg font-semibold text-white mb-2">Σημαντική Σημείωση</h4>
           <p className="text-gray-100 text-sm md:text-base leading-relaxed">
             Το διαφημιστικό budget (Meta ή Google Ads) καταβάλλεται ξεχωριστά και απευθείας στην εκάστοτε πλατφόρμα.
