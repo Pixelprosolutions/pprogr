@@ -1,5 +1,68 @@
 # Create Supabase Tables Step by Step
 
+## ✅ Tables Already Exist! Let's Check What's There
+
+Since you're getting "relation already exists" errors, the tables are there but might not be visible. Let's check:
+
+### Step 1: Check What Tables Exist
+1. In **SQL Editor**, run this query to see your tables:
+
+```sql
+-- Check if tables exist and their structure
+SELECT table_name, column_name, data_type, is_nullable
+FROM information_schema.columns 
+WHERE table_name IN ('consultation_requests', 'package_selections')
+ORDER BY table_name, ordinal_position;
+```
+
+### Step 2: Check Row Level Security Policies
+```sql
+-- Check if RLS policies exist
+SELECT schemaname, tablename, policyname, permissive, roles, cmd, qual
+FROM pg_policies 
+WHERE tablename IN ('consultation_requests', 'package_selections');
+```
+
+### Step 3: Add Missing Policies (if needed)
+If the policies are missing, run this:
+
+```sql
+-- Only add policies if they don't exist
+DO $$
+BEGIN
+  -- Check and create consultation_requests insert policy
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_policies 
+    WHERE tablename = 'consultation_requests' 
+    AND policyname = 'Anyone can insert consultation requests'
+  ) THEN
+    CREATE POLICY "Anyone can insert consultation requests"
+      ON consultation_requests
+      FOR INSERT
+      TO anon, authenticated
+      WITH CHECK (true);
+  END IF;
+
+  -- Check and create package_selections insert policy
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_policies 
+    WHERE tablename = 'package_selections' 
+    AND policyname = 'Anyone can insert package selections'
+  ) THEN
+    CREATE POLICY "Anyone can insert package selections"
+      ON package_selections
+      FOR INSERT
+      TO anon, authenticated
+      WITH CHECK (true);
+  END IF;
+END $$;
+```
+
+### Step 4: Refresh Table Editor
+1. Go to **Table Editor**
+2. **Refresh the page** (F5 or Ctrl+R)
+3. The tables should now appear
+
 ## Method 1: Using SQL Editor (Recommended)
 
 ### Step 1: Go to SQL Editor
