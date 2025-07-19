@@ -120,8 +120,12 @@ const ConsultationPage: React.FC = () => {
                       hello@pixelpro.solutions
                     </a>
                     {' | '}
+                    <a href="tel:+442081295829" style={{ color: '#f43f5e' }} className="hover:opacity-80">
+                      +44 20 8129 5829
+                    </a>
+                    {' | '}
                     <a href="tel:+306973517695" style={{ color: '#f43f5e' }} className="hover:opacity-80">
-                      +306973517695
+                      +30 697 3517 695
                     </a>
                   </p>
                 </div>

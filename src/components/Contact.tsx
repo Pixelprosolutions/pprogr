@@ -78,9 +78,13 @@ const Contact: React.FC = () => {
                     <Mail className="h-4 w-4 mr-2" />
                     hello@pixelpro.solutions
                   </a>
+                  <a href="tel:+442081295829" className="flex items-center hover:text-white transition-colors">
+                    <Phone className="h-4 w-4 mr-2" />
+                    +44 20 8129 5829 (UK)
+                  </a>
                   <a href="tel:+306973517695" className="flex items-center hover:text-white transition-colors">
                     <Phone className="h-4 w-4 mr-2" />
-                    +30 697 3517 695
+                    +30 697 3517 695 (GR)
                   </a>
                 </div>
               </div>
