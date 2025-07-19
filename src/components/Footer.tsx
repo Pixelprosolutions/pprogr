@@ -69,9 +69,14 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="border-t border-white/10 pt-10">
-          <p className="text-gray-300 text-center">
-            &copy; {new Date().getFullYear()} PixelPro Solutions. Με επιφύλαξη παντός δικαιώματος.
-          </p>
+          <div className="text-center space-y-2">
+            <p className="text-gray-300">
+              &copy; {new Date().getFullYear()} PixelPro Solutions. Με επιφύλαξη παντός δικαιώματος.
+            </p>
+            <p className="text-gray-400 text-sm">
+              Registered company in England and Wales | Company Number: 14690444
+            </p>
+          </div>
         </div>
       </div>
     </footer>
