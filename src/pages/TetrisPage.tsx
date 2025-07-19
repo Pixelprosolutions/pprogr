@@ -302,35 +302,35 @@ const TetrisPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black/80 to-black/90 text-white">
+    <div className="h-screen bg-gradient-to-br from-black/80 to-black/90 text-white overflow-hidden">
       {/* Mobile-first layout */}
       <div className="flex flex-col h-screen">
         {/* Header - Compact for mobile */}
-        <div className="flex items-center justify-between p-4 bg-black/30 backdrop-blur-sm border-b border-white/10">
+        <div className="flex items-center justify-between p-3 bg-black/30 backdrop-blur-sm border-b border-white/10 flex-shrink-0">
           <button
             onClick={() => (window as any).navigateToHome?.()}
-            className="flex items-center text-white hover:text-pink-400 transition-colors bg-white/10 backdrop-blur-sm border border-white/20 py-2 px-3 rounded-lg hover:bg-white/20"
+            className="flex items-center text-white hover:text-pink-400 transition-colors bg-white/10 backdrop-blur-sm border border-white/20 py-1.5 px-2.5 rounded-lg hover:bg-white/20 text-sm"
           >
-            <ArrowLeft className="h-5 w-5 mr-2" />
+            <ArrowLeft className="h-4 w-4 mr-1.5" />
             Πίσω
           </button>
-          <h1 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+          <h1 className="text-lg font-bold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
             Παιχνίδι
           </h1>
           <button
             onClick={() => setIsPaused(!isPaused)}
-            className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-2 rounded-lg transition-all duration-300"
+            className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-1.5 rounded-lg transition-all duration-300"
             disabled={!isPlaying || gameOver}
           >
-            {isPaused ? <Play className="h-5 w-5" /> : <Pause className="h-5 w-5" />}
+            {isPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
           </button>
         </div>
 
         {/* Game Area - Takes most of the screen */}
-        <div className="flex-1 flex flex-col items-center justify-center p-4 space-y-4">
+        <div className="flex-1 flex flex-col items-center justify-center p-2 space-y-2 min-h-0">
           {/* Score Bar - Horizontal on mobile */}
-          <div className="w-full max-w-sm bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-3">
-            <div className="flex justify-between items-center text-sm">
+          <div className="w-full max-w-sm bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-2 flex-shrink-0">
+            <div className="flex justify-between items-center text-xs">
               <div className="text-center">
                 <div className="text-xs text-gray-400">Σκορ</div>
                 <div className="font-bold" style={{ color: '#f43f5e' }}>{score.toLocaleString()}</div>
@@ -347,7 +347,7 @@ const TetrisPage: React.FC = () => {
           </div>
 
           {/* Game Board - Centered and larger */}
-          <div className="bg-black/50 backdrop-blur-sm border border-white/20 p-3 rounded-xl shadow-lg">
+          <div className="bg-black/50 backdrop-blur-sm border border-white/20 p-2 rounded-xl shadow-lg flex-shrink-0">
             <div className="flex flex-col">
               {renderBoard()}
             </div>
@@ -355,12 +355,12 @@ const TetrisPage: React.FC = () => {
 
           {/* Game Status Messages */}
           {gameOver && (
-            <div className="bg-red-900/30 backdrop-blur-sm border p-4 rounded-xl text-center max-w-sm w-full" style={{ borderColor: '#f43f5e' }}>
-              <h2 className="text-xl font-bold mb-2" style={{ color: '#f43f5e' }}>Game Over!</h2>
-              <p className="text-sm mb-3" style={{ color: '#f43f5e' }}>Τελικό Σκορ: {score.toLocaleString()}</p>
+            <div className="bg-red-900/30 backdrop-blur-sm border p-3 rounded-xl text-center max-w-sm w-full flex-shrink-0" style={{ borderColor: '#f43f5e' }}>
+              <h2 className="text-lg font-bold mb-2" style={{ color: '#f43f5e' }}>Game Over!</h2>
+              <p className="text-xs mb-2" style={{ color: '#f43f5e' }}>Τελικό Σκορ: {score.toLocaleString()}</p>
               <button
                 onClick={startNewGame}
-                className="w-full text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg text-sm"
+                className="w-full text-white py-2 px-4 rounded-lg font-medium transition-all duration-300 shadow-lg text-xs"
                 style={{ background: 'linear-gradient(to right, #8b5cf6, #f43f5e)' }}
               >
                 Νέο Παιχνίδι
@@ -369,54 +369,54 @@ const TetrisPage: React.FC = () => {
           )}
 
           {isPaused && isPlaying && !gameOver && (
-            <div className="bg-purple-900/30 backdrop-blur-sm border border-purple-400/30 p-4 rounded-xl text-center max-w-sm w-full">
-              <h2 className="text-xl font-bold text-purple-400">Παύση</h2>
-              <p className="text-sm text-purple-300 mt-1">Πατήστε το κουμπί παύσης για συνέχεια</p>
+            <div className="bg-purple-900/30 backdrop-blur-sm border border-purple-400/30 p-3 rounded-xl text-center max-w-sm w-full flex-shrink-0">
+              <h2 className="text-lg font-bold text-purple-400">Παύση</h2>
+              <p className="text-xs text-purple-300 mt-1">Πατήστε το κουμπί παύσης για συνέχεια</p>
             </div>
           )}
         </div>
 
         {/* Touch Controls - Bottom of screen */}
-        <div className="bg-black/30 backdrop-blur-sm border-t border-white/10 p-4">
-          <div className="grid grid-cols-4 gap-3 max-w-sm mx-auto">
+        <div className="bg-black/30 backdrop-blur-sm border-t border-white/10 p-3 flex-shrink-0">
+          <div className="grid grid-cols-4 gap-2 max-w-sm mx-auto">
             <button
               onClick={() => movePiece('left')}
-              className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-4 rounded-lg flex items-center justify-center transition-all duration-300 active:scale-95"
+              className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-3 rounded-lg flex items-center justify-center transition-all duration-300 active:scale-95"
               disabled={!isPlaying || isPaused || gameOver}
             >
-              <ArrowLeft className="h-6 w-6" />
+              <ArrowLeft className="h-5 w-5" />
             </button>
             <button
               onClick={() => movePiece('down')}
-              className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-4 rounded-lg flex items-center justify-center transition-all duration-300 active:scale-95"
+              className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-3 rounded-lg flex items-center justify-center transition-all duration-300 active:scale-95"
               disabled={!isPlaying || isPaused || gameOver}
             >
-              <ArrowDown className="h-6 w-6" />
+              <ArrowDown className="h-5 w-5" />
             </button>
             <button
               onClick={() => movePiece('right')}
-              className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-4 rounded-lg flex items-center justify-center transition-all duration-300 active:scale-95"
+              className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-3 rounded-lg flex items-center justify-center transition-all duration-300 active:scale-95"
               disabled={!isPlaying || isPaused || gameOver}
             >
-              <ArrowRight className="h-6 w-6" />
+              <ArrowRight className="h-5 w-5" />
             </button>
             <button
               onClick={rotatePieceHandler}
-              className="p-4 rounded-lg text-sm font-medium transition-all duration-300 shadow-lg text-white active:scale-95"
+              className="p-3 rounded-lg text-xs font-medium transition-all duration-300 shadow-lg text-white active:scale-95"
               style={{ 
                 background: 'linear-gradient(to right, #8b5cf6, #f43f5e)',
                 opacity: (!isPlaying || isPaused || gameOver) ? 0.5 : 1
               }}
               disabled={!isPlaying || isPaused || gameOver}
             >
-              <RotateCw className="h-6 w-6" />
+              <RotateCw className="h-5 w-5" />
             </button>
           </div>
           
           {/* Quick Drop Button */}
           <button
             onClick={dropPiece}
-            className="w-full mt-3 max-w-sm mx-auto block text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg text-sm active:scale-95"
+            className="w-full mt-2 max-w-sm mx-auto block text-white py-2 px-4 rounded-lg font-medium transition-all duration-300 shadow-lg text-xs active:scale-95"
             style={{ 
               background: 'linear-gradient(to right, #8b5cf6, #f43f5e)',
               opacity: (!isPlaying || isPaused || gameOver) ? 0.5 : 1
