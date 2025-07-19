@@ -46,8 +46,6 @@ const Contact: React.FC = () => {
                 </button>
               </div>
             </div>
-            </div>
-          </div>
             <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 md:p-8 text-center">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Έτοιμοι να Ξεκινήσουμε;</h3>
               <p className="text-gray-300 text-base md:text-lg mb-6 md:mb-8 max-w-md mx-auto">
@@ -97,6 +95,7 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
               </div>
+            </div>
           </div>
         </div>
       </section>
@@ -105,5 +104,3 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
-  )
-}
