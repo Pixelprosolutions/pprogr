@@ -289,7 +289,7 @@ const TetrisPage: React.FC = () => {
         {row.map((cell, x) => (
           <div
             key={x}
-            className="w-6 h-6 sm:w-7 sm:h-7 border border-gray-600 rounded-sm"
+            className="w-7 h-7 sm:w-8 sm:h-8 border border-gray-600 rounded-sm"
             style={{
               backgroundColor: cell === EMPTY_CELL ? 'rgba(0, 0, 0, 0.3)' : PIECE_COLORS[cell - 1],
               borderColor: cell === EMPTY_CELL ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.3)',
@@ -327,9 +327,9 @@ const TetrisPage: React.FC = () => {
         </div>
 
         {/* Game Area - Takes most of the screen */}
-        <div className="flex-1 flex flex-col items-center justify-center p-1 space-y-1 min-h-0">
+        <div className="flex-1 flex flex-col items-center justify-center p-1 min-h-0">
           {/* Score Bar - Horizontal on mobile */}
-          <div className="w-full max-w-xs bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-2 flex-shrink-0">
+          <div className="w-full max-w-sm bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-2 flex-shrink-0 mb-2">
             <div className="flex justify-between items-center text-xs">
               <div className="text-center">
                 <div className="text-xs text-gray-400">Σκορ</div>
@@ -347,7 +347,7 @@ const TetrisPage: React.FC = () => {
           </div>
 
           {/* Game Board - Centered and larger */}
-          <div className="bg-black/50 backdrop-blur-sm border border-white/20 p-1 rounded-xl shadow-lg flex-shrink-0">
+          <div className="bg-black/50 backdrop-blur-sm border border-white/20 p-2 rounded-xl shadow-lg flex-1 flex items-center justify-center max-h-[calc(100vh-200px)]">
             <div className="flex flex-col">
               {renderBoard()}
             </div>
@@ -355,7 +355,8 @@ const TetrisPage: React.FC = () => {
 
           {/* Game Status Messages */}
           {gameOver && (
-            <div className="bg-red-900/30 backdrop-blur-sm border p-3 rounded-xl text-center max-w-sm w-full flex-shrink-0" style={{ borderColor: '#f43f5e' }}>
+            <div className="absolute inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-10">
+              <div className="bg-red-900/30 backdrop-blur-sm border p-4 rounded-xl text-center max-w-sm w-full mx-4" style={{ borderColor: '#f43f5e' }}>
               <h2 className="text-lg font-bold mb-2" style={{ color: '#f43f5e' }}>Game Over!</h2>
               <p className="text-xs mb-2" style={{ color: '#f43f5e' }}>Τελικό Σκορ: {score.toLocaleString()}</p>
               <button
@@ -365,13 +366,16 @@ const TetrisPage: React.FC = () => {
               >
                 Νέο Παιχνίδι
               </button>
+              </div>
             </div>
           )}
 
           {isPaused && isPlaying && !gameOver && (
-            <div className="bg-purple-900/30 backdrop-blur-sm border border-purple-400/30 p-3 rounded-xl text-center max-w-sm w-full flex-shrink-0">
+            <div className="absolute inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-10">
+              <div className="bg-purple-900/30 backdrop-blur-sm border border-purple-400/30 p-4 rounded-xl text-center max-w-sm w-full mx-4">
               <h2 className="text-lg font-bold text-purple-400">Παύση</h2>
               <p className="text-xs text-purple-300 mt-1">Πατήστε το κουμπί παύσης για συνέχεια</p>
+              </div>
             </div>
           )}
         </div>
