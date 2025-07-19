@@ -57,9 +57,12 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-xl font-bold text-white mb-4">Επικοινωνήστε μαζί μας</h3>
             <ul className="space-y-3">
-              <li className="text-gray-300">Λεωφόρος Βασιλίσσης Σοφίας 123</li>
-              <li className="text-gray-300">Τ.Κ. 11521</li>
-              <li className="text-gray-300">Αθήνα, Ελλάδα</li>
+              <li className="text-gray-300 font-semibold">London Office:</li>
+              <li className="text-gray-300">DA16 3AP, London</li>
+              <li className="text-gray-300">United Kingdom</li>
+              <li className="text-gray-300 font-semibold mt-4">Greece Office:</li>
+              <li className="text-gray-300">60100, Katerini</li>
+              <li className="text-gray-300">Greece</li>
               <li className="text-gray-300">hello@pixelpro.solutions</li>
               <li className="text-gray-300">+30 697 3517 695</li>
             </ul>
