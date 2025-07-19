@@ -126,46 +126,46 @@ const Header: React.FC = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex space-x-4 xl:space-x-8">
+        <nav className="hidden lg:flex space-x-4 xl:space-x-8 items-center">
           <a 
             href="#home" 
-            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
+            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
           >
             Αρχική
           </a>
           <a 
             href="#services" 
-            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
+            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
           >
             Υπηρεσίες
           </a>
           <a 
             href="#about" 
-            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
+            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
           >
             Σχετικά
           </a>
           <a 
             href="#projects" 
-            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
+            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
           >
             Έργα
           </a>
           <a 
             href="#pricing" 
-            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
+            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
           >
             Τιμές
           </a>
           <a 
             href="#contact" 
-            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap"
+            className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
           >
             Επικοινωνία
           </a>
           <a 
             href="#contact" 
-            className="bg-white text-black py-2 px-3 xl:px-4 rounded-lg font-medium hover:bg-gray-200 transition-all duration-300 glow-on-hover text-sm xl:text-base whitespace-nowrap"
+            className="bg-white text-black py-2 px-3 xl:px-4 rounded-lg font-medium hover:bg-gray-200 transition-all duration-300 glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
             onClick={(e) => {
               e.preventDefault();
               (window as any).navigateToConsultation?.();
