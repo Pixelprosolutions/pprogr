@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Send, CheckCircle, User, Mail, Phone, Building, Globe, MessageSquare } from 'lucide-react';
+import { insertPackageSelection, type PackageSelection } from '../lib/supabase';
 
 interface FormData {
   name: string;
@@ -128,11 +129,31 @@ const PackageSelectionPage: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      const packageData: PackageSelection = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        website: formData.website || undefined,
+        social_media: formData.socialMedia,
+        address: formData.address || undefined,
+        city: formData.city || undefined,
+        selected_package: formData.selectedPackage,
+        additional_services: formData.additionalServices,
+        message: formData.message || undefined,
+        budget: formData.budget || undefined,
+        timeline: formData.timeline || undefined
+      };
 
-    setIsSubmitted(true);
-    setIsSubmitting(false);
+      await insertPackageSelection(packageData);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Error submitting package selection:', error);
+      alert('Υπήρξε ένα σφάλμα κατά την αποστολή της αίτησης. Παρακαλώ δοκιμάστε ξανά.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {

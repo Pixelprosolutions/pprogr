@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Send, CheckCircle, User, Mail, Phone, Building, Globe, MessageSquare } from 'lucide-react';
+import { insertConsultationRequest, type ConsultationRequest } from '../lib/supabase';
 
 interface FormData {
   name: string;
@@ -80,11 +81,27 @@ const ConsultationPage: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      const consultationData: ConsultationRequest = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || undefined,
+        company: formData.company || undefined,
+        website: formData.website || undefined,
+        message: formData.message || undefined,
+        services: formData.services,
+        budget: formData.budget || undefined,
+        timeline: formData.timeline || undefined
+      };
 
-    setIsSubmitted(true);
-    setIsSubmitting(false);
+      await insertConsultationRequest(consultationData);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Error submitting consultation request:', error);
+      alert('Υπήρξε ένα σφάλμα κατά την αποστολή της αίτησης. Παρακαλώ δοκιμάστε ξανά.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
