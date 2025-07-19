@@ -32,12 +32,6 @@ const HomePage: React.FC = () => {
               >
                 Δωρεάν Συμβουλευτική - 30 λεπτά
               </button>
-              <button
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-8 py-4 bg-transparent border border-white/30 text-white font-medium rounded-lg hover:bg-white/10 transition-colors glow-on-hover interactive text-lg"
-              >
-                Στείλτε μας Μήνυμα
-              </button>
             </div>
             <p className="text-gray-400 text-sm mt-4">
               Χωρίς δέσμευση • Απαντάμε εντός 24 ωρών
