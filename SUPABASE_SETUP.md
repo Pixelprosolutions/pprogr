@@ -96,56 +96,126 @@ BEGIN
 END;
 $$ language 'plpgsql';
 
--- Create triggers for updated_at
-CREATE TRIGGER update_consultation_requests_updated_at
-  BEFORE UPDATE ON consultation_requests
-  FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+-- Create triggers for updated_at (with IF NOT EXISTS check)
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_trigger 
+    WHERE tgname = 'update_consultation_requests_updated_at'
+  ) THEN
+    CREATE TRIGGER update_consultation_requests_updated_at
+      BEFORE UPDATE ON consultation_requests
+      FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+  END IF;
+END $$;
 
-CREATE TRIGGER update_package_selections_updated_at
-  BEFORE UPDATE ON package_selections
-  FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_trigger 
+    WHERE tgname = 'update_package_selections_updated_at'
+  ) THEN
+    CREATE TRIGGER update_package_selections_updated_at
+      BEFORE UPDATE ON package_selections
+      FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+  END IF;
+END $$;
 
 -- Enable Row Level Security
 ALTER TABLE consultation_requests ENABLE ROW LEVEL SECURITY;
 ALTER TABLE package_selections ENABLE ROW LEVEL SECURITY;
 
--- Policies for consultation_requests
-CREATE POLICY "Anyone can insert consultation requests"
-  ON consultation_requests
-  FOR INSERT
-  TO anon, authenticated
-  WITH CHECK (true);
+-- Policies for consultation_requests (with IF NOT EXISTS check)
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_policies 
+    WHERE tablename = 'consultation_requests' 
+    AND policyname = 'Anyone can insert consultation requests'
+  ) THEN
+    CREATE POLICY "Anyone can insert consultation requests"
+      ON consultation_requests
+      FOR INSERT
+      TO anon, authenticated
+      WITH CHECK (true);
+  END IF;
+END $$;
 
-CREATE POLICY "Service role can read all consultation requests"
-  ON consultation_requests
-  FOR SELECT
-  TO service_role
-  USING (true);
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_policies 
+    WHERE tablename = 'consultation_requests' 
+    AND policyname = 'Service role can read all consultation requests'
+  ) THEN
+    CREATE POLICY "Service role can read all consultation requests"
+      ON consultation_requests
+      FOR SELECT
+      TO service_role
+      USING (true);
+  END IF;
+END $$;
 
-CREATE POLICY "Service role can update consultation requests"
-  ON consultation_requests
-  FOR UPDATE
-  TO service_role
-  USING (true);
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_policies 
+    WHERE tablename = 'consultation_requests' 
+    AND policyname = 'Service role can update consultation requests'
+  ) THEN
+    CREATE POLICY "Service role can update consultation requests"
+      ON consultation_requests
+      FOR UPDATE
+      TO service_role
+      USING (true);
+  END IF;
+END $$;
 
--- Policies for package_selections
-CREATE POLICY "Anyone can insert package selections"
-  ON package_selections
-  FOR INSERT
-  TO anon, authenticated
-  WITH CHECK (true);
+-- Policies for package_selections (with IF NOT EXISTS check)
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_policies 
+    WHERE tablename = 'package_selections' 
+    AND policyname = 'Anyone can insert package selections'
+  ) THEN
+    CREATE POLICY "Anyone can insert package selections"
+      ON package_selections
+      FOR INSERT
+      TO anon, authenticated
+      WITH CHECK (true);
+  END IF;
+END $$;
 
-CREATE POLICY "Service role can read all package selections"
-  ON package_selections
-  FOR SELECT
-  TO service_role
-  USING (true);
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_policies 
+    WHERE tablename = 'package_selections' 
+    AND policyname = 'Service role can read all package selections'
+  ) THEN
+    CREATE POLICY "Service role can read all package selections"
+      ON package_selections
+      FOR SELECT
+      TO service_role
+      USING (true);
+  END IF;
+END $$;
 
-CREATE POLICY "Service role can update package selections"
-  ON package_selections
-  FOR UPDATE
-  TO service_role
-  USING (true);
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_policies 
+    WHERE tablename = 'package_selections' 
+    AND policyname = 'Service role can update package selections'
+  ) THEN
+    CREATE POLICY "Service role can update package selections"
+      ON package_selections
+      FOR UPDATE
+      TO service_role
+      USING (true);
+  END IF;
+END $$;
 ```
 
 5. Click **"Run"** to execute the migration
