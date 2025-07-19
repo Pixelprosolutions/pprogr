@@ -91,15 +91,15 @@ const ConsultationPage: React.FC = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-black/80 to-black/90 text-white p-4">
         <div className="container mx-auto max-w-2xl">
-          <div className="text-center py-20">
-            <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-12">
+          <div className="text-center py-12 md:py-20">
+            <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 md:p-12">
               <div className="mb-8">
-                <CheckCircle className="h-20 w-20 text-green-500 mx-auto mb-6" />
-                <h1 className="text-4xl font-bold text-white mb-4">Ευχαριστούμε!</h1>
-                <p className="text-gray-300 text-xl mb-6">
+                <CheckCircle className="h-16 w-16 md:h-20 md:w-20 text-green-500 mx-auto mb-6" />
+                <h1 className="text-2xl md:text-4xl font-bold text-white mb-4">Ευχαριστούμε!</h1>
+                <p className="text-gray-300 text-lg md:text-xl mb-6">
                   Η αίτησή σας για δωρεάν συμβουλευτική έχει σταλεί επιτυχώς.
                 </p>
-                <p className="text-gray-400 mb-8">
+                <p className="text-gray-400 mb-8 text-sm md:text-base">
                   Θα επικοινωνήσουμε μαζί σας εντός 24 ωρών για να προγραμματίσουμε τη συνάντησή μας.
                 </p>
               </div>
@@ -107,7 +107,7 @@ const ConsultationPage: React.FC = () => {
               <div className="space-y-4">
                 <button
                   onClick={() => (window as any).navigateToHome?.()}
-                  className="w-full text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg"
+                  className="w-full text-white py-4 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg text-sm md:text-base"
                   style={{ background: 'linear-gradient(to right, #8b5cf6, #f43f5e)' }}
                 >
                   Επιστροφή στην Αρχική
@@ -137,34 +137,34 @@ const ConsultationPage: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-black/80 to-black/90 text-white p-4">
       <div className="container mx-auto max-w-4xl">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8 bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-6">
+        <div className="flex items-center justify-between mb-6 md:mb-8 bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-4 md:p-6">
           <button
             onClick={() => (window as any).navigateToHome?.()}
-            className="flex items-center text-white hover:text-pink-400 transition-colors bg-white/10 backdrop-blur-sm border border-white/20 py-2 px-4 rounded-lg hover:bg-white/20"
+            className="flex items-center text-white hover:text-pink-400 transition-colors bg-white/10 backdrop-blur-sm border border-white/20 py-2 px-3 md:px-4 rounded-lg hover:bg-white/20 text-sm md:text-base"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
             Πίσω
           </button>
-          <h1 className="text-3xl font-bold text-center bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+          <h1 className="text-xl md:text-3xl font-bold text-center bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
             Δωρεάν Συμβουλευτική
           </h1>
-          <div className="w-20"></div>
+          <div className="w-16 md:w-20"></div>
         </div>
 
         {/* Form */}
-        <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-8">
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-white mb-4">Ας Γνωριστούμε!</h2>
-            <p className="text-gray-300">
+        <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-4 md:p-8">
+          <div className="mb-6 md:mb-8 text-center">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-4">Ας Γνωριστούμε!</h2>
+            <p className="text-gray-300 text-sm md:text-base px-2">
               Συμπληρώστε τη φόρμα παρακάτω και θα επικοινωνήσουμε μαζί σας εντός 24 ωρών για να συζητήσουμε τις ανάγκες της επιχείρησής σας.
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-8">
+          <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
             {/* Personal Information */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div>
-                <label className="block text-white font-medium mb-2">
+                <label className="block text-white font-medium mb-2 text-sm md:text-base">
                   <User className="inline h-4 w-4 mr-2" />
                   Όνομα *
                 </label>
@@ -174,14 +174,14 @@ const ConsultationPage: React.FC = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent"
+                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-sm md:text-base"
                   style={{ '--tw-ring-color': '#f43f5e' }}
                   placeholder="Το όνομά σας"
                 />
               </div>
 
               <div>
-                <label className="block text-white font-medium mb-2">
+                <label className="block text-white font-medium mb-2 text-sm md:text-base">
                   <Mail className="inline h-4 w-4 mr-2" />
                   Email *
                 </label>
@@ -191,14 +191,14 @@ const ConsultationPage: React.FC = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent"
+                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-sm md:text-base"
                   style={{ '--tw-ring-color': '#f43f5e' }}
                   placeholder="email@example.com"
                 />
               </div>
 
               <div>
-                <label className="block text-white font-medium mb-2">
+                <label className="block text-white font-medium mb-2 text-sm md:text-base">
                   <Phone className="inline h-4 w-4 mr-2" />
                   Τηλέφωνο
                 </label>
@@ -207,14 +207,14 @@ const ConsultationPage: React.FC = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent"
+                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-sm md:text-base"
                   style={{ '--tw-ring-color': '#f43f5e' }}
                   placeholder="+30 210 1234567"
                 />
               </div>
 
               <div>
-                <label className="block text-white font-medium mb-2">
+                <label className="block text-white font-medium mb-2 text-sm md:text-base">
                   <Building className="inline h-4 w-4 mr-2" />
                   Επιχείρηση
                 </label>
@@ -223,7 +223,7 @@ const ConsultationPage: React.FC = () => {
                   name="company"
                   value={formData.company}
                   onChange={handleInputChange}
-                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent"
+                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-sm md:text-base"
                   style={{ '--tw-ring-color': '#f43f5e' }}
                   placeholder="Όνομα επιχείρησης"
                 />
@@ -231,7 +231,7 @@ const ConsultationPage: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-white font-medium mb-2">
+              <label className="block text-white font-medium mb-2 text-sm md:text-base">
                 <Globe className="inline h-4 w-4 mr-2" />
                 Υπάρχων Ιστότοπος
               </label>
@@ -240,7 +240,7 @@ const ConsultationPage: React.FC = () => {
                 name="website"
                 value={formData.website}
                 onChange={handleInputChange}
-                className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent"
+                className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-sm md:text-base"
                 style={{ '--tw-ring-color': '#f43f5e' }}
                 placeholder="https://www.example.com"
               />
@@ -248,10 +248,10 @@ const ConsultationPage: React.FC = () => {
 
             {/* Services */}
             <div>
-              <label className="block text-white font-medium mb-4">
+              <label className="block text-white font-medium mb-4 text-sm md:text-base">
                 Ποιες υπηρεσίες σας ενδιαφέρουν; *
               </label>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
                 {serviceOptions.map((service) => (
                   <label key={service} className="flex items-center cursor-pointer">
                     <input
@@ -271,7 +271,7 @@ const ConsultationPage: React.FC = () => {
                         <CheckCircle className="h-3 w-3 text-white" />
                       )}
                     </div>
-                    <span className="text-gray-300 hover:text-white transition-colors">
+                    <span className="text-gray-300 hover:text-white transition-colors text-sm md:text-base">
                       {service}
                     </span>
                   </label>
@@ -280,16 +280,16 @@ const ConsultationPage: React.FC = () => {
             </div>
 
             {/* Budget and Timeline */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div>
-                <label className="block text-white font-medium mb-2">
+                <label className="block text-white font-medium mb-2 text-sm md:text-base">
                   Προϋπολογισμός
                 </label>
                 <select
                   name="budget"
                   value={formData.budget}
                   onChange={handleInputChange}
-                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:border-transparent"
+                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:border-transparent text-sm md:text-base"
                   style={{ '--tw-ring-color': '#f43f5e' }}
                 >
                   <option value="">Επιλέξτε προϋπολογισμό</option>
@@ -302,14 +302,14 @@ const ConsultationPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-white font-medium mb-2">
+                <label className="block text-white font-medium mb-2 text-sm md:text-base">
                   Χρονοδιάγραμμα
                 </label>
                 <select
                   name="timeline"
                   value={formData.timeline}
                   onChange={handleInputChange}
-                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:border-transparent"
+                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:border-transparent text-sm md:text-base"
                   style={{ '--tw-ring-color': '#f43f5e' }}
                 >
                   <option value="">Επιλέξτε χρονοδιάγραμμα</option>
@@ -324,7 +324,7 @@ const ConsultationPage: React.FC = () => {
 
             {/* Message */}
             <div>
-              <label className="block text-white font-medium mb-2">
+              <label className="block text-white font-medium mb-2 text-sm md:text-base">
                 <MessageSquare className="inline h-4 w-4 mr-2" />
                 Πείτε μας περισσότερα για το έργο σας
               </label>
@@ -333,7 +333,7 @@ const ConsultationPage: React.FC = () => {
                 value={formData.message}
                 onChange={handleInputChange}
                 rows={5}
-                className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent resize-none"
+                className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent resize-none text-sm md:text-base"
                 style={{ '--tw-ring-color': '#f43f5e' }}
                 placeholder="Περιγράψτε τους στόχους σας, τις προκλήσεις που αντιμετωπίζετε, ή οτιδήποτε άλλο θα θέλατε να μας πείτε..."
               />
@@ -344,7 +344,7 @@ const ConsultationPage: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting || !formData.name || !formData.email || formData.services.length === 0}
-                className="disabled:from-gray-500 disabled:to-gray-600 disabled:cursor-not-allowed text-white py-4 px-8 rounded-lg font-medium transition-all duration-300 shadow-lg flex items-center justify-center mx-auto min-w-[200px]"
+                className="disabled:from-gray-500 disabled:to-gray-600 disabled:cursor-not-allowed text-white py-4 px-6 md:px-8 rounded-lg font-medium transition-all duration-300 shadow-lg flex items-center justify-center mx-auto min-w-[200px] text-sm md:text-base"
                 style={{ 
                   background: isSubmitting || !formData.name || !formData.email || formData.services.length === 0 
                     ? 'linear-gradient(to right, #6b7280, #6b7280)' 
@@ -372,31 +372,31 @@ const ConsultationPage: React.FC = () => {
         </div>
 
         {/* Additional Info */}
-        <div className="mt-8 bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-6">
-          <h3 className="text-xl font-bold text-white mb-4">Τι να περιμένετε;</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mt-6 md:mt-8 bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-4 md:p-6">
+          <h3 className="text-lg md:text-xl font-bold text-white mb-4">Τι να περιμένετε;</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             <div className="text-center">
               <div className="rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: 'rgba(244, 63, 94, 0.2)' }}>
                 <span className="font-bold" style={{ color: '#f43f5e' }}>1</span>
               </div>
-              <h4 className="font-semibold text-white mb-2">Ανάλυση Αναγκών</h4>
-              <p className="text-gray-300 text-sm">Συζητάμε τους στόχους και τις προκλήσεις σας</p>
+              <h4 className="font-semibold text-white mb-2 text-sm md:text-base">Ανάλυση Αναγκών</h4>
+              <p className="text-gray-300 text-xs md:text-sm">Συζητάμε τους στόχους και τις προκλήσεις σας</p>
             </div>
             
             <div className="text-center">
               <div className="rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: 'rgba(244, 63, 94, 0.2)' }}>
                 <span className="font-bold" style={{ color: '#f43f5e' }}>2</span>
               </div>
-              <h4 className="font-semibold text-white mb-2">Προτάσεις Λύσεων</h4>
-              <p className="text-gray-300 text-sm">Παρουσιάζουμε προσαρμοσμένες στρατηγικές</p>
+              <h4 className="font-semibold text-white mb-2 text-sm md:text-base">Προτάσεις Λύσεων</h4>
+              <p className="text-gray-300 text-xs md:text-sm">Παρουσιάζουμε προσαρμοσμένες στρατηγικές</p>
             </div>
             
             <div className="text-center">
               <div className="rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: 'rgba(244, 63, 94, 0.2)' }}>
                 <span className="font-bold" style={{ color: '#f43f5e' }}>3</span>
               </div>
-              <h4 className="font-semibold text-white mb-2">Σχέδιο Δράσης</h4>
-              <p className="text-gray-300 text-sm">Δημιουργούμε ένα σαφές roadmap για την επιτυχία</p>
+              <h4 className="font-semibold text-white mb-2 text-sm md:text-base">Σχέδιο Δράσης</h4>
+              <p className="text-gray-300 text-xs md:text-sm">Δημιουργούμε ένα σαφές roadmap για την επιτυχία</p>
             </div>
           </div>
         </div>
