@@ -27,6 +27,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <div className="flex flex-col h-full">
         <div className="flex-grow">
           <h3 className="text-2xl font-bold text-white mb-4 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+          </h3>
           <h3 className="text-2xl font-bold text-white mb-4 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #c084fc, #f43f5e)' }}>
             {title}
           </h3>
@@ -35,8 +36,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             {tags.map((tag, index) => (
               <span
                 key={index}
-                className="bg-accent/50 backdrop-blur-sm border border-white/20 text-white py-1 px-3 rounded-lg text-sm"
-                className="backdrop-blur-sm border border-white/20 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg flex items-center"
+                className="bg-accent/50 backdrop-blur-sm border border-white/20 text-white py-1 px-3 rounded-lg text-sm backdrop-blur-sm border border-white/20 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg flex items-center"
                 style={{ 
                   backgroundColor: 'rgba(244, 63, 94, 0.5)',
                   boxShadow: '0 10px 15px -3px rgba(244, 63, 94, 0.1), 0 4px 6px -4px rgba(244, 63, 94, 0.1)'
@@ -180,6 +180,7 @@ const Projects: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+          </h2>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #c084fc, #f43f5e)' }}>
             Έργα & Μελέτες Περίπτωσης
           </h2>
