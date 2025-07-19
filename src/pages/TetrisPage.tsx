@@ -309,7 +309,7 @@ const TetrisPage: React.FC = () => {
         <div className="flex items-center justify-between p-3 bg-black/30 backdrop-blur-sm border-b border-white/10 flex-shrink-0">
           <button
             onClick={() => (window as any).navigateToHome?.()}
-            className="flex items-center text-white hover:text-pink-400 transition-colors bg-white/10 backdrop-blur-sm border border-white/20 py-1.5 px-2.5 rounded-lg hover:bg-white/20 text-sm"
+            className="flex items-center text-white hover:text-pink-400 transition-colors bg-white/10 backdrop-blur-sm border border-white/20 py-1.5 px-2.5 rounded-lg hover:bg-white/20 text-sm z-50"
           >
             <ArrowLeft className="h-4 w-4 mr-1.5" />
             Πίσω
@@ -319,7 +319,7 @@ const TetrisPage: React.FC = () => {
           </h1>
           <button
             onClick={() => setIsPaused(!isPaused)}
-            className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-1.5 rounded-lg transition-all duration-300"
+            className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-1.5 rounded-lg transition-all duration-300 z-50"
             disabled={!isPlaying || gameOver}
           >
             {isPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
@@ -373,8 +373,15 @@ const TetrisPage: React.FC = () => {
           {isPaused && isPlaying && !gameOver && (
             <div className="absolute inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-10">
               <div className="bg-purple-900/30 backdrop-blur-sm border border-purple-400/30 p-4 rounded-xl text-center max-w-sm w-full mx-4">
-              <h2 className="text-lg font-bold text-purple-400">Παύση</h2>
-              <p className="text-xs text-purple-300 mt-1">Πατήστε το κουμπί παύσης για συνέχεια</p>
+                <h2 className="text-lg font-bold text-purple-400">Παύση</h2>
+                <p className="text-xs text-purple-300 mt-1 mb-4">Πατήστε οπουδήποτε για συνέχεια</p>
+                <button
+                  onClick={() => setIsPaused(false)}
+                  className="w-full text-white py-3 px-4 rounded-lg font-medium transition-all duration-300 shadow-lg text-sm"
+                  style={{ background: 'linear-gradient(to right, #8b5cf6, #f43f5e)' }}
+                >
+                  Συνέχεια Παιχνιδιού
+                </button>
               </div>
             </div>
           )}
