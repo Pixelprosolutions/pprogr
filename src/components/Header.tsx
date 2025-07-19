@@ -112,7 +112,6 @@ const Header: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-sm z-50">
       <div className="container mx-auto px-4 py-8 md:py-10 flex justify-between items-center">
-      <div className="container mx-auto px-4 pt-16 pb-8 md:pt-20 md:pb-10 flex justify-between items-center">
         <div className="flex items-center">
           <a href="#home">
             <div
