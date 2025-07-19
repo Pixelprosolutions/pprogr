@@ -207,20 +207,25 @@ const Pricing: React.FC = () => {
         </div>
 
         {/* Important Note Section */}
-        <div className="mt-6 md:mt-8 relative bg-red-500/60 backdrop-blur-lg border border-red-500/20 rounded-xl p-4 md:p-6 shadow-lg shadow-red-500/10 overflow-hidden">
+        <div className="mt-6 md:mt-8 relative bg-red-500/60 backdrop-blur-lg border border-red-500/20 rounded-xl p-4 md:p-6 shadow-lg shadow-red-500/10 overflow-hidden transform hover:scale-[1.01] transition-all duration-300">
           {/* Inner glow effects for ice-like depth */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-xl pointer-events-none"></div>
-          <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-white/15 to-transparent rounded-t-xl pointer-events-none"></div>
-          <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-white/10 to-transparent rounded-l-xl pointer-events-none"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-white/25 via-white/5 to-transparent rounded-xl pointer-events-none"></div>
+          <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/20 via-white/8 to-transparent rounded-t-xl pointer-events-none"></div>
+          <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-white/15 via-white/5 to-transparent rounded-l-xl pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-1/4 h-1/4 bg-gradient-to-bl from-white/12 to-transparent rounded-tr-xl pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-red-300/10 to-transparent rounded-bl-xl pointer-events-none"></div>
+          
+          {/* Animated shimmer effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/8 to-transparent rounded-xl pointer-events-none animate-pulse"></div>
           
           {/* Content with relative positioning */}
           <div className="relative z-10">
-          <h4 className="text-base md:text-lg font-semibold text-white mb-2">Σημαντική Σημείωση</h4>
-          <p className="text-gray-300 text-sm md:text-base">
+          <h4 className="text-base md:text-lg font-semibold text-white mb-2 drop-shadow-sm">Σημαντική Σημείωση</h4>
+          <p className="text-gray-100 text-sm md:text-base drop-shadow-sm leading-relaxed">
             Το διαφημιστικό budget (Meta ή Google Ads) καταβάλλεται ξεχωριστά και απευθείας στην εκάστοτε πλατφόρμα.
             Η ομάδα μας αναλαμβάνει τη διαχείριση και τη βελτιστοποίηση των καμπανιών με βάση τους στόχους της επιχείρησής σας.
           </p>
-          <p className="text-gray-300 mt-2 text-sm md:text-base">
+          <p className="text-gray-100 mt-3 text-sm md:text-base drop-shadow-sm leading-relaxed">
             Ειδικές Ανάγκες; Προσφέρουμε και προσαρμοσμένα πακέτα για SEO, περιεχόμενο, email marketing, e-shop ή συμβουλευτική στρατηγικής.
           </p>
           </div>
