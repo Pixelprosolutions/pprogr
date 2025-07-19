@@ -46,11 +46,11 @@ const PIECES = [
 
 const PIECE_COLORS = [
   'rgba(196, 132, 252, 0.9)', // I-piece - purple-400
-  'rgba(219, 39, 119, 0.9)',  // O-piece - pink-600
+  'rgba(244, 63, 94, 0.9)',   // O-piece - brand accent
   'rgba(168, 85, 247, 0.9)',  // T-piece - purple-500
-  'rgba(244, 114, 182, 0.9)', // S-piece - pink-400
+  'rgba(244, 63, 94, 0.9)',   // S-piece - brand accent
   'rgba(147, 51, 234, 0.9)',  // Z-piece - purple-600
-  'rgba(236, 72, 153, 0.9)',  // J-piece - pink-500
+  'rgba(244, 63, 94, 0.9)',   // J-piece - brand accent
   'rgba(192, 132, 252, 0.9)'  // L-piece - purple-400
 ];
 
@@ -392,7 +392,11 @@ const TetrisPage: React.FC = () => {
               </button>
               <button
                 onClick={dropPiece}
-                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 p-4 rounded-lg text-sm font-medium transition-all duration-300 shadow-lg"
+                className="p-4 rounded-lg text-sm font-medium transition-all duration-300 shadow-lg text-white"
+                style={{ 
+                  background: `linear-gradient(to right, #8b5cf6, #f43f5e)`,
+                  ':hover': { background: `linear-gradient(to right, #7c3aed, #e11d48)` }
+                }}
                 disabled={!isPlaying || isPaused}
               >
                 Drop
@@ -408,7 +412,7 @@ const TetrisPage: React.FC = () => {
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span>Σκορ:</span>
-                  <span className="font-bold text-pink-400">{score.toLocaleString()}</span>
+                  <span className="font-bold" style={{ color: '#f43f5e' }}>{score.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Επίπεδο:</span>
@@ -416,7 +420,7 @@ const TetrisPage: React.FC = () => {
                 </div>
                 <div className="flex justify-between">
                   <span>Γραμμές:</span>
-                  <span className="font-bold text-pink-300">{lines}</span>
+                  <span className="font-bold" style={{ color: '#f43f5e' }}>{lines}</span>
                 </div>
               </div>
             </div>
@@ -428,7 +432,11 @@ const TetrisPage: React.FC = () => {
                 {!isPlaying ? (
                   <button
                     onClick={startNewGame}
-                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg"
+                    className="w-full text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg"
+                    style={{ 
+                      background: `linear-gradient(to right, #8b5cf6, #f43f5e)`,
+                      ':hover': { background: `linear-gradient(to right, #7c3aed, #e11d48)` }
+                    }}
                   >
                     {gameOver ? 'Νέο Παιχνίδι' : 'Έναρξη'}
                   </button>
@@ -447,7 +455,11 @@ const TetrisPage: React.FC = () => {
                       setIsPlaying(false);
                       setGameOver(true);
                     }}
-                    className="w-full bg-gradient-to-r from-red-500/80 to-pink-500/80 hover:from-red-600/80 hover:to-pink-600/80 backdrop-blur-sm border border-red-400/30 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300"
+                    className="w-full backdrop-blur-sm border border-red-400/30 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300"
+                    style={{ 
+                      background: `linear-gradient(to right, rgba(239, 68, 68, 0.8), rgba(244, 63, 94, 0.8))`,
+                      ':hover': { background: `linear-gradient(to right, rgba(220, 38, 38, 0.8), rgba(225, 29, 72, 0.8))` }
+                    }}
                   >
                     Τέλος Παιχνιδιού
                   </button>
@@ -469,9 +481,9 @@ const TetrisPage: React.FC = () => {
 
             {/* Game Status */}
             {gameOver && (
-              <div className="bg-red-900/30 backdrop-blur-sm border border-red-400/30 p-6 rounded-xl text-center">
-                <h2 className="text-2xl font-bold text-red-400 mb-2">Game Over!</h2>
-                <p className="text-red-300">Τελικό Σκορ: {score.toLocaleString()}</p>
+              <div className="bg-red-900/30 backdrop-blur-sm border p-6 rounded-xl text-center" style={{ borderColor: '#f43f5e' }}>
+                <h2 className="text-2xl font-bold mb-2" style={{ color: '#f43f5e' }}>Game Over!</h2>
+                <p style={{ color: '#f43f5e' }}>Τελικό Σκορ: {score.toLocaleString()}</p>
               </div>
             )}
 
