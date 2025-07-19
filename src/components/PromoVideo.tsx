@@ -52,12 +52,6 @@ const PromoVideo: React.FC = () => {
             
             {/* Gradient Overlay - on top of black overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none z-20"></div>
-            
-            {/* Caption */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 text-left z-30">
-              <h3 className="text-lg md:text-xl font-bold text-white">PixelPro Solutions: Βοηθώντας τις Τοπικές Επιχειρήσεις να Ευδοκιμήσουν στο Διαδίκτυο</h3>
-              <p className="text-gray-300 mt-2 text-sm md:text-base">Ανακαλύψτε πώς δημιουργούμε ιστορίες ψηφιακής επιτυχίας για επιχειρήσεις σαν τη δική σας</p>
-            </div>
           </div>
         </div>
 
