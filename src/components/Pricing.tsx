@@ -191,10 +191,7 @@ const Pricing: React.FC = () => {
             {/* Consultation Button - For those who don't know what they need */}
             <button 
               className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
-              onClick={() => {
-                const contactSection = document.getElementById('contact');
-                contactSection?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={() => (window as any).navigateToConsultation?.()}
             >
               Δεν είστε σίγουροι; Δωρεάν Συμβουλευτική
             </button>

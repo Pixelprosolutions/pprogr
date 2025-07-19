@@ -55,7 +55,7 @@ const Contact: React.FC = () => {
               
               <div className="space-y-4">
                 <button
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => (window as any).navigateToConsultation?.()}
                   className="w-full bg-white text-black font-medium py-4 px-8 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center text-lg"
                 >
                   Επικοινωνήστε Μαζί μας
@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
                 </button>
                 
                 <button
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => (window as any).navigateToConsultation?.()}
                   className="w-full bg-transparent border border-white/30 text-white font-medium py-4 px-8 rounded-lg hover:bg-white/10 transition-colors flex items-center justify-center text-lg"
                 >
                   Δωρεάν Συμβουλευτική

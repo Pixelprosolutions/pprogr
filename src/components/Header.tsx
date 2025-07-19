@@ -166,6 +166,10 @@ const Header: React.FC = () => {
           <a 
             href="#contact" 
             className="bg-white text-black py-2 px-3 xl:px-4 rounded-lg font-medium hover:bg-gray-200 transition-all duration-300 glow-on-hover text-sm xl:text-base whitespace-nowrap"
+            onClick={(e) => {
+              e.preventDefault();
+              (window as any).navigateToConsultation?.();
+            }}
           >
             Δωρεάν Συμβουλευτική
           </a>
@@ -228,9 +232,13 @@ const Header: React.FC = () => {
                 Επικοινωνία
               </a>
               <a 
-                href="#contact" 
+                href="#consultation" 
                 className="bg-white text-black py-3 px-4 rounded-lg font-medium hover:bg-gray-200 transition-all duration-300"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsMobileMenuOpen(false);
+                  (window as any).navigateToConsultation?.();
+                }}
               >
                 Δωρεάν Συμβουλευτική
               </a>

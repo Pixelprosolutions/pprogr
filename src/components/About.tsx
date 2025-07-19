@@ -184,10 +184,7 @@ const About: React.FC<AboutProps> = ({ isHomepage = false }) => {
               </div>
               <div className="text-center mt-16">
                 <button
-                  onClick={() => {
-                    const contactSection = document.getElementById('contact');
-                    contactSection?.scrollIntoView({ behavior: 'smooth' });
-                  }}
+                  onClick={() => (window as any).navigateToConsultation?.()}
                   className="bg-accent-500 backdrop-blur-sm border border-white/20 text-white py-3 px-6 rounded-lg font-medium hover:bg-accent-600 transition-all duration-300 shadow-lg hover:shadow-accent/20"
                 >
                   Δωρεάν Συμβουλευτική

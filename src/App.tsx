@@ -4,11 +4,12 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import TetrisPage from './pages/TetrisPage';
+import ConsultationPage from './pages/ConsultationPage';
 
 function App() {
   const [_, setMousePosition] = useState({ x: 0, y: 0 });
   const [headerTransform, setHeaderTransform] = useState('');
-  const [currentPage, setCurrentPage] = useState<'home' | 'tetris'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'tetris' | 'consultation'>('home');
   const sectionsRef = useRef<HTMLElement[]>([]);
   
   useEffect(() => {
@@ -63,11 +64,13 @@ function App() {
   // Handle navigation
   const navigateToTetris = () => setCurrentPage('tetris');
   const navigateToHome = () => setCurrentPage('home');
+  const navigateToConsultation = () => setCurrentPage('consultation');
 
   // Make navigation functions available globally
   useEffect(() => {
     (window as any).navigateToTetris = navigateToTetris;
     (window as any).navigateToHome = navigateToHome;
+    (window as any).navigateToConsultation = navigateToConsultation;
   }, []);
 
   return (
@@ -77,14 +80,18 @@ function App() {
         className="relative z-10"
         style={{ transform: headerTransform, transition: 'transform 0.5s ease-out' }}
       >
-        {currentPage === 'home' ? (
+        {currentPage === 'home' && (
           <>
             <Header />
             <HomePage />
             <Footer />
           </>
-        ) : (
+        )}
+        {currentPage === 'tetris' && (
           <TetrisPage />
+        )}
+        {currentPage === 'consultation' && (
+          <ConsultationPage />
         )}
       </div>
     </div>
