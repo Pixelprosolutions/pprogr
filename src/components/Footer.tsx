@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
               &copy; {new Date().getFullYear()} PixelPro Solutions. Με επιφύλαξη παντός δικαιώματος.
             </p>
             <p className="text-gray-400 text-sm">
-              Registered company in England and Wales | Company Number: 14690444
+              Registered company in England and Wales | Company Number: <a href="https://find-and-update.company-information.service.gov.uk/company/14690444" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white underline transition-colors">14690444</a>
             </p>
           </div>
         </div>
