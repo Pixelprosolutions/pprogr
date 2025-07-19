@@ -3,7 +3,7 @@ import { ArrowLeft, RotateCw, ArrowDown, ArrowRight, Pause, Play } from 'lucide-
 
 // Tetris game constants - optimized for mobile
 const BOARD_WIDTH = 8; // Reduced from 10 for mobile
-const BOARD_HEIGHT = 16; // Reduced from 20 for mobile
+const BOARD_HEIGHT = 14; // Further reduced for better fit
 const EMPTY_CELL = 0;
 
 // Tetris pieces (tetrominoes)
@@ -289,7 +289,7 @@ const TetrisPage: React.FC = () => {
         {row.map((cell, x) => (
           <div
             key={x}
-            className="w-8 h-8 sm:w-10 sm:h-10 border border-gray-600 rounded-sm"
+            className="w-6 h-6 sm:w-7 sm:h-7 border border-gray-600 rounded-sm"
             style={{
               backgroundColor: cell === EMPTY_CELL ? 'rgba(0, 0, 0, 0.3)' : PIECE_COLORS[cell - 1],
               borderColor: cell === EMPTY_CELL ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.3)',
@@ -327,9 +327,9 @@ const TetrisPage: React.FC = () => {
         </div>
 
         {/* Game Area - Takes most of the screen */}
-        <div className="flex-1 flex flex-col items-center justify-center p-2 space-y-2 min-h-0">
+        <div className="flex-1 flex flex-col items-center justify-center p-1 space-y-1 min-h-0">
           {/* Score Bar - Horizontal on mobile */}
-          <div className="w-full max-w-sm bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-2 flex-shrink-0">
+          <div className="w-full max-w-xs bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-2 flex-shrink-0">
             <div className="flex justify-between items-center text-xs">
               <div className="text-center">
                 <div className="text-xs text-gray-400">Σκορ</div>
@@ -347,7 +347,7 @@ const TetrisPage: React.FC = () => {
           </div>
 
           {/* Game Board - Centered and larger */}
-          <div className="bg-black/50 backdrop-blur-sm border border-white/20 p-2 rounded-xl shadow-lg flex-shrink-0">
+          <div className="bg-black/50 backdrop-blur-sm border border-white/20 p-1 rounded-xl shadow-lg flex-shrink-0">
             <div className="flex flex-col">
               {renderBoard()}
             </div>
