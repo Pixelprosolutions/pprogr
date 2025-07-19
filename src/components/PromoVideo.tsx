@@ -27,7 +27,7 @@ const PromoVideo: React.FC = () => {
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto rounded-lg overflow-hidden group border border-white/10 mx-4">
+        <div className="relative max-w-4xl mx-auto rounded-lg overflow-hidden group border border-white/10">
           {/* Video Thumbnail with Play Button */}
           <div 
             className="relative aspect-video cursor-pointer"
