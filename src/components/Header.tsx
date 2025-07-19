@@ -24,7 +24,7 @@ const Header: React.FC = () => {
   // Render the interactive logo
   const renderLogo = () => {
     const logoPixels = [];
-    const logoSize = window.innerWidth < 768 ? 8 : 15; // Smaller on mobile (45% reduction)
+    const logoSize = window.innerWidth < 768 ? 8 : 10; // Mobile: 8px, Desktop: 10px (35% smaller than original 15px)
     const logoGap = 1; // Gap between pixels
 
     // Define the logo pattern - 1 means pixel, 0 means no pixel
@@ -116,7 +116,7 @@ const Header: React.FC = () => {
           <a href="#home">
             <div
               ref={logoRef}
-              className="relative h-[60px] w-[45px] md:h-[60px] md:w-[45px] h-[33px] w-[25px] logo-container interactive cursor-pointer"
+              className="relative h-[33px] w-[25px] md:h-[39px] md:w-[29px] logo-container interactive cursor-pointer"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
