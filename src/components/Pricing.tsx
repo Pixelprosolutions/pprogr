@@ -183,6 +183,7 @@ const Pricing: React.FC = () => {
                   : 'opacity-50 cursor-not-allowed'
               }`}
               disabled={!hasSelectedServices()}
+              onClick={() => hasSelectedServices() && (window as any).navigateToPackageSelection?.()}
             >
               Επιλέξτε το {selectedPackage} Πακέτο
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -206,7 +207,7 @@ const Pricing: React.FC = () => {
         </div>
 
         {/* Important Note Section */}
-        <div className="mt-6 md:mt-8 bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-4 md:p-6">
+        <div className="mt-6 md:mt-8 bg-red-500/70 backdrop-blur-sm border border-red-500/30 rounded-lg p-4 md:p-6">
           <h4 className="text-base md:text-lg font-semibold text-white mb-2">Σημαντική Σημείωση</h4>
           <p className="text-gray-300 text-sm md:text-base">
             Το διαφημιστικό budget (Meta ή Google Ads) καταβάλλεται ξεχωριστά και απευθείας στην εκάστοτε πλατφόρμα.

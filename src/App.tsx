@@ -5,11 +5,12 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import TetrisPage from './pages/TetrisPage';
 import ConsultationPage from './pages/ConsultationPage';
+import PackageSelectionPage from './pages/PackageSelectionPage';
 
 function App() {
   const [_, setMousePosition] = useState({ x: 0, y: 0 });
   const [headerTransform, setHeaderTransform] = useState('');
-  const [currentPage, setCurrentPage] = useState<'home' | 'tetris' | 'consultation'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'tetris' | 'consultation' | 'package-selection'>('home');
   const sectionsRef = useRef<HTMLElement[]>([]);
   
   useEffect(() => {
@@ -65,12 +66,14 @@ function App() {
   const navigateToTetris = () => setCurrentPage('tetris');
   const navigateToHome = () => setCurrentPage('home');
   const navigateToConsultation = () => setCurrentPage('consultation');
+  const navigateToPackageSelection = () => setCurrentPage('package-selection');
 
   // Make navigation functions available globally
   useEffect(() => {
     (window as any).navigateToTetris = navigateToTetris;
     (window as any).navigateToHome = navigateToHome;
     (window as any).navigateToConsultation = navigateToConsultation;
+    (window as any).navigateToPackageSelection = navigateToPackageSelection;
   }, []);
 
   return (
@@ -92,6 +95,9 @@ function App() {
         )}
         {currentPage === 'consultation' && (
           <ConsultationPage />
+        )}
+        {currentPage === 'package-selection' && (
+          <PackageSelectionPage />
         )}
       </div>
     </div>
