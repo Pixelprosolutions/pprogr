@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
         <div className="container mx-auto px-6 py-32 md:py-48 flex items-center justify-center min-h-[calc(100vh-80px)]">
           <div className="text-center max-w-3xl space-y-8">
             <h1 className="text-4xl md:text-6xl font-bold text-white">
-              Βοηθώντας τις Τοπικές Επιχειρήσεις να <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #c084fc, #f43f5e)' }}>Αναπτυχθούν στο Διαδίκτυο</span>
+              Χτίζουμε Ιστοσελίδες & Ψηφιακές Στρατηγικές που <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #c084fc, #f43f5e)' }}>Φέρνουν Πελάτες, Όχι Likes</span>
             </h1>
             <p className="text-gray-300 text-lg md:text-xl">
               Δημιουργούμε ιστότοπους και στρατηγικές ψηφιακού μάρκετινγκ που βοηθούν τις τοπικές επιχειρήσεις να προσελκύσουν περισσότερους πελάτες και να αυξήσουν τα έσοδά τους.
