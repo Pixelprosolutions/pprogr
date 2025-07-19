@@ -107,7 +107,8 @@ const ConsultationPage: React.FC = () => {
               <div className="space-y-4">
                 <button
                   onClick={() => (window as any).navigateToHome?.()}
-                  className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg"
+                  className="w-full text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg"
+                  style={{ background: 'linear-gradient(to right, #8b5cf6, #f43f5e)' }}
                 >
                   Επιστροφή στην Αρχική
                 </button>
@@ -115,12 +116,12 @@ const ConsultationPage: React.FC = () => {
                 <div className="text-center text-gray-400 text-sm">
                   <p>Ή επικοινωνήστε απευθείας:</p>
                   <p className="mt-2">
-                    <a href="mailto:info@pixelpro.gr" className="text-purple-400 hover:text-purple-300">
+                    <a href="mailto:info@pixelpro.gr" style={{ color: '#f43f5e' }} className="hover:opacity-80">
                       info@pixelpro.gr
                     </a>
                     {' | '}
-                    <a href="tel:+302101234567" className="text-purple-400 hover:text-purple-300">
-                      +30 210 1234567
+                    <a href="tel:+302101234567" style={{ color: '#f43f5e' }} className="hover:opacity-80">
+                      +302101234567
                     </a>
                   </p>
                 </div>
@@ -173,7 +174,8 @@ const ConsultationPage: React.FC = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent"
+                  style={{ '--tw-ring-color': '#f43f5e' }}
                   placeholder="Το όνομά σας"
                 />
               </div>
@@ -189,7 +191,8 @@ const ConsultationPage: React.FC = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent"
+                  style={{ '--tw-ring-color': '#f43f5e' }}
                   placeholder="email@example.com"
                 />
               </div>
@@ -204,7 +207,8 @@ const ConsultationPage: React.FC = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent"
+                  style={{ '--tw-ring-color': '#f43f5e' }}
                   placeholder="+30 210 1234567"
                 />
               </div>
@@ -219,7 +223,8 @@ const ConsultationPage: React.FC = () => {
                   name="company"
                   value={formData.company}
                   onChange={handleInputChange}
-                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent"
+                  style={{ '--tw-ring-color': '#f43f5e' }}
                   placeholder="Όνομα επιχείρησης"
                 />
               </div>
@@ -235,7 +240,8 @@ const ConsultationPage: React.FC = () => {
                 name="website"
                 value={formData.website}
                 onChange={handleInputChange}
-                className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent"
+                style={{ '--tw-ring-color': '#f43f5e' }}
                 placeholder="https://www.example.com"
               />
             </div>
@@ -254,11 +260,13 @@ const ConsultationPage: React.FC = () => {
                       onChange={() => handleServiceChange(service)}
                       className="sr-only"
                     />
-                    <div className={`w-5 h-5 rounded border-2 mr-3 flex items-center justify-center transition-all duration-200 ${
-                      formData.services.includes(service)
-                        ? 'bg-purple-500 border-purple-500'
-                        : 'border-white/30 hover:border-purple-400'
-                    }`}>
+                    <div 
+                      className={`w-5 h-5 rounded border-2 mr-3 flex items-center justify-center transition-all duration-200`}
+                      style={{
+                        backgroundColor: formData.services.includes(service) ? '#f43f5e' : 'transparent',
+                        borderColor: formData.services.includes(service) ? '#f43f5e' : 'rgba(255, 255, 255, 0.3)'
+                      }}
+                    >
                       {formData.services.includes(service) && (
                         <CheckCircle className="h-3 w-3 text-white" />
                       )}
@@ -281,7 +289,8 @@ const ConsultationPage: React.FC = () => {
                   name="budget"
                   value={formData.budget}
                   onChange={handleInputChange}
-                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:border-transparent"
+                  style={{ '--tw-ring-color': '#f43f5e' }}
                 >
                   <option value="">Επιλέξτε προϋπολογισμό</option>
                   {budgetOptions.map((budget) => (
@@ -300,7 +309,8 @@ const ConsultationPage: React.FC = () => {
                   name="timeline"
                   value={formData.timeline}
                   onChange={handleInputChange}
-                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:border-transparent"
+                  style={{ '--tw-ring-color': '#f43f5e' }}
                 >
                   <option value="">Επιλέξτε χρονοδιάγραμμα</option>
                   {timelineOptions.map((timeline) => (
@@ -323,7 +333,8 @@ const ConsultationPage: React.FC = () => {
                 value={formData.message}
                 onChange={handleInputChange}
                 rows={5}
-                className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none"
+                className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent resize-none"
+                style={{ '--tw-ring-color': '#f43f5e' }}
                 placeholder="Περιγράψτε τους στόχους σας, τις προκλήσεις που αντιμετωπίζετε, ή οτιδήποτε άλλο θα θέλατε να μας πείτε..."
               />
             </div>
@@ -333,7 +344,12 @@ const ConsultationPage: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting || !formData.name || !formData.email || formData.services.length === 0}
-                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 disabled:from-gray-500 disabled:to-gray-600 disabled:cursor-not-allowed text-white py-4 px-8 rounded-lg font-medium transition-all duration-300 shadow-lg flex items-center justify-center mx-auto min-w-[200px]"
+                className="disabled:from-gray-500 disabled:to-gray-600 disabled:cursor-not-allowed text-white py-4 px-8 rounded-lg font-medium transition-all duration-300 shadow-lg flex items-center justify-center mx-auto min-w-[200px]"
+                style={{ 
+                  background: isSubmitting || !formData.name || !formData.email || formData.services.length === 0 
+                    ? 'linear-gradient(to right, #6b7280, #6b7280)' 
+                    : 'linear-gradient(to right, #8b5cf6, #f43f5e)'
+                }}
               >
                 {isSubmitting ? (
                   <>
@@ -360,24 +376,24 @@ const ConsultationPage: React.FC = () => {
           <h3 className="text-xl font-bold text-white mb-4">Τι να περιμένετε;</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
-              <div className="bg-purple-500/20 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
-                <span className="text-purple-400 font-bold">1</span>
+              <div className="rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: 'rgba(244, 63, 94, 0.2)' }}>
+                <span className="font-bold" style={{ color: '#f43f5e' }}>1</span>
               </div>
               <h4 className="font-semibold text-white mb-2">Ανάλυση Αναγκών</h4>
               <p className="text-gray-300 text-sm">Συζητάμε τους στόχους και τις προκλήσεις σας</p>
             </div>
             
             <div className="text-center">
-              <div className="bg-purple-500/20 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
-                <span className="text-purple-400 font-bold">2</span>
+              <div className="rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: 'rgba(244, 63, 94, 0.2)' }}>
+                <span className="font-bold" style={{ color: '#f43f5e' }}>2</span>
               </div>
               <h4 className="font-semibold text-white mb-2">Προτάσεις Λύσεων</h4>
               <p className="text-gray-300 text-sm">Παρουσιάζουμε προσαρμοσμένες στρατηγικές</p>
             </div>
             
             <div className="text-center">
-              <div className="bg-purple-500/20 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
-                <span className="text-purple-400 font-bold">3</span>
+              <div className="rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: 'rgba(244, 63, 94, 0.2)' }}>
+                <span className="font-bold" style={{ color: '#f43f5e' }}>3</span>
               </div>
               <h4 className="font-semibold text-white mb-2">Σχέδιο Δράσης</h4>
               <p className="text-gray-300 text-sm">Δημιουργούμε ένα σαφές roadmap για την επιτυχία</p>

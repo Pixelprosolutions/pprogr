@@ -27,6 +27,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <div className="flex flex-col h-full">
         <div className="flex-grow">
           <h3 className="text-2xl font-bold text-white mb-4 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+          <h3 className="text-2xl font-bold text-white mb-4 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #c084fc, #f43f5e)' }}>
             {title}
           </h3>
           <p className="text-gray-300/80 text-xl leading-relaxed mb-6">{description}</p>
@@ -35,6 +36,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               <span
                 key={index}
                 className="bg-accent/50 backdrop-blur-sm border border-white/20 text-white py-1 px-3 rounded-lg text-sm"
+                className="backdrop-blur-sm border border-white/20 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg flex items-center"
+                style={{ 
+                  backgroundColor: 'rgba(244, 63, 94, 0.5)',
+                  boxShadow: '0 10px 15px -3px rgba(244, 63, 94, 0.1), 0 4px 6px -4px rgba(244, 63, 94, 0.1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(244, 63, 94, 0.7)';
+                  e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(244, 63, 94, 0.2), 0 4px 6px -4px rgba(244, 63, 94, 0.2)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(244, 63, 94, 0.5)';
+                  e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(244, 63, 94, 0.1), 0 4px 6px -4px rgba(244, 63, 94, 0.1)';
+                }}
               >
                 {tag}
               </span>
@@ -69,8 +83,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 {metrics.length > 0 && (
                   <div className="grid grid-cols-2 gap-4">
                     {metrics.map((metric, i) => (
-                      <div key={i} className="bg-pink-500/10 p-3 rounded-lg border border-pink-500/20">
-                        <p className="text-pink-400 text-sm">{metric}</p>
+                      <div key={i} className="p-3 rounded-lg border" style={{ backgroundColor: 'rgba(244, 63, 94, 0.1)', borderColor: 'rgba(244, 63, 94, 0.2)' }}>
+                        <p className="text-sm" style={{ color: '#f43f5e' }}>{metric}</p>
                       </div>
                     ))}
                   </div>
@@ -166,6 +180,7 @@ const Projects: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #c084fc, #f43f5e)' }}>
             Έργα & Μελέτες Περίπτωσης
           </h2>
           <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto">
