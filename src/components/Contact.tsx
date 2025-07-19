@@ -73,7 +73,7 @@ const Contact: React.FC = () => {
               <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-white/10">
                 <p className="text-gray-400 text-sm mb-4">Ή επικοινωνήστε απευθείας:</p>
                 <div className="space-y-2 text-center text-gray-300 text-sm md:text-base">
-                  <a href="mailto:info@pixelpro.gr" className="flex items-center hover:text-white transition-colors">
+                  <a href="mailto:hello@pixelpro.solutions" className="flex items-center justify-center hover:text-white transition-colors">
                     <Mail className="h-4 w-4 mr-2" />
                     hello@pixelpro.solutions
                   </a>
