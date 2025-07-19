@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { ArrowLeft, RotateCw, ArrowDown, ArrowRight } from 'lucide-react';
+import { ArrowLeft, RotateCw, ArrowDown, ArrowRight, Pause, Play } from 'lucide-react';
 
-// Tetris game constants
-const BOARD_WIDTH = 10;
-const BOARD_HEIGHT = 20;
+// Tetris game constants - optimized for mobile
+const BOARD_WIDTH = 8; // Reduced from 10 for mobile
+const BOARD_HEIGHT = 16; // Reduced from 20 for mobile
 const EMPTY_CELL = 0;
 
 // Tetris pieces (tetrominoes)
@@ -75,7 +75,7 @@ const TetrisPage: React.FC = () => {
   const [lines, setLines] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true); // Auto-start
   const gameLoopRef = useRef<NodeJS.Timeout | null>(null);
 
   // Create a new random piece
@@ -220,49 +220,17 @@ const TetrisPage: React.FC = () => {
     setTimeout(() => movePiece('down'), 50);
   }, [currentPiece, gameOver, isPaused, canPlacePiece, movePiece]);
 
-  // Handle keyboard input
+  // Auto-start game
   useEffect(() => {
-    const handleKeyPress = (event: KeyboardEvent) => {
-      if (!isPlaying) return;
-
-      switch (event.key) {
-        case 'ArrowLeft':
-          event.preventDefault();
-          movePiece('left');
-          break;
-        case 'ArrowRight':
-          event.preventDefault();
-          movePiece('right');
-          break;
-        case 'ArrowDown':
-          event.preventDefault();
-          movePiece('down');
-          break;
-        case 'ArrowUp':
-        case ' ':
-          event.preventDefault();
-          rotatePieceHandler();
-          break;
-        case 'Enter':
-          event.preventDefault();
-          dropPiece();
-          break;
-        case 'p':
-        case 'P':
-          event.preventDefault();
-          setIsPaused(prev => !prev);
-          break;
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [isPlaying, movePiece, rotatePieceHandler, dropPiece]);
+    if (!currentPiece && !gameOver) {
+      setCurrentPiece(createNewPiece());
+    }
+  }, [currentPiece, gameOver, createNewPiece]);
 
   // Game loop
   useEffect(() => {
     if (isPlaying && !isPaused && !gameOver) {
-      const speed = Math.max(100, 1000 - (level - 1) * 100);
+      const speed = Math.max(300, 1200 - (level - 1) * 100); // Slower for mobile
       gameLoopRef.current = setInterval(() => {
         movePiece('down');
       }, speed);
@@ -297,7 +265,7 @@ const TetrisPage: React.FC = () => {
     setIsPlaying(true);
   };
 
-  // Render the game board
+  // Render the game board with larger blocks for mobile
   const renderBoard = () => {
     const displayBoard = board.map(row => [...row]);
     
@@ -321,10 +289,11 @@ const TetrisPage: React.FC = () => {
         {row.map((cell, x) => (
           <div
             key={x}
-            className="w-6 h-6 border border-gray-600"
+            className="w-8 h-8 sm:w-10 sm:h-10 border border-gray-600 rounded-sm"
             style={{
               backgroundColor: cell === EMPTY_CELL ? 'rgba(0, 0, 0, 0.3)' : PIECE_COLORS[cell - 1],
-              borderColor: cell === EMPTY_CELL ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.3)'
+              borderColor: cell === EMPTY_CELL ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.3)',
+              boxShadow: cell !== EMPTY_CELL ? '0 2px 4px rgba(0,0,0,0.3)' : 'none'
             }}
           />
         ))}
@@ -333,166 +302,129 @@ const TetrisPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black/80 to-black/90 text-white p-4">
-      <div className="container mx-auto">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-8 bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-6">
+    <div className="min-h-screen bg-gradient-to-br from-black/80 to-black/90 text-white">
+      {/* Mobile-first layout */}
+      <div className="flex flex-col h-screen">
+        {/* Header - Compact for mobile */}
+        <div className="flex items-center justify-between p-4 bg-black/30 backdrop-blur-sm border-b border-white/10">
           <button
-            onClick={() => window.history.back()}
-            className="flex items-center text-white hover:text-pink-400 transition-colors bg-white/10 backdrop-blur-sm border border-white/20 py-2 px-4 rounded-lg hover:bg-white/20"
+            onClick={() => (window as any).navigateToHome?.()}
+            className="flex items-center text-white hover:text-pink-400 transition-colors bg-white/10 backdrop-blur-sm border border-white/20 py-2 px-3 rounded-lg hover:bg-white/20"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
             Πίσω
           </button>
-          <h1 className="text-4xl font-bold text-center bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+          <h1 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
             Παιχνίδι
           </h1>
-          <div className="w-20"></div>
+          <button
+            onClick={() => setIsPaused(!isPaused)}
+            className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-2 rounded-lg transition-all duration-300"
+            disabled={!isPlaying || gameOver}
+          >
+            {isPaused ? <Play className="h-5 w-5" /> : <Pause className="h-5 w-5" />}
+          </button>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8 items-start justify-center">
-          {/* Game Board */}
-          <div className="flex flex-col items-center">
-            <div className="bg-black/50 backdrop-blur-sm border border-white/20 p-4 rounded-xl shadow-lg">
-              <div className="flex flex-col">
-                {renderBoard()}
+        {/* Game Area - Takes most of the screen */}
+        <div className="flex-1 flex flex-col items-center justify-center p-4 space-y-4">
+          {/* Score Bar - Horizontal on mobile */}
+          <div className="w-full max-w-sm bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-3">
+            <div className="flex justify-between items-center text-sm">
+              <div className="text-center">
+                <div className="text-xs text-gray-400">Σκορ</div>
+                <div className="font-bold" style={{ color: '#f43f5e' }}>{score.toLocaleString()}</div>
               </div>
-            </div>
-
-            {/* Mobile Controls */}
-            <div className="lg:hidden mt-6 grid grid-cols-3 gap-4 w-full max-w-xs">
-              <button
-                onClick={() => movePiece('left')}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-4 rounded-lg flex items-center justify-center transition-all duration-300"
-                disabled={!isPlaying || isPaused}
-              >
-                <ArrowLeft className="h-6 w-6" />
-              </button>
-              <button
-                onClick={rotatePieceHandler}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-4 rounded-lg flex items-center justify-center transition-all duration-300"
-                disabled={!isPlaying || isPaused}
-              >
-                <RotateCw className="h-6 w-6" />
-              </button>
-              <button
-                onClick={() => movePiece('right')}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-4 rounded-lg flex items-center justify-center transition-all duration-300"
-                disabled={!isPlaying || isPaused}
-              >
-                <ArrowRight className="h-6 w-6" />
-              </button>
-              <div></div>
-              <button
-                onClick={() => movePiece('down')}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-4 rounded-lg flex items-center justify-center transition-all duration-300"
-                disabled={!isPlaying || isPaused}
-              >
-                <ArrowDown className="h-6 w-6" />
-              </button>
-              <button
-                onClick={dropPiece}
-                className="p-4 rounded-lg text-sm font-medium transition-all duration-300 shadow-lg text-white"
-                style={{ 
-                  background: `linear-gradient(to right, #8b5cf6, #f43f5e)`,
-                  ':hover': { background: `linear-gradient(to right, #7c3aed, #e11d48)` }
-                }}
-                disabled={!isPlaying || isPaused}
-              >
-                Drop
-              </button>
+              <div className="text-center">
+                <div className="text-xs text-gray-400">Επίπεδο</div>
+                <div className="font-bold text-purple-400">{level}</div>
+              </div>
+              <div className="text-center">
+                <div className="text-xs text-gray-400">Γραμμές</div>
+                <div className="font-bold" style={{ color: '#f43f5e' }}>{lines}</div>
+              </div>
             </div>
           </div>
 
-          {/* Game Info & Controls */}
-          <div className="flex flex-col gap-6">
-            {/* Score Panel */}
-            <div className="bg-black/30 backdrop-blur-sm border border-white/10 p-6 rounded-xl">
-              <h2 className="text-xl font-bold mb-4">Στατιστικά</h2>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span>Σκορ:</span>
-                  <span className="font-bold" style={{ color: '#f43f5e' }}>{score.toLocaleString()}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Επίπεδο:</span>
-                  <span className="font-bold text-purple-400">{level}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Γραμμές:</span>
-                  <span className="font-bold" style={{ color: '#f43f5e' }}>{lines}</span>
-                </div>
-              </div>
+          {/* Game Board - Centered and larger */}
+          <div className="bg-black/50 backdrop-blur-sm border border-white/20 p-3 rounded-xl shadow-lg">
+            <div className="flex flex-col">
+              {renderBoard()}
             </div>
-
-            {/* Game Controls */}
-            <div className="bg-black/30 backdrop-blur-sm border border-white/10 p-6 rounded-xl">
-              <h2 className="text-xl font-bold mb-4">Έλεγχος</h2>
-              <div className="space-y-3">
-                {!isPlaying ? (
-                  <button
-                    onClick={startNewGame}
-                    className="w-full text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg"
-                    style={{ 
-                      background: `linear-gradient(to right, #8b5cf6, #f43f5e)`,
-                      ':hover': { background: `linear-gradient(to right, #7c3aed, #e11d48)` }
-                    }}
-                  >
-                    {gameOver ? 'Νέο Παιχνίδι' : 'Έναρξη'}
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => setIsPaused(!isPaused)}
-                    className="w-full bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300"
-                  >
-                    {isPaused ? 'Συνέχεια' : 'Παύση'}
-                  </button>
-                )}
-                
-                {isPlaying && (
-                  <button
-                    onClick={() => {
-                      setIsPlaying(false);
-                      setGameOver(true);
-                    }}
-                    className="w-full backdrop-blur-sm border border-red-400/30 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300"
-                    style={{ 
-                      background: `linear-gradient(to right, rgba(239, 68, 68, 0.8), rgba(244, 63, 94, 0.8))`,
-                      ':hover': { background: `linear-gradient(to right, rgba(220, 38, 38, 0.8), rgba(225, 29, 72, 0.8))` }
-                    }}
-                  >
-                    Τέλος Παιχνιδιού
-                  </button>
-                )}
-              </div>
-            </div>
-
-            {/* Instructions */}
-            <div className="bg-black/30 backdrop-blur-sm border border-white/10 p-6 rounded-xl">
-              <h2 className="text-xl font-bold mb-4">Οδηγίες</h2>
-              <div className="space-y-2 text-sm">
-                <div><strong className="text-purple-400">←/→:</strong> Κίνηση αριστερά/δεξιά</div>
-                <div><strong className="text-purple-400">↓:</strong> Γρήγορη πτώση</div>
-                <div><strong className="text-purple-400">↑/Space:</strong> Περιστροφή</div>
-                <div><strong className="text-purple-400">Enter:</strong> Άμεση πτώση</div>
-                <div><strong className="text-purple-400">P:</strong> Παύση</div>
-              </div>
-            </div>
-
-            {/* Game Status */}
-            {gameOver && (
-              <div className="bg-red-900/30 backdrop-blur-sm border p-6 rounded-xl text-center" style={{ borderColor: '#f43f5e' }}>
-                <h2 className="text-2xl font-bold mb-2" style={{ color: '#f43f5e' }}>Game Over!</h2>
-                <p style={{ color: '#f43f5e' }}>Τελικό Σκορ: {score.toLocaleString()}</p>
-              </div>
-            )}
-
-            {isPaused && isPlaying && (
-              <div className="bg-purple-900/30 backdrop-blur-sm border border-purple-400/30 p-6 rounded-xl text-center">
-                <h2 className="text-2xl font-bold text-purple-400">Παύση</h2>
-              </div>
-            )}
           </div>
+
+          {/* Game Status Messages */}
+          {gameOver && (
+            <div className="bg-red-900/30 backdrop-blur-sm border p-4 rounded-xl text-center max-w-sm w-full" style={{ borderColor: '#f43f5e' }}>
+              <h2 className="text-xl font-bold mb-2" style={{ color: '#f43f5e' }}>Game Over!</h2>
+              <p className="text-sm mb-3" style={{ color: '#f43f5e' }}>Τελικό Σκορ: {score.toLocaleString()}</p>
+              <button
+                onClick={startNewGame}
+                className="w-full text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg text-sm"
+                style={{ background: 'linear-gradient(to right, #8b5cf6, #f43f5e)' }}
+              >
+                Νέο Παιχνίδι
+              </button>
+            </div>
+          )}
+
+          {isPaused && isPlaying && !gameOver && (
+            <div className="bg-purple-900/30 backdrop-blur-sm border border-purple-400/30 p-4 rounded-xl text-center max-w-sm w-full">
+              <h2 className="text-xl font-bold text-purple-400">Παύση</h2>
+              <p className="text-sm text-purple-300 mt-1">Πατήστε το κουμπί παύσης για συνέχεια</p>
+            </div>
+          )}
+        </div>
+
+        {/* Touch Controls - Bottom of screen */}
+        <div className="bg-black/30 backdrop-blur-sm border-t border-white/10 p-4">
+          <div className="grid grid-cols-4 gap-3 max-w-sm mx-auto">
+            <button
+              onClick={() => movePiece('left')}
+              className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-4 rounded-lg flex items-center justify-center transition-all duration-300 active:scale-95"
+              disabled={!isPlaying || isPaused || gameOver}
+            >
+              <ArrowLeft className="h-6 w-6" />
+            </button>
+            <button
+              onClick={() => movePiece('down')}
+              className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-4 rounded-lg flex items-center justify-center transition-all duration-300 active:scale-95"
+              disabled={!isPlaying || isPaused || gameOver}
+            >
+              <ArrowDown className="h-6 w-6" />
+            </button>
+            <button
+              onClick={() => movePiece('right')}
+              className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 p-4 rounded-lg flex items-center justify-center transition-all duration-300 active:scale-95"
+              disabled={!isPlaying || isPaused || gameOver}
+            >
+              <ArrowRight className="h-6 w-6" />
+            </button>
+            <button
+              onClick={rotatePieceHandler}
+              className="p-4 rounded-lg text-sm font-medium transition-all duration-300 shadow-lg text-white active:scale-95"
+              style={{ 
+                background: 'linear-gradient(to right, #8b5cf6, #f43f5e)',
+                opacity: (!isPlaying || isPaused || gameOver) ? 0.5 : 1
+              }}
+              disabled={!isPlaying || isPaused || gameOver}
+            >
+              <RotateCw className="h-6 w-6" />
+            </button>
+          </div>
+          
+          {/* Quick Drop Button */}
+          <button
+            onClick={dropPiece}
+            className="w-full mt-3 max-w-sm mx-auto block text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg text-sm active:scale-95"
+            style={{ 
+              background: 'linear-gradient(to right, #8b5cf6, #f43f5e)',
+              opacity: (!isPlaying || isPaused || gameOver) ? 0.5 : 1
+            }}
+            disabled={!isPlaying || isPaused || gameOver}
+          >
+            Γρήγορη Πτώση
+          </button>
         </div>
       </div>
     </div>
