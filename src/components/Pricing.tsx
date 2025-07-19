@@ -128,7 +128,7 @@ const Pricing: React.FC = () => {
                 key={index}
                 className={`border rounded-lg p-6 transition-all duration-300 ${
                   selectedPackage === pkg.name
-                    ? 'border-rose-500 bg-rose-900/20'
+                    ? 'border-accent-500 bg-accent-500/20'
                     : 'border-white/10 hover:border-white/30'
                 }`}
                 onClick={() => selectPackage(pkg.name)}
