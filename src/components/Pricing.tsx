@@ -112,17 +112,17 @@ const Pricing: React.FC = () => {
   };
 
   return (
-    <section id="pricing" className="py-20 px-4">
+    <section id="pricing" className="py-12 md:py-20 px-4">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Πακέτα Υπηρεσιών PixelPro</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 px-2">Πακέτα Υπηρεσιών PixelPro</h2>
+          <p className="text-gray-300 max-w-2xl mx-auto text-sm md:text-base px-4">
             Επιλέξτε το πακέτο που ταιριάζει στην επιχειρησή σας και ενισχύστε την ψηφιακή σας παρουσία.
           </p>
         </div>
 
-        <div className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-4 md:p-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             {packages.map((pkg, index) => (
               <div
                 key={index}
@@ -133,16 +133,16 @@ const Pricing: React.FC = () => {
                 }`}
                 onClick={() => selectPackage(pkg.name)}
               >
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold text-white">{pkg.name}</h3>
-                  <div className="text-2xl font-bold text-white">€{pkg.price}<span className="text-sm font-normal">/μήνα</span></div>
+                <div className="flex flex-col sm:flex-row justify-between items-start mb-4 gap-2">
+                  <h3 className="text-lg md:text-xl font-bold text-white">{pkg.name}</h3>
+                  <div className="text-xl md:text-2xl font-bold text-white">€{pkg.price}<span className="text-sm font-normal">/μήνα</span></div>
                 </div>
-                <p className="text-gray-300 mb-4">{pkg.description}</p>
+                <p className="text-gray-300 mb-4 text-sm md:text-base">{pkg.description}</p>
                 <ul className="space-y-2 mb-6">
                   {pkg.features.map((feature, i) => (
                     <li key={i} className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-[#f43f5e] mr-2 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-300">{feature}</span>
+                      <span className="text-gray-300 text-sm md:text-base">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -155,8 +155,8 @@ const Pricing: React.FC = () => {
             ))}
           </div>
 
-          <div className="text-center mt-8 relative">
-            <h3 className="text-2xl font-bold text-white inline-flex items-center">
+          <div className="text-center mt-6 md:mt-8 relative">
+            <h3 className="text-xl md:text-2xl font-bold text-white inline-flex items-center justify-center flex-wrap">
               Σύνολο: €{calculateTotalPrice()} /μήνα
               <span 
                 className="relative inline-block"
@@ -165,7 +165,7 @@ const Pricing: React.FC = () => {
               >
                 <Info className="h-4 w-4 ml-1 text-gray-400 hover:text-gray-300 cursor-pointer" />
                 {showDisclaimer && (
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 bg-black/70 backdrop-blur-sm border border-white/10 rounded-md p-2 text-sm text-gray-300 w-64 z-10">
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 bg-black/70 backdrop-blur-sm border border-white/10 rounded-md p-2 text-sm text-gray-300 w-64 z-10 max-w-[90vw]">
                     Δεν υπάρχουν κρυφές χρεώσεις. Ωστόσο, ενδέχεται να ισχύουν πρόσθετες χρεώσεις για συγκεκριμένες υπηρεσίες — όπως ο διαφημιστικός προϋπολογισμός (δαπάνες διαφήμισης) και η χρήση API τρίτων. <a href="#" className="text-rose-400 hover:text-rose-300">Για μια πλήρη ανάλυση, ανατρέξτε στην ενότητα Κατανόηση του Κόστους Μάρκετινγκ</a>
                   </div>
                 )}
@@ -174,10 +174,10 @@ const Pricing: React.FC = () => {
             <p className="text-gray-400 text-xs mt-1">Ακύρωση ανά πάσα στιγμή.</p>
           </div>
 
-          <div className="flex flex-col justify-center gap-4 mt-8">
+          <div className="flex flex-col justify-center gap-4 mt-6 md:mt-8">
             {/* Buy Button - Only enabled when services are selected */}
             <button 
-              className={`px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center glow-on-hover interactive ${
+              className={`px-6 py-4 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center glow-on-hover interactive text-sm md:text-base ${
                 hasSelectedServices() 
                   ? '' 
                   : 'opacity-50 cursor-not-allowed'
@@ -190,7 +190,7 @@ const Pricing: React.FC = () => {
             
             {/* Consultation Button - For those who don't know what they need */}
             <button 
-              className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive"
+              className="px-6 py-4 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive text-sm md:text-base"
               onClick={() => (window as any).navigateToConsultation?.()}
             >
               Δεν είστε σίγουροι; Δωρεάν Συμβουλευτική
@@ -199,31 +199,32 @@ const Pricing: React.FC = () => {
           
           {/* Additional information for the Buy button */}
           {hasSelectedServices() && (
-            <div className="mt-4 text-center text-sm text-gray-400">
+            <div className="mt-4 text-center text-xs md:text-sm text-gray-400 px-2">
               Επόμενο: Συμπληρώστε μια γρήγορη φόρμα ένταξης για να παράσχετε τις πληροφορίες που χρειαζόμαστε για να ξεκινήσουμε με τις επιλεγμένες υπηρεσίες σας.
             </div>
           )}
         </div>
 
         {/* Important Note Section */}
-        <div className="mt-8 bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-6">
-          <h4 className="text-lg font-semibold text-white mb-2">Σημαντική Σημείωση</h4>
-          <p className="text-gray-300">
+        <div className="mt-6 md:mt-8 bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-4 md:p-6">
+          <h4 className="text-base md:text-lg font-semibold text-white mb-2">Σημαντική Σημείωση</h4>
+          <p className="text-gray-300 text-sm md:text-base">
             Το διαφημιστικό budget (Meta ή Google Ads) καταβάλλεται ξεχωριστά και απευθείας στην εκάστοτε πλατφόρμα.
             Η ομάδα μας αναλαμβάνει τη διαχείριση και τη βελτιστοποίηση των καμπανιών με βάση τους στόχους της επιχείρησής σας.
           </p>
-          <p className="text-gray-300 mt-2">
+          <p className="text-gray-300 mt-2 text-sm md:text-base">
             Ειδικές Ανάγκες; Προσφέρουμε και προσαρμοσμένα πακέτα για SEO, περιεχόμενο, email marketing, e-shop ή συμβουλευτική στρατηγικής.
           </p>
         </div>
 
         {/* FAQ Section */}
-        <div className="mt-[200px]">
-          <h3 className="text-2xl font-bold text-white mb-6 text-center">Συχνές Ερωτήσεις</h3>
+        <div className="mt-16 md:mt-32">
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-6 text-center px-2">Συχνές Ερωτήσεις</h3>
           <div className="space-y-4">
             {faqItems.map((item, index) => (
-              <div key={index} className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden transition-all duration-300 hover:border-white/30 hover:bg-black/40">
+              <div key={index} className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden transition-all duration-300 hover:border-white/30 hover:bg-black/40 mx-2">
                 <button 
+                  className="w-full p-4 md:p-6 text-left flex justify-between items-center text-white font-medium text-sm md:text-base"
                   onClick={() => {
                     const contactSection = document.getElementById('contact');
                     contactSection?.scrollIntoView({ behavior: 'smooth' });
@@ -233,7 +234,7 @@ const Pricing: React.FC = () => {
                   {item.question}
                   {expandedFAQ === index ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
                 </button>
-                <div className={`p-4 text-gray-300 ${expandedFAQ === index ? 'block' : 'hidden'}`}>
+                <div className={`p-4 md:p-6 pt-0 text-gray-300 text-sm md:text-base ${expandedFAQ === index ? 'block' : 'hidden'}`}>
                   {item.answer}
                 </div>
               </div>

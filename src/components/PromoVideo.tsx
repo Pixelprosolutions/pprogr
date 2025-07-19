@@ -18,16 +18,16 @@ const PromoVideo: React.FC = () => {
   };
 
   return (
-    <section className="py-20 px-4 bg-black/30 backdrop-blur-sm">
+    <section className="py-12 md:py-20 px-4 bg-black/30 backdrop-blur-sm">
       <div className="container mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Δείτε τη Δουλειά μας σε Δράση</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 px-2">Δείτε τη Δουλειά μας σε Δράση</h2>
+          <p className="text-gray-300 max-w-2xl mx-auto text-sm md:text-base px-4">
             Παρακολουθήστε πώς βοηθάμε τις τοπικές επιχειρήσεις να μεταμορφώσουν την ψηφιακή τους παρουσία και να αυξήσουν την πελατειακή τους βάση.
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto rounded-lg overflow-hidden group border border-white/10">
+        <div className="relative max-w-4xl mx-auto rounded-lg overflow-hidden group border border-white/10 mx-4">
           {/* Video Thumbnail with Play Button */}
           <div 
             className="relative aspect-video cursor-pointer"
@@ -45,8 +45,8 @@ const PromoVideo: React.FC = () => {
             
             {/* Play Button Overlay */}
             <div className="absolute inset-0 flex items-center justify-center z-20">
-              <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30 transition-all duration-300 group-hover:scale-110 group-hover:bg-white/20">
-                <Play className="h-10 w-10 text-white fill-white" />
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30 transition-all duration-300 group-hover:scale-110 group-hover:bg-white/20">
+                <Play className="h-8 w-8 md:h-10 md:w-10 text-white fill-white" />
               </div>
             </div>
             
@@ -54,9 +54,9 @@ const PromoVideo: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none z-20"></div>
             
             {/* Caption */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-left z-30">
-              <h3 className="text-xl font-bold text-white">PixelPro Solutions: Βοηθώντας τις Τοπικές Επιχειρήσεις να Ευδοκιμήσουν στο Διαδίκτυο</h3>
-              <p className="text-gray-300 mt-2">Ανακαλύψτε πώς δημιουργούμε ιστορίες ψηφιακής επιτυχίας για επιχειρήσεις σαν τη δική σας</p>
+            <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 text-left z-30">
+              <h3 className="text-lg md:text-xl font-bold text-white">PixelPro Solutions: Βοηθώντας τις Τοπικές Επιχειρήσεις να Ευδοκιμήσουν στο Διαδίκτυο</h3>
+              <p className="text-gray-300 mt-2 text-sm md:text-base">Ανακαλύψτε πώς δημιουργούμε ιστορίες ψηφιακής επιτυχίας για επιχειρήσεις σαν τη δική σας</p>
             </div>
           </div>
         </div>

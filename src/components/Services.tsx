@@ -52,16 +52,16 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="py-24 px-6">
+    <section id="services" className="py-16 md:py-24 px-4">
       <div className="container mx-auto">
-        <div className="text-center mb-20 space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">Πώς Βοηθάμε τις Τοπικές Επιχειρήσεις</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+        <div className="text-center mb-12 md:mb-20 space-y-4 md:space-y-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white px-2">Πώς Βοηθάμε τις Τοπικές Επιχειρήσεις</h2>
+          <p className="text-gray-300 max-w-2xl mx-auto text-base md:text-lg px-4">
             Προσφέρουμε μια σειρά υπηρεσιών που έχουν σχεδιαστεί για να βοηθήσουν την επιχείρησή σας να πετύχει στο διαδίκτυο.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
             <ServiceCard 
               key={index}
