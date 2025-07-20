@@ -6,7 +6,7 @@ const Hero: React.FC = () => {
   return (
     <>
       <section className="relative">
-        <div className="container mx-auto px-14 pt-56 md:pt-64 lg:pt-72 pb-24 md:pb-36 lg:pb-52 flex items-center justify-center min-h-[calc(100vh-160px)]">
+        <div className="container mx-auto px-4 pt-56 md:pt-64 lg:pt-72 pb-24 md:pb-36 lg:pb-52 flex items-center justify-center min-h-[calc(100vh-160px)]">
           <div className="text-center max-w-4xl space-y-6 md:space-y-8">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               <span className="text-white">Βοηθάμε Τοπικές Επιχειρήσεις να </span>
