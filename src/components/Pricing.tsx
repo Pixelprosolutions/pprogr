@@ -52,6 +52,8 @@ const Pricing: React.FC = () => {
         "Premium ιστότοπος με προσαρμοσμένες λειτουργίες ή light e-shop",
         "Διαχείριση social media (4 πλατφόρμες, περιλαμβάνει Facebook, Instagram, TikTok, LinkedIn)",
         "30 δημοσιεύσεις / 15 stories / 15 carousel / 4 βίντεο",
+        "Διαφημίσεις σε Meta και Google",
+        "Στρατηγική, copywriting, A/B testing",
         "8 άρθρα blog /μήνα",
         "2 αναθεωρήσεις/μήνα",
         "Αναλυτική αναφορά KPI & ROI",
