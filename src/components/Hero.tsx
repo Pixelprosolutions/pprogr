@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
               <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #c084fc, #f43f5e)' }}>Αναπτυχθούν Online</span>
             </h1>
             <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed px-2">
-              Δημιουργούμε ιστοσελίδες και στρατηγικό marketing που φέρνει νέους πελάτες, ενισχύει την εικόνα σας και μετατρέπει την online παρουσία σας σε επιχειρηματικό πλεονέκτημα. 🚀
+              Δημιουργούμε ιστοσελίδες και στρατηγικό marketing που φέρνει νέους πελάτες, ενισχύει την εικόνα σας και μετατρέπει την online παρουσία σας σε επιχειρηματικό πλεονέκτημα.
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4 px-4">
