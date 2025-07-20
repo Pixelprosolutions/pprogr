@@ -18,13 +18,6 @@ const Hero: React.FC = () => {
             
             <div className="flex flex-col sm:flex-row justify-center gap-4 px-4">
               <button
-                className="px-6 py-4 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center glow-on-hover interactive text-sm sm:text-base"
-                onClick={() => (window as any).navigateToConsultation?.()}
-              >
-                Δωρεάν Συμβουλευτική
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </button>
-              <button
                 className="px-6 py-4 bg-transparent border border-white/30 text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive text-sm sm:text-base"
                 onClick={() => (window as any).navigateToTetris?.()}
               >
