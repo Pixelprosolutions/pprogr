@@ -1,0 +1,10 @@
+# Handle client-side routing
+/*    /index.html   200
+
+# Force HTTPS
+http://pixelpro-solutions.netlify.app/*    https://pixelpro-solutions.netlify.app/:splat    301!
+
+# Handle common 404s
+/favicon.ico    /favicon.ico    200
+/robots.txt     /robots.txt     200
+/sitemap.xml    /sitemap.xml    200

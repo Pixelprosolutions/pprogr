@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Important pages
+Allow: /
+Allow: /services
+Allow: /about
+Allow: /projects
+Allow: /pricing
+Allow: /contact
+
+# Block admin/private areas (if any in future)
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap
+Sitemap: https://pixelpro-solutions.netlify.app/sitemap.xml
