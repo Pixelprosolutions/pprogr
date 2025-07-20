@@ -150,7 +150,7 @@ const About: React.FC<AboutProps> = ({ isHomepage = false }) => {
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-12 text-center">
               {isHomepage ? 'Σχετικά με Εμάς' : 'Η Ιστορία Μας'}
             </h2>
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-4xl mx-auto text-center">
               <p className="text-gray-300/80 text-xl md:text-2xl leading-relaxed mb-8">
                 {isHomepage 
                   ? 'Η PixelPro Solutions είναι μια δημιουργική ομάδα με έδρα την Ελλάδα και το Ηνωμένο Βασίλειο, αφιερωμένη στο να βοηθά τοπικές επιχειρήσεις να αναπτυχθούν ψηφιακά.'
