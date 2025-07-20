@@ -228,10 +228,6 @@ const Pricing: React.FC = () => {
               <div key={index} className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden transition-all duration-300 hover:border-white/30 hover:bg-black/40 mx-2">
                 <button 
                   className="w-full p-4 md:p-6 text-left flex justify-between items-center text-white font-medium text-sm md:text-base"
-                  onClick={() => {
-                    const contactSection = document.getElementById('contact');
-                    contactSection?.scrollIntoView({ behavior: 'smooth' });
-                  }}
                   onClick={() => toggleFAQ(index)}
                 >
                   {item.question}
