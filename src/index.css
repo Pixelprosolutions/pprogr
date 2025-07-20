@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Critical CSS - Load immediately */
+body {
+  font-display: swap;
+}
+
 @layer utilities {
   .animate-in {
     animation-duration: 200ms;

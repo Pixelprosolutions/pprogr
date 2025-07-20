@@ -41,6 +41,8 @@ const PromoVideo: React.FC = () => {
               src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`} 
               alt="Promotional Video Thumbnail" 
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
             />
             
             {/* Play Button Overlay */}

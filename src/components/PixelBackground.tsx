@@ -49,6 +49,8 @@ const PixelBackground: React.FC = () => {
   // Initialize canvas and dimensions
   useEffect(() => {
     const updateDimensions = () => {
+      // Use requestAnimationFrame for better performance
+      requestAnimationFrame(() => {
       setDimensions({
         width: window.innerWidth,
         height: window.innerHeight
@@ -57,6 +59,7 @@ const PixelBackground: React.FC = () => {
       // Update background glow position to bottom right
       backgroundGlowRef.current.x = window.innerWidth * 0.85;
       backgroundGlowRef.current.y = window.innerHeight * 0.85;
+      });
     };
 
     updateDimensions();

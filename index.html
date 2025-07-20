@@ -37,6 +37,14 @@
     <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
     
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/src/index.css" as="style" />
+    <link rel="preload" href="/src/main.tsx" as="script" />
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//img.youtube.com" />
+    <link rel="dns-prefetch" href="//www.youtube.com" />
+    
     <!-- Structured Data for Local Business -->
     <script type="application/ld+json">
     {
