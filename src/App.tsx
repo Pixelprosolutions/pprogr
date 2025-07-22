@@ -7,11 +7,14 @@ import TetrisPage from './pages/TetrisPage';
 import ConsultationPage from './pages/ConsultationPage';
 import PackageSelectionPage from './pages/PackageSelectionPage';
 import MarketingCostPage from './pages/MarketingCostPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import CookiePolicyPage from './pages/CookiePolicyPage';
+import CookieBanner from './components/CookieBanner';
 
 function App() {
   const [_, setMousePosition] = useState({ x: 0, y: 0 });
   const [headerTransform, setHeaderTransform] = useState('');
-  const [currentPage, setCurrentPage] = useState<'home' | 'tetris' | 'consultation' | 'package-selection' | 'marketing-cost'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'tetris' | 'consultation' | 'package-selection' | 'marketing-cost' | 'privacy-policy' | 'cookie-policy'>('home');
   const sectionsRef = useRef<HTMLElement[]>([]);
   
   useEffect(() => {
@@ -69,6 +72,8 @@ function App() {
   const navigateToConsultation = () => setCurrentPage('consultation');
   const navigateToPackageSelection = () => setCurrentPage('package-selection');
   const navigateToMarketingCost = () => setCurrentPage('marketing-cost');
+  const navigateToPrivacyPolicy = () => setCurrentPage('privacy-policy');
+  const navigateToCookiePolicy = () => setCurrentPage('cookie-policy');
 
   // Make navigation functions available globally
   useEffect(() => {
@@ -77,6 +82,8 @@ function App() {
     (window as any).navigateToConsultation = navigateToConsultation;
     (window as any).navigateToPackageSelection = navigateToPackageSelection;
     (window as any).navigateToMarketingCost = navigateToMarketingCost;
+    (window as any).navigateToPrivacyPolicy = navigateToPrivacyPolicy;
+    (window as any).navigateToCookiePolicy = navigateToCookiePolicy;
   }, []);
 
   return (
@@ -105,7 +112,16 @@ function App() {
         {currentPage === 'marketing-cost' && (
           <MarketingCostPage />
         )}
+        {currentPage === 'privacy-policy' && (
+          <PrivacyPolicyPage />
+        )}
+        {currentPage === 'cookie-policy' && (
+          <CookiePolicyPage />
+        )}
       </div>
+      
+      {/* Cookie Banner - only show on home page */}
+      {currentPage === 'home' && <CookieBanner />}
     </div>
   );
 }

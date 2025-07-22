@@ -97,8 +97,15 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      
+      // Initialize with consent denied by default
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied'
+      });
+      
       gtag('config', 'G-HXSXMFRTEN', {
-        anonymize_ip: true
+        anonymize_ip: true,
+        cookie_flags: 'SameSite=None;Secure'
       });
     </script>
   </head>

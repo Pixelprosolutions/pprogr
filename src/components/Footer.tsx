@@ -55,7 +55,8 @@ const Footer: React.FC = () => {
               <li><a href="#projects" className="text-gray-300 hover:text-white transition-colors">Έργα</a></li>
               <li><a href="#pricing" className="text-gray-300 hover:text-white transition-colors">Τιμές</a></li>
               <li><a href="#contact" className="text-gray-300 hover:text-white transition-colors">Επικοινωνία</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Πολιτική Απορρήτου</a></li>
+              <li><button onClick={() => (window as any).navigateToPrivacyPolicy?.()} className="text-gray-300 hover:text-white transition-colors">Πολιτική Απορρήτου</button></li>
+              <li><button onClick={() => (window as any).navigateToCookiePolicy?.()} className="text-gray-300 hover:text-white transition-colors">Πολιτική Cookies</button></li>
             </ul>
           </div>
           
