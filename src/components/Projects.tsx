@@ -147,7 +147,7 @@ const Projects: React.FC = () => {
     },
     {
       title: "Alex Alali – Digital Portfolio",
-      description: "alexlali.com - One-page Ιστοσελίδα · Personal Branding · Παρουσίαση Case Studies",
+      description: "alexalali.com - One-page Ιστοσελίδα · Personal Branding · Παρουσίαση Case Studies",
       tags: ["One-page Ιστοσελίδα", "Personal Branding", "Παρουσίαση Case Studies"],
       result: "Επαγγελματικό ψηφιακό portfolio για παρουσίαση δεξιοτήτων και έργων",
       challenge: "Ο Alex Alali χρειαζόταν ένα επαγγελματικό ψηφιακό portfolio για να παρουσιάσει τις δεξιότητες και τα έργα του.",
@@ -157,7 +157,7 @@ const Projects: React.FC = () => {
         "Πλήρης παρουσίαση δεξιοτήτων & έργων",
         "Χρήση σε επαγγελματικές προσεγγίσεις"
       ],
-      websiteUrl: "https://alexlali.com"
+      websiteUrl: "https://alexalali.com"
     },
     {
       title: "Ιατρείο Σιδηρόπουλου – Ουρολογική Κλινική",
