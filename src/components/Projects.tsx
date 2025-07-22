@@ -23,6 +23,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   metrics = [],
   websiteUrl
 }) => {
+  const { t } = useLanguage();
   const [isExpanded, setIsExpanded] = React.useState(false);
 
   return (
