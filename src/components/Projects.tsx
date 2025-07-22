@@ -19,7 +19,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   result,
   challenge,
   solution,
-  metrics = []
+  metrics = [],
   websiteUrl
 }) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
