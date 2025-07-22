@@ -14,4 +14,4 @@ Disallow: /admin/
 Disallow: /private/
 
 # Sitemap
-Sitemap: https://pixelpro-solutions.netlify.app/sitemap.xml
+Sitemap: https://pixelpro.solutions/sitemap.xml

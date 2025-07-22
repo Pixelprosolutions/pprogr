@@ -185,8 +185,6 @@ const Projects: React.FC = () => {
     <section id="projects" className="pt-32 pb-20">
       <div className="container mx-auto px-4">
         <div className="mb-16 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
-          </h2>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #c084fc, #f43f5e)' }}>
             Έργα & Μελέτες Περίπτωσης
           </h2>
