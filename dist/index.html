@@ -89,10 +89,22 @@
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#000000" />
-    <script type="module" crossorigin src="/assets/index-5ePBQpy6.js"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HXSXMFRTEN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HXSXMFRTEN', {
+        anonymize_ip: true
+      });
+    </script>
+    <script type="module" crossorigin src="/assets/index-CHDjeZi4.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/vendor-9mwbaf1v.js">
     <link rel="modulepreload" crossorigin href="/assets/ui-B-mlomNi.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-CD2SxxrD.css">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-BS4XXPEX.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DRhA6zL-.css">
   </head>
   <body>
     <!-- SEO Critical Content for Crawlers -->
