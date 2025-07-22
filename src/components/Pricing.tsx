@@ -238,7 +238,7 @@ const Pricing: React.FC = () => {
                 </div>
               </div>
             ))}
-          </div>
+          Προσφέρουμε και προσαρμοσμένα πακέτα για SEO, περιεχόμενο, email marketing, e-shop ή συμβουλευτική στρατηγικής.
         </div>
       </div>
     </section>
