@@ -11,6 +11,7 @@ import MarketingCostPage from './pages/MarketingCostPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import CookiePolicyPage from './pages/CookiePolicyPage';
 import CookieBanner from './components/CookieBanner';
+import AIAssistant from './components/AIAssistant';
 
 function App() {
   const [_, setMousePosition] = useState({ x: 0, y: 0 });
@@ -124,6 +125,9 @@ function App() {
         
         {/* Cookie Banner - only show on home page */}
         {currentPage === 'home' && <CookieBanner />}
+        
+        {/* AI Assistant - show on all pages */}
+        <AIAssistant />
       </div>
     </LanguageProvider>
   );

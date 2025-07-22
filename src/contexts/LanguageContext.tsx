@@ -295,6 +295,14 @@ const translations = {
     'tetris.finalscore': 'Τελικό Σκορ:',
     'tetris.newgame': 'Νέο Παιχνίδι',
     'tetris.quickdrop': 'Γρήγορη Πτώση',
+    
+    // AI Assistant translations
+    'ai.title': 'PixelPro AI Βοηθός',
+    'ai.online': 'Συνδεδεμένος',
+    'ai.placeholder': 'Ρωτήστε με οτιδήποτε για τις υπηρεσίες μας...',
+    'ai.powered': 'Τροφοδοτείται από Gemini AI • Πατήστε Enter για αποστολή',
+    'ai.welcome': 'Γεια σας! Είμαι ο AI βοηθός της PixelPro. Μπορώ να σας βοηθήσω με ερωτήσεις για τις ψηφιακές μας υπηρεσίες, πακέτα και τιμές. Πώς μπορώ να σας βοηθήσω σήμερα;',
+    'ai.error': 'Λυπάμαι, αντιμετωπίζω πρόβλημα σύνδεσης αυτή τη στιγμή. Παρακαλώ δοκιμάστε ξανά ή επικοινωνήστε μαζί μας στο hello@pixelpro.solutions',
   },
   en: {
     // Navigation
@@ -579,6 +587,14 @@ const translations = {
     'tetris.finalscore': 'Final Score:',
     'tetris.newgame': 'New Game',
     'tetris.quickdrop': 'Quick Drop',
+    
+    // AI Assistant translations
+    'ai.title': 'PixelPro AI Assistant',
+    'ai.online': 'Online',
+    'ai.placeholder': 'Ask me anything about our services...',
+    'ai.powered': 'Powered by Gemini AI • Press Enter to send',
+    'ai.welcome': 'Hello! I\'m PixelPro\'s AI assistant. I can help you with questions about our digital services, packages, and pricing. How can I assist you today?',
+    'ai.error': 'I\'m sorry, I\'m having trouble connecting right now. Please try again or contact us directly at hello@pixelpro.solutions',
   }
 };
 
