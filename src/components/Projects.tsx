@@ -38,19 +38,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             {tags.map((tag, index) => (
               <span
                 key={index}
-                className="bg-accent/50 backdrop-blur-sm border border-white/20 text-white py-1 px-3 rounded-lg text-sm backdrop-blur-sm border border-white/20 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg flex items-center"
-                style={{ 
-                  backgroundColor: 'rgba(244, 63, 94, 0.5)',
-                  boxShadow: '0 10px 15px -3px rgba(244, 63, 94, 0.1), 0 4px 6px -4px rgba(244, 63, 94, 0.1)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(244, 63, 94, 0.7)';
-                  e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(244, 63, 94, 0.2), 0 4px 6px -4px rgba(244, 63, 94, 0.2)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(244, 63, 94, 0.5)';
-                  e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(244, 63, 94, 0.1), 0 4px 6px -4px rgba(244, 63, 94, 0.1)';
-                }}
+                className="bg-black/60 backdrop-blur-sm border border-white/20 text-white py-1 px-3 rounded-lg text-sm hover:bg-black/80 transition-all duration-300"
               >
                 {tag}
               </span>
@@ -65,19 +53,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 href={websiteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-accent/50 backdrop-blur-sm border border-white/20 text-white py-3 px-6 rounded-lg font-medium hover:bg-accent/70 transition-all duration-300 shadow-lg hover:shadow-accent/20 flex items-center justify-center"
-                style={{ 
-                  backgroundColor: 'rgba(244, 63, 94, 0.5)',
-                  boxShadow: '0 10px 15px -3px rgba(244, 63, 94, 0.1), 0 4px 6px -4px rgba(244, 63, 94, 0.1)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(244, 63, 94, 0.7)';
-                  e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(244, 63, 94, 0.2), 0 4px 6px -4px rgba(244, 63, 94, 0.2)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(244, 63, 94, 0.5)';
-                  e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(244, 63, 94, 0.1), 0 4px 6px -4px rgba(244, 63, 94, 0.1)';
-                }}
+                className="bg-black/80 backdrop-blur-sm border border-white/20 text-white py-3 px-6 rounded-lg font-medium hover:bg-black/90 transition-all duration-300 shadow-lg flex items-center justify-center"
               >
                 Δείτε Περισσότερα
                 <ExternalLink className="ml-2 h-4 w-4" />
