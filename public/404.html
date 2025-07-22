@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Σελίδα δεν βρέθηκε | PixelPro Solutions</title>
+    <meta name="description" content="Η σελίδα που ψάχνετε δεν βρέθηκε. Επιστρέψτε στην αρχική σελίδα της PixelPro Solutions.">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+        
+        .error-code {
+            font-size: 120px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #c084fc, #f43f5e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+        
+        h1 {
+            font-size: 32px;
+            margin-bottom: 16px;
+            color: white;
+        }
+        
+        p {
+            font-size: 18px;
+            color: #d1d5db;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: black;
+        }
+        
+        .btn-primary:hover {
+            background: #f3f4f6;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .links {
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .links h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: white;
+        }
+        
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+        
+        .link-grid a {
+            color: #d1d5db;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .link-grid a:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 640px) {
+            .error-code {
+                font-size: 80px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            p {
+                font-size: 16px;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-code">404</div>
+        <h1>Σελίδα δεν βρέθηκε</h1>
+        <p>Λυπούμαστε, η σελίδα που ψάχνετε δεν υπάρχει ή έχει μετακινηθεί. Μπορείτε να επιστρέψετε στην αρχική σελίδα ή να εξερευνήσετε τις υπηρεσίες μας.</p>
+        
+        <div class="buttons">
+            <a href="/" class="btn btn-primary">Αρχική Σελίδα</a>
+            <a href="/#contact" class="btn btn-secondary">Επικοινωνία</a>
+        </div>
+        
+        <div class="links">
+            <h3>Χρήσιμοι Σύνδεσμοι</h3>
+            <div class="link-grid">
+                <a href="/#services">Υπηρεσίες</a>
+                <a href="/#about">Σχετικά με Εμάς</a>
+                <a href="/#projects">Έργα</a>
+                <a href="/#pricing">Τιμές</a>
+                <a href="/#contact">Επικοινωνία</a>
+                <a href="mailto:hello@pixelpro.solutions">Email</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HXSXMFRTEN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HXSXMFRTEN', {
+            anonymize_ip: true
+        });
+    </script>
+</body>
+</html>

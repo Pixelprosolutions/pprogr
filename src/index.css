@@ -2,8 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Critical CSS - Load immediately */
+/* Critical CSS - Inline for performance */
+@layer base {
+  html {
+    font-display: swap;
+  }
+}
+
 body {
+  font-display: swap;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Preload critical fonts */
+@font-face {
+  font-family: 'system-ui';
   font-display: swap;
 }
 
@@ -26,5 +42,22 @@ body {
       opacity: 1;
       transform: scale(1);
     }
+  }
+}
+
+/* Optimize images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

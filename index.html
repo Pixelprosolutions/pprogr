@@ -90,6 +90,17 @@
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#000000" />
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HXSXMFRTEN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HXSXMFRTEN', {
+        anonymize_ip: true
+      });
+    </script>
   </head>
   <body>
     <!-- SEO Critical Content for Crawlers -->
