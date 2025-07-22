@@ -15,24 +15,24 @@ const Pricing: React.FC = () => {
     {
       name: "Starter",
       price: 699,
-      description: "Για επιχειρήσεις που ξεκινούν την online προβολή τους",
+      description: t('pricing.starter.description'),
       features: [
-        "Κατασκευή ιστοτόπου (έως 6 σελίδες)",
-        "Φιλοξενία, ασφάλεια και τεχνική υποστήριξη",
-        "Βασική βελτιστοποίηση SEO",
-        "Διαχείριση social media ( 1 πλατφόρμα)",
-        "8 δημοσιεύσεις / 4 stories / 4 Carousel / 1 Video",
-        "Μία καμπάνια διαφήμισης (Meta ή Google)",
-        "2 άρθρα blog (SEO optimized) /μήνα",
-        "1 αναθεώρηση/μήνα",
-        "Μηνιαία αναφορά απόδοσης"
+        t('pricing.features.website'),
+        t('pricing.features.hosting'),
+        t('pricing.features.seo'),
+        t('pricing.features.social1'),
+        t('pricing.features.posts8'),
+        t('pricing.features.campaign1'),
+        t('pricing.features.blog2'),
+        t('pricing.features.revision1'),
+        t('pricing.features.report')
       ],
-      recommendedBudget: "από €150 /μήνα"
+      recommendedBudget: t('pricing.budget.starter')
     },
     {
       name: "Growth",
       price: 1299,
-      description: "Για επιχειρήσεις που αναπτύσσονται και χρειάζονται σταθερή ψηφιακή παρουσία",
+      description: t('pricing.growth.description'),
       features: [
         "Προσαρμοσμένος ιστότοπος με απεριόριστες σελίδες",
         "Ενισχυμένο SEO και τοπική προβολή (GMB, κριτικές)",
@@ -44,12 +44,12 @@ const Pricing: React.FC = () => {
         "2 αναθεωρήσεις/μήνα",
         "Μηνιαία αναφορά απόδοσης"
       ],
-      recommendedBudget: "€400–€700 /μήνα"
+      recommendedBudget: t('pricing.budget.growth')
     },
     {
       name: "Dominance",
       price: 2299,
-      description: "Για επιχειρήσεις που θέλουν να κυριαρχήσουν στον κλάδο τους",
+      description: t('pricing.dominance.description'),
       features: [
         "Premium ιστότοπος με προσαρμοσμένες λειτουργίες ή light e-shop",
         "Διαχείριση social media (4 πλατφόρμες, περιλαμβάνει Facebook, Instagram, TikTok, LinkedIn)",
@@ -62,7 +62,7 @@ const Pricing: React.FC = () => {
         "Υπεύθυνος έργου για συνεχή υποστήριξη",
         "Μηνιαία αναφορά απόδοσης"
       ],
-      recommendedBudget: "€1.000–€2.000+ /μήνα"
+      recommendedBudget: t('pricing.budget.dominance')
     }
   ];
 
@@ -86,28 +86,28 @@ const Pricing: React.FC = () => {
 
   const faqItems: FAQItemProps[] = [
     {
-      question: "Δεν είμαι σίγουρος ποιες ενότητες χρειάζομαι. Μπορείτε να βοηθήσετε;",
-      answer: "Απολύτως! Προσφέρουμε μια δωρεάν συμβουλή για να συζητήσουμε τους επιχειρηματικούς σας στόχους και να προτείνουμε τις καλύτερες ενότητες για την επίτευξή τους. Θα αναλύσουμε την τρέχουσα διαδικτυακή σας παρουσία, θα εντοπίσουμε ευκαιρίες βελτίωσης και θα δημιουργήσουμε ένα προσαρμοσμένο σχέδιο προσαρμοσμένο στις συγκεκριμένες ανάγκες σας."
+      question: t('faq.q1'),
+      answer: t('faq.a1')
     },
     {
-      question: "Τι γίνεται αν χρειαστεί να ακυρώσω τη συνδρομή μου;",
-      answer: "Μπορείτε να ακυρώσετε τη συνδρομή σας ανά πάσα στιγμή, χωρίς ερωτήσεις. Πιστεύουμε στην απόκτηση της επιχείρησής σας κάθε μήνα και δεν θέλουμε να σας δεσμεύσουμε σε ένα μακροπρόθεσμο συμβόλαιο εάν οι υπηρεσίες μας δεν ανταποκρίνονται στις προσδοκίες σας. Απλώς ειδοποιήστε μας πριν από την επόμενη ημερομηνία χρέωσης και θα επεξεργαστούμε την ακύρωσή σας."
+      question: t('faq.q2'),
+      answer: t('faq.a2')
     },
     {
-      question: "Υπάρχουν κρυφές χρεώσεις ή μακροπρόθεσμα συμβόλαια;",
-      answer: "Όχι, δεν υπάρχουν κρυφές χρεώσεις ή μακροπρόθεσμα συμβόλαια. Η τιμολόγησή μας είναι διαφανής και απλή. Η μηνιαία τιμή που βλέπετε είναι η τιμή που πληρώνετε και μπορείτε να ακυρώσετε ανά πάσα στιγμή. Ωστόσο, ενδέχεται να ισχύουν πρόσθετες χρεώσεις για συγκεκριμένες υπηρεσίες — όπως ο διαφημιστικός προϋπολογισμός (δαπάνες διαφήμισης) και η χρήση API τρίτων."
+      question: t('faq.q3'),
+      answer: t('faq.a3')
     },
     {
-      question: "Πόσο γρήγορα θα δω αποτελέσματα;",
-      answer: "Το χρονοδιάγραμμα για την εμφάνιση αποτελεσμάτων ποικίλλει ανάλογα με τις ενότητες που επιλέγετε και την τρέχουσα κατάσταση της διαδικτυακής σας παρουσίας. Ωστόσο, οι περισσότεροι πελάτες αρχίζουν να βλέπουν θετικές αλλαγές μέσα στους πρώτους μήνες. Θα παρακολουθούμε στενά την πρόοδό σας και θα παρέχουμε τακτικές αναφορές για να σας κρατάμε ενήμερους."
+      question: t('faq.q4'),
+      answer: t('faq.a4')
     },
     {
-      question: "Τι γίνεται αν χρειάζομαι υποστήριξη ή έχω ερωτήσεις;",
-      answer: "Προσφέρουμε αποκλειστική υποστήριξη σε όλους τους πελάτες μας. Μπορείτε να επικοινωνήσετε μαζί μας μέσω email ή τηλεφώνου και θα απαντήσουμε άμεσα για να αντιμετωπίσουμε τις ερωτήσεις και τις ανησυχίες σας. Δεσμευόμαστε να παρέχουμε εξαιρετική εξυπηρέτηση πελατών και να διασφαλίσουμε ότι είστε απόλυτα ικανοποιημένοι με τις υπηρεσίες μας."
+      question: t('faq.q5'),
+      answer: t('faq.a5')
     },
     {
-      question: "Είμαι κάτοχος του περιεχομένου που δημιουργήθηκε για μένα;",
-      answer: "Ναι! Διατηρείτε την πλήρη κυριότητα όλου του περιεχομένου που δημιουργήθηκε για εσάς, συμπεριλαμβανομένου του κώδικα ιστότοπου, των σχεδίων, των άρθρων ιστολογίου, των δημοσιεύσεων στα μέσα κοινωνικής δικτύωσης και του διαφημιστικού κειμένου. Πιστεύουμε στην ενδυνάμωση των πελατών μας και στην παροχή ελέγχου των ψηφιακών τους στοιχείων."
+      question: t('faq.q6'),
+      answer: t('faq.a6')
     }
   ];
 
@@ -149,9 +149,9 @@ const Pricing: React.FC = () => {
                   ))}
                 </ul>
                 <div className="text-sm text-gray-400">
-                  Προτεινόμενο διαφημιστικό budget: {pkg.recommendedBudget}
+                  {t('pricing.budget.recommended')} {pkg.recommendedBudget}
                   <br />
-                  (δεν περιλαμβάνεται στο πακέτο)
+                  {t('pricing.budget.note')}
                 </div>
               </div>
             ))}
@@ -203,17 +203,16 @@ const Pricing: React.FC = () => {
           {/* Additional information for the Buy button */}
           {hasSelectedServices() && (
             <div className="mt-4 text-center text-xs md:text-sm text-gray-400 px-2">
-              Επόμενο: Συμπληρώστε μια γρήγορη φόρμα ένταξης για να παράσχετε τις πληροφορίες που χρειαζόμαστε για να ξεκινήσουμε με τις επιλεγμένες υπηρεσίες σας.
+              {t('pricing.next.info')}
             </div>
           )}
         </div>
 
         {/* Important Note Section */}
         <div className="mt-6 md:mt-8 backdrop-blur-sm border-2 rounded-xl p-4 md:p-6 transition-all duration-300" style={{ backgroundColor: 'rgba(244, 63, 94, 0.2)', borderColor: 'rgba(244, 63, 94, 0.3)' }}>
-          <h4 className="text-base md:text-lg font-semibold text-white mb-2">Σημαντική Σημείωση</h4>
+          <h4 className="text-base md:text-lg font-semibold text-white mb-2">{t('pricing.note.title')}</h4>
           <p className="text-gray-100 text-sm md:text-base leading-relaxed">
-            Το διαφημιστικό budget (Meta ή Google Ads) καταβάλλεται ξεχωριστά και απευθείας στην εκάστοτε πλατφόρμα.
-            Η ομάδα μας αναλαμβάνει τη διαχείριση και τη βελτιστοποίηση των καμπανιών με βάση τους στόχους της επιχείρησής σας.
+            {t('pricing.note.content')}
           </p>
         </div>
 
@@ -227,11 +226,11 @@ const Pricing: React.FC = () => {
                   className="w-full p-4 md:p-6 text-left flex justify-between items-center text-white font-medium text-sm md:text-base"
                   onClick={() => toggleFAQ(index)}
                 >
-                  {item.question}
+                  {t(`faq.q${index + 1}`)}
                   {expandedFAQ === index ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
                 </button>
                 <div className={`p-4 md:p-6 pt-0 text-gray-300 text-sm md:text-base ${expandedFAQ === index ? 'block' : 'hidden'}`}>
-                  {item.answer}
+                  {t(`faq.a${index + 1}`)}
                 </div>
               </div>
             ))}

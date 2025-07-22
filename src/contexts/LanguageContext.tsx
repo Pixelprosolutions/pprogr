@@ -96,6 +96,98 @@ const translations = {
     'common.loading': 'Φόρτωση...',
     'common.error': 'Σφάλμα',
     'common.success': 'Επιτυχία',
+    
+    // Projects - Individual project content
+    'projects.voltbuild.title': 'VoltBuild – EV Charging Experts',
+    'projects.voltbuild.description': 'voltbuild.gr - Κατασκευή Ιστοσελίδας · E-shop · SEO & Περιεχόμενο · Στρατηγική',
+    'projects.voltbuild.tags.website': 'Κατασκευή Ιστοσελίδας',
+    'projects.voltbuild.tags.eshop': 'E-shop',
+    'projects.voltbuild.tags.seo': 'SEO & Περιεχόμενο',
+    'projects.voltbuild.tags.strategy': 'Στρατηγική',
+    
+    'projects.naterra.title': 'Naterra – Home Renovations (UK)',
+    'projects.naterra.description': 'naterra.uk - Branding · Κατασκευή Ιστοσελίδας · Digital Marketing Strategy',
+    'projects.naterra.tags.branding': 'Branding',
+    'projects.naterra.tags.website': 'Κατασκευή Ιστοσελίδας',
+    'projects.naterra.tags.marketing': 'Digital Marketing Strategy',
+    
+    'projects.kts.title': 'KTS Woodart – Custom Carpentry (UK)',
+    'projects.kts.description': 'ktswoodart.com - Κατασκευή Ιστοσελίδας · Rebranding · Digital Strategy · Social Media',
+    'projects.kts.tags.website': 'Κατασκευή Ιστοσελίδας',
+    'projects.kts.tags.rebranding': 'Rebranding',
+    'projects.kts.tags.digital': 'Digital Strategy',
+    'projects.kts.tags.social': 'Social Media',
+    
+    'projects.alex.title': 'Alex Alali – Digital Portfolio',
+    'projects.alex.description': 'alexalali.com - One-page Ιστοσελίδα · Personal Branding · Παρουσίαση Case Studies',
+    'projects.alex.tags.onepage': 'One-page Ιστοσελίδα',
+    'projects.alex.tags.personal': 'Personal Branding',
+    'projects.alex.tags.cases': 'Παρουσίαση Case Studies',
+    
+    'projects.sidiropoulos.title': 'Ιατρείο Σιδηρόπουλου – Ουρολογική Κλινική',
+    'projects.sidiropoulos.description': 'sidiropoulos-urology.gr - Κατασκευή Ιστοσελίδας · Ιατρικό Περιεχόμενο · Δομή για SEO',
+    'projects.sidiropoulos.tags.website': 'Κατασκευή Ιστοσελίδας',
+    'projects.sidiropoulos.tags.medical': 'Ιατρικό Περιεχόμενο',
+    'projects.sidiropoulos.tags.seo': 'Δομή για SEO',
+    
+    'projects.underground.title': 'Underground Talent – Music Media Brand (UK)',
+    'projects.underground.description': 'undergroundtalent.co.uk - Κατασκευή Ιστοσελίδας · Branding · 360° Στρατηγική Marketing · Σχεδιασμός Προϊόντων',
+    'projects.underground.tags.website': 'Κατασκευή Ιστοσελίδας',
+    'projects.underground.tags.branding': 'Branding',
+    'projects.underground.tags.marketing360': '360° Marketing',
+    'projects.underground.tags.products': 'Σχεδιασμός Προϊόντων',
+    
+    'projects.buttons.more': 'Δείτε Περισσότερα',
+    'projects.buttons.details': 'Λεπτομέρειες Έργου',
+    'projects.buttons.less': 'Εμφάνιση Λιγότερων',
+    'projects.challenge': 'Η Πρόκληση',
+    'projects.solution': 'Η Λύση μας',
+    'projects.results': 'Αποτελέσματα',
+    
+    // Pricing - Package features and details
+    'pricing.starter.description': 'Για επιχειρήσεις που ξεκινούν την online προβολή τους',
+    'pricing.growth.description': 'Για επιχειρήσεις που αναπτύσσονται και χρειάζονται σταθερή ψηφιακή παρουσία',
+    'pricing.dominance.description': 'Για επιχειρήσεις που θέλουν να κυριαρχήσουν στον κλάδο τους',
+    
+    'pricing.features.website': 'Κατασκευή ιστοτόπου (έως 6 σελίδες)',
+    'pricing.features.hosting': 'Φιλοξενία, ασφάλεια και τεχνική υποστήριξη',
+    'pricing.features.seo': 'Βασική βελτιστοποίηση SEO',
+    'pricing.features.social1': 'Διαχείριση social media ( 1 πλατφόρμα)',
+    'pricing.features.posts8': '8 δημοσιεύσεις / 4 stories / 4 Carousel / 1 Video',
+    'pricing.features.campaign1': 'Μία καμπάνια διαφήμισης (Meta ή Google)',
+    'pricing.features.blog2': '2 άρθρα blog (SEO optimized) /μήνα',
+    'pricing.features.revision1': '1 αναθεώρηση/μήνα',
+    'pricing.features.report': 'Μηνιαία αναφορά απόδοσης',
+    
+    'pricing.budget.starter': 'από €150 /μήνα',
+    'pricing.budget.growth': '€400–€700 /μήνα',
+    'pricing.budget.dominance': '€1.000–€2.000+ /μήνα',
+    'pricing.budget.note': '(δεν περιλαμβάνεται στο πακέτο)',
+    'pricing.budget.recommended': 'Προτεινόμενο διαφημιστικό budget:',
+    
+    'pricing.note.title': 'Σημαντική Σημείωση',
+    'pricing.note.content': 'Το διαφημιστικό budget (Meta ή Google Ads) καταβάλλεται ξεχωριστά και απευθείας στην εκάστοτε πλατφόρμα. Η ομάδα μας αναλαμβάνει τη διαχείριση και τη βελτιστοποίηση των καμπανιών με βάση τους στόχους της επιχείρησής σας.',
+    
+    'pricing.next.info': 'Επόμενο: Συμπληρώστε μια γρήγορη φόρμα ένταξης για να παράσχετε τις πληροφορίες που χρειαζόμαστε για να ξεκινήσουμε με τις επιλεγμένες υπηρεσίες σας.',
+    
+    // FAQ Questions and Answers
+    'faq.q1': 'Δεν είμαι σίγουρος ποιες ενότητες χρειάζομαι. Μπορείτε να βοηθήσετε;',
+    'faq.a1': 'Απολύτως! Προσφέρουμε μια δωρεάν συμβουλή για να συζητήσουμε τους επιχειρηματικούς σας στόχους και να προτείνουμε τις καλύτερες ενότητες για την επίτευξή τους. Θα αναλύσουμε την τρέχουσα διαδικτυακή σας παρουσία, θα εντοπίσουμε ευκαιρίες βελτίωσης και θα δημιουργήσουμε ένα προσαρμοσμένο σχέδιο προσαρμοσμένο στις συγκεκριμένες ανάγκες σας.',
+    
+    'faq.q2': 'Τι γίνεται αν χρειαστεί να ακυρώσω τη συνδρομή μου;',
+    'faq.a2': 'Μπορείτε να ακυρώσετε τη συνδρομή σας ανά πάσα στιγμή, χωρίς ερωτήσεις. Πιστεύουμε στην απόκτηση της επιχείρησής σας κάθε μήνα και δεν θέλουμε να σας δεσμεύσουμε σε ένα μακροπρόθεσμο συμβόλαιο εάν οι υπηρεσίες μας δεν ανταποκρίνονται στις προσδοκίες σας. Απλώς ειδοποιήστε μας πριν από την επόμενη ημερομηνία χρέωσης και θα επεξεργαστούμε την ακύρωσή σας.',
+    
+    'faq.q3': 'Υπάρχουν κρυφές χρεώσεις ή μακροπρόθεσμα συμβόλαια;',
+    'faq.a3': 'Όχι, δεν υπάρχουν κρυφές χρεώσεις ή μακροπρόθεσμα συμβόλαια. Η τιμολόγησή μας είναι διαφανής και απλή. Η μηνιαία τιμή που βλέπετε είναι η τιμή που πληρώνετε και μπορείτε να ακυρώσετε ανά πάσα στιγμή. Ωστόσο, ενδέχεται να ισχύουν πρόσθετες χρεώσεις για συγκεκριμένες υπηρεσίες — όπως ο διαφημιστικός προϋπολογισμός (δαπάνες διαφήμισης) και η χρήση API τρίτων.',
+    
+    'faq.q4': 'Πόσο γρήγορα θα δω αποτελέσματα;',
+    'faq.a4': 'Το χρονοδιάγραμμα για την εμφάνιση αποτελεσμάτων ποικίλλει ανάλογα με τις ενότητες που επιλέγετε και την τρέχουσα κατάσταση της διαδικτυακής σας παρουσίας. Ωστόσο, οι περισσότεροι πελάτες αρχίζουν να βλέπουν θετικές αλλαγές μέσα στους πρώτους μήνες. Θα παρακολουθούμε στενά την πρόοδό σας και θα παρέχουμε τακτικές αναφορές για να σας κρατάμε ενήμερους.',
+    
+    'faq.q5': 'Τι γίνεται αν χρειάζομαι υποστήριξη ή έχω ερωτήσεις;',
+    'faq.a5': 'Προσφέρουμε αποκλειστική υποστήριξη σε όλους τους πελάτες μας. Μπορείτε να επικοινωνήσετε μαζί μας μέσω email ή τηλεφώνου και θα απαντήσουμε άμεσα για να αντιμετωπίσουμε τις ερωτήσεις και τις ανησυχίες σας. Δεσμευόμαστε να παρέχουμε εξαιρετική εξυπηρέτηση πελατών και να διασφαλίσουμε ότι είστε απόλυτα ικανοποιημένοι με τις υπηρεσίες μας.',
+    
+    'faq.q6': 'Είμαι κάτοχος του περιεχομένου που δημιουργήθηκε για μένα;',
+    'faq.a6': 'Ναι! Διατηρείτε την πλήρη κυριότητα όλου του περιεχομένου που δημιουργήθηκε για εσάς, συμπεριλαμβανομένου του κώδικα ιστότοπου, των σχεδίων, των άρθρων ιστολογίου, των δημοσιεύσεων στα μέσα κοινωνικής δικτύωσης και του διαφημιστικού κειμένου. Πιστεύουμε στην ενδυνάμωση των πελατών μας και στην παροχή ελέγχου των ψηφιακών τους στοιχείων.',
   },
   en: {
     // Navigation
@@ -181,6 +273,98 @@ const translations = {
     'common.loading': 'Loading...',
     'common.error': 'Error',
     'common.success': 'Success',
+    
+    // Projects - Individual project content
+    'projects.voltbuild.title': 'VoltBuild – EV Charging Experts',
+    'projects.voltbuild.description': 'voltbuild.gr - Website Development · E-shop · SEO & Content · Strategy',
+    'projects.voltbuild.tags.website': 'Website Development',
+    'projects.voltbuild.tags.eshop': 'E-shop',
+    'projects.voltbuild.tags.seo': 'SEO & Content',
+    'projects.voltbuild.tags.strategy': 'Strategy',
+    
+    'projects.naterra.title': 'Naterra – Home Renovations (UK)',
+    'projects.naterra.description': 'naterra.uk - Branding · Website Development · Digital Marketing Strategy',
+    'projects.naterra.tags.branding': 'Branding',
+    'projects.naterra.tags.website': 'Website Development',
+    'projects.naterra.tags.marketing': 'Digital Marketing Strategy',
+    
+    'projects.kts.title': 'KTS Woodart – Custom Carpentry (UK)',
+    'projects.kts.description': 'ktswoodart.com - Website Development · Rebranding · Digital Strategy · Social Media',
+    'projects.kts.tags.website': 'Website Development',
+    'projects.kts.tags.rebranding': 'Rebranding',
+    'projects.kts.tags.digital': 'Digital Strategy',
+    'projects.kts.tags.social': 'Social Media',
+    
+    'projects.alex.title': 'Alex Alali – Digital Portfolio',
+    'projects.alex.description': 'alexalali.com - One-page Website · Personal Branding · Case Studies Showcase',
+    'projects.alex.tags.onepage': 'One-page Website',
+    'projects.alex.tags.personal': 'Personal Branding',
+    'projects.alex.tags.cases': 'Case Studies Showcase',
+    
+    'projects.sidiropoulos.title': 'Sidiropoulos Clinic – Urology Practice',
+    'projects.sidiropoulos.description': 'sidiropoulos-urology.gr - Website Development · Medical Content · SEO Structure',
+    'projects.sidiropoulos.tags.website': 'Website Development',
+    'projects.sidiropoulos.tags.medical': 'Medical Content',
+    'projects.sidiropoulos.tags.seo': 'SEO Structure',
+    
+    'projects.underground.title': 'Underground Talent – Music Media Brand (UK)',
+    'projects.underground.description': 'undergroundtalent.co.uk - Website Development · Branding · 360° Marketing Strategy · Product Design',
+    'projects.underground.tags.website': 'Website Development',
+    'projects.underground.tags.branding': 'Branding',
+    'projects.underground.tags.marketing360': '360° Marketing',
+    'projects.underground.tags.products': 'Product Design',
+    
+    'projects.buttons.more': 'View More',
+    'projects.buttons.details': 'Project Details',
+    'projects.buttons.less': 'Show Less',
+    'projects.challenge': 'The Challenge',
+    'projects.solution': 'Our Solution',
+    'projects.results': 'Results',
+    
+    // Pricing - Package features and details
+    'pricing.starter.description': 'For businesses starting their online presence',
+    'pricing.growth.description': 'For growing businesses that need stable digital presence',
+    'pricing.dominance.description': 'For businesses that want to dominate their industry',
+    
+    'pricing.features.website': 'Website development (up to 6 pages)',
+    'pricing.features.hosting': 'Hosting, security and technical support',
+    'pricing.features.seo': 'Basic SEO optimization',
+    'pricing.features.social1': 'Social media management (1 platform)',
+    'pricing.features.posts8': '8 posts / 4 stories / 4 Carousel / 1 Video',
+    'pricing.features.campaign1': 'One advertising campaign (Meta or Google)',
+    'pricing.features.blog2': '2 blog articles (SEO optimized) /month',
+    'pricing.features.revision1': '1 revision/month',
+    'pricing.features.report': 'Monthly performance report',
+    
+    'pricing.budget.starter': 'from €150 /month',
+    'pricing.budget.growth': '€400–€700 /month',
+    'pricing.budget.dominance': '€1,000–€2,000+ /month',
+    'pricing.budget.note': '(not included in package)',
+    'pricing.budget.recommended': 'Recommended advertising budget:',
+    
+    'pricing.note.title': 'Important Note',
+    'pricing.note.content': 'The advertising budget (Meta or Google Ads) is paid separately and directly to each platform. Our team handles the management and optimization of campaigns based on your business goals.',
+    
+    'pricing.next.info': 'Next: Complete a quick onboarding form to provide the information we need to get started with your selected services.',
+    
+    // FAQ Questions and Answers
+    'faq.q1': 'I\'m not sure which services I need. Can you help?',
+    'faq.a1': 'Absolutely! We offer a free consultation to discuss your business goals and recommend the best services for achieving them. We\'ll analyze your current online presence, identify improvement opportunities, and create a customized plan tailored to your specific needs.',
+    
+    'faq.q2': 'What if I need to cancel my subscription?',
+    'faq.a2': 'You can cancel your subscription at any time, no questions asked. We believe in earning your business every month and don\'t want to lock you into a long-term contract if our services don\'t meet your expectations. Simply notify us before your next billing date and we\'ll process your cancellation.',
+    
+    'faq.q3': 'Are there any hidden fees or long-term contracts?',
+    'faq.a3': 'No, there are no hidden fees or long-term contracts. Our pricing is transparent and simple. The monthly price you see is what you pay, and you can cancel at any time. However, additional charges may apply for specific services — such as advertising budget (ad spend) and third-party API usage.',
+    
+    'faq.q4': 'How quickly will I see results?',
+    'faq.a4': 'The timeline for seeing results varies depending on the services you choose and the current state of your online presence. However, most clients start seeing positive changes within the first few months. We\'ll closely monitor your progress and provide regular reports to keep you informed.',
+    
+    'faq.q5': 'What if I need support or have questions?',
+    'faq.a5': 'We provide dedicated support to all our clients. You can reach out to us via email or phone, and we\'ll respond promptly to address your questions and concerns. We\'re committed to providing excellent customer service and ensuring you\'re completely satisfied with our services.',
+    
+    'faq.q6': 'Do I own the content created for me?',
+    'faq.a6': 'Yes! You retain full ownership of all content created for you, including website code, designs, blog articles, social media posts, and ad copy. We believe in empowering our clients and providing control over their digital assets.',
   }
 };
 

@@ -56,7 +56,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 rel="noopener noreferrer"
                 className="bg-black/80 backdrop-blur-sm border border-white/20 text-white py-3 px-6 rounded-lg font-medium hover:bg-black/90 transition-all duration-300 shadow-lg flex items-center justify-center"
               >
-                Δείτε Περισσότερα
+                {t('projects.buttons.more')}
                 <ExternalLink className="ml-2 h-4 w-4" />
               </a>
             )}
@@ -65,24 +65,24 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               onClick={() => setIsExpanded(!isExpanded)}
               className="bg-white/10 backdrop-blur-sm border border-white/20 text-white py-2 px-4 rounded-lg font-medium hover:bg-white/20 transition-all duration-300 text-sm"
             >
-              {isExpanded ? "Εμφάνιση Λιγότερων" : "Λεπτομέρειες Έργου"}
+              {isExpanded ? t('projects.buttons.less') : t('projects.buttons.details')}
             </button>
           </div>
 
           {isExpanded && (
             <div className="mt-6 space-y-6">
               <div className="bg-black/40 p-6 rounded-lg">
-                <h4 className="text-white font-bold text-xl mb-3">Η Πρόκληση</h4>
+                <h4 className="text-white font-bold text-xl mb-3">{t('projects.challenge')}</h4>
                 <p className="text-gray-300/80">{challenge}</p>
               </div>
               
               <div className="bg-black/40 p-6 rounded-lg">
-                <h4 className="text-white font-bold text-xl mb-3">Η Λύση μας</h4>
+                <h4 className="text-white font-bold text-xl mb-3">{t('projects.solution')}</h4>
                 <p className="text-gray-300/80">{solution}</p>
               </div>
               
               <div className="bg-black/40 p-6 rounded-lg">
-                <h4 className="text-white font-bold text-xl mb-3">Αποτελέσματα</h4>
+                <h4 className="text-white font-bold text-xl mb-3">{t('projects.results')}</h4>
                 <p className="text-gray-300/80 mb-4">{result}</p>
                 {metrics.length > 0 && (
                   <div className="grid grid-cols-2 gap-4">
@@ -107,9 +107,9 @@ const Projects: React.FC = () => {
   
   const projects = [
     {
-      title: "VoltBuild – EV Charging Experts",
-      description: "voltbuild.gr - Κατασκευή Ιστοσελίδας · E-shop · SEO & Περιεχόμενο · Στρατηγική",
-      tags: ["Κατασκευή Ιστοσελίδας", "E-shop", "SEO & Περιεχόμενο", "Στρατηγική"],
+      title: t('projects.voltbuild.title'),
+      description: t('projects.voltbuild.description'),
+      tags: [t('projects.voltbuild.tags.website'), t('projects.voltbuild.tags.eshop'), t('projects.voltbuild.tags.seo'), t('projects.voltbuild.tags.strategy')],
       result: "Η VoltBuild ξεχώρισε στον ταχέως αναπτυσσόμενο χώρο των φορτιστών EV στην Ελλάδα",
       challenge: "Η VoltBuild χρειαζόταν έναν σύγχρονο ιστότοπο με SEO-first δομή για να ξεχωρίσει στον ταχέως αναπτυσσόμενο χώρο των φορτιστών EV στην Ελλάδα.",
       solution: "Κατασκευάσαμε responsive website με λειτουργικό eshop, δημιουργήσαμε SEO σελίδες υπηρεσιών και αναπτύξαμε περιεχόμενο για οργανική ανάπτυξη.",
@@ -121,9 +121,9 @@ const Projects: React.FC = () => {
       websiteUrl: "https://voltbuild.gr"
     },
     {
-      title: "Naterra – Home Renovations (UK)",
-      description: "naterra.uk - Branding · Κατασκευή Ιστοσελίδας · Digital Marketing Strategy",
-      tags: ["Branding", "Κατασκευή Ιστοσελίδας", "Digital Marketing Strategy"],
+      title: t('projects.naterra.title'),
+      description: t('projects.naterra.description'),
+      tags: [t('projects.naterra.tags.branding'), t('projects.naterra.tags.website'), t('projects.naterra.tags.marketing')],
       result: "Ενίσχυση της παρουσίας στο Λονδίνο και διαφοροποίηση στον κλάδο των ανακαινίσεων",
       challenge: "Η Naterra ήθελε να ενισχύσει την παρουσία της στο Λονδίνο και να ξεχωρίσει στον κλάδο των ανακαινίσεων.",
       solution: "Δημιουργήσαμε brand ταυτότητα, σχεδιάσαμε επαγγελματικό ιστότοπο και βάλαμε τα θεμέλια για στοχευμένη digital στρατηγική.",
@@ -135,9 +135,9 @@ const Projects: React.FC = () => {
       websiteUrl: "https://naterra.uk"
     },
     {
-      title: "KTS Woodart – Custom Carpentry (UK)",
-      description: "ktswoodart.com - Κατασκευή Ιστοσελίδας · Rebranding · Digital Strategy · Social Media",
-      tags: ["Κατασκευή Ιστοσελίδας", "Rebranding", "Digital Strategy", "Social Media"],
+      title: t('projects.kts.title'),
+      description: t('projects.kts.description'),
+      tags: [t('projects.kts.tags.website'), t('projects.kts.tags.rebranding'), t('projects.kts.tags.digital'), t('projects.kts.tags.social')],
       result: "Επαναπροσδιορισμός brand και online στρατηγική με εστίαση σε τοπικό κοινό",
       challenge: "Η KTS Woodart, με έδρα το Λονδίνο, χρειαζόταν επαναπροσδιορισμό brand και online στρατηγική.",
       solution: "Αναπτύξαμε νέα οπτική ταυτότητα, responsive website και πλάνο ψηφιακής ανάπτυξης με εστίαση σε τοπικό κοινό και social media.",
@@ -149,9 +149,9 @@ const Projects: React.FC = () => {
       websiteUrl: "https://ktswoodart.com"
     },
     {
-      title: "Alex Alali – Digital Portfolio",
-      description: "alexalali.com - One-page Ιστοσελίδα · Personal Branding · Παρουσίαση Case Studies",
-      tags: ["One-page Ιστοσελίδα", "Personal Branding", "Παρουσίαση Case Studies"],
+      title: t('projects.alex.title'),
+      description: t('projects.alex.description'),
+      tags: [t('projects.alex.tags.onepage'), t('projects.alex.tags.personal'), t('projects.alex.tags.cases')],
       result: "Επαγγελματικό ψηφιακό portfolio για παρουσίαση δεξιοτήτων και έργων",
       challenge: "Ο Alex Alali χρειαζόταν ένα επαγγελματικό ψηφιακό portfolio για να παρουσιάσει τις δεξιότητες και τα έργα του.",
       solution: "Κατασκευάστηκε minimal site με ξεκάθαρη παρουσίαση έργων και προτροπές για συνεργασία.",
@@ -163,9 +163,9 @@ const Projects: React.FC = () => {
       websiteUrl: "https://alexalali.com"
     },
     {
-      title: "Ιατρείο Σιδηρόπουλου – Ουρολογική Κλινική",
-      description: "sidiropoulos-urology.gr - Κατασκευή Ιστοσελίδας · Ιατρικό Περιεχόμενο · Δομή για SEO",
-      tags: ["Κατασκευή Ιστοσελίδας", "Ιατρικό Περιεχόμενο", "Δομή για SEO"],
+      title: t('projects.sidiropoulos.title'),
+      description: t('projects.sidiropoulos.description'),
+      tags: [t('projects.sidiropoulos.tags.website'), t('projects.sidiropoulos.tags.medical'), t('projects.sidiropoulos.tags.seo')],
       result: "Σύγχρονη παρουσία που εμπνέει εμπιστοσύνη και διευκολύνει την πρόσβαση των ασθενών",
       challenge: "Το ιατρείο χρειαζόταν σύγχρονη παρουσία που να εμπνέει εμπιστοσύνη και να διευκολύνει την πρόσβαση των ασθενών σε πληροφορίες.",
       solution: "Δημιουργήσαμε ιστοσελίδα με ξεκάθαρη δομή, ιατρικό περιεχόμενο και ενσωματωμένη φόρμα επικοινωνίας.",
@@ -177,9 +177,9 @@ const Projects: React.FC = () => {
       websiteUrl: "https://sidiropoulos-urology.gr"
     },
     {
-      title: "Underground Talent – Music Media Brand (UK)",
-      description: "undergroundtalent.co.uk - Κατασκευή Ιστοσελίδας · Branding · 360° Στρατηγική Marketing · Σχεδιασμός Προϊόντων",
-      tags: ["Κατασκευή Ιστοσελίδας", "Branding", "360° Marketing", "Σχεδιασμός Προϊόντων"],
+      title: t('projects.underground.title'),
+      description: t('projects.underground.description'),
+      tags: [t('projects.underground.tags.website'), t('projects.underground.tags.branding'), t('projects.underground.tags.marketing360'), t('projects.underground.tags.products')],
       result: "Ενίσχυση παρουσίας παγκοσμίως στον χώρο της ηλεκτρονικής μουσικής και fashion προϊόντων",
       challenge: "Το brand ήθελε να ενισχύσει την παρουσία του παγκοσμίως στον χώρο της ηλεκτρονικής μουσικής και των fashion προϊόντων.",
       solution: "Δημιουργήσαμε επαγγελματικό website, αναπτύξαμε δυναμική ταυτότητα και εφαρμόσαμε ολιστική στρατηγική marketing με περιεχόμενο, προϊόντα και funnels.",
