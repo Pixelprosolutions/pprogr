@@ -130,7 +130,6 @@ const Header: React.FC = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex space-x-4 xl:space-x-8 items-center" role="navigation" aria-label="Κύρια πλοήγηση">
-          <LanguageToggle />
           <a 
             href="#home" 
             className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
@@ -173,6 +172,7 @@ const Header: React.FC = () => {
           >
             {t('nav.contact')}
           </a>
+          <LanguageToggle />
           <a 
             href="#contact" 
             className="bg-white text-black py-2 px-3 xl:px-4 rounded-lg font-medium hover:bg-gray-200 transition-all duration-300 glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"

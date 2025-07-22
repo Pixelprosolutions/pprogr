@@ -49,6 +49,20 @@ const translations = {
     'projects.title': 'Έργα & Case Studies',
     'projects.description': 'Δείτε πώς βοηθήσαμε επιχειρήσεις στην Ελλάδα και διεθνώς να αναπτυχθούν ψηφιακά',
     
+    // Pricing Section
+    'pricing.title': 'Πακέτα Υπηρεσιών PixelPro',
+    'pricing.description': 'Επιλέξτε το πακέτο που ταιριάζει στην επιχειρησή σας και ενισχύστε την ψηφιακή σας παρουσία.',
+    'pricing.starter.name': 'Starter',
+    'pricing.growth.name': 'Growth', 
+    'pricing.dominance.name': 'Dominance',
+    'pricing.month': '/μήνα',
+    'pricing.select': 'Επιλέξτε το',
+    'pricing.package': 'Πακέτο',
+    'pricing.unsure': 'Δεν είστε σίγουροι; Δωρεάν Συμβουλευτική',
+    'pricing.total': 'Σύνολο:',
+    'pricing.cancel': 'Ακύρωση ανά πάσα στιγμή.',
+    'pricing.faq.title': 'Συχνές Ερωτήσεις',
+    
     // About Section
     'about.title': 'Σχετικά με Εμάς',
     'about.description.part1': 'Η PixelPro Solutions είναι μια δημιουργική ομάδα με έδρα την Ελλάδα και το Ηνωμένο Βασίλειο, αφιερωμένη στο να βοηθά τοπικές επιχειρήσεις να αναπτυχθούν ψηφιακά.',
@@ -119,6 +133,20 @@ const translations = {
     // Projects Section
     'projects.title': 'Projects & Case Studies',
     'projects.description': 'See how we helped businesses in Greece and internationally grow digitally',
+    
+    // Pricing Section
+    'pricing.title': 'PixelPro Service Packages',
+    'pricing.description': 'Choose the package that fits your business and enhance your digital presence.',
+    'pricing.starter.name': 'Starter',
+    'pricing.growth.name': 'Growth',
+    'pricing.dominance.name': 'Dominance', 
+    'pricing.month': '/month',
+    'pricing.select': 'Select the',
+    'pricing.package': 'Package',
+    'pricing.unsure': 'Not sure? Free Consultation',
+    'pricing.total': 'Total:',
+    'pricing.cancel': 'Cancel anytime.',
+    'pricing.faq.title': 'Frequently Asked Questions',
     
     // About Section
     'about.title': 'About Us',

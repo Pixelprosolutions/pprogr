@@ -136,8 +136,8 @@ const Pricing: React.FC = () => {
                 onClick={() => selectPackage(pkg.name)}
               >
                 <div className="flex flex-col sm:flex-row justify-between items-start mb-4 gap-2">
-                  <h3 className="text-lg md:text-xl font-bold text-white">{pkg.name}</h3>
-                  <div className="text-xl md:text-2xl font-bold text-white">€{pkg.price}<span className="text-sm font-normal">/μήνα</span></div>
+                  <h3 className="text-lg md:text-xl font-bold text-white">{t(`pricing.${pkg.name.toLowerCase()}.name`)}</h3>
+                  <div className="text-xl md:text-2xl font-bold text-white">€{pkg.price}<span className="text-sm font-normal">{t('pricing.month')}</span></div>
                 </div>
                 <p className="text-gray-300 mb-4 text-sm md:text-base">{pkg.description}</p>
                 <ul className="space-y-2 mb-6">
@@ -159,7 +159,7 @@ const Pricing: React.FC = () => {
 
           <div className="text-center mt-6 md:mt-8 relative">
             <h3 className="text-xl md:text-2xl font-bold text-white inline-flex items-center justify-center flex-wrap">
-              Σύνολο: €{calculateTotalPrice()} /μήνα
+              {t('pricing.total')} €{calculateTotalPrice()}{t('pricing.month')}
               <span 
                 className="relative inline-block"
                 onMouseEnter={() => setShowDisclaimer(true)}
@@ -173,7 +173,7 @@ const Pricing: React.FC = () => {
                 )}
               </span>
             </h3>
-            <p className="text-gray-400 text-xs mt-1">Ακύρωση ανά πάσα στιγμή.</p>
+            <p className="text-gray-400 text-xs mt-1">{t('pricing.cancel')}</p>
           </div>
 
           <div className="flex flex-col justify-center gap-4 mt-6 md:mt-8">
@@ -187,7 +187,7 @@ const Pricing: React.FC = () => {
               disabled={!hasSelectedServices()}
               onClick={() => hasSelectedServices() && (window as any).navigateToPackageSelection?.()}
             >
-              Επιλέξτε το {selectedPackage} Πακέτο
+              {t('pricing.select')} {selectedPackage} {t('pricing.package')}
               <ArrowRight className="ml-2 h-4 w-4" />
             </button>
             
@@ -196,7 +196,7 @@ const Pricing: React.FC = () => {
               className="px-6 py-4 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive text-sm md:text-base"
               onClick={() => (window as any).navigateToConsultation?.()}
             >
-              Δεν είστε σίγουροι; Δωρεάν Συμβουλευτική
+              {t('pricing.unsure')}
             </button>
           </div>
           
@@ -219,7 +219,7 @@ const Pricing: React.FC = () => {
 
         {/* FAQ Section */}
         <div className="mt-16 md:mt-32">
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-6 text-center px-2">Συχνές Ερωτήσεις</h3>
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-6 text-center px-2">{t('pricing.faq.title')}</h3>
           <div className="space-y-4">
             {faqItems.map((item, index) => (
               <div key={index} className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden transition-all duration-300 hover:border-white/30 hover:bg-black/40 mx-2">
