@@ -9,6 +9,7 @@ interface ProjectCardProps {
   challenge: string;
   solution: string;
   metrics?: string[];
+  websiteUrl?: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -19,6 +20,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   challenge,
   solution,
   metrics = []
+  websiteUrl
 }) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
 
@@ -57,13 +59,38 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
         
         <div>
-          <button
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="bg-accent/50 backdrop-blur-sm border border-white/20 text-white py-3 px-6 rounded-lg font-medium hover:bg-accent/70 transition-all duration-300 shadow-lg hover:shadow-accent/20 flex items-center"
-          >
-            {isExpanded ? "Εμφάνιση Λιγότερων" : "Δείτε Περισσότερα"}
-            <ExternalLink className="ml-2 h-4 w-4" />
-          </button>
+          <div className="flex flex-col gap-3">
+            {websiteUrl && (
+              <a
+                href={websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-accent/50 backdrop-blur-sm border border-white/20 text-white py-3 px-6 rounded-lg font-medium hover:bg-accent/70 transition-all duration-300 shadow-lg hover:shadow-accent/20 flex items-center justify-center"
+                style={{ 
+                  backgroundColor: 'rgba(244, 63, 94, 0.5)',
+                  boxShadow: '0 10px 15px -3px rgba(244, 63, 94, 0.1), 0 4px 6px -4px rgba(244, 63, 94, 0.1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(244, 63, 94, 0.7)';
+                  e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(244, 63, 94, 0.2), 0 4px 6px -4px rgba(244, 63, 94, 0.2)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(244, 63, 94, 0.5)';
+                  e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(244, 63, 94, 0.1), 0 4px 6px -4px rgba(244, 63, 94, 0.1)';
+                }}
+              >
+                Δείτε Περισσότερα
+                <ExternalLink className="ml-2 h-4 w-4" />
+              </a>
+            )}
+            
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="bg-white/10 backdrop-blur-sm border border-white/20 text-white py-2 px-4 rounded-lg font-medium hover:bg-white/20 transition-all duration-300 text-sm"
+            >
+              {isExpanded ? "Εμφάνιση Λιγότερων" : "Λεπτομέρειες Έργου"}
+            </button>
+          </div>
 
           {isExpanded && (
             <div className="mt-6 space-y-6">
@@ -111,7 +138,8 @@ const Projects: React.FC = () => {
         "300% αύξηση οργανικής επισκεψιμότητας",
         "Πρώτες θέσεις στο Google για βασικές λέξεις-κλειδιά",
         "Αύξηση εισερχόμενων leads και πωλήσεων"
-      ]
+      ],
+      websiteUrl: "https://voltbuild.gr"
     },
     {
       title: "Naterra – Home Renovations (UK)",
@@ -124,7 +152,8 @@ const Projects: React.FC = () => {
         "Σύγχρονη, πλήρως responsive ιστοσελίδα",
         "Σταθερή οργανική ανάπτυξη",
         "Αύξηση αιτήσεων εργασιών μέσω website"
-      ]
+      ],
+      websiteUrl: "https://naterra.uk"
     },
     {
       title: "KTS Woodart – Custom Carpentry (UK)",
@@ -137,7 +166,8 @@ const Projects: React.FC = () => {
         "Ολοκληρωμένο νέο brand με συνεκτική παρουσία",
         "Επαγγελματικό portfolio έργων",
         "Ενεργοποίηση οργανικής ροής πελατών"
-      ]
+      ],
+      websiteUrl: "https://ktswoodart.com"
     },
     {
       title: "Alex Alali – Digital Portfolio",
@@ -150,7 +180,8 @@ const Projects: React.FC = () => {
         "Ισχυρή επαγγελματική ταυτότητα",
         "Πλήρης παρουσίαση δεξιοτήτων & έργων",
         "Χρήση σε επαγγελματικές προσεγγίσεις"
-      ]
+      ],
+      websiteUrl: "https://alexlali.com"
     },
     {
       title: "Ιατρείο Σιδηρόπουλου – Ουρολογική Κλινική",
@@ -163,7 +194,8 @@ const Projects: React.FC = () => {
         "90% θετικό feedback από χρήστες",
         "Μείωση ερωτήσεων μέσω τηλεφώνου",
         "Καλύτερη θέση σε τοπικές αναζητήσεις"
-      ]
+      ],
+      websiteUrl: "https://sidiropoulos-urology.gr"
     },
     {
       title: "Underground Talent – Music Media Brand (UK)",
@@ -177,7 +209,8 @@ const Projects: React.FC = () => {
         "5.000+ πωλήσεις προϊόντων",
         "Top 80 παγκοσμίως στην κατηγορία",
         "Ανάπτυξη κοινού μέσω YouTube και direct traffic"
-      ]
+      ],
+      websiteUrl: "https://undergroundtalent.co.uk"
     }
   ];
 
@@ -203,6 +236,7 @@ const Projects: React.FC = () => {
               challenge={project.challenge}
               solution={project.solution}
               metrics={project.metrics}
+              websiteUrl={project.websiteUrl}
             />
           ))}
         </div>
