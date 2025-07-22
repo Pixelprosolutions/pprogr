@@ -78,6 +78,11 @@ const TetrisPage: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(true); // Auto-start
   const gameLoopRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   // Create a new random piece
   const createNewPiece = useCallback((): Piece => {
     const pieceType = Math.floor(Math.random() * PIECES.length);
