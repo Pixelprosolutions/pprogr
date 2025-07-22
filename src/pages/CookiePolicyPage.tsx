@@ -205,21 +205,28 @@ const CookiePolicyPage: React.FC = () => {
             </div>
           </div>
 
+          <div>
             <h3 className="text-xl font-bold text-white mb-4">
               {language === 'en' ? 'Questions about our cookie usage?' : 'Ερωτήσεις για τη χρήση cookies;'}
             </h3>
-          <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-lg p-6">
-              {language === 'en'
-                ? 'Contact us for any questions about our privacy practices.'
-                : 'Επικοινωνήστε μαζί μας για οποιεσδήποτε ερωτήσεις σχετικά με τις πρακτικές απορρήτου μας.'
-              }
-            <div className="bg-black/40 border border-white/10 rounded-lg p-4">
-              <p className="text-gray-300 text-sm leading-relaxed">
-                "Αυτός ο ιστότοπος χρησιμοποιεί cookies για να βελτιώσει την εμπειρία σας και να αναλύσει την επισκεψιμότητα μέσω Google Analytics. 
-                Τα δεδομένα συλλέγονται ανώνυμα και δεν μοιράζονται με τρίτους. Συνεχίζοντας την περιήγηση, συμφωνείτε με τη χρήση cookies. 
-                <button className='text-pink-400 hover:text-pink-300 underline ml-1'>Μάθετε περισσότερα</button> | 
-                <button className='text-pink-400 hover:text-pink-300 underline ml-1'>Ρυθμίσεις</button>"
-              {language === 'en' ? 'Contact Us' : 'Επικοινωνήστε μαζί μας'}
+            <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-lg p-6">
+              <p className="text-gray-300 mb-4">
+                {language === 'en'
+                  ? 'Contact us for any questions about our privacy practices.'
+                  : 'Επικοινωνήστε μαζί μας για οποιεσδήποτε ερωτήσεις σχετικά με τις πρακτικές απορρήτου μας.'
+                }
+              </p>
+              <div className="bg-black/40 border border-white/10 rounded-lg p-4">
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  "Αυτός ο ιστότοπος χρησιμοποιεί cookies για να βελτιώσει την εμπειρία σας και να αναλύσει την επισκεψιμότητα μέσω Google Analytics. 
+                  Τα δεδομένα συλλέγονται ανώνυμα και δεν μοιράζονται με τρίτους. Συνεχίζοντας την περιήγηση, συμφωνείτε με τη χρήση cookies. 
+                  <button className='text-pink-400 hover:text-pink-300 underline ml-1'>Μάθετε περισσότερα</button> | 
+                  <button className='text-pink-400 hover:text-pink-300 underline ml-1'>Ρυθμίσεις</button>"
+                </p>
+              </div>
+              <button className="mt-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-colors">
+                {language === 'en' ? 'Contact Us' : 'Επικοινωνήστε μαζί μας'}
+              </button>
             </div>
           </div>
         </div>
