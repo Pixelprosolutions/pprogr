@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Users, Award, Clock, Star, Target, HeartHandshake, ShieldCheck } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface StatCardProps {
   value: string;
@@ -18,6 +19,7 @@ interface AboutProps {
 }
 
 const About: React.FC<AboutProps> = ({ isHomepage = false }) => {
+  const { t } = useLanguage();
 
   const testimonials = [
     {
@@ -148,23 +150,13 @@ const About: React.FC<AboutProps> = ({ isHomepage = false }) => {
 
           <section className="mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-12 text-center">
-              {isHomepage ? 'Σχετικά με Εμάς' : 'Η Ιστορία Μας'}
+              {isHomepage ? t('about.title') : 'Η Ιστορία Μας'}
             </h2>
             <div className="max-w-4xl mx-auto text-center">
-              <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto mb-8">
-                {isHomepage 
-                  ? 'Η PixelPro Solutions είναι μια δημιουργική ομάδα με έδρα την Ελλάδα και το Ηνωμένο Βασίλειο, αφιερωμένη στο να βοηθά τοπικές επιχειρήσεις να αναπτυχθούν ψηφιακά.'
-                  : 'Ιδρυθείσα το 2023, η PixelPro ξεκίνησε ως μια μικρή ομάδα ενθουσιωδών επαγγελματιών. Σήμερα έχουμε μετατραπεί σε έναν αξιόπιστο συνεργάτη για εκατοντάδες επιχειρήσεις στην Ελλάδα και διεθνώς.'}
-              </p>
-              <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto">
-                {isHomepage
-                  ? 'Με πάνω από 15 χρόνια εμπειρίας σε branding, ιστοσελίδες και στρατηγικές marketing, προσφέρουμε πρακτικές λύσεις που φέρνουν πραγματικά αποτελέσματα, όχι απλώς εντυπωσιακές εικόνες.'
-                  : 'Με πάνω από 50 custom εφαρμογές και ιστοτόπους για ελληνικές και διεθνείς επιχειρήσεις, έχουμε βοηθήσει στην ψηφιακή τους μεταμόρφωση με πλήρη γλωσσική υποστήριξη.'}
-              </p>
+              <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto mb-8">{t('about.description.part1')}</p>
+              <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto">{t('about.description.part2')}</p>
               {isHomepage && (
-                <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto mt-8">
-                  Δουλεύουμε στενά με κάθε πελάτη για να κατανοήσουμε εις βάθος την επιχείρηση, τον κλάδο και τις ανάγκες του. Από την πρώτη συμβουλευτική έως την τελική υλοποίηση, ο υπεύθυνος μας βρίσκεται δίπλα σας, ειδικά στην κρίσιμη φάση της ανάλυσης και στρατηγικού σχεδιασμού.
-                </p>
+                <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto mt-8">{t('about.description.part3')}</p>
               )}
             </div>
           </section>

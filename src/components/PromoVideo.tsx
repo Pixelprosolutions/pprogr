@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Play, X } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const PromoVideo: React.FC = () => {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const videoId = '_kkKVJxvf_0';
 
@@ -21,10 +23,8 @@ const PromoVideo: React.FC = () => {
     <section className="py-12 md:py-20 px-4 bg-black/30 backdrop-blur-sm">
       <div className="container mx-auto">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Δείτε τη Δουλειά μας σε Δράση</h2>
-          <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto">
-            Παρακολουθήστε πώς βοηθάμε τις τοπικές επιχειρήσεις να μεταμορφώσουν την ψηφιακή τους παρουσία και να αυξήσουν την πελατειακή τους βάση.
-          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">{t('video.title')}</h2>
+          <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto">{t('video.description')}</p>
         </div>
 
         <div className="relative max-w-4xl mx-auto rounded-lg overflow-hidden group border border-white/10">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Code, Palette, Globe, LineChart, Smartphone, Film } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface ServiceCardProps {
   title: string;
@@ -18,35 +19,37 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon }) =
 };
 
 const Services: React.FC = () => {
+  const { t } = useLanguage();
+  
   const services = [
     {
-      title: "Κατασκευή Ιστοσελίδων",
-      description: "Κατασκευάζουμε επαγγελματικές ιστοσελίδες που φορτώνουν γρήγορα, λειτουργούν άψογα σε κινητά και έχουν σχεδιαστεί για να μετατρέπουν επισκέπτες σε πελάτες.",
+      title: t('services.website.title'),
+      description: t('services.website.description'),
       icon: <Code className="h-8 w-8" />
     },
     {
-      title: "Κατασκευή E‑Shop",
-      description: "Στήνουμε σύγχρονα ηλεκτρονικά καταστήματα, ασφαλή και εύκολα στη διαχείριση, με λειτουργίες πληρωμών, αποστολών και αποθέματος. Σας βοηθάμε να πουλάτε online σε ευρύτερο κοινό.",
+      title: t('services.eshop.title'),
+      description: t('services.eshop.description'),
       icon: <Globe className="h-8 w-8" />
     },
     {
-      title: "Branding",
-      description: "Δημιουργούμε ολοκληρωμένες εταιρικές ταυτότητες με έμφαση στη συνοχή, την αναγνωρισιμότητα και τη στρατηγική διαφοροποίηση της επιχείρησής σας.",
+      title: t('services.branding.title'),
+      description: t('services.branding.description'),
       icon: <Palette className="h-8 w-8" />
     },
     {
-      title: "Στρατηγικές Μάρκετινγκ",
-      description: "Σχεδιάζουμε και υλοποιούμε marketing στρατηγικές που φέρνουν μετρήσιμα αποτελέσματα — από SEO και Google Ads μέχρι οργανικό περιεχόμενο και διαφημίσεις στα social media.",
+      title: t('services.marketing.title'),
+      description: t('services.marketing.description'),
       icon: <LineChart className="h-8 w-8" />
     },
     {
-      title: "Κατασκευή Mobile App",
-      description: "Αναπτύσσουμε mobile εφαρμογές για επιχειρήσεις που θέλουν να προσφέρουν υπηρεσίες, κρατήσεις ή προϊόντα μέσω κινητού, με εύχρηστο σχεδιασμό και γρήγορη απόκριση.",
+      title: t('services.mobile.title'),
+      description: t('services.mobile.description'),
       icon: <Smartphone className="h-8 w-8" />
     },
     {
-      title: "Παραγωγή Περιεχομένου",
-      description: "Παράγουμε επαγγελματικό περιεχόμενο, όπως βίντεο, γραφικά και φωτογραφίες, που αναδεικνύουν την επιχείρησή σας και ενισχύουν τη διαδικτυακή σας εικόνα.",
+      title: t('services.content.title'),
+      description: t('services.content.description'),
       icon: <Film className="h-8 w-8" />
     }
   ];
@@ -55,10 +58,8 @@ const Services: React.FC = () => {
     <section id="services" className="py-16 md:py-24 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-12 md:mb-20 space-y-4 md:space-y-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Πώς Βοηθάμε τις Τοπικές Επιχειρήσεις</h2>
-          <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto">
-            Προσφέρουμε εξειδικευμένες υπηρεσίες που έχουν σχεδιαστεί για να βοηθήσουν την επιχείρησή σας να αναπτυχθεί στο διαδίκτυο.
-          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">{t('services.title')}</h2>
+          <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto">{t('services.description')}</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">

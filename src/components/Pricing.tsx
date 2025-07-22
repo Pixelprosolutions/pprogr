@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { CheckCircle, Info, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 
+import { useLanguage } from '../contexts/LanguageContext';
 interface FAQItemProps {
   question: string;
   answer: string;
 }
 
 const Pricing: React.FC = () => {
+  const { t } = useLanguage();
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
 
   const packages = [
@@ -117,10 +119,8 @@ const Pricing: React.FC = () => {
     <section id="pricing" className="py-12 md:py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-8 md:mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Πακέτα Υπηρεσιών PixelPro</h2>
-          <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto">
-            Επιλέξτε το πακέτο που ταιριάζει στην επιχειρησή σας και ενισχύστε την ψηφιακή σας παρουσία.
-          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">{t('pricing.title')}</h2>
+          <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto">{t('pricing.description')}</p>
         </div>
 
         <div className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-4 md:p-6">

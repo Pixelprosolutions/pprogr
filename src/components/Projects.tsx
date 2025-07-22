@@ -1,5 +1,6 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface ProjectCardProps {
   title: string;
@@ -102,6 +103,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 };
 
 const Projects: React.FC = () => {
+  const { t } = useLanguage();
+  
   const projects = [
     {
       title: "VoltBuild – EV Charging Experts",
@@ -194,12 +197,8 @@ const Projects: React.FC = () => {
     <section id="projects" className="pt-32 pb-20">
       <div className="container mx-auto px-4">
         <div className="mb-16 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #c084fc, #f43f5e)' }}>
-            Έργα & Case Studies
-          </h2>
-          <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto">
-            Δείτε πώς βοηθήσαμε επιχειρήσεις στην Ελλάδα και διεθνώς να αναπτυχθούν ψηφιακά
-          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #c084fc, #f43f5e)' }}>{t('projects.title')}</h2>
+          <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto">{t('projects.description')}</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (

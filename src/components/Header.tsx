@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+import LanguageToggle from './LanguageToggle';
 
 const Header: React.FC = () => {
+  const { t } = useLanguage();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -127,47 +130,48 @@ const Header: React.FC = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex space-x-4 xl:space-x-8 items-center" role="navigation" aria-label="Κύρια πλοήγηση">
+          <LanguageToggle />
           <a 
             href="#home" 
             className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
             aria-label="Πηγαίνετε στην αρχική σελίδα"
           >
-            Αρχική
+            {t('nav.home')}
           </a>
           <a 
             href="#services" 
             className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
             aria-label="Δείτε τις υπηρεσίες μας"
           >
-            Υπηρεσίες
+            {t('nav.services')}
           </a>
           <a 
             href="#about" 
             className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
             aria-label="Μάθετε περισσότερα για εμάς"
           >
-            Σχετικά
+            {t('nav.about')}
           </a>
           <a 
             href="#projects" 
             className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
             aria-label="Δείτε τα έργα μας"
           >
-            Έργα
+            {t('nav.projects')}
           </a>
           <a 
             href="#pricing" 
             className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
             aria-label="Δείτε τις τιμές μας"
           >
-            Τιμές
+            {t('nav.pricing')}
           </a>
           <a 
             href="#contact" 
             className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
             aria-label="Επικοινωνήστε μαζί μας"
           >
-            Επικοινωνία
+            {t('nav.contact')}
           </a>
           <a 
             href="#contact" 
@@ -178,7 +182,7 @@ const Header: React.FC = () => {
               (window as any).navigateToConsultation?.();
             }}
           >
-            Δωρεάν Συμβουλευτική
+            {t('nav.consultation')}
           </a>
         </nav>
 
@@ -197,6 +201,9 @@ const Header: React.FC = () => {
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-black/90 backdrop-blur-lg" role="navigation" aria-label="Κινητό μενού πλοήγησης">
           <div className="container mx-auto px-4 py-4">
+            <div className="flex justify-center mb-4">
+              <LanguageToggle />
+            </div>
             <nav className="flex flex-col space-y-4" role="menu">
               <a 
                 href="#home" 
@@ -204,7 +211,7 @@ const Header: React.FC = () => {
                 role="menuitem"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Αρχική
+                {t('nav.home')}
               </a>
               <a 
                 href="#services" 
@@ -212,7 +219,7 @@ const Header: React.FC = () => {
                 role="menuitem"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Υπηρεσίες
+                {t('nav.services')}
               </a>
               <a 
                 href="#about" 
@@ -220,7 +227,7 @@ const Header: React.FC = () => {
                 role="menuitem"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Σχετικά
+                {t('nav.about')}
               </a>
               <a 
                 href="#projects" 
@@ -228,7 +235,7 @@ const Header: React.FC = () => {
                 role="menuitem"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Έργα
+                {t('nav.projects')}
               </a>
               <a 
                 href="#pricing" 
@@ -236,7 +243,7 @@ const Header: React.FC = () => {
                 role="menuitem"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Τιμές
+                {t('nav.pricing')}
               </a>
               <a 
                 href="#contact" 
@@ -244,7 +251,7 @@ const Header: React.FC = () => {
                 role="menuitem"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Επικοινωνία
+                {t('nav.contact')}
               </a>
               <a 
                 href="#consultation" 
@@ -256,7 +263,7 @@ const Header: React.FC = () => {
                   (window as any).navigateToConsultation?.();
                 }}
               >
-                Δωρεάν Συμβουλευτική
+                {t('nav.consultation')}
               </a>
             </nav>
           </div>

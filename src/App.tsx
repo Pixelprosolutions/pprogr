@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { LanguageProvider } from './contexts/LanguageContext';
 import PixelBackground from './components/PixelBackground';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -87,42 +88,44 @@ function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen">
-      <PixelBackground />
-      <div 
-        className="relative z-10"
-        style={{ transform: headerTransform, transition: 'transform 0.5s ease-out' }}
-      >
-        {currentPage === 'home' && (
-          <>
-            <Header />
-            <HomePage />
-            <Footer />
-          </>
-        )}
-        {currentPage === 'tetris' && (
-          <TetrisPage />
-        )}
-        {currentPage === 'consultation' && (
-          <ConsultationPage />
-        )}
-        {currentPage === 'package-selection' && (
-          <PackageSelectionPage />
-        )}
-        {currentPage === 'marketing-cost' && (
-          <MarketingCostPage />
-        )}
-        {currentPage === 'privacy-policy' && (
-          <PrivacyPolicyPage />
-        )}
-        {currentPage === 'cookie-policy' && (
-          <CookiePolicyPage />
-        )}
+    <LanguageProvider>
+      <div className="relative min-h-screen">
+        <PixelBackground />
+        <div 
+          className="relative z-10"
+          style={{ transform: headerTransform, transition: 'transform 0.5s ease-out' }}
+        >
+          {currentPage === 'home' && (
+            <>
+              <Header />
+              <HomePage />
+              <Footer />
+            </>
+          )}
+          {currentPage === 'tetris' && (
+            <TetrisPage />
+          )}
+          {currentPage === 'consultation' && (
+            <ConsultationPage />
+          )}
+          {currentPage === 'package-selection' && (
+            <PackageSelectionPage />
+          )}
+          {currentPage === 'marketing-cost' && (
+            <MarketingCostPage />
+          )}
+          {currentPage === 'privacy-policy' && (
+            <PrivacyPolicyPage />
+          )}
+          {currentPage === 'cookie-policy' && (
+            <CookiePolicyPage />
+          )}
+        </div>
+        
+        {/* Cookie Banner - only show on home page */}
+        {currentPage === 'home' && <CookieBanner />}
       </div>
-      
-      {/* Cookie Banner - only show on home page */}
-      {currentPage === 'home' && <CookieBanner />}
-    </div>
+    </LanguageProvider>
   );
 }
 

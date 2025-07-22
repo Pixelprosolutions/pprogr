@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Contact: React.FC = () => {
+  const { t } = useLanguage();
 
   return (
     <div>
       <section id="contact" className="py-12 md:py-24 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Επικοινωνήστε μαζί μας</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">{t('contact.title')}</h2>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
             <div>
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6">Ακολουθήστε μας</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6">{t('contact.follow')}</h3>
               <div className="flex space-x-6">
                 <a href="https://www.facebook.com/pixelpro.solutions/" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
                   <svg className="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -47,23 +49,21 @@ const Contact: React.FC = () => {
               </div>
             </div>
             <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 md:p-8 text-center">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Έτοιμοι να Ξεκινήσουμε;</h3>
-              <p className="text-gray-300 text-base md:text-lg mb-6 md:mb-8 max-w-md mx-auto">
-                Επικοινωνήστε μαζί μας σήμερα και ας συζητήσουμε πώς μπορούμε να βοηθήσουμε την επιχείρησή σας να αναπτυχθεί στο διαδίκτυο.
-              </p>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{t('contact.ready.title')}</h3>
+              <p className="text-gray-300 text-base md:text-lg mb-6 md:mb-8 max-w-md mx-auto">{t('contact.ready.description')}</p>
               
               <div className="space-y-4">
                 <button
                   onClick={() => (window as any).navigateToConsultation?.()}
                   className="w-full bg-transparent border border-white/30 text-white font-medium py-4 px-6 md:px-8 rounded-lg hover:bg-white/10 transition-colors flex items-center justify-center text-base md:text-lg"
                 >
-                  Δωρεάν Συμβουλευτική
+                  {t('nav.consultation')}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </button>
               </div>
               
               <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-white/10">
-                <p className="text-gray-400 text-sm mb-4">Ή επικοινωνήστε απευθείας:</p>
+                <p className="text-gray-400 text-sm mb-4">{t('contact.direct')}</p>
                 <div className="space-y-2 text-center text-gray-300 text-sm md:text-base">
                   <a href="mailto:hello@pixelpro.solutions" className="flex items-center justify-center hover:text-white transition-colors">
                     <Mail className="h-4 w-4 mr-2" />
