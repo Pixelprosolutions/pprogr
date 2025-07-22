@@ -22,7 +22,7 @@ const HomePage: React.FC = () => {
             <h2 className="text-2xl md:text-4xl font-bold text-white mb-4" itemProp="headline">
               Δεν είστε σίγουροι ποιες υπηρεσίες χρειάζεστε;
             </h2>
-            <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-2xl mx-auto" itemProp="description">
+            <p className="text-gray-300/80 text-xl md:text-2xl mb-8 max-w-3xl mx-auto" itemProp="description">
               Κάθε επιχείρηση είναι μοναδική. Ας συζητήσουμε τους στόχους σας και θα σας προτείνουμε την καλύτερη στρατηγική για την ψηφιακή σας ανάπτυξη.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

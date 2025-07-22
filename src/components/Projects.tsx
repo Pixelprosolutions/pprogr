@@ -195,7 +195,7 @@ const Projects: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #c084fc, #f43f5e)' }}>
-            Έργα & Μελέτες Περίπτωσης
+            Έργα & Case Studies
           </h2>
           <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto">
             Δείτε πώς βοηθήσαμε επιχειρήσεις στην Ελλάδα και διεθνώς να αναπτυχθούν ψηφιακά

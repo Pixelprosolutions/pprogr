@@ -99,10 +99,10 @@ const About: React.FC<AboutProps> = ({ isHomepage = false }) => {
           {!isHomepage && (
             <section className="mb-20">
               <div className="text-center mb-12">
-                <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                   Η Αποστολή Μας
                 </h2>
-                <p className="text-gray-300/80 text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto">
+                <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto">
                   Να δημιουργούμε εμπειρίες που εμπνέουν και να αναπτύσσουμε λύσεις που μεταμορφώνουν.
                   Με έδρα το Ηνωμένο Βασίλειο, προσφέρουμε υπηρεσίες σε ελληνικές και διεθνείς επιχειρήσεις,
                   συνδυάζοντας τεχνολογική προηγμένότητα με πολιτισμική ευαισθησία.
@@ -130,7 +130,7 @@ const About: React.FC<AboutProps> = ({ isHomepage = false }) => {
 
           {!isHomepage && (
             <section className="mb-20">
-              <h2 className="text-4xl md:text-6xl font-bold text-white mb-12 text-center">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-12 text-center">
                 Οι Αξίες Μας
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -147,22 +147,22 @@ const About: React.FC<AboutProps> = ({ isHomepage = false }) => {
           )}
 
           <section className="mb-20">
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-12 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-12 text-center">
               {isHomepage ? 'Σχετικά με Εμάς' : 'Η Ιστορία Μας'}
             </h2>
             <div className="max-w-4xl mx-auto text-center">
-              <p className="text-gray-300/80 text-xl md:text-2xl leading-relaxed mb-8">
+              <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto mb-8">
                 {isHomepage 
                   ? 'Η PixelPro Solutions είναι μια δημιουργική ομάδα με έδρα την Ελλάδα και το Ηνωμένο Βασίλειο, αφιερωμένη στο να βοηθά τοπικές επιχειρήσεις να αναπτυχθούν ψηφιακά.'
                   : 'Ιδρυθείσα το 2023, η PixelPro ξεκίνησε ως μια μικρή ομάδα ενθουσιωδών επαγγελματιών. Σήμερα έχουμε μετατραπεί σε έναν αξιόπιστο συνεργάτη για εκατοντάδες επιχειρήσεις στην Ελλάδα και διεθνώς.'}
               </p>
-              <p className="text-gray-300/80 text-xl md:text-2xl leading-relaxed">
+              <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto">
                 {isHomepage
                   ? 'Με πάνω από 15 χρόνια εμπειρίας σε branding, ιστοσελίδες και στρατηγικές marketing, προσφέρουμε πρακτικές λύσεις που φέρνουν πραγματικά αποτελέσματα, όχι απλώς εντυπωσιακές εικόνες.'
                   : 'Με πάνω από 50 custom εφαρμογές και ιστοτόπους για ελληνικές και διεθνείς επιχειρήσεις, έχουμε βοηθήσει στην ψηφιακή τους μεταμόρφωση με πλήρη γλωσσική υποστήριξη.'}
               </p>
               {isHomepage && (
-                <p className="text-gray-300/80 text-xl md:text-2xl leading-relaxed mt-8">
+                <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto mt-8">
                   Δουλεύουμε στενά με κάθε πελάτη για να κατανοήσουμε εις βάθος την επιχείρηση, τον κλάδο και τις ανάγκες του. Από την πρώτη συμβουλευτική έως την τελική υλοποίηση, ο υπεύθυνος μας βρίσκεται δίπλα σας, ειδικά στην κρίσιμη φάση της ανάλυσης και στρατηγικού σχεδιασμού.
                 </p>
               )}
@@ -171,10 +171,10 @@ const About: React.FC<AboutProps> = ({ isHomepage = false }) => {
 
           {!isHomepage && (
             <section className="mb-20">
-              <h2 className="text-4xl md:text-6xl font-bold text-white mb-12 text-center">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-12 text-center">
                 Μαρτυρίες Πελατών
               </h2>
-              <p className="text-gray-300/80 text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto text-center mb-12">
+              <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto text-center mb-12">
                 Μην εμπιστευτείτε μόνο τα λόγια μας. Δείτε τι έχουν να πουν οι πελάτες μας για τη συνεργασία τους μαζί μας.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

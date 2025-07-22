@@ -55,8 +55,8 @@ const Services: React.FC = () => {
     <section id="services" className="py-16 md:py-24 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-12 md:mb-20 space-y-4 md:space-y-6">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white px-2">Πώς Βοηθάμε τις Τοπικές Επιχειρήσεις</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto text-base md:text-lg px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Πώς Βοηθάμε τις Τοπικές Επιχειρήσεις</h2>
+          <p className="text-gray-300/80 text-xl md:text-2xl max-w-3xl mx-auto">
             Προσφέρουμε εξειδικευμένες υπηρεσίες που έχουν σχεδιαστεί για να βοηθήσουν την επιχείρησή σας να αναπτυχθεί στο διαδίκτυο.
           </p>
         </div>
