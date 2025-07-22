@@ -1,6 +1,9 @@
 import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Footer: React.FC = () => {
+  const { t } = useLanguage();
+  
   return (
     <footer className="bg-black/50 backdrop-blur-sm py-16 px-4">
       <div className="container mx-auto">
@@ -8,7 +11,7 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-xl font-bold text-white mb-4">PixelPro Solutions</h3>
             <p className="text-gray-300 mb-4">
-              Μετατρέποντας τις ιδέες σε ψηφιακή πραγματικότητα μέσω καινοτόμων διαδικτυακών λύσεων και στρατηγικού ψηφιακού μάρκετινγκ.
+              {t('footer.company.description')}
             </p>
             <div className="flex space-x-6">
               <a href="https://www.facebook.com/pixelpro.solutions/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">
@@ -35,33 +38,33 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <h3 className="text-xl font-bold text-white mb-4">Υπηρεσίες</h3>
+            <h3 className="text-xl font-bold text-white mb-4">{t('footer.services.title')}</h3>
             <ul className="space-y-3">
-              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Ανάπτυξη Ιστοτόπων</a></li>
-              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Σχεδιασμός UI/UX</a></li>
-              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Λύσεις E-Commerce</a></li>
-              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Ψηφιακό Μάρκετινγκ</a></li>
-              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Ανάπτυξη Mobile App</a></li>
-              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Δημιουργικό Περιεχόμενο</a></li>
+              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">{t('footer.services.website')}</a></li>
+              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">{t('footer.services.uiux')}</a></li>
+              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">{t('footer.services.ecommerce')}</a></li>
+              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">{t('footer.services.marketing')}</a></li>
+              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">{t('footer.services.mobile')}</a></li>
+              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">{t('footer.services.content')}</a></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-xl font-bold text-white mb-4">Γρήγοροι Σύνδεσμοι</h3>
+            <h3 className="text-xl font-bold text-white mb-4">{t('footer.links.title')}</h3>
             <ul className="space-y-3">
-              <li><a href="#home" className="text-gray-300 hover:text-white transition-colors">Αρχική</a></li>
-              <li><a href="#about" className="text-gray-300 hover:text-white transition-colors">Σχετικά με Εμάς</a></li>
-              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Υπηρεσίες</a></li>
-              <li><a href="#projects" className="text-gray-300 hover:text-white transition-colors">Έργα</a></li>
-              <li><a href="#pricing" className="text-gray-300 hover:text-white transition-colors">Τιμές</a></li>
-              <li><a href="#contact" className="text-gray-300 hover:text-white transition-colors">Επικοινωνία</a></li>
-              <li><button onClick={() => (window as any).navigateToPrivacyPolicy?.()} className="text-gray-300 hover:text-white transition-colors">Πολιτική Απορρήτου</button></li>
-              <li><button onClick={() => (window as any).navigateToCookiePolicy?.()} className="text-gray-300 hover:text-white transition-colors">Πολιτική Cookies</button></li>
+              <li><a href="#home" className="text-gray-300 hover:text-white transition-colors">{t('footer.links.home')}</a></li>
+              <li><a href="#about" className="text-gray-300 hover:text-white transition-colors">{t('footer.links.about')}</a></li>
+              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">{t('footer.links.services')}</a></li>
+              <li><a href="#projects" className="text-gray-300 hover:text-white transition-colors">{t('footer.links.projects')}</a></li>
+              <li><a href="#pricing" className="text-gray-300 hover:text-white transition-colors">{t('footer.links.pricing')}</a></li>
+              <li><a href="#contact" className="text-gray-300 hover:text-white transition-colors">{t('footer.links.contact')}</a></li>
+              <li><button onClick={() => (window as any).navigateToPrivacyPolicy?.()} className="text-gray-300 hover:text-white transition-colors">{t('footer.links.privacy')}</button></li>
+              <li><button onClick={() => (window as any).navigateToCookiePolicy?.()} className="text-gray-300 hover:text-white transition-colors">{t('footer.links.cookies')}</button></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-xl font-bold text-white mb-4">Επικοινωνήστε μαζί μας</h3>
+            <h3 className="text-xl font-bold text-white mb-4">{t('footer.contact.title')}</h3>
             <ul className="space-y-3">
               <li className="text-gray-300 font-semibold">PixelPro Solutions - London Office:</li>
               <li className="text-gray-300">DA16 3AP, London, United Kingdom</li>
@@ -77,7 +80,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-white/10 pt-10">
           <div className="text-center space-y-2">
             <p className="text-gray-300">
-              &copy; {new Date().getFullYear()} PixelPro Solutions. Με επιφύλαξη παντός δικαιώματος.
+              &copy; {new Date().getFullYear()} PixelPro Solutions. {t('footer.copyright')}
             </p>
             <p className="text-gray-400 text-sm">
               Registered company in England and Wales | Company Number: <a href="https://find-and-update.company-information.service.gov.uk/company/14690444" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white underline transition-colors">14690444</a>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { ArrowLeft, Send, CheckCircle, User, Mail, Phone, Building, Globe, MessageSquare } from 'lucide-react';
 import { insertConsultationRequest, type ConsultationRequest } from '../lib/supabase';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface FormData {
   name: string;
@@ -16,6 +17,7 @@ interface FormData {
 }
 
 const ConsultationPage: React.FC = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -170,10 +172,10 @@ const ConsultationPage: React.FC = () => {
             className="flex items-center text-white hover:text-pink-400 transition-colors bg-white/10 backdrop-blur-sm border border-white/20 py-2 px-3 md:px-4 rounded-lg hover:bg-white/20 text-sm md:text-base"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
-            Πίσω
+            {t('consultation.back')}
           </button>
           <h1 className="text-xl md:text-3xl font-bold text-center bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
-            Δωρεάν Συμβουλευτική
+            {t('consultation.title')}
           </h1>
           <div className="w-16 md:w-20"></div>
         </div>
@@ -181,9 +183,9 @@ const ConsultationPage: React.FC = () => {
         {/* Form */}
         <div className="bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-4 md:p-8">
           <div className="mb-6 md:mb-8 text-center">
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-4">Ας Γνωριστούμε!</h2>
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-4">{t('consultation.form.title')}</h2>
             <p className="text-gray-300 text-sm md:text-base px-2">
-              Συμπληρώστε τη φόρμα παρακάτω και θα επικοινωνήσουμε μαζί σας εντός 24 ωρών για να συζητήσουμε τις ανάγκες της επιχείρησής σας.
+              {t('consultation.form.description')}
             </p>
           </div>
 
@@ -193,7 +195,7 @@ const ConsultationPage: React.FC = () => {
               <div>
                 <label className="block text-white font-medium mb-2 text-sm md:text-base">
                   <User className="inline h-4 w-4 mr-2" />
-                  Όνομα *
+                  {t('consultation.form.name')} *
                 </label>
                 <input
                   type="text"
@@ -203,14 +205,14 @@ const ConsultationPage: React.FC = () => {
                   required
                   className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-sm md:text-base"
                   style={{ '--tw-ring-color': '#f43f5e' }}
-                  placeholder="Το όνομά σας"
+                  placeholder={t('consultation.form.name.placeholder')}
                 />
               </div>
 
               <div>
                 <label className="block text-white font-medium mb-2 text-sm md:text-base">
                   <Mail className="inline h-4 w-4 mr-2" />
-                  Email *
+                  {t('consultation.form.email')} *
                 </label>
                 <input
                   type="email"
@@ -220,14 +222,14 @@ const ConsultationPage: React.FC = () => {
                   required
                   className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-sm md:text-base"
                   style={{ '--tw-ring-color': '#f43f5e' }}
-                  placeholder="email@example.com"
+                  placeholder={t('consultation.form.email.placeholder')}
                 />
               </div>
 
               <div>
                 <label className="block text-white font-medium mb-2 text-sm md:text-base">
                   <Phone className="inline h-4 w-4 mr-2" />
-                  Τηλέφωνο
+                  {t('consultation.form.phone')}
                 </label>
                 <input
                   type="tel"
@@ -236,14 +238,14 @@ const ConsultationPage: React.FC = () => {
                   onChange={handleInputChange}
                   className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-sm md:text-base"
                   style={{ '--tw-ring-color': '#f43f5e' }}
-                  placeholder="+30 210 1234567"
+                  placeholder={t('consultation.form.phone.placeholder')}
                 />
               </div>
 
               <div>
                 <label className="block text-white font-medium mb-2 text-sm md:text-base">
                   <Building className="inline h-4 w-4 mr-2" />
-                  Επιχείρηση
+                  {t('consultation.form.company')}
                 </label>
                 <input
                   type="text"
@@ -252,7 +254,7 @@ const ConsultationPage: React.FC = () => {
                   onChange={handleInputChange}
                   className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-sm md:text-base"
                   style={{ '--tw-ring-color': '#f43f5e' }}
-                  placeholder="Όνομα επιχείρησης"
+                  placeholder={t('consultation.form.company.placeholder')}
                 />
               </div>
             </div>
@@ -260,7 +262,7 @@ const ConsultationPage: React.FC = () => {
             <div>
               <label className="block text-white font-medium mb-2 text-sm md:text-base">
                 <Globe className="inline h-4 w-4 mr-2" />
-                Υπάρχων Ιστότοπος
+                {t('consultation.form.website')}
               </label>
               <input
                 type="url"
@@ -269,14 +271,14 @@ const ConsultationPage: React.FC = () => {
                 onChange={handleInputChange}
                 className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-sm md:text-base"
                 style={{ '--tw-ring-color': '#f43f5e' }}
-                placeholder="https://www.example.com"
+                placeholder={t('consultation.form.website.placeholder')}
               />
             </div>
 
             {/* Services */}
             <div>
               <label className="block text-white font-medium mb-4 text-sm md:text-base">
-                Ποιες υπηρεσίες σας ενδιαφέρουν; *
+                {t('consultation.form.services')} *
               </label>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
                 {serviceOptions.map((service) => (
@@ -310,7 +312,7 @@ const ConsultationPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div>
                 <label className="block text-white font-medium mb-2 text-sm md:text-base">
-                  Προϋπολογισμός
+                  {t('consultation.form.budget')}
                 </label>
                 <select
                   name="budget"
@@ -319,7 +321,7 @@ const ConsultationPage: React.FC = () => {
                   className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:border-transparent text-sm md:text-base"
                   style={{ '--tw-ring-color': '#f43f5e' }}
                 >
-                  <option value="">Επιλέξτε προϋπολογισμό</option>
+                  <option value="">{t('consultation.form.budget.placeholder')}</option>
                   {budgetOptions.map((budget) => (
                     <option key={budget} value={budget} className="bg-black text-white">
                       {budget}
@@ -330,7 +332,7 @@ const ConsultationPage: React.FC = () => {
 
               <div>
                 <label className="block text-white font-medium mb-2 text-sm md:text-base">
-                  Χρονοδιάγραμμα
+                  {t('consultation.form.timeline')}
                 </label>
                 <select
                   name="timeline"
@@ -339,7 +341,7 @@ const ConsultationPage: React.FC = () => {
                   className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:border-transparent text-sm md:text-base"
                   style={{ '--tw-ring-color': '#f43f5e' }}
                 >
-                  <option value="">Επιλέξτε χρονοδιάγραμμα</option>
+                  <option value="">{t('consultation.form.timeline.placeholder')}</option>
                   {timelineOptions.map((timeline) => (
                     <option key={timeline} value={timeline} className="bg-black text-white">
                       {timeline}
@@ -353,7 +355,7 @@ const ConsultationPage: React.FC = () => {
             <div>
               <label className="block text-white font-medium mb-2 text-sm md:text-base">
                 <MessageSquare className="inline h-4 w-4 mr-2" />
-                Πείτε μας περισσότερα για το έργο σας
+                {t('consultation.form.message')}
               </label>
               <textarea
                 name="message"
@@ -362,7 +364,7 @@ const ConsultationPage: React.FC = () => {
                 rows={5}
                 className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent resize-none text-sm md:text-base"
                 style={{ '--tw-ring-color': '#f43f5e' }}
-                placeholder="Περιγράψτε τους στόχους σας, τις προκλήσεις που αντιμετωπίζετε, ή οτιδήποτε άλλο θα θέλατε να μας πείτε..."
+                placeholder={t('consultation.form.message.placeholder')}
               />
             </div>
 
@@ -381,18 +383,18 @@ const ConsultationPage: React.FC = () => {
                 {isSubmitting ? (
                   <>
                     <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                    Αποστολή...
+                    {t('consultation.form.submitting')}
                   </>
                 ) : (
                   <>
-                    Στείλτε την Αίτηση
+                    {t('consultation.form.submit')}
                     <Send className="ml-2 h-5 w-5" />
                   </>
                 )}
               </button>
               
               <p className="text-gray-400 text-sm mt-4">
-                * Υποχρεωτικά πεδία
+                * {t('consultation.form.required')}
               </p>
             </div>
           </form>

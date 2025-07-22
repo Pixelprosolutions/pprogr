@@ -44,7 +44,7 @@ const Contact: React.FC = () => {
                   className="px-6 py-3 bg-transparent border border-white/30 text-white font-medium rounded-md hover:bg-white/10 transition-colors glow-on-hover interactive text-sm md:text-base"
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 >
-                  Πάμε στην κορυφή
+                  {t('contact.scroll.top')}
                 </button>
               </div>
             </div>

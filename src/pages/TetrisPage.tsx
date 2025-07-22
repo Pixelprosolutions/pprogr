@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { ArrowLeft, RotateCw, ArrowDown, ArrowRight, Pause, Play } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 // Tetris game constants - optimized for mobile
 const BOARD_WIDTH = 8; // Reduced from 10 for mobile
@@ -66,6 +67,7 @@ interface Piece {
 }
 
 const TetrisPage: React.FC = () => {
+  const { t } = useLanguage();
   const [board, setBoard] = useState<number[][]>(() => 
     Array(BOARD_HEIGHT).fill(null).map(() => Array(BOARD_WIDTH).fill(EMPTY_CELL))
   );
@@ -317,10 +319,10 @@ const TetrisPage: React.FC = () => {
             className="flex items-center text-white hover:text-pink-400 transition-colors bg-white/10 backdrop-blur-sm border border-white/20 py-1.5 px-2.5 rounded-lg hover:bg-white/20 text-sm z-50"
           >
             <ArrowLeft className="h-4 w-4 mr-1.5" />
-            Πίσω
+            {t('tetris.back')}
           </button>
           <h1 className="text-lg font-bold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
-            Παιχνίδι
+            {t('tetris.title')}
           </h1>
           <button
             onClick={() => setIsPaused(!isPaused)}
@@ -337,15 +339,15 @@ const TetrisPage: React.FC = () => {
           <div className="w-full max-w-sm bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg p-2 flex-shrink-0 mb-2">
             <div className="flex justify-between items-center text-xs">
               <div className="text-center">
-                <div className="text-xs text-gray-400">Σκορ</div>
+                <div className="text-xs text-gray-400">{t('tetris.score')}</div>
                 <div className="font-bold" style={{ color: '#f43f5e' }}>{score.toLocaleString()}</div>
               </div>
               <div className="text-center">
-                <div className="text-xs text-gray-400">Επίπεδο</div>
+                <div className="text-xs text-gray-400">{t('tetris.level')}</div>
                 <div className="font-bold text-purple-400">{level}</div>
               </div>
               <div className="text-center">
-                <div className="text-xs text-gray-400">Γραμμές</div>
+                <div className="text-xs text-gray-400">{t('tetris.lines')}</div>
                 <div className="font-bold" style={{ color: '#f43f5e' }}>{lines}</div>
               </div>
             </div>
@@ -362,14 +364,14 @@ const TetrisPage: React.FC = () => {
           {gameOver && (
             <div className="absolute inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-10">
               <div className="bg-red-900/30 backdrop-blur-sm border p-4 rounded-xl text-center max-w-sm w-full mx-4" style={{ borderColor: '#f43f5e' }}>
-              <h2 className="text-lg font-bold mb-2" style={{ color: '#f43f5e' }}>Game Over!</h2>
-              <p className="text-xs mb-2" style={{ color: '#f43f5e' }}>Τελικό Σκορ: {score.toLocaleString()}</p>
+              <h2 className="text-lg font-bold mb-2" style={{ color: '#f43f5e' }}>{t('tetris.gameover')}</h2>
+              <p className="text-xs mb-2" style={{ color: '#f43f5e' }}>{t('tetris.finalscore')} {score.toLocaleString()}</p>
               <button
                 onClick={startNewGame}
                 className="w-full text-white py-2 px-4 rounded-lg font-medium transition-all duration-300 shadow-lg text-xs"
                 style={{ background: 'linear-gradient(to right, #8b5cf6, #f43f5e)' }}
               >
-                Νέο Παιχνίδι
+                {t('tetris.newgame')}
               </button>
               </div>
             </div>
@@ -378,14 +380,14 @@ const TetrisPage: React.FC = () => {
           {isPaused && isPlaying && !gameOver && (
             <div className="absolute inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-10">
               <div className="bg-purple-900/30 backdrop-blur-sm border border-purple-400/30 p-4 rounded-xl text-center max-w-sm w-full mx-4">
-                <h2 className="text-lg font-bold text-purple-400">Παύση</h2>
-                <p className="text-xs text-purple-300 mt-1 mb-4">Πατήστε οπουδήποτε για συνέχεια</p>
+                <h2 className="text-lg font-bold text-purple-400">{t('tetris.pause')}</h2>
+                <p className="text-xs text-purple-300 mt-1 mb-4">Click anywhere to continue</p>
                 <button
                   onClick={() => setIsPaused(false)}
                   className="w-full text-white py-3 px-4 rounded-lg font-medium transition-all duration-300 shadow-lg text-sm"
                   style={{ background: 'linear-gradient(to right, #8b5cf6, #f43f5e)' }}
                 >
-                  Συνέχεια Παιχνιδιού
+                  {t('tetris.continue')}
                 </button>
               </div>
             </div>
@@ -439,7 +441,7 @@ const TetrisPage: React.FC = () => {
             }}
             disabled={!isPlaying || isPaused || gameOver}
           >
-            Γρήγορη Πτώση
+            {t('tetris.quickdrop')}
           </button>
         </div>
       </div>

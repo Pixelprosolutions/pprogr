@@ -111,13 +111,13 @@ const Projects: React.FC = () => {
       title: t('projects.voltbuild.title'),
       description: t('projects.voltbuild.description'),
       tags: [t('projects.voltbuild.tags.website'), t('projects.voltbuild.tags.eshop'), t('projects.voltbuild.tags.seo'), t('projects.voltbuild.tags.strategy')],
-      result: "Η VoltBuild ξεχώρισε στον ταχέως αναπτυσσόμενο χώρο των φορτιστών EV στην Ελλάδα",
-      challenge: "Η VoltBuild χρειαζόταν έναν σύγχρονο ιστότοπο με SEO-first δομή για να ξεχωρίσει στον ταχέως αναπτυσσόμενο χώρο των φορτιστών EV στην Ελλάδα.",
-      solution: "Κατασκευάσαμε responsive website με λειτουργικό eshop, δημιουργήσαμε SEO σελίδες υπηρεσιών και αναπτύξαμε περιεχόμενο για οργανική ανάπτυξη.",
+      result: t('projects.voltbuild.result'),
+      challenge: t('projects.voltbuild.challenge'),
+      solution: t('projects.voltbuild.solution'),
       metrics: [
-        "300% αύξηση οργανικής επισκεψιμότητας",
-        "Πρώτες θέσεις στο Google για βασικές λέξεις-κλειδιά",
-        "Αύξηση εισερχόμενων leads και πωλήσεων"
+        t('projects.voltbuild.metrics.1'),
+        t('projects.voltbuild.metrics.2'),
+        t('projects.voltbuild.metrics.3')
       ],
       websiteUrl: "https://voltbuild.gr"
     },
@@ -125,13 +125,13 @@ const Projects: React.FC = () => {
       title: t('projects.naterra.title'),
       description: t('projects.naterra.description'),
       tags: [t('projects.naterra.tags.branding'), t('projects.naterra.tags.website'), t('projects.naterra.tags.marketing')],
-      result: "Ενίσχυση της παρουσίας στο Λονδίνο και διαφοροποίηση στον κλάδο των ανακαινίσεων",
-      challenge: "Η Naterra ήθελε να ενισχύσει την παρουσία της στο Λονδίνο και να ξεχωρίσει στον κλάδο των ανακαινίσεων.",
-      solution: "Δημιουργήσαμε brand ταυτότητα, σχεδιάσαμε επαγγελματικό ιστότοπο και βάλαμε τα θεμέλια για στοχευμένη digital στρατηγική.",
+      result: t('projects.naterra.result'),
+      challenge: t('projects.naterra.challenge'),
+      solution: t('projects.naterra.solution'),
       metrics: [
-        "Σύγχρονη, πλήρως responsive ιστοσελίδα",
-        "Σταθερή οργανική ανάπτυξη",
-        "Αύξηση αιτήσεων εργασιών μέσω website"
+        t('projects.naterra.metrics.1'),
+        t('projects.naterra.metrics.2'),
+        t('projects.naterra.metrics.3')
       ],
       websiteUrl: "https://naterra.uk"
     },
@@ -139,13 +139,13 @@ const Projects: React.FC = () => {
       title: t('projects.kts.title'),
       description: t('projects.kts.description'),
       tags: [t('projects.kts.tags.website'), t('projects.kts.tags.rebranding'), t('projects.kts.tags.digital'), t('projects.kts.tags.social')],
-      result: "Επαναπροσδιορισμός brand και online στρατηγική με εστίαση σε τοπικό κοινό",
-      challenge: "Η KTS Woodart, με έδρα το Λονδίνο, χρειαζόταν επαναπροσδιορισμό brand και online στρατηγική.",
-      solution: "Αναπτύξαμε νέα οπτική ταυτότητα, responsive website και πλάνο ψηφιακής ανάπτυξης με εστίαση σε τοπικό κοινό και social media.",
+      result: t('projects.kts.result'),
+      challenge: t('projects.kts.challenge'),
+      solution: t('projects.kts.solution'),
       metrics: [
-        "Ολοκληρωμένο νέο brand με συνεκτική παρουσία",
-        "Επαγγελματικό portfolio έργων",
-        "Ενεργοποίηση οργανικής ροής πελατών"
+        t('projects.kts.metrics.1'),
+        t('projects.kts.metrics.2'),
+        t('projects.kts.metrics.3')
       ],
       websiteUrl: "https://ktswoodart.com"
     },
@@ -153,13 +153,13 @@ const Projects: React.FC = () => {
       title: t('projects.alex.title'),
       description: t('projects.alex.description'),
       tags: [t('projects.alex.tags.onepage'), t('projects.alex.tags.personal'), t('projects.alex.tags.cases')],
-      result: "Επαγγελματικό ψηφιακό portfolio για παρουσίαση δεξιοτήτων και έργων",
-      challenge: "Ο Alex Alali χρειαζόταν ένα επαγγελματικό ψηφιακό portfolio για να παρουσιάσει τις δεξιότητες και τα έργα του.",
-      solution: "Κατασκευάστηκε minimal site με ξεκάθαρη παρουσίαση έργων και προτροπές για συνεργασία.",
+      result: t('projects.alex.result'),
+      challenge: t('projects.alex.challenge'),
+      solution: t('projects.alex.solution'),
       metrics: [
-        "Ισχυρή επαγγελματική ταυτότητα",
-        "Πλήρης παρουσίαση δεξιοτήτων & έργων",
-        "Χρήση σε επαγγελματικές προσεγγίσεις"
+        t('projects.alex.metrics.1'),
+        t('projects.alex.metrics.2'),
+        t('projects.alex.metrics.3')
       ],
       websiteUrl: "https://alexalali.com"
     },
@@ -167,13 +167,13 @@ const Projects: React.FC = () => {
       title: t('projects.sidiropoulos.title'),
       description: t('projects.sidiropoulos.description'),
       tags: [t('projects.sidiropoulos.tags.website'), t('projects.sidiropoulos.tags.medical'), t('projects.sidiropoulos.tags.seo')],
-      result: "Σύγχρονη παρουσία που εμπνέει εμπιστοσύνη και διευκολύνει την πρόσβαση των ασθενών",
-      challenge: "Το ιατρείο χρειαζόταν σύγχρονη παρουσία που να εμπνέει εμπιστοσύνη και να διευκολύνει την πρόσβαση των ασθενών σε πληροφορίες.",
-      solution: "Δημιουργήσαμε ιστοσελίδα με ξεκάθαρη δομή, ιατρικό περιεχόμενο και ενσωματωμένη φόρμα επικοινωνίας.",
+      result: t('projects.sidiropoulos.result'),
+      challenge: t('projects.sidiropoulos.challenge'),
+      solution: t('projects.sidiropoulos.solution'),
       metrics: [
-        "90% θετικό feedback από χρήστες",
-        "Μείωση ερωτήσεων μέσω τηλεφώνου",
-        "Καλύτερη θέση σε τοπικές αναζητήσεις"
+        t('projects.sidiropoulos.metrics.1'),
+        t('projects.sidiropoulos.metrics.2'),
+        t('projects.sidiropoulos.metrics.3')
       ],
       websiteUrl: "https://sidiropoulos-urology.gr"
     },
@@ -181,14 +181,14 @@ const Projects: React.FC = () => {
       title: t('projects.underground.title'),
       description: t('projects.underground.description'),
       tags: [t('projects.underground.tags.website'), t('projects.underground.tags.branding'), t('projects.underground.tags.marketing360'), t('projects.underground.tags.products')],
-      result: "Ενίσχυση παρουσίας παγκοσμίως στον χώρο της ηλεκτρονικής μουσικής και fashion προϊόντων",
-      challenge: "Το brand ήθελε να ενισχύσει την παρουσία του παγκοσμίως στον χώρο της ηλεκτρονικής μουσικής και των fashion προϊόντων.",
-      solution: "Δημιουργήσαμε επαγγελματικό website, αναπτύξαμε δυναμική ταυτότητα και εφαρμόσαμε ολιστική στρατηγική marketing με περιεχόμενο, προϊόντα και funnels.",
+      result: t('projects.underground.result'),
+      challenge: t('projects.underground.challenge'),
+      solution: t('projects.underground.solution'),
       metrics: [
-        "10.000+ επισκέψεις/μήνα",
-        "5.000+ πωλήσεις προϊόντων",
-        "Top 80 παγκοσμίως στην κατηγορία",
-        "Ανάπτυξη κοινού μέσω YouTube και direct traffic"
+        t('projects.underground.metrics.1'),
+        t('projects.underground.metrics.2'),
+        t('projects.underground.metrics.3'),
+        t('projects.underground.metrics.4')
       ],
       websiteUrl: "https://undergroundtalent.co.uk"
     }
