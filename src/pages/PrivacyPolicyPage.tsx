@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const PrivacyPolicyPage: React.FC = () => {
+  const { language } = useLanguage();
+  
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -17,10 +20,10 @@ const PrivacyPolicyPage: React.FC = () => {
             className="flex items-center text-white hover:text-pink-400 transition-colors bg-white/10 backdrop-blur-sm border border-white/20 py-2 px-4 rounded-lg hover:bg-white/20"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
-            Πίσω
+            {language === 'en' ? 'Back' : 'Πίσω'}
           </button>
           <h1 className="text-2xl md:text-3xl font-bold text-center bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
-            Πολιτική Απορρήτου
+            {language === 'en' ? 'Privacy Policy' : 'Πολιτική Απορρήτου'}
           </h1>
           <div className="w-20"></div>
         </div>
@@ -31,46 +34,57 @@ const PrivacyPolicyPage: React.FC = () => {
           {/* Introduction */}
           <div>
             <p className="text-gray-300 text-lg leading-relaxed mb-4">
-              Η PixelPro Solutions δεσμεύεται να προστατεύει την ιδιωτικότητα και τα προσωπικά δεδομένα των επισκεπτών και πελατών της. 
-              Η παρούσα Πολιτική Απορρήτου περιγράφει πώς συλλέγουμε, χρησιμοποιούμε και προστατεύουμε τις πληροφορίες σας.
+              {language === 'en'
+                ? 'PixelPro Solutions is committed to protecting the privacy and personal data of its visitors and customers. This Privacy Policy describes how we collect, use, and protect your information.'
+                : 'Η PixelPro Solutions δεσμεύεται να προστατεύει την ιδιωτικότητα και τα προσωπικά δεδομένα των επισκεπτών και πελατών της. Η παρούσα Πολιτική Απορρήτου περιγράφει πώς συλλέγουμε, χρησιμοποιούμε και προστατεύουμε τις πληροφορίες σας.'
+              }
             </p>
             <p className="text-gray-400 text-sm">
-              <strong>Τελευταία ενημέρωση:</strong> 19 Ιανουαρίου 2025
+              <strong>{language === 'en' ? 'Last updated:' : 'Τελευταία ενημέρωση:'}</strong> {language === 'en' ? 'January 19, 2025' : '19 Ιανουαρίου 2025'}
             </p>
           </div>
 
           {/* Section 1 */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">1. Υπεύθυνος Επεξεργασίας</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {language === 'en' ? '1. Data Controller' : '1. Υπεύθυνος Επεξεργασίας'}
+            </h2>
             <div className="text-gray-300 space-y-2">
-              <p><strong>Επωνυμία:</strong> PixelPro Solutions</p>
-              <p><strong>Διευθύνσεις:</strong></p>
+              <p><strong>{language === 'en' ? 'Company:' : 'Επωνυμία:'}</strong> PixelPro Solutions</p>
+              <p><strong>{language === 'en' ? 'Addresses:' : 'Διευθύνσεις:'}</strong></p>
               <ul className="list-disc list-inside ml-4 space-y-1">
                 <li>DA16 3AP, London, United Kingdom</li>
                 <li>60100, Katerini, Greece</li>
               </ul>
-              <p><strong>Email επικοινωνίας:</strong> hello@pixelpro.solutions</p>
-              <p><strong>Τηλέφωνα:</strong> +44 20 8129 5829 (UK), +30 697 3517 695 (GR)</p>
+              <p><strong>{language === 'en' ? 'Contact email:' : 'Email επικοινωνίας:'}</strong> hello@pixelpro.solutions</p>
+              <p><strong>{language === 'en' ? 'Phones:' : 'Τηλέφωνα:'}</strong> +44 20 8129 5829 (UK), +30 697 3517 695 (GR)</p>
             </div>
           </div>
 
           {/* Section 2 */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">2. Ποια Δεδομένα Συλλέγουμε</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {language === 'en' ? '2. What Data We Collect' : '2. Ποια Δεδομένα Συλλέγουμε'}
+            </h2>
             
-            <h3 className="text-xl font-semibold text-white mb-3">2.1 Δεδομένα από Φόρμες Επικοινωνίας</h3>
+            <h3 className="text-xl font-semibold text-white mb-3">
+              {language === 'en' ? '2.1 Data from Contact Forms' : '2.1 Δεδομένα από Φόρμες Επικοινωνίας'}
+            </h3>
             <p className="text-gray-300 mb-4">
-              Όταν συμπληρώνετε τη φόρμα επικοινωνίας ή αιτείστε δωρεάν συμβουλευτική, συλλέγουμε:
+              {language === 'en'
+                ? 'When you fill out the contact form or request free consultation, we collect:'
+                : 'Όταν συμπληρώνετε τη φόρμα επικοινωνίας ή αιτείστε δωρεάν συμβουλευτική, συλλέγουμε:'
+              }
             </p>
             <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4 mb-6">
-              <li>Όνομα και επώνυμο</li>
-              <li>Διεύθυνση email</li>
-              <li>Αριθμό τηλεφώνου (προαιρετικό)</li>
-              <li>Όνομα επιχείρησης (προαιρετικό)</li>
-              <li>Ιστότοπο επιχείρησης (προαιρετικό)</li>
-              <li>Μήνυμα και πληροφορίες για τις ανάγκες σας</li>
-              <li>Επιλεγμένες υπηρεσίες ενδιαφέροντος</li>
-              <li>Προϋπολογισμό και χρονοδιάγραμμα (προαιρετικό)</li>
+              <li>{language === 'en' ? 'First and last name' : 'Όνομα και επώνυμο'}</li>
+              <li>{language === 'en' ? 'Email address' : 'Διεύθυνση email'}</li>
+              <li>{language === 'en' ? 'Phone number (optional)' : 'Αριθμό τηλεφώνου (προαιρετικό)'}</li>
+              <li>{language === 'en' ? 'Company name (optional)' : 'Όνομα επιχείρησης (προαιρετικό)'}</li>
+              <li>{language === 'en' ? 'Business website (optional)' : 'Ιστότοπο επιχείρησης (προαιρετικό)'}</li>
+              <li>{language === 'en' ? 'Message and information about your needs' : 'Μήνυμα και πληροφορίες για τις ανάγκες σας'}</li>
+              <li>{language === 'en' ? 'Selected services of interest' : 'Επιλεγμένες υπηρεσίες ενδιαφέροντος'}</li>
+              <li>{language === 'en' ? 'Budget and timeline (optional)' : 'Προϋπολογισμό και χρονοδιάγραμμα (προαιρετικό)'}</li>
             </ul>
 
             <h3 className="text-xl font-semibold text-white mb-3">2.2 Αυτόματα Συλλεγόμενα Δεδομένα</h3>
@@ -210,7 +224,10 @@ const PrivacyPolicyPage: React.FC = () => {
           {/* Footer */}
           <div className="text-center pt-8 border-t border-white/10">
             <p className="text-gray-400 text-sm">
-              Έχετε επίσης το δικαίωμα να υποβάλετε καταγγελία στην αρμόδια Αρχή Προστασίας Δεδομένων.
+              {language === 'en'
+                ? 'You also have the right to file a complaint with the competent Data Protection Authority.'
+                : 'Έχετε επίσης το δικαίωμα να υποβάλετε καταγγελία στην αρμόδια Αρχή Προστασίας Δεδομένων.'
+              }
             </p>
           </div>
         </div>

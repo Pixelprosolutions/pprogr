@@ -462,6 +462,9 @@ const translations = {
     
     'pricing.next.info': 'Next: Complete a quick onboarding form to provide the information we need to get started with your selected services.',
     
+    // Marketing Cost Page
+    'marketing.disclaimer': 'There are no hidden charges. However, additional charges may apply for specific services — such as advertising budget (ad spend) and third-party API usage. For a complete analysis, refer to the Understanding Marketing Costs section',
+    
     // FAQ Questions and Answers
     'faq.q1': 'I\'m not sure which services I need. Can you help?',
     'faq.a1': 'Absolutely! We offer a free consultation to discuss your business goals and recommend the best services for achieving them. We\'ll analyze your current online presence, identify improvement opportunities, and create a customized plan tailored to your specific needs.',

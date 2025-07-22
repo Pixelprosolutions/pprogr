@@ -169,6 +169,19 @@ const Pricing: React.FC = () => {
                 {showDisclaimer && (
                   <div className="absolute top-full left-1/2 transform -translate-x-1/2 bg-black/70 backdrop-blur-sm border border-white/10 rounded-md p-2 text-sm text-gray-300 w-64 z-10 max-w-[90vw]">
                     Δεν υπάρχουν κρυφές χρεώσεις. Ωστόσο, ενδέχεται να ισχύουν πρόσθετες χρεώσεις για συγκεκριμένες υπηρεσίες — όπως ο διαφημιστικός προϋπολογισμός (δαπάνες διαφήμισης) και η χρήση API τρίτων. <button onClick={() => (window as any).navigateToMarketingCost?.()} className="text-rose-400 hover:text-rose-300 underline">Για μια πλήρη ανάλυση, ανατρέξτε στην ενότητα Κατανόηση του Κόστους Μάρκετινγκ</button>
+                    {language === 'en' 
+                      ? 'There are no hidden charges. However, additional charges may apply for specific services — such as advertising budget (ad spend) and third-party API usage. '
+                      : 'Δεν υπάρχουν κρυφές χρεώσεις. Ωστόσο, ενδέχεται να ισχύουν πρόσθετες χρεώσεις για συγκεκριμένες υπηρεσίες — όπως ο διαφημιστικός προϋπολογισμός (δαπάνες διαφήμισης) και η χρήση API τρίτων. '
+                    }
+                    <button 
+                      onClick={() => (window as any).navigateToMarketingCost?.()} 
+                      className="text-rose-400 hover:text-rose-300 underline"
+                    >
+                      {language === 'en'
+                        ? 'For a complete analysis, refer to the Understanding Marketing Costs section'
+                        : 'Για μια πλήρη ανάλυση, ανατρέξτε στην ενότητα Κατανόηση του Κόστους Μάρκετινγκ'
+                      }
+                    </button>
                   </div>
                 )}
               </span>

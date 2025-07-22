@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const CookiePolicyPage: React.FC = () => {
+  const { language } = useLanguage();
+  
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -17,10 +20,10 @@ const CookiePolicyPage: React.FC = () => {
             className="flex items-center text-white hover:text-pink-400 transition-colors bg-white/10 backdrop-blur-sm border border-white/20 py-2 px-4 rounded-lg hover:bg-white/20"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
-            Πίσω
+            {language === 'en' ? 'Back' : 'Πίσω'}
           </button>
           <h1 className="text-2xl md:text-3xl font-bold text-center bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
-            Πολιτική Cookies
+            {language === 'en' ? 'Cookie Policy' : 'Πολιτική Cookies'}
           </h1>
           <div className="w-20"></div>
         </div>
@@ -31,64 +34,94 @@ const CookiePolicyPage: React.FC = () => {
           {/* Introduction */}
           <div>
             <p className="text-gray-300 text-lg leading-relaxed mb-4">
-              Η παρούσα Πολιτική Cookies εξηγεί πώς η PixelPro Solutions χρησιμοποιεί cookies και παρόμοιες τεχνολογίες 
-              στον ιστότοπό της για να βελτιώσει την εμπειρία χρήστη και να αναλύσει την επισκεψιμότητα.
+              {language === 'en'
+                ? 'This Cookie Policy explains how PixelPro Solutions uses cookies and similar technologies on its website to improve user experience and analyze traffic.'
+                : 'Η παρούσα Πολιτική Cookies εξηγεί πώς η PixelPro Solutions χρησιμοποιεί cookies και παρόμοιες τεχνολογίες στον ιστότοπό της για να βελτιώσει την εμπειρία χρήστη και να αναλύσει την επισκεψιμότητα.'
+              }
             </p>
             <p className="text-gray-400 text-sm">
-              <strong>Τελευταία ενημέρωση:</strong> 19 Ιανουαρίου 2025
+              <strong>{language === 'en' ? 'Last updated:' : 'Τελευταία ενημέρωση:'}</strong> {language === 'en' ? 'January 19, 2025' : '19 Ιανουαρίου 2025'}
             </p>
           </div>
 
           {/* Section 1 */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">1. Τι είναι τα Cookies</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {language === 'en' ? '1. What are Cookies' : '1. Τι είναι τα Cookies'}
+            </h2>
             <p className="text-gray-300 mb-4">
-              Τα cookies είναι μικρά αρχεία κειμένου που αποθηκεύονται στη συσκευή σας (υπολογιστή, tablet, κινητό) 
-              όταν επισκέπτεστε έναν ιστότοπο. Βοηθούν τον ιστότοπο να "θυμάται" τις ενέργειές σας και τις προτιμήσεις σας.
+              {language === 'en'
+                ? 'Cookies are small text files that are stored on your device (computer, tablet, mobile) when you visit a website. They help the website "remember" your actions and preferences.'
+                : 'Τα cookies είναι μικρά αρχεία κειμένου που αποθηκεύονται στη συσκευή σας (υπολογιστή, tablet, κινητό) όταν επισκέπτεστε έναν ιστότοπο. Βοηθούν τον ιστότοπο να "θυμάται" τις ενέργειές σας και τις προτιμήσεις σας.'
+              }
             </p>
           </div>
 
           {/* Section 2 */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">2. Ποια Cookies Χρησιμοποιούμε</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {language === 'en' ? '2. Which Cookies We Use' : '2. Ποια Cookies Χρησιμοποιούμε'}
+            </h2>
             
-            <h3 className="text-xl font-semibold text-white mb-3">2.1 Cookies Google Analytics</h3>
+            <h3 className="text-xl font-semibold text-white mb-3">
+              {language === 'en' ? '2.1 Google Analytics Cookies' : '2.1 Cookies Google Analytics'}
+            </h3>
             <p className="text-gray-300 mb-4">
-              Χρησιμοποιούμε το Google Analytics για να κατανοήσουμε πώς οι επισκέπτες χρησιμοποιούν τον ιστότοπό μας. 
-              Αυτά τα cookies συλλέγουν ανώνυμες πληροφορίες όπως:
+              {language === 'en'
+                ? 'We use Google Analytics to understand how visitors use our website. These cookies collect anonymous information such as:'
+                : 'Χρησιμοποιούμε το Google Analytics για να κατανοήσουμε πώς οι επισκέπτες χρησιμοποιούν τον ιστότοπό μας. Αυτά τα cookies συλλέγουν ανώνυμες πληροφορίες όπως:'
+              }
             </p>
             <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4 mb-6">
-              <li>Αριθμός επισκεπτών</li>
-              <li>Σελίδες που επισκέπτονται</li>
-              <li>Χρόνος παραμονής στον ιστότοπο</li>
-              <li>Πηγή επίσκεψης (π.χ. Google, άμεση επίσκεψη)</li>
-              <li>Γεωγραφική τοποθεσία (σε επίπεδο πόλης)</li>
+              <li>{language === 'en' ? 'Number of visitors' : 'Αριθμός επισκεπτών'}</li>
+              <li>{language === 'en' ? 'Pages they visit' : 'Σελίδες που επισκέπτονται'}</li>
+              <li>{language === 'en' ? 'Time spent on website' : 'Χρόνος παραμονής στον ιστότοπο'}</li>
+              <li>{language === 'en' ? 'Visit source (e.g. Google, direct visit)' : 'Πηγή επίσκεψης (π.χ. Google, άμεση επίσκεψη)'}</li>
+              <li>{language === 'en' ? 'Geographic location (city level)' : 'Γεωγραφική τοποθεσία (σε επίπεδο πόλης)'}</li>
             </ul>
 
             <div className="overflow-x-auto">
               <table className="w-full border-collapse border border-white/20 rounded-lg">
                 <thead>
                   <tr className="bg-black/40">
-                    <th className="border border-white/20 p-3 text-left text-white">Όνομα Cookie</th>
-                    <th className="border border-white/20 p-3 text-left text-white">Σκοπός</th>
-                    <th className="border border-white/20 p-3 text-left text-white">Διάρκεια</th>
+                    <th className="border border-white/20 p-3 text-left text-white">
+                      {language === 'en' ? 'Cookie Name' : 'Όνομα Cookie'}
+                    </th>
+                    <th className="border border-white/20 p-3 text-left text-white">
+                      {language === 'en' ? 'Purpose' : 'Σκοπός'}
+                    </th>
+                    <th className="border border-white/20 p-3 text-left text-white">
+                      {language === 'en' ? 'Duration' : 'Διάρκεια'}
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td className="border border-white/20 p-3 text-gray-300">_ga</td>
-                    <td className="border border-white/20 p-3 text-gray-300">Διακρίνει μοναδικούς χρήστες</td>
-                    <td className="border border-white/20 p-3 text-gray-300">2 έτη</td>
+                    <td className="border border-white/20 p-3 text-gray-300">
+                      {language === 'en' ? 'Distinguishes unique users' : 'Διακρίνει μοναδικούς χρήστες'}
+                    </td>
+                    <td className="border border-white/20 p-3 text-gray-300">
+                      {language === 'en' ? '2 years' : '2 έτη'}
+                    </td>
                   </tr>
                   <tr className="bg-black/20">
                     <td className="border border-white/20 p-3 text-gray-300">_ga_*</td>
-                    <td className="border border-white/20 p-3 text-gray-300">Αποθηκεύει κατάσταση συνεδρίας</td>
-                    <td className="border border-white/20 p-3 text-gray-300">2 έτη</td>
+                    <td className="border border-white/20 p-3 text-gray-300">
+                      {language === 'en' ? 'Stores session state' : 'Αποθηκεύει κατάσταση συνεδρίας'}
+                    </td>
+                    <td className="border border-white/20 p-3 text-gray-300">
+                      {language === 'en' ? '2 years' : '2 έτη'}
+                    </td>
                   </tr>
                   <tr>
                     <td className="border border-white/20 p-3 text-gray-300">_gid</td>
-                    <td className="border border-white/20 p-3 text-gray-300">Διακρίνει μοναδικούς χρήστες</td>
-                    <td className="border border-white/20 p-3 text-gray-300">24 ώρες</td>
+                    <td className="border border-white/20 p-3 text-gray-300">
+                      {language === 'en' ? 'Distinguishes unique users' : 'Διακρίνει μοναδικούς χρήστες'}
+                    </td>
+                    <td className="border border-white/20 p-3 text-gray-300">
+                      {language === 'en' ? '24 hours' : '24 ώρες'}
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -172,16 +205,21 @@ const CookiePolicyPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Cookie Banner Text */}
+            <h3 className="text-xl font-bold text-white mb-4">
+              {language === 'en' ? 'Questions about our cookie usage?' : 'Ερωτήσεις για τη χρήση cookies;'}
+            </h3>
           <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-lg p-6">
-            <h3 className="text-xl font-bold text-white mb-4">💡 Προτεινόμενο Κείμενο Cookie Banner</h3>
+              {language === 'en'
+                ? 'Contact us for any questions about our privacy practices.'
+                : 'Επικοινωνήστε μαζί μας για οποιεσδήποτε ερωτήσεις σχετικά με τις πρακτικές απορρήτου μας.'
+              }
             <div className="bg-black/40 border border-white/10 rounded-lg p-4">
               <p className="text-gray-300 text-sm leading-relaxed">
                 "Αυτός ο ιστότοπος χρησιμοποιεί cookies για να βελτιώσει την εμπειρία σας και να αναλύσει την επισκεψιμότητα μέσω Google Analytics. 
                 Τα δεδομένα συλλέγονται ανώνυμα και δεν μοιράζονται με τρίτους. Συνεχίζοντας την περιήγηση, συμφωνείτε με τη χρήση cookies. 
                 <button className='text-pink-400 hover:text-pink-300 underline ml-1'>Μάθετε περισσότερα</button> | 
                 <button className='text-pink-400 hover:text-pink-300 underline ml-1'>Ρυθμίσεις</button>"
-              </p>
+              {language === 'en' ? 'Contact Us' : 'Επικοινωνήστε μαζί μας'}
             </div>
           </div>
         </div>
