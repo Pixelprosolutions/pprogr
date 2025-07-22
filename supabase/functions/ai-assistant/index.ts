@@ -51,7 +51,18 @@ serve(async (req: Request) => {
     }
 
     // Get Gemini API key from environment or use fallback
-    const geminiApiKey = Deno.env.get('GEMINI_API_KEY') || 'AIzaSyAKYyimiM3CL0wFAB6w2T3YiTs4heMViFg'
+    const geminiApiKey = Deno.env.get('GEMINI_API_KEY')
+
+    if (!geminiApiKey) {
+      console.error('GEMINI_API_KEY environment variable not found')
+      return new Response(
+        JSON.stringify({ error: "AI service configuration error" }),
+        {
+          status: 500,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        }
+      )
+    }
 
     // Create system prompt based on language
     const systemPrompt = language === 'en' 
