@@ -575,6 +575,66 @@ const translations = {
     'consultation.form.submitting': 'Sending...',
     'consultation.form.required': 'Required fields',
     
+    // Service options for consultation form
+    'consultation.services.website': 'Website Development',
+    'consultation.services.uiux': 'UI/UX Design',
+    'consultation.services.ecommerce': 'E-Commerce Solutions',
+    'consultation.services.marketing': 'Digital Marketing',
+    'consultation.services.seo': 'SEO Optimization',
+    'consultation.services.social': 'Social Media Management',
+    'consultation.services.mobile': 'Mobile App Development',
+    'consultation.services.branding': 'Branding & Logo Design',
+    'consultation.services.content': 'Content Creation',
+    'consultation.services.email': 'Email Marketing',
+    
+    // Budget options
+    'consultation.budget.under1k': 'Κάτω από €1.000',
+    'consultation.budget.1k3k': '€1.000 - €3.000',
+    'consultation.budget.3k5k': '€3.000 - €5.000',
+    'consultation.budget.5k10k': '€5.000 - €10.000',
+    'consultation.budget.over10k': 'Πάνω από €10.000',
+    'consultation.budget.discuss': 'Θα συζητήσουμε',
+    
+    // Timeline options
+    'consultation.timeline.immediate': 'Άμεσα (1-2 εβδομάδες)',
+    'consultation.timeline.soon': 'Σύντομα (1 μήνας)',
+    'consultation.timeline.medium': 'Μεσοπρόθεσμα (2-3 μήνες)',
+    'consultation.timeline.long': 'Μακροπρόθεσμα (3+ μήνες)',
+    'consultation.timeline.flexible': 'Ευέλικτο χρονοδιάγραμμα',
+    
+    // Consultation process section
+    'consultation.process.title': 'Τι να περιμένετε;',
+    'consultation.process.step1.title': 'Ανάλυση Αναγκών',
+    'consultation.process.step1.description': 'Συζητάμε τους στόχους και τις προκλήσεις σας',
+    'consultation.process.step2.title': 'Προτάσεις Λύσεων',
+    'consultation.process.step2.description': 'Παρουσιάζουμε προσαρμοσμένες στρατηγικές',
+    'consultation.process.step3.title': 'Σχέδιο Δράσης',
+    'consultation.process.step3.description': 'Δημιουργούμε ένα σαφές roadmap για την επιτυχία',
+    
+    // Budget options
+    'consultation.budget.under1k': 'Under €1,000',
+    'consultation.budget.1k3k': '€1,000 - €3,000',
+    'consultation.budget.3k5k': '€3,000 - €5,000',
+    'consultation.budget.5k10k': '€5,000 - €10,000',
+    'consultation.budget.over10k': 'Over €10,000',
+    'consultation.budget.discuss': 'We\'ll discuss',
+    
+    // Timeline options
+    'consultation.timeline.immediate': 'Immediate (1-2 weeks)',
+    'consultation.timeline.soon': 'Soon (1 month)',
+    'consultation.timeline.medium': 'Medium-term (2-3 months)',
+    'consultation.timeline.long': 'Long-term (3+ months)',
+    'consultation.timeline.flexible': 'Flexible timeline',
+    
+    // Consultation process section
+    'consultation.process.title': 'What to Expect?',
+    'consultation.process.step1.title': 'Needs Analysis',
+    'consultation.process.step1.description': 'We discuss your goals and challenges',
+    'consultation.process.step2.title': 'Solution Proposals',
+    'consultation.process.step2.description': 'We present customized strategies',
+    'consultation.process.step3.title': 'Action Plan',
+    'consultation.process.step3.description': 'We create a clear roadmap for success',
+    
     // Tetris game translations
     'tetris.title': 'Game',
     'tetris.back': 'Back',

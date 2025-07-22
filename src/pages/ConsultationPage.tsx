@@ -39,33 +39,33 @@ const ConsultationPage: React.FC = () => {
   }, []);
 
   const serviceOptions = [
-    'Κατασκευή Ιστοτόπου',
-    'Σχεδιασμός UI/UX',
-    'E-Commerce Λύσεις',
-    'Ψηφιακό Μάρκετινγκ',
-    'SEO Βελτιστοποίηση',
-    'Social Media Management',
-    'Mobile App Development',
-    'Branding & Logo Design',
-    'Content Creation',
-    'Email Marketing'
+    t('consultation.services.website'),
+    t('consultation.services.uiux'),
+    t('consultation.services.ecommerce'),
+    t('consultation.services.marketing'),
+    t('consultation.services.seo'),
+    t('consultation.services.social'),
+    t('consultation.services.mobile'),
+    t('consultation.services.branding'),
+    t('consultation.services.content'),
+    t('consultation.services.email')
   ];
 
   const budgetOptions = [
-    'Κάτω από €1.000',
-    '€1.000 - €3.000',
-    '€3.000 - €5.000',
-    '€5.000 - €10.000',
-    'Πάνω από €10.000',
-    'Θα συζητήσουμε'
+    t('consultation.budget.under1k'),
+    t('consultation.budget.1k3k'),
+    t('consultation.budget.3k5k'),
+    t('consultation.budget.5k10k'),
+    t('consultation.budget.over10k'),
+    t('consultation.budget.discuss')
   ];
 
   const timelineOptions = [
-    'Άμεσα (1-2 εβδομάδες)',
-    'Σύντομα (1 μήνας)',
-    'Μεσοπρόθεσμα (2-3 μήνες)',
-    'Μακροπρόθεσμα (3+ μήνες)',
-    'Ευέλικτο χρονοδιάγραμμα'
+    t('consultation.timeline.immediate'),
+    t('consultation.timeline.soon'),
+    t('consultation.timeline.medium'),
+    t('consultation.timeline.long'),
+    t('consultation.timeline.flexible')
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -402,30 +402,30 @@ const ConsultationPage: React.FC = () => {
 
         {/* Additional Info */}
         <div className="mt-6 md:mt-8 bg-gradient-to-br from-black/30 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-4 md:p-6">
-          <h3 className="text-lg md:text-xl font-bold text-white mb-4">Τι να περιμένετε;</h3>
+          <h3 className="text-lg md:text-xl font-bold text-white mb-4">{t('consultation.process.title')}</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             <div className="text-center">
               <div className="rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: 'rgba(244, 63, 94, 0.2)' }}>
                 <span className="font-bold" style={{ color: '#f43f5e' }}>1</span>
               </div>
-              <h4 className="font-semibold text-white mb-2 text-sm md:text-base">Ανάλυση Αναγκών</h4>
-              <p className="text-gray-300 text-xs md:text-sm">Συζητάμε τους στόχους και τις προκλήσεις σας</p>
+              <h4 className="font-semibold text-white mb-2 text-sm md:text-base">{t('consultation.process.step1.title')}</h4>
+              <p className="text-gray-300 text-xs md:text-sm">{t('consultation.process.step1.description')}</p>
             </div>
             
             <div className="text-center">
               <div className="rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: 'rgba(244, 63, 94, 0.2)' }}>
                 <span className="font-bold" style={{ color: '#f43f5e' }}>2</span>
               </div>
-              <h4 className="font-semibold text-white mb-2 text-sm md:text-base">Προτάσεις Λύσεων</h4>
-              <p className="text-gray-300 text-xs md:text-sm">Παρουσιάζουμε προσαρμοσμένες στρατηγικές</p>
+              <h4 className="font-semibold text-white mb-2 text-sm md:text-base">{t('consultation.process.step2.title')}</h4>
+              <p className="text-gray-300 text-xs md:text-sm">{t('consultation.process.step2.description')}</p>
             </div>
             
             <div className="text-center">
               <div className="rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: 'rgba(244, 63, 94, 0.2)' }}>
                 <span className="font-bold" style={{ color: '#f43f5e' }}>3</span>
               </div>
-              <h4 className="font-semibold text-white mb-2 text-sm md:text-base">Σχέδιο Δράσης</h4>
-              <p className="text-gray-300 text-xs md:text-sm">Δημιουργούμε ένα σαφές roadmap για την επιτυχία</p>
+              <h4 className="font-semibold text-white mb-2 text-sm md:text-base">{t('consultation.process.step3.title')}</h4>
+              <p className="text-gray-300 text-xs md:text-sm">{t('consultation.process.step3.description')}</p>
             </div>
           </div>
         </div>
