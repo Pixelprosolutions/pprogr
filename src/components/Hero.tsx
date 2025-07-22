@@ -8,11 +8,11 @@ const Hero: React.FC = () => {
       <section className="relative">
         <div className="container mx-auto px-4 pt-56 md:pt-64 lg:pt-72 pb-24 md:pb-36 lg:pb-52 flex items-center justify-center min-h-[calc(100vh-160px)]">
           <div className="text-center max-w-4xl space-y-6 md:space-y-8">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" itemProp="headline">
               <span className="text-white">Βοηθάμε Τοπικές Επιχειρήσεις να </span>
               <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #c084fc, #f43f5e)' }}>Αναπτυχθούν Online</span>
             </h1>
-            <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed px-2">
+            <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed px-2" itemProp="description">
               Δημιουργούμε ιστοσελίδες και στρατηγικό marketing που φέρνει νέους πελάτες, ενισχύει την εικόνα σας και μετατρέπει την online παρουσία σας σε επιχειρηματικό πλεονέκτημα.
             </p>
             

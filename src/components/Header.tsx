@@ -126,46 +126,53 @@ const Header: React.FC = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex space-x-4 xl:space-x-8 items-center">
+        <nav className="hidden lg:flex space-x-4 xl:space-x-8 items-center" role="navigation" aria-label="Κύρια πλοήγηση">
           <a 
             href="#home" 
             className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
+            aria-label="Πηγαίνετε στην αρχική σελίδα"
           >
             Αρχική
           </a>
           <a 
             href="#services" 
             className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
+            aria-label="Δείτε τις υπηρεσίες μας"
           >
             Υπηρεσίες
           </a>
           <a 
             href="#about" 
             className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
+            aria-label="Μάθετε περισσότερα για εμάς"
           >
             Σχετικά
           </a>
           <a 
             href="#projects" 
             className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
+            aria-label="Δείτε τα έργα μας"
           >
             Έργα
           </a>
           <a 
             href="#pricing" 
             className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
+            aria-label="Δείτε τις τιμές μας"
           >
             Τιμές
           </a>
           <a 
             href="#contact" 
             className="text-white hover:text-gray-300 transition-colors glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
+            aria-label="Επικοινωνήστε μαζί μας"
           >
             Επικοινωνία
           </a>
           <a 
             href="#contact" 
             className="bg-white text-black py-2 px-3 xl:px-4 rounded-lg font-medium hover:bg-gray-200 transition-all duration-300 glow-on-hover text-sm xl:text-base whitespace-nowrap flex items-center"
+            aria-label="Κλείστε δωρεάν συμβουλευτική"
             onClick={(e) => {
               e.preventDefault();
               (window as any).navigateToConsultation?.();
@@ -178,6 +185,8 @@ const Header: React.FC = () => {
         {/* Mobile Menu Button */}
         <button 
           className="lg:hidden text-white interactive"
+          aria-label="Άνοιγμα μενού πλοήγησης"
+          aria-expanded={isMobileMenuOpen}
           onClick={toggleMobileMenu}
         >
           <Menu className="h-6 w-6" />
@@ -186,12 +195,13 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-black/90 backdrop-blur-lg">
+        <div className="lg:hidden bg-black/90 backdrop-blur-lg" role="navigation" aria-label="Κινητό μενού πλοήγησης">
           <div className="container mx-auto px-4 py-4">
-            <nav className="flex flex-col space-y-4">
+            <nav className="flex flex-col space-y-4" role="menu">
               <a 
                 href="#home" 
                 className="text-white hover:text-gray-300 transition-colors py-2"
+                role="menuitem"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Αρχική
@@ -199,6 +209,7 @@ const Header: React.FC = () => {
               <a 
                 href="#services" 
                 className="text-white hover:text-gray-300 transition-colors py-2"
+                role="menuitem"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Υπηρεσίες
@@ -206,6 +217,7 @@ const Header: React.FC = () => {
               <a 
                 href="#about" 
                 className="text-white hover:text-gray-300 transition-colors py-2"
+                role="menuitem"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Σχετικά
@@ -213,6 +225,7 @@ const Header: React.FC = () => {
               <a 
                 href="#projects" 
                 className="text-white hover:text-gray-300 transition-colors py-2"
+                role="menuitem"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Έργα
@@ -220,6 +233,7 @@ const Header: React.FC = () => {
               <a 
                 href="#pricing" 
                 className="text-white hover:text-gray-300 transition-colors py-2"
+                role="menuitem"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Τιμές
@@ -227,6 +241,7 @@ const Header: React.FC = () => {
               <a 
                 href="#contact" 
                 className="text-white hover:text-gray-300 transition-colors py-2"
+                role="menuitem"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Επικοινωνία
@@ -234,6 +249,7 @@ const Header: React.FC = () => {
               <a 
                 href="#consultation" 
                 className="bg-white text-black py-3 px-4 rounded-lg font-medium hover:bg-gray-200 transition-all duration-300"
+                role="menuitem"
                 onClick={(e) => {
                   e.preventDefault();
                   setIsMobileMenuOpen(false);
