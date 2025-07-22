@@ -6,11 +6,12 @@ import HomePage from './pages/HomePage';
 import TetrisPage from './pages/TetrisPage';
 import ConsultationPage from './pages/ConsultationPage';
 import PackageSelectionPage from './pages/PackageSelectionPage';
+import MarketingCostPage from './pages/MarketingCostPage';
 
 function App() {
   const [_, setMousePosition] = useState({ x: 0, y: 0 });
   const [headerTransform, setHeaderTransform] = useState('');
-  const [currentPage, setCurrentPage] = useState<'home' | 'tetris' | 'consultation' | 'package-selection'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'tetris' | 'consultation' | 'package-selection' | 'marketing-cost'>('home');
   const sectionsRef = useRef<HTMLElement[]>([]);
   
   useEffect(() => {
@@ -67,6 +68,7 @@ function App() {
   const navigateToHome = () => setCurrentPage('home');
   const navigateToConsultation = () => setCurrentPage('consultation');
   const navigateToPackageSelection = () => setCurrentPage('package-selection');
+  const navigateToMarketingCost = () => setCurrentPage('marketing-cost');
 
   // Make navigation functions available globally
   useEffect(() => {
@@ -74,6 +76,7 @@ function App() {
     (window as any).navigateToHome = navigateToHome;
     (window as any).navigateToConsultation = navigateToConsultation;
     (window as any).navigateToPackageSelection = navigateToPackageSelection;
+    (window as any).navigateToMarketingCost = navigateToMarketingCost;
   }, []);
 
   return (
@@ -98,6 +101,9 @@ function App() {
         )}
         {currentPage === 'package-selection' && (
           <PackageSelectionPage />
+        )}
+        {currentPage === 'marketing-cost' && (
+          <MarketingCostPage />
         )}
       </div>
     </div>
