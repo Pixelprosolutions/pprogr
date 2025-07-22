@@ -101,7 +101,6 @@ Please respond as PixelPro's AI assistant:`
       {
         method: 'POST',
         headers: {
-          'x-goog-api-key': geminiApiKey,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
