@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="el">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -11,7 +11,6 @@
     <!-- Primary Meta Tags -->
     <title>PixelPro Solutions - Ψηφιακές Λύσεις για Τοπικές Επιχειρήσεις</title>
     <meta name="description" content="Δημιουργούμε ιστοσελίδες και στρατηγικό marketing που φέρνει νέους πελάτες. Εξειδικευμένες υπηρεσίες για ελληνικές επιχειρήσεις με έδρα το Λονδίνο." />
-    <meta name="keywords" content="ιστοσελίδες, digital marketing, SEO, social media, ελληνικές επιχειρήσεις, Λονδίνο" />
     <meta name="author" content="PixelPro Solutions" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://pixelpro.solutions/" />
@@ -31,6 +30,10 @@
     <meta name="twitter:description" content="Βοηθάμε τοπικές επιχειρήσεις να αναπτυχθούν online με επαγγελματικές ιστοσελίδες και στρατηγικό marketing." />
     <meta name="twitter:image" content="https://pixelpro.solutions/og-image.jpg" />
     
+    <!-- Language alternatives -->
+    <link rel="alternate" hreflang="el" href="https://pixelpro.solutions/" />
+    <link rel="alternate" hreflang="x-default" href="https://pixelpro.solutions/" />
+    
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-Frame-Options" content="DENY" />
@@ -48,21 +51,25 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
+      "@id": "https://pixelpro.solutions/#organization",
       "@type": "LocalBusiness",
       "name": "PixelPro Solutions",
       "description": "Ψηφιακές λύσεις για τοπικές επιχειρήσεις - Ιστοσελίδες, Digital Marketing, SEO",
       "url": "https://pixelpro.solutions",
+      "image": "https://pixelpro.solutions/og-image.jpg",
       "telephone": ["+44 20 8129 5829", "+30 697 3517 695"],
       "email": "hello@pixelpro.solutions",
       "address": [
         {
           "@type": "PostalAddress",
+          "@id": "https://pixelpro.solutions/#address-uk",
           "streetAddress": "DA16 3AP",
           "addressLocality": "London",
           "addressCountry": "United Kingdom"
         },
         {
           "@type": "PostalAddress",
+          "@id": "https://pixelpro.solutions/#address-gr",
           "streetAddress": "60100",
           "addressLocality": "Katerini",
           "addressCountry": "Greece"
@@ -78,6 +85,10 @@
       "priceRange": "€699-€2299"
     }
     </script>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#000000" />
     <script type="module" crossorigin src="/assets/index-DaUNMFsi.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/vendor-9mwbaf1v.js">
     <link rel="modulepreload" crossorigin href="/assets/ui-B-mlomNi.js">
