@@ -34,8 +34,8 @@ const AIAssistant: React.FC = () => {
   useEffect(() => {
     if (isOpen && messages.length === 0) {
       const welcomeMessage = language === 'en' 
-        ? "Hello! I'm PixelPro's AI assistant. I can help you with questions about our digital services, packages, and pricing. How can I assist you today?"
-        : "Γεια σας! Είμαι ο AI βοηθός της PixelPro. Μπορώ να σας βοηθήσω με ερωτήσεις για τις ψηφιακές μας υπηρεσίες, πακέτα και τιμές. Πώς μπορώ να σας βοηθήσω σήμερα;";
+        ? "Hello! I'm here to help you with questions about our digital services, packages, and pricing. How can I assist you today?"
+        : "Γεια σας! Είμαι εδώ για να σας βοηθήσω με ερωτήσεις για τις ψηφιακές μας υπηρεσίες, πακέτα και τιμές. Πώς μπορώ να σας βοηθήσω σήμερα;";
       
       setMessages([{
         role: 'assistant',
@@ -119,7 +119,7 @@ const AIAssistant: React.FC = () => {
       <button
         onClick={() => setIsOpen(true)}
         className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
-        aria-label={language === 'en' ? 'Open AI Assistant' : 'Άνοιγμα AI Βοηθού'}
+        aria-label={language === 'en' ? 'Open Customer Support' : 'Άνοιγμα Εξυπηρέτησης Πελατών'}
       >
         <MessageSquare className="h-6 w-6" />
       </button>
@@ -137,7 +137,7 @@ const AIAssistant: React.FC = () => {
             <Bot className="h-4 w-4 text-white" />
           </div>
           <div>
-            <h3 className="text-white font-medium text-sm">PixelPro AI</h3>
+            <h3 className="text-white font-medium text-sm">{language === 'en' ? 'Customer Support' : 'Εξυπηρέτηση Πελατών'}</h3>
             <p className="text-gray-400 text-xs">
               {language === 'en' ? 'Online' : 'Συνδεδεμένος'}
             </p>
@@ -236,8 +236,8 @@ const AIAssistant: React.FC = () => {
             </div>
             <p className="text-xs text-gray-500 mt-2">
               {language === 'en' 
-                ? 'Powered by Gemini AI • Press Enter to send'
-                : 'Τροφοδοτείται από Gemini AI • Πατήστε Enter για αποστολή'
+                ? 'AI-powered support • Press Enter to send'
+                : 'Υποστήριξη με AI • Πατήστε Enter για αποστολή'
               }
             </p>
           </div>
