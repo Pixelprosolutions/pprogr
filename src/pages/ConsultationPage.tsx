@@ -96,7 +96,7 @@ const ConsultationPage: React.FC = () => {
         phone: formData.phone || undefined,
         company: formData.company || undefined,
         website: formData.website || undefined,
-        message: formData.message || undefined,
+        message: formData.message,
         services: formData.services,
         budget: formData.budget || undefined,
         timeline: formData.timeline || undefined
