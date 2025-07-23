@@ -156,6 +156,24 @@ const translations = {
     'pricing.features.revision1': '1 αναθεώρηση/μήνα',
     'pricing.features.report': 'Μηνιαία αναφορά απόδοσης',
     
+    // Growth package features
+    'pricing.features.website.unlimited': 'Προσαρμοσμένος ιστότοπος με απεριόριστες σελίδες',
+    'pricing.features.seo.enhanced': 'Ενισχυμένο SEO και τοπική παρουσία (GMB, κριτικές)',
+    'pricing.features.social2': 'Διαχείριση social media (2 πλατφόρμες)',
+    'pricing.features.posts16': '16 δημοσιεύσεις / 8 stories / 8 carousel / 2 videos',
+    'pricing.features.campaigns.both': 'Διαφήμιση Meta και Google',
+    'pricing.features.strategy': 'Στρατηγική, copywriting, A/B testing',
+    'pricing.features.blog4': '4 άρθρα blog (SEO optimized) /μήνα',
+    'pricing.features.revision2': '2 αναθεωρήσεις/μήνα',
+    
+    // Dominance package features
+    'pricing.features.website.premium': 'Premium ιστότοπος με προσαρμοσμένες λειτουργίες ή light e-shop',
+    'pricing.features.social4': 'Διαχείριση social media (4 πλατφόρμες, περιλαμβάνει Facebook, Instagram, TikTok, LinkedIn)',
+    'pricing.features.posts30': '30 δημοσιεύσεις / 15 stories / 15 carousel / 4 videos',
+    'pricing.features.blog8': '8 άρθρα blog /μήνα',
+    'pricing.features.analytics': 'Λεπτομερής αναφορά KPI & ROI',
+    'pricing.features.manager': 'Project manager για συνεχή υποστήριξη',
+    
     'pricing.budget.starter': 'από €150 /μήνα',
     'pricing.budget.growth': '€400–€700 /μήνα',
     'pricing.budget.dominance': '€1.000–€2.000+ /μήνα',
@@ -274,6 +292,42 @@ const translations = {
     'consultation.form.budget.placeholder': 'Επιλέξτε προϋπολογισμό',
     'consultation.form.timeline': 'Χρονοδιάγραμμα',
     'consultation.form.timeline.placeholder': 'Επιλέξτε χρονοδιάγραμμα',
+    
+    // Service options for consultation form
+    'consultation.services.website': 'Κατασκευή Ιστοσελίδων',
+    'consultation.services.uiux': 'Σχεδιασμός UI/UX',
+    'consultation.services.ecommerce': 'Λύσεις E-Commerce',
+    'consultation.services.marketing': 'Ψηφιακό Μάρκετινγκ',
+    'consultation.services.seo': 'Βελτιστοποίηση SEO',
+    'consultation.services.social': 'Διαχείριση Social Media',
+    'consultation.services.mobile': 'Ανάπτυξη Mobile App',
+    'consultation.services.branding': 'Branding & Σχεδιασμός Logo',
+    'consultation.services.content': 'Δημιουργία Περιεχομένου',
+    'consultation.services.email': 'Email Marketing',
+    
+    // Budget options
+    'consultation.budget.under1k': 'Κάτω από €1.000',
+    'consultation.budget.1k3k': '€1.000 - €3.000',
+    'consultation.budget.3k5k': '€3.000 - €5.000',
+    'consultation.budget.5k10k': '€5.000 - €10.000',
+    'consultation.budget.over10k': 'Πάνω από €10.000',
+    'consultation.budget.discuss': 'Θα συζητήσουμε',
+    
+    // Timeline options
+    'consultation.timeline.immediate': 'Άμεσα (1-2 εβδομάδες)',
+    'consultation.timeline.soon': 'Σύντομα (1 μήνας)',
+    'consultation.timeline.medium': 'Μεσοπρόθεσμα (2-3 μήνες)',
+    'consultation.timeline.long': 'Μακροπρόθεσμα (3+ μήνες)',
+    'consultation.timeline.flexible': 'Ευέλικτο χρονοδιάγραμμα',
+    
+    // Consultation process section
+    'consultation.process.title': 'Τι να περιμένετε;',
+    'consultation.process.step1.title': 'Ανάλυση Αναγκών',
+    'consultation.process.step1.description': 'Συζητάμε τους στόχους και τις προκλήσεις σας',
+    'consultation.process.step2.title': 'Προτάσεις Λύσεων',
+    'consultation.process.step2.description': 'Παρουσιάζουμε προσαρμοσμένες στρατηγικές',
+    'consultation.process.step3.title': 'Σχέδιο Δράσης',
+    'consultation.process.step3.description': 'Δημιουργούμε ένα σαφές roadmap για την επιτυχία',
     'consultation.form.message': 'Πείτε μας περισσότερα για το έργο σας',
     'consultation.form.message.placeholder': 'Περιγράψτε τους στόχους σας, τις προκλήσεις που αντιμετωπίζετε, ή οτιδήποτε άλλο θα θέλατε να μας πείτε...',
     'consultation.form.submit': 'Στείλτε την Αίτηση',
@@ -682,28 +736,28 @@ const translations = {
     'consultation.services.email': 'Email Marketing',
     
     // Budget options
-    'consultation.budget.under1k': 'Κάτω από €1.000',
-    'consultation.budget.1k3k': '€1.000 - €3.000',
-    'consultation.budget.3k5k': '€3.000 - €5.000',
-    'consultation.budget.5k10k': '€5.000 - €10.000',
-    'consultation.budget.over10k': 'Πάνω από €10.000',
-    'consultation.budget.discuss': 'Θα συζητήσουμε',
+    'consultation.budget.under1k': 'Under €1,000',
+    'consultation.budget.1k3k': '€1,000 - €3,000',
+    'consultation.budget.3k5k': '€3,000 - €5,000',
+    'consultation.budget.5k10k': '€5,000 - €10,000',
+    'consultation.budget.over10k': 'Over €10,000',
+    'consultation.budget.discuss': 'Let\'s discuss',
     
     // Timeline options
-    'consultation.timeline.immediate': 'Άμεσα (1-2 εβδομάδες)',
-    'consultation.timeline.soon': 'Σύντομα (1 μήνας)',
-    'consultation.timeline.medium': 'Μεσοπρόθεσμα (2-3 μήνες)',
-    'consultation.timeline.long': 'Μακροπρόθεσμα (3+ μήνες)',
-    'consultation.timeline.flexible': 'Ευέλικτο χρονοδιάγραμμα',
+    'consultation.timeline.immediate': 'Immediate (1-2 weeks)',
+    'consultation.timeline.soon': 'Soon (1 month)',
+    'consultation.timeline.medium': 'Medium-term (2-3 months)',
+    'consultation.timeline.long': 'Long-term (3+ months)',
+    'consultation.timeline.flexible': 'Flexible timeline',
     
     // Consultation process section
-    'consultation.process.title': 'Τι να περιμένετε;',
-    'consultation.process.step1.title': 'Ανάλυση Αναγκών',
-    'consultation.process.step1.description': 'Συζητάμε τους στόχους και τις προκλήσεις σας',
-    'consultation.process.step2.title': 'Προτάσεις Λύσεων',
-    'consultation.process.step2.description': 'Παρουσιάζουμε προσαρμοσμένες στρατηγικές',
-    'consultation.process.step3.title': 'Σχέδιο Δράσης',
-    'consultation.process.step3.description': 'Δημιουργούμε ένα σαφές roadmap για την επιτυχία',
+    'consultation.process.title': 'What to Expect?',
+    'consultation.process.step1.title': 'Needs Analysis',
+    'consultation.process.step1.description': 'We discuss your goals and challenges',
+    'consultation.process.step2.title': 'Solution Proposals',
+    'consultation.process.step2.description': 'We present customized strategies',
+    'consultation.process.step3.title': 'Action Plan',
+    'consultation.process.step3.description': 'We create a clear roadmap for success',
     
     
     // Tetris game translations
