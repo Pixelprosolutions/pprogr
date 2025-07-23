@@ -69,9 +69,6 @@ const translations = {
     'about.description.part2': 'Με πάνω από 15 χρόνια εμπειρίας σε branding, ιστοσελίδες και στρατηγικές marketing, προσφέρουμε πρακτικές λύσεις που φέρνουν πραγματικά αποτελέσματα, όχι απλώς εντυπωσιακές εικόνες.',
     'about.description.part3': 'Δουλεύουμε στενά με κάθε πελάτη για να κατανοήσουμε εις βάθος την επιχείρηση, τον κλάδο και τις ανάγκες του. Από την πρώτη συμβουλευτική έως την τελική υλοποίηση, ο υπεύθυνος μας βρίσκεται δίπλα σας, ειδικά στην κρίσιμη φάση της ανάλυσης και στρατηγικού σχεδιασμού.',
     
-    // Pricing Section
-    'pricing.title': 'Πακέτα Υπηρεσιών PixelPro',
-    'pricing.description': 'Επιλέξτε το πακέτο που ταιριάζει στην επιχειρησή σας και ενισχύστε την ψηφιακή σας παρουσία.',
     
     // Contact Section
     'contact.title': 'Επικοινωνήστε μαζί μας',
@@ -361,9 +358,6 @@ const translations = {
     'about.description.part2': 'With over 15 years of experience in branding, websites, and marketing strategies, we offer practical solutions that deliver real results, not just impressive visuals.',
     'about.description.part3': 'We work closely with each client to understand their business, industry, and needs in depth. From the first consultation to final implementation, our manager is by your side, especially during the critical analysis and strategic planning phase.',
     
-    // Pricing Section
-    'pricing.title': 'PixelPro Service Packages',
-    'pricing.description': 'Choose the package that fits your business and enhance your digital presence.',
     
     // Contact Section
     'contact.title': 'Contact Us',
@@ -462,8 +456,105 @@ const translations = {
     
     'pricing.next.info': 'Next: Complete a quick onboarding form to provide the information we need to get started with your selected services.',
     
+    // Growth package features
+    'pricing.features.website.unlimited': 'Custom website with unlimited pages',
+    'pricing.features.seo.enhanced': 'Enhanced SEO and local presence (GMB, reviews)',
+    'pricing.features.social2': 'Social media management (2 platforms)',
+    'pricing.features.posts16': '16 posts / 8 stories / 8 carousel / 2 videos',
+    'pricing.features.campaigns.both': 'Meta and Google advertising',
+    'pricing.features.strategy': 'Strategy, copywriting, A/B testing',
+    'pricing.features.blog4': '4 blog articles (SEO optimized) /month',
+    'pricing.features.revision2': '2 revisions/month',
+    
+    // Dominance package features
+    'pricing.features.website.premium': 'Premium website with custom features or light e-shop',
+    'pricing.features.social4': 'Social media management (4 platforms, includes Facebook, Instagram, TikTok, LinkedIn)',
+    'pricing.features.posts30': '30 posts / 15 stories / 15 carousel / 4 videos',
+    'pricing.features.blog8': '8 blog articles /month',
+    'pricing.features.analytics': 'Detailed KPI & ROI reporting',
+    'pricing.features.manager': 'Project manager for continuous support',
+    
     // Marketing Cost Page
     'marketing.disclaimer': 'There are no hidden charges. However, additional charges may apply for specific services — such as advertising budget (ad spend) and third-party API usage. For a complete analysis, refer to the Understanding Marketing Costs section',
+    
+    // Cookie Policy translations
+    'cookie.categories.title': 'Cookie Categories',
+    'cookie.analytics.title': 'Analytics Cookies',
+    'cookie.analytics.purpose': 'Statistics and usage analysis',
+    'cookie.analytics.provider': 'Google Analytics',
+    'cookie.analytics.category': 'Non-essential',
+    'cookie.functional.title': 'Functional Cookies',
+    'cookie.functional.purpose': 'Basic website functionality',
+    'cookie.functional.provider': 'PixelPro Solutions',
+    'cookie.functional.category': 'Essential',
+    'cookie.management.title': 'Cookie Management',
+    'cookie.browser.settings': 'Browser Settings',
+    'cookie.browser.description': 'You can control and delete cookies through your browser settings:',
+    'cookie.browser.chrome': 'Settings → Privacy and security → Cookies',
+    'cookie.browser.firefox': 'Settings → Privacy and security → Cookies',
+    'cookie.browser.safari': 'Preferences → Privacy → Cookies',
+    'cookie.browser.edge': 'Settings → Cookies and site permissions',
+    'cookie.optout.title': 'Opt-out Google Analytics',
+    'cookie.optout.description': 'You can opt out of Google Analytics by installing the',
+    'cookie.consent.title': 'Consent',
+    'cookie.consent.description': 'By continuing to use our website, you agree to the use of cookies as described in this policy. You can withdraw your consent at any time through your browser settings.',
+    'cookie.changes.title': 'Policy Changes',
+    'cookie.changes.description': 'We may update this Cookie Policy occasionally. Changes will be posted on this page with an updated date.',
+    'cookie.contact.title': 'Contact',
+    'cookie.contact.description': 'For questions about cookie usage, contact us:',
+    
+    // Privacy Policy translations
+    'privacy.automatically.title': 'Automatically Collected Data',
+    'privacy.automatically.description': 'Through Google Analytics we collect anonymous statistics:',
+    'privacy.automatically.ip': 'IP address (anonymized)',
+    'privacy.automatically.browser': 'Browser type and operating system',
+    'privacy.automatically.pages': 'Pages you visit and time spent',
+    'privacy.automatically.source': 'Visit source (e.g. Google, direct visit)',
+    'privacy.automatically.location': 'Geographic location (city/region level)',
+    'privacy.purpose.title': 'Processing Purpose',
+    'privacy.purpose.description': 'We use your personal data for the following purposes:',
+    'privacy.purpose.communication': 'Communication: To respond to your requests and schedule meetings',
+    'privacy.purpose.services': 'Service provision: To understand your needs and suggest appropriate solutions',
+    'privacy.purpose.improvement': 'Website improvement: To analyze website usage and improve user experience',
+    'privacy.purpose.legal': 'Legal compliance: To fulfill our legal obligations',
+    'privacy.legal.title': 'Legal Basis for Processing',
+    'privacy.legal.description': 'The processing of your personal data is based on the following legal bases:',
+    'privacy.legal.consent': 'Consent: When you voluntarily fill out contact forms',
+    'privacy.legal.interest': 'Legitimate interest: For traffic analysis and service improvement',
+    'privacy.legal.contract': 'Contract execution: When we provide the services you requested',
+    'privacy.retention.title': 'Data Retention',
+    'privacy.retention.description': 'We retain your personal data for the time necessary:',
+    'privacy.retention.forms': 'Form data: Up to 3 years from last communication',
+    'privacy.retention.analytics': 'Google Analytics statistics: 26 months (automatic deletion)',
+    'privacy.retention.customers': 'Customer data: According to legal obligations (usually 5-7 years)',
+    'privacy.sharing.title': 'Sharing with Third Parties',
+    'privacy.sharing.description': 'We do not sell, rent or share your personal data with third parties, except for:',
+    'privacy.sharing.providers': 'Service providers: Supabase (database hosting), Google Analytics',
+    'privacy.sharing.legal': 'Legal obligations: When required by law',
+    'privacy.sharing.protection': 'Rights protection: To protect rights, property or security',
+    'privacy.security.title': 'Data Security',
+    'privacy.security.description': 'We implement appropriate technical and organizational measures to protect your data:',
+    'privacy.security.ssl': 'SSL/TLS encryption for all data transmissions',
+    'privacy.security.hosting': 'Secure hosting with certified providers',
+    'privacy.security.access': 'Limited access only to authorized personnel',
+    'privacy.security.backups': 'Regular security backups',
+    'privacy.rights.title': 'Your Rights',
+    'privacy.rights.description': 'According to GDPR, you have the following rights:',
+    'privacy.rights.access': 'Access: To request a copy of your personal data',
+    'privacy.rights.rectification': 'Rectification: To correct inaccurate or incomplete data',
+    'privacy.rights.erasure': 'Erasure: To request deletion of your data',
+    'privacy.rights.restriction': 'Restriction: To restrict processing of your data',
+    'privacy.rights.portability': 'Portability: To receive your data in structured format',
+    'privacy.rights.objection': 'Objection: To object to processing',
+    'privacy.rights.withdrawal': 'Consent withdrawal: To withdraw your consent at any time',
+    'privacy.cookies.title': 'Cookies',
+    'privacy.cookies.description': 'Our website uses cookies only for statistical purposes through Google Analytics. For more information, refer to our',
+    'privacy.cookies.link': 'Cookie Policy',
+    'privacy.changes.title': 'Policy Changes',
+    'privacy.changes.description': 'We reserve the right to modify this Privacy Policy. Changes will be posted on this page with an updated date.',
+    'privacy.contact.title': 'Contact',
+    'privacy.contact.description': 'For any questions about this Privacy Policy or to exercise your rights, you can contact us:',
+    'privacy.complaint.description': 'You also have the right to file a complaint with the competent Data Protection Authority.',
     
     // FAQ Questions and Answers
     'faq.q1': 'I\'m not sure which services I need. Can you help?',
@@ -614,29 +705,6 @@ const translations = {
     'consultation.process.step3.title': 'Σχέδιο Δράσης',
     'consultation.process.step3.description': 'Δημιουργούμε ένα σαφές roadmap για την επιτυχία',
     
-    // Budget options
-    'consultation.budget.under1k': 'Under €1,000',
-    'consultation.budget.1k3k': '€1,000 - €3,000',
-    'consultation.budget.3k5k': '€3,000 - €5,000',
-    'consultation.budget.5k10k': '€5,000 - €10,000',
-    'consultation.budget.over10k': 'Over €10,000',
-    'consultation.budget.discuss': 'We\'ll discuss',
-    
-    // Timeline options
-    'consultation.timeline.immediate': 'Immediate (1-2 weeks)',
-    'consultation.timeline.soon': 'Soon (1 month)',
-    'consultation.timeline.medium': 'Medium-term (2-3 months)',
-    'consultation.timeline.long': 'Long-term (3+ months)',
-    'consultation.timeline.flexible': 'Flexible timeline',
-    
-    // Consultation process section
-    'consultation.process.title': 'What to Expect?',
-    'consultation.process.step1.title': 'Needs Analysis',
-    'consultation.process.step1.description': 'We discuss your goals and challenges',
-    'consultation.process.step2.title': 'Solution Proposals',
-    'consultation.process.step2.description': 'We present customized strategies',
-    'consultation.process.step3.title': 'Action Plan',
-    'consultation.process.step3.description': 'We create a clear roadmap for success',
     
     // Tetris game translations
     'tetris.title': 'Game',
@@ -683,7 +751,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   // Translation function
   const t = (key: string): string => {
-    return translations[language][key] || key;
+    return (translations[language] as any)[key] || key;
   };
 
   return (

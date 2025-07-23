@@ -8,7 +8,7 @@ interface FAQItemProps {
 }
 
 const Pricing: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
 
   const packages = [
@@ -34,15 +34,15 @@ const Pricing: React.FC = () => {
       price: 1299,
       description: t('pricing.growth.description'),
       features: [
-        "Προσαρμοσμένος ιστότοπος με απεριόριστες σελίδες",
-        "Ενισχυμένο SEO και τοπική προβολή (GMB, κριτικές)",
-        "Διαχείριση social media (2 πλατφόρμες)",
-        "16 δημοσιεύσεις / 8 stories /  8 carousel / 2 βίντεο",
-        "Διαφημίσεις σε Meta και Google",
-        "Στρατηγική, copywriting, A/B testing",
-        "4 άρθρα blog (SEO optimized) /μήνα",
-        "2 αναθεωρήσεις/μήνα",
-        "Μηνιαία αναφορά απόδοσης"
+        t('pricing.features.website.unlimited'),
+        t('pricing.features.seo.enhanced'),
+        t('pricing.features.social2'),
+        t('pricing.features.posts16'),
+        t('pricing.features.campaigns.both'),
+        t('pricing.features.strategy'),
+        t('pricing.features.blog4'),
+        t('pricing.features.revision2'),
+        t('pricing.features.report')
       ],
       recommendedBudget: t('pricing.budget.growth')
     },
@@ -51,16 +51,16 @@ const Pricing: React.FC = () => {
       price: 2299,
       description: t('pricing.dominance.description'),
       features: [
-        "Premium ιστότοπος με προσαρμοσμένες λειτουργίες ή light e-shop",
-        "Διαχείριση social media (4 πλατφόρμες, περιλαμβάνει Facebook, Instagram, TikTok, LinkedIn)",
-        "30 δημοσιεύσεις / 15 stories / 15 carousel / 4 βίντεο",
-        "Διαφημίσεις σε Meta και Google",
-        "Στρατηγική, copywriting, A/B testing",
-        "8 άρθρα blog /μήνα",
-        "2 αναθεωρήσεις/μήνα",
-        "Αναλυτική αναφορά KPI & ROI",
-        "Υπεύθυνος έργου για συνεχή υποστήριξη",
-        "Μηνιαία αναφορά απόδοσης"
+        t('pricing.features.website.premium'),
+        t('pricing.features.social4'),
+        t('pricing.features.posts30'),
+        t('pricing.features.campaigns.both'),
+        t('pricing.features.strategy'),
+        t('pricing.features.blog8'),
+        t('pricing.features.revision2'),
+        t('pricing.features.analytics'),
+        t('pricing.features.manager'),
+        t('pricing.features.report')
       ],
       recommendedBudget: t('pricing.budget.dominance')
     }

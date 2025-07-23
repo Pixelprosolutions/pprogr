@@ -130,43 +130,73 @@ const CookiePolicyPage: React.FC = () => {
 
           {/* Section 3 */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">3. Κατηγορίες Cookies</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {language === 'en' ? '3. Cookie Categories' : '3. Κατηγορίες Cookies'}
+            </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-black/40 border border-white/10 rounded-lg p-6">
-                <h4 className="font-bold text-white mb-3">Αναλυτικά Cookies</h4>
-                <p className="text-gray-300 text-sm mb-2"><strong>Σκοπός:</strong> Στατιστικές και ανάλυση χρήσης</p>
-                <p className="text-gray-300 text-sm mb-2"><strong>Πάροχος:</strong> Google Analytics</p>
-                <p className="text-gray-300 text-sm"><strong>Κατηγορία:</strong> Μη απαραίτητα</p>
+                <h4 className="font-bold text-white mb-3">
+                  {language === 'en' ? 'Analytics Cookies' : 'Αναλυτικά Cookies'}
+                </h4>
+                <p className="text-gray-300 text-sm mb-2">
+                  <strong>{language === 'en' ? 'Purpose:' : 'Σκοπός:'}</strong> {language === 'en' ? 'Statistics and usage analysis' : 'Στατιστικές και ανάλυση χρήσης'}
+                </p>
+                <p className="text-gray-300 text-sm mb-2">
+                  <strong>{language === 'en' ? 'Provider:' : 'Πάροχος:'}</strong> Google Analytics
+                </p>
+                <p className="text-gray-300 text-sm">
+                  <strong>{language === 'en' ? 'Category:' : 'Κατηγορία:'}</strong> {language === 'en' ? 'Non-essential' : 'Μη απαραίτητα'}
+                </p>
               </div>
               
               <div className="bg-black/40 border border-white/10 rounded-lg p-6">
-                <h4 className="font-bold text-white mb-3">Λειτουργικά Cookies</h4>
-                <p className="text-gray-300 text-sm mb-2"><strong>Σκοπός:</strong> Βασική λειτουργία ιστοτόπου</p>
-                <p className="text-gray-300 text-sm mb-2"><strong>Πάροχος:</strong> PixelPro Solutions</p>
-                <p className="text-gray-300 text-sm"><strong>Κατηγορία:</strong> Απαραίτητα</p>
+                <h4 className="font-bold text-white mb-3">
+                  {language === 'en' ? 'Functional Cookies' : 'Λειτουργικά Cookies'}
+                </h4>
+                <p className="text-gray-300 text-sm mb-2">
+                  <strong>{language === 'en' ? 'Purpose:' : 'Σκοπός:'}</strong> {language === 'en' ? 'Basic website functionality' : 'Βασική λειτουργία ιστοτόπου'}
+                </p>
+                <p className="text-gray-300 text-sm mb-2">
+                  <strong>{language === 'en' ? 'Provider:' : 'Πάροχος:'}</strong> PixelPro Solutions
+                </p>
+                <p className="text-gray-300 text-sm">
+                  <strong>{language === 'en' ? 'Category:' : 'Κατηγορία:'}</strong> {language === 'en' ? 'Essential' : 'Απαραίτητα'}
+                </p>
               </div>
             </div>
           </div>
 
           {/* Section 4 */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">4. Διαχείριση Cookies</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {language === 'en' ? '4. Cookie Management' : '4. Διαχείριση Cookies'}
+            </h2>
             
-            <h3 className="text-xl font-semibold text-white mb-3">4.1 Ρυθμίσεις Περιηγητή</h3>
+            <h3 className="text-xl font-semibold text-white mb-3">
+              {language === 'en' ? '4.1 Browser Settings' : '4.1 Ρυθμίσεις Περιηγητή'}
+            </h3>
             <p className="text-gray-300 mb-4">
-              Μπορείτε να ελέγξετε και να διαγράψετε cookies μέσω των ρυθμίσεων του περιηγητή σας:
+              {language === 'en'
+                ? 'You can control and delete cookies through your browser settings:'
+                : 'Μπορείτε να ελέγξετε και να διαγράψετε cookies μέσω των ρυθμίσεων του περιηγητή σας:'
+              }
             </p>
             <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4 mb-6">
-              <li><strong>Chrome:</strong> Ρυθμίσεις → Απόρρητο και ασφάλεια → Cookies</li>
-              <li><strong>Firefox:</strong> Ρυθμίσεις → Απόρρητο και ασφάλεια → Cookies</li>
-              <li><strong>Safari:</strong> Προτιμήσεις → Απόρρητο → Cookies</li>
-              <li><strong>Edge:</strong> Ρυθμίσεις → Cookies και δικαιώματα ιστοτόπου</li>
+              <li><strong>Chrome:</strong> {language === 'en' ? 'Settings → Privacy and security → Cookies' : 'Ρυθμίσεις → Απόρρητο και ασφάλεια → Cookies'}</li>
+              <li><strong>Firefox:</strong> {language === 'en' ? 'Settings → Privacy and security → Cookies' : 'Ρυθμίσεις → Απόρρητο και ασφάλεια → Cookies'}</li>
+              <li><strong>Safari:</strong> {language === 'en' ? 'Preferences → Privacy → Cookies' : 'Προτιμήσεις → Απόρρητο → Cookies'}</li>
+              <li><strong>Edge:</strong> {language === 'en' ? 'Settings → Cookies and site permissions' : 'Ρυθμίσεις → Cookies και δικαιώματα ιστοτόπου'}</li>
             </ul>
 
-            <h3 className="text-xl font-semibold text-white mb-3">4.2 Opt-out Google Analytics</h3>
+            <h3 className="text-xl font-semibold text-white mb-3">
+              {language === 'en' ? '4.2 Opt-out Google Analytics' : '4.2 Opt-out Google Analytics'}
+            </h3>
             <p className="text-gray-300 mb-4">
-              Μπορείτε να εξαιρεθείτε από το Google Analytics εγκαθιστώντας το 
+              {language === 'en'
+                ? 'You can opt out of Google Analytics by installing the '
+                : 'Μπορείτε να εξαιρεθείτε από το Google Analytics εγκαθιστώντας το '
+              }
               <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-pink-400 hover:text-pink-300 underline ml-1">
                 Google Analytics Opt-out Browser Add-on
               </a>.
@@ -175,33 +205,45 @@ const CookiePolicyPage: React.FC = () => {
 
           {/* Section 5 */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">5. Συναίνεση</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {language === 'en' ? '5. Consent' : '5. Συναίνεση'}
+            </h2>
             <p className="text-gray-300 mb-4">
-              Συνεχίζοντας να χρησιμοποιείτε τον ιστότοπό μας, συμφωνείτε με τη χρήση των cookies όπως περιγράφεται 
-              σε αυτή την πολιτική. Μπορείτε να ανακαλέσετε τη συναίνεσή σας ανά πάσα στιγμή μέσω των ρυθμίσεων 
-              του περιηγητή σας.
+              {language === 'en'
+                ? 'By continuing to use our website, you agree to the use of cookies as described in this policy. You can withdraw your consent at any time through your browser settings.'
+                : 'Συνεχίζοντας να χρησιμοποιείτε τον ιστότοπό μας, συμφωνείτε με τη χρήση των cookies όπως περιγράφεται σε αυτή την πολιτική. Μπορείτε να ανακαλέσετε τη συναίνεσή σας ανά πάσα στιγμή μέσω των ρυθμίσεων του περιηγητή σας.'
+              }
             </p>
           </div>
 
           {/* Section 6 */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">6. Αλλαγές στην Πολιτική</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {language === 'en' ? '6. Policy Changes' : '6. Αλλαγές στην Πολιτική'}
+            </h2>
             <p className="text-gray-300 mb-4">
-              Ενδέχεται να ενημερώσουμε αυτή την Πολιτική Cookies περιστασιακά. Οι αλλαγές θα δημοσιεύονται 
-              σε αυτή τη σελίδα με ενημερωμένη ημερομηνία.
+              {language === 'en'
+                ? 'We may update this Cookie Policy occasionally. Changes will be posted on this page with an updated date.'
+                : 'Ενδέχεται να ενημερώσουμε αυτή την Πολιτική Cookies περιστασιακά. Οι αλλαγές θα δημοσιεύονται σε αυτή τη σελίδα με ενημερωμένη ημερομηνία.'
+              }
             </p>
           </div>
 
           {/* Section 7 */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">7. Επικοινωνία</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {language === 'en' ? '7. Contact' : '7. Επικοινωνία'}
+            </h2>
             <p className="text-gray-300 mb-4">
-              Για ερωτήσεις σχετικά με τη χρήση cookies, επικοινωνήστε μαζί μας:
+              {language === 'en'
+                ? 'For questions about cookie usage, contact us:'
+                : 'Για ερωτήσεις σχετικά με τη χρήση cookies, επικοινωνήστε μαζί μας:'
+              }
             </p>
             <div className="bg-black/40 border border-white/10 rounded-lg p-4">
               <p className="text-gray-300 mb-2"><strong>Email:</strong> hello@pixelpro.solutions</p>
-              <p className="text-gray-300 mb-2"><strong>Τηλέφωνο UK:</strong> +44 20 8129 5829</p>
-              <p className="text-gray-300"><strong>Τηλέφωνο GR:</strong> +30 697 3517 695</p>
+              <p className="text-gray-300 mb-2"><strong>{language === 'en' ? 'Phone UK:' : 'Τηλέφωνο UK:'}</strong> +44 20 8129 5829</p>
+              <p className="text-gray-300"><strong>{language === 'en' ? 'Phone GR:' : 'Τηλέφωνο GR:'}</strong> +30 697 3517 695</p>
             </div>
           </div>
 

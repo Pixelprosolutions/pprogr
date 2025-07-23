@@ -87,137 +87,185 @@ const PrivacyPolicyPage: React.FC = () => {
               <li>{language === 'en' ? 'Budget and timeline (optional)' : 'Προϋπολογισμό και χρονοδιάγραμμα (προαιρετικό)'}</li>
             </ul>
 
-            <h3 className="text-xl font-semibold text-white mb-3">2.2 Αυτόματα Συλλεγόμενα Δεδομένα</h3>
+            <h3 className="text-xl font-semibold text-white mb-3">
+              {language === 'en' ? '2.2 Automatically Collected Data' : '2.2 Αυτόματα Συλλεγόμενα Δεδομένα'}
+            </h3>
             <p className="text-gray-300 mb-4">
-              Μέσω του Google Analytics συλλέγουμε ανώνυμα στατιστικά στοιχεία:
+              {language === 'en'
+                ? 'Through Google Analytics we collect anonymous statistics:'
+                : 'Μέσω του Google Analytics συλλέγουμε ανώνυμα στατιστικά στοιχεία:'
+              }
             </p>
             <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-              <li>Διεύθυνση IP (ανωνυμοποιημένη)</li>
-              <li>Τύπο περιηγητή και λειτουργικού συστήματος</li>
-              <li>Σελίδες που επισκέπτεστε και χρόνο παραμονής</li>
-              <li>Πηγή επίσκεψης (π.χ. Google, άμεση επίσκεψη)</li>
-              <li>Γεωγραφική τοποθεσία (σε επίπεδο πόλης/περιοχής)</li>
+              <li>{language === 'en' ? 'IP address (anonymized)' : 'Διεύθυνση IP (ανωνυμοποιημένη)'}</li>
+              <li>{language === 'en' ? 'Browser type and operating system' : 'Τύπο περιηγητή και λειτουργικού συστήματος'}</li>
+              <li>{language === 'en' ? 'Pages you visit and time spent' : 'Σελίδες που επισκέπτεστε και χρόνο παραμονής'}</li>
+              <li>{language === 'en' ? 'Visit source (e.g. Google, direct visit)' : 'Πηγή επίσκεψης (π.χ. Google, άμεση επίσκεψη)'}</li>
+              <li>{language === 'en' ? 'Geographic location (city/region level)' : 'Γεωγραφική τοποθεσία (σε επίπεδο πόλης/περιοχής)'}</li>
             </ul>
           </div>
 
           {/* Section 3 */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">3. Σκοπός Επεξεργασίας</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {language === 'en' ? '3. Processing Purpose' : '3. Σκοπός Επεξεργασίας'}
+            </h2>
             <p className="text-gray-300 mb-4">
-              Χρησιμοποιούμε τα προσωπικά σας δεδομένα για τους ακόλουθους σκοπούς:
+              {language === 'en'
+                ? 'We use your personal data for the following purposes:'
+                : 'Χρησιμοποιούμε τα προσωπικά σας δεδομένα για τους ακόλουθους σκοπούς:'
+              }
             </p>
             <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-              <li><strong>Επικοινωνία:</strong> Για να απαντήσουμε στα αιτήματά σας και να προγραμματίσουμε συναντήσεις</li>
-              <li><strong>Παροχή υπηρεσιών:</strong> Για να κατανοήσουμε τις ανάγκες σας και να προτείνουμε κατάλληλες λύσεις</li>
-              <li><strong>Βελτίωση ιστοτόπου:</strong> Για να αναλύσουμε τη χρήση του ιστοτόπου και να βελτιώσουμε την εμπειρία χρήστη</li>
-              <li><strong>Νομική συμμόρφωση:</strong> Για τήρηση των νομικών μας υποχρεώσεων</li>
+              <li><strong>{language === 'en' ? 'Communication:' : 'Επικοινωνία:'}</strong> {language === 'en' ? 'To respond to your requests and schedule meetings' : 'Για να απαντήσουμε στα αιτήματά σας και να προγραμματίσουμε συναντήσεις'}</li>
+              <li><strong>{language === 'en' ? 'Service provision:' : 'Παροχή υπηρεσιών:'}</strong> {language === 'en' ? 'To understand your needs and suggest appropriate solutions' : 'Για να κατανοήσουμε τις ανάγκες σας και να προτείνουμε κατάλληλες λύσεις'}</li>
+              <li><strong>{language === 'en' ? 'Website improvement:' : 'Βελτίωση ιστοτόπου:'}</strong> {language === 'en' ? 'To analyze website usage and improve user experience' : 'Για να αναλύσουμε τη χρήση του ιστοτόπου και να βελτιώσουμε την εμπειρία χρήστη'}</li>
+              <li><strong>{language === 'en' ? 'Legal compliance:' : 'Νομική συμμόρφωση:'}</strong> {language === 'en' ? 'To fulfill our legal obligations' : 'Για τήρηση των νομικών μας υποχρεώσεων'}</li>
             </ul>
           </div>
 
           {/* Section 4 */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">4. Νομική Βάση Επεξεργασίας</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {language === 'en' ? '4. Legal Basis for Processing' : '4. Νομική Βάση Επεξεργασίας'}
+            </h2>
             <p className="text-gray-300 mb-4">
-              Η επεξεργασία των προσωπικών σας δεδομένων βασίζεται στις ακόλουθες νομικές βάσεις:
+              {language === 'en'
+                ? 'The processing of your personal data is based on the following legal bases:'
+                : 'Η επεξεργασία των προσωπικών σας δεδομένων βασίζεται στις ακόλουθες νομικές βάσεις:'
+              }
             </p>
             <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-              <li><strong>Συναίνεση:</strong> Όταν συμπληρώνετε εθελοντικά τις φόρμες επικοινωνίας</li>
-              <li><strong>Έννομο συμφέρον:</strong> Για την ανάλυση της επισκεψιμότητας και βελτίωση των υπηρεσιών μας</li>
-              <li><strong>Εκτέλεση σύμβασης:</strong> Όταν παρέχουμε τις υπηρεσίες που αιτηθήκατε</li>
+              <li><strong>{language === 'en' ? 'Consent:' : 'Συναίνεση:'}</strong> {language === 'en' ? 'When you voluntarily fill out contact forms' : 'Όταν συμπληρώνετε εθελοντικά τις φόρμες επικοινωνίας'}</li>
+              <li><strong>{language === 'en' ? 'Legitimate interest:' : 'Έννομο συμφέρον:'}</strong> {language === 'en' ? 'For traffic analysis and service improvement' : 'Για την ανάλυση της επισκεψιμότητας και βελτίωση των υπηρεσιών μας'}</li>
+              <li><strong>{language === 'en' ? 'Contract execution:' : 'Εκτέλεση σύμβασης:'}</strong> {language === 'en' ? 'When we provide the services you requested' : 'Όταν παρέχουμε τις υπηρεσίες που αιτηθήκατε'}</li>
             </ul>
           </div>
 
           {/* Section 5 */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">5. Διατήρηση Δεδομένων</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {language === 'en' ? '5. Data Retention' : '5. Διατήρηση Δεδομένων'}
+            </h2>
             <p className="text-gray-300 mb-4">
-              Διατηρούμε τα προσωπικά σας δεδομένα για τον χρόνο που είναι απαραίτητος:
+              {language === 'en'
+                ? 'We retain your personal data for the time necessary:'
+                : 'Διατηρούμε τα προσωπικά σας δεδομένα για τον χρόνο που είναι απαραίτητος:'
+              }
             </p>
             <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-              <li><strong>Δεδομένα φορμών:</strong> Έως 3 έτη από την τελευταία επικοινωνία</li>
-              <li><strong>Στατιστικά Google Analytics:</strong> 26 μήνες (αυτόματη διαγραφή)</li>
-              <li><strong>Δεδομένα πελατών:</strong> Σύμφωνα με τις νομικές υποχρεώσεις (συνήθως 5-7 έτη)</li>
+              <li><strong>{language === 'en' ? 'Form data:' : 'Δεδομένα φορμών:'}</strong> {language === 'en' ? 'Up to 3 years from last communication' : 'Έως 3 έτη από την τελευταία επικοινωνία'}</li>
+              <li><strong>{language === 'en' ? 'Google Analytics statistics:' : 'Στατιστικά Google Analytics:'}</strong> {language === 'en' ? '26 months (automatic deletion)' : '26 μήνες (αυτόματη διαγραφή)'}</li>
+              <li><strong>{language === 'en' ? 'Customer data:' : 'Δεδομένα πελατών:'}</strong> {language === 'en' ? 'According to legal obligations (usually 5-7 years)' : 'Σύμφωνα με τις νομικές υποχρεώσεις (συνήθως 5-7 έτη)'}</li>
             </ul>
           </div>
 
           {/* Section 6 */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">6. Κοινοποίηση σε Τρίτους</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {language === 'en' ? '6. Sharing with Third Parties' : '6. Κοινοποίηση σε Τρίτους'}
+            </h2>
             <p className="text-gray-300 mb-4">
-              Δεν πωλούμε, ενοικιάζουμε ή μοιραζόμαστε τα προσωπικά σας δεδομένα με τρίτους, εκτός από:
+              {language === 'en'
+                ? 'We do not sell, rent or share your personal data with third parties, except for:'
+                : 'Δεν πωλούμε, ενοικιάζουμε ή μοιραζόμαστε τα προσωπικά σας δεδομένα με τρίτους, εκτός από:'
+              }
             </p>
             <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-              <li><strong>Παρόχους υπηρεσιών:</strong> Supabase (φιλοξενία βάσης δεδομένων), Google Analytics</li>
-              <li><strong>Νομικές υποχρεώσεις:</strong> Όταν απαιτείται από το νόμο</li>
-              <li><strong>Προστασία δικαιωμάτων:</strong> Για προστασία των δικαιωμάτων, ιδιοκτησίας ή ασφάλειας</li>
+              <li><strong>{language === 'en' ? 'Service providers:' : 'Παρόχους υπηρεσιών:'}</strong> {language === 'en' ? 'Supabase (database hosting), Google Analytics' : 'Supabase (φιλοξενία βάσης δεδομένων), Google Analytics'}</li>
+              <li><strong>{language === 'en' ? 'Legal obligations:' : 'Νομικές υποχρεώσεις:'}</strong> {language === 'en' ? 'When required by law' : 'Όταν απαιτείται από το νόμο'}</li>
+              <li><strong>{language === 'en' ? 'Rights protection:' : 'Προστασία δικαιωμάτων:'}</strong> {language === 'en' ? 'To protect rights, property or security' : 'Για προστασία των δικαιωμάτων, ιδιοκτησίας ή ασφάλειας'}</li>
             </ul>
           </div>
 
           {/* Section 7 */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">7. Ασφάλεια Δεδομένων</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {language === 'en' ? '7. Data Security' : '7. Ασφάλεια Δεδομένων'}
+            </h2>
             <p className="text-gray-300 mb-4">
-              Εφαρμόζουμε κατάλληλα τεχνικά και οργανωτικά μέτρα για την προστασία των δεδομένων σας:
+              {language === 'en'
+                ? 'We implement appropriate technical and organizational measures to protect your data:'
+                : 'Εφαρμόζουμε κατάλληλα τεχνικά και οργανωτικά μέτρα για την προστασία των δεδομένων σας:'
+              }
             </p>
             <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-              <li>Κρυπτογράφηση SSL/TLS για όλες τις μεταδόσεις δεδομένων</li>
-              <li>Ασφαλής φιλοξενία σε πιστοποιημένους παρόχους</li>
-              <li>Περιορισμένη πρόσβαση μόνο σε εξουσιοδοτημένο προσωπικό</li>
-              <li>Τακτικές δημιουργίες αντιγράφων ασφαλείας</li>
+              <li>{language === 'en' ? 'SSL/TLS encryption for all data transmissions' : 'Κρυπτογράφηση SSL/TLS για όλες τις μεταδόσεις δεδομένων'}</li>
+              <li>{language === 'en' ? 'Secure hosting with certified providers' : 'Ασφαλής φιλοξενία σε πιστοποιημένους παρόχους'}</li>
+              <li>{language === 'en' ? 'Limited access only to authorized personnel' : 'Περιορισμένη πρόσβαση μόνο σε εξουσιοδοτημένο προσωπικό'}</li>
+              <li>{language === 'en' ? 'Regular security backups' : 'Τακτικές δημιουργίες αντιγράφων ασφαλείας'}</li>
             </ul>
           </div>
 
           {/* Section 8 */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">8. Τα Δικαιώματά Σας</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {language === 'en' ? '8. Your Rights' : '8. Τα Δικαιώματά Σας'}
+            </h2>
             <p className="text-gray-300 mb-4">
-              Σύμφωνα με τον GDPR, έχετε τα ακόλουθα δικαιώματα:
+              {language === 'en'
+                ? 'According to GDPR, you have the following rights:'
+                : 'Σύμφωνα με τον GDPR, έχετε τα ακόλουθα δικαιώματα:'
+              }
             </p>
             <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-              <li><strong>Πρόσβαση:</strong> Να ζητήσετε αντίγραφο των προσωπικών σας δεδομένων</li>
-              <li><strong>Διόρθωση:</strong> Να διορθώσετε ανακριβή ή ελλιπή δεδομένα</li>
-              <li><strong>Διαγραφή:</strong> Να ζητήσετε τη διαγραφή των δεδομένων σας</li>
-              <li><strong>Περιορισμός:</strong> Να περιορίσετε την επεξεργασία των δεδομένων σας</li>
-              <li><strong>Φορητότητα:</strong> Να λάβετε τα δεδομένα σας σε δομημένη μορφή</li>
-              <li><strong>Αντίρρηση:</strong> Να αντιταχθείτε στην επεξεργασία</li>
-              <li><strong>Ανάκληση συναίνεσης:</strong> Να ανακαλέσετε τη συναίνεσή σας ανά πάσα στιγμή</li>
+              <li><strong>{language === 'en' ? 'Access:' : 'Πρόσβαση:'}</strong> {language === 'en' ? 'To request a copy of your personal data' : 'Να ζητήσετε αντίγραφο των προσωπικών σας δεδομένων'}</li>
+              <li><strong>{language === 'en' ? 'Rectification:' : 'Διόρθωση:'}</strong> {language === 'en' ? 'To correct inaccurate or incomplete data' : 'Να διορθώσετε ανακριβή ή ελλιπή δεδομένα'}</li>
+              <li><strong>{language === 'en' ? 'Erasure:' : 'Διαγραφή:'}</strong> {language === 'en' ? 'To request deletion of your data' : 'Να ζητήσετε τη διαγραφή των δεδομένων σας'}</li>
+              <li><strong>{language === 'en' ? 'Restriction:' : 'Περιορισμός:'}</strong> {language === 'en' ? 'To restrict processing of your data' : 'Να περιορίσετε την επεξεργασία των δεδομένων σας'}</li>
+              <li><strong>{language === 'en' ? 'Portability:' : 'Φορητότητα:'}</strong> {language === 'en' ? 'To receive your data in structured format' : 'Να λάβετε τα δεδομένα σας σε δομημένη μορφή'}</li>
+              <li><strong>{language === 'en' ? 'Objection:' : 'Αντίρρηση:'}</strong> {language === 'en' ? 'To object to processing' : 'Να αντιταχθείτε στην επεξεργασία'}</li>
+              <li><strong>{language === 'en' ? 'Consent withdrawal:' : 'Ανάκληση συναίνεσης:'}</strong> {language === 'en' ? 'To withdraw your consent at any time' : 'Να ανακαλέσετε τη συναίνεσή σας ανά πάσα στιγμή'}</li>
             </ul>
           </div>
 
           {/* Section 9 */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">9. Cookies</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {language === 'en' ? '9. Cookies' : '9. Cookies'}
+            </h2>
             <p className="text-gray-300 mb-4">
-              Ο ιστότοπός μας χρησιμοποιεί cookies μόνο για στατιστικούς σκοπούς μέσω του Google Analytics. 
-              Για περισσότερες πληροφορίες, ανατρέξτε στην <button 
+              {language === 'en'
+                ? 'Our website uses cookies only for statistical purposes through Google Analytics. For more information, refer to our '
+                : 'Ο ιστότοπός μας χρησιμοποιεί cookies μόνο για στατιστικούς σκοπούς μέσω του Google Analytics. Για περισσότερες πληροφορίες, ανατρέξτε στην '
+              }
+              <button
                 onClick={() => (window as any).navigateToCookiePolicy?.()}
                 className="text-pink-400 hover:text-pink-300 underline"
               >
-                Πολιτική Cookies
+                {language === 'en' ? 'Cookie Policy' : 'Πολιτική Cookies'}
               </button>.
             </p>
           </div>
 
           {/* Section 10 */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">10. Αλλαγές στην Πολιτική</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {language === 'en' ? '10. Policy Changes' : '10. Αλλαγές στην Πολιτική'}
+            </h2>
             <p className="text-gray-300 mb-4">
-              Διατηρούμε το δικαίωμα να τροποποιήσουμε την παρούσα Πολιτική Απορρήτου. 
-              Οι αλλαγές θα δημοσιεύονται σε αυτή τη σελίδα με ενημερωμένη ημερομηνία.
+              {language === 'en'
+                ? 'We reserve the right to modify this Privacy Policy. Changes will be posted on this page with an updated date.'
+                : 'Διατηρούμε το δικαίωμα να τροποποιήσουμε την παρούσα Πολιτική Απορρήτου. Οι αλλαγές θα δημοσιεύονται σε αυτή τη σελίδα με ενημερωμένη ημερομηνία.'
+              }
             </p>
           </div>
 
           {/* Section 11 */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">11. Επικοινωνία</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {language === 'en' ? '11. Contact' : '11. Επικοινωνία'}
+            </h2>
             <p className="text-gray-300 mb-4">
-              Για οποιεσδήποτε ερωτήσεις σχετικά με την παρούσα Πολιτική Απορρήτου ή για άσκηση των δικαιωμάτων σας, 
-              μπορείτε να επικοινωνήσετε μαζί μας:
+              {language === 'en'
+                ? 'For any questions about this Privacy Policy or to exercise your rights, you can contact us:'
+                : 'Για οποιεσδήποτε ερωτήσεις σχετικά με την παρούσα Πολιτική Απορρήτου ή για άσκηση των δικαιωμάτων σας, μπορείτε να επικοινωνήσετε μαζί μας:'
+              }
             </p>
             <div className="bg-black/40 border border-white/10 rounded-lg p-4">
               <p className="text-gray-300 mb-2"><strong>Email:</strong> hello@pixelpro.solutions</p>
-              <p className="text-gray-300 mb-2"><strong>Τηλέφωνο UK:</strong> +44 20 8129 5829</p>
-              <p className="text-gray-300"><strong>Τηλέφωνο GR:</strong> +30 697 3517 695</p>
+              <p className="text-gray-300 mb-2"><strong>{language === 'en' ? 'Phone UK:' : 'Τηλέφωνο UK:'}</strong> +44 20 8129 5829</p>
+              <p className="text-gray-300"><strong>{language === 'en' ? 'Phone GR:' : 'Τηλέφωνο GR:'}</strong> +30 697 3517 695</p>
             </div>
           </div>
 
