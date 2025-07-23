@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { ArrowLeft, Send, CheckCircle, User, Mail, Phone, Building, Globe, MessageSquare } from 'lucide-react';
-import { insertPackageSelection, type PackageSelection } from '../lib/supabase';
+import { insertPackageSelection } from '../lib/supabase';
 
 interface FormData {
   name: string;
@@ -9,17 +9,9 @@ interface FormData {
   phone: string;
   company: string;
   website: string;
-  socialMedia: {
-    facebook: string;
-    instagram: string;
-    linkedin: string;
-    youtube: string;
-    tiktok: string;
-  };
   address: string;
   city: string;
   selectedPackage: string;
-  additionalServices: string[];
   message: string;
   budget: string;
   timeline: string;
@@ -32,17 +24,9 @@ const PackageSelectionPage: React.FC = () => {
     phone: '',
     company: '',
     website: '',
-    socialMedia: {
-      facebook: '',
-      instagram: '',
-      linkedin: '',
-      youtube: '',
-      tiktok: ''
-    },
     address: '',
     city: '',
     selectedPackage: '',
-    additionalServices: [],
     message: '',
     budget: '',
     timeline: ''
@@ -59,30 +43,22 @@ const PackageSelectionPage: React.FC = () => {
   const packages = [
     {
       name: "Starter",
+      type: "starter",
       price: 699,
       description: "Για επιχειρήσεις που ξεκινούν την online προβολή τους"
     },
     {
       name: "Growth",
+      type: "professional",
       price: 1299,
       description: "Για επιχειρήσεις που αναπτύσσονται και χρειάζονται σταθερή ψηφιακή παρουσία"
     },
     {
       name: "Dominance",
+      type: "enterprise",
       price: 2299,
       description: "Για επιχειρήσεις που θέλουν να κυριαρχήσουν στον κλάδο τους"
     }
-  ];
-
-  const additionalServices = [
-    'E-commerce Development',
-    'Advanced SEO Package',
-    'Email Marketing Setup',
-    'Content Creation Package',
-    'Branding & Logo Design',
-    'Photography/Videography',
-    'Google Ads Management',
-    'Facebook Ads Management'
   ];
 
   const budgetOptions = [
@@ -104,30 +80,9 @@ const PackageSelectionPage: React.FC = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    
-    if (name.startsWith('socialMedia.')) {
-      const socialKey = name.split('.')[1];
-      setFormData(prev => ({
-        ...prev,
-        socialMedia: {
-          ...prev.socialMedia,
-          [socialKey]: value
-        }
-      }));
-    } else {
-      setFormData(prev => ({
-        ...prev,
-        [name]: value
-      }));
-    }
-  };
-
-  const handleServiceChange = (service: string) => {
     setFormData(prev => ({
       ...prev,
-      additionalServices: prev.additionalServices.includes(service)
-        ? prev.additionalServices.filter(s => s !== service)
-        : [...prev.additionalServices, service]
+      [name]: value
     }));
   };
 
@@ -136,17 +91,16 @@ const PackageSelectionPage: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      const packageData: PackageSelection = {
+      const selectedPkg = packages.find(pkg => pkg.name === formData.selectedPackage);
+      const packageData = {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
         company: formData.company,
         website: formData.website || undefined,
-        social_media: formData.socialMedia,
         address: formData.address || undefined,
         city: formData.city || undefined,
-        selected_package: formData.selectedPackage,
-        additional_services: formData.additionalServices,
+        packageType: selectedPkg?.type as 'starter' | 'professional' | 'enterprise' | 'custom',
         message: formData.message || undefined,
         budget: formData.budget || undefined,
         timeline: formData.timeline || undefined
@@ -389,84 +343,6 @@ const PackageSelectionPage: React.FC = () => {
               />
             </div>
 
-            {/* Social Media */}
-            <div>
-              <label className="block text-white font-medium mb-4 text-sm md:text-base">
-                Social Media Accounts
-              </label>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input
-                  type="url"
-                  name="socialMedia.facebook"
-                  value={formData.socialMedia.facebook}
-                  onChange={handleInputChange}
-                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-sm md:text-base"
-                  style={{ '--tw-ring-color': '#f43f5e' }}
-                  placeholder="Facebook URL"
-                />
-                <input
-                  type="url"
-                  name="socialMedia.instagram"
-                  value={formData.socialMedia.instagram}
-                  onChange={handleInputChange}
-                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-sm md:text-base"
-                  style={{ '--tw-ring-color': '#f43f5e' }}
-                  placeholder="Instagram URL"
-                />
-                <input
-                  type="url"
-                  name="socialMedia.linkedin"
-                  value={formData.socialMedia.linkedin}
-                  onChange={handleInputChange}
-                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-sm md:text-base"
-                  style={{ '--tw-ring-color': '#f43f5e' }}
-                  placeholder="LinkedIn URL"
-                />
-                <input
-                  type="url"
-                  name="socialMedia.youtube"
-                  value={formData.socialMedia.youtube}
-                  onChange={handleInputChange}
-                  className="w-full bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-sm md:text-base"
-                  style={{ '--tw-ring-color': '#f43f5e' }}
-                  placeholder="YouTube URL"
-                />
-              </div>
-            </div>
-
-            {/* Additional Services */}
-            <div>
-              <label className="block text-white font-medium mb-4 text-sm md:text-base">
-                Επιπλέον Υπηρεσίες (προαιρετικό)
-              </label>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
-                {additionalServices.map((service) => (
-                  <label key={service} className="flex items-center cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={formData.additionalServices.includes(service)}
-                      onChange={() => handleServiceChange(service)}
-                      className="sr-only"
-                    />
-                    <div 
-                      className={`w-5 h-5 rounded border-2 mr-3 flex items-center justify-center transition-all duration-200`}
-                      style={{
-                        backgroundColor: formData.additionalServices.includes(service) ? '#f43f5e' : 'transparent',
-                        borderColor: formData.additionalServices.includes(service) ? '#f43f5e' : 'rgba(255, 255, 255, 0.3)'
-                      }}
-                    >
-                      {formData.additionalServices.includes(service) && (
-                        <CheckCircle className="h-3 w-3 text-white" />
-                      )}
-                    </div>
-                    <span className="text-gray-300 hover:text-white transition-colors text-sm md:text-base">
-                      {service}
-                    </span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
             {/* Budget and Timeline */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div>
@@ -531,10 +407,10 @@ const PackageSelectionPage: React.FC = () => {
             <div className="text-center">
               <button
                 type="submit"
-                disabled={isSubmitting || !formData.name || !formData.email || !formData.company || !formData.phone || !formData.selectedPackage}
-                className="disabled:from-gray-500 disabled:to-gray-600 disabled:cursor-not-allowed text-white py-4 px-6 md:px-8 rounded-lg font-medium transition-all duration-300 shadow-lg flex items-center justify-center mx-auto min-w-[200px] text-sm md:text-base"
+               disabled={isSubmitting || !formData.name || !formData.email || !formData.company || !formData.phone || !formData.selectedPackage}
+               className="disabled:from-gray-500 disabled:to-gray-600 disabled:cursor-not-allowed text-white py-4 px-6 md:px-8 rounded-lg font-medium transition-all duration-300 shadow-lg flex items-center justify-center mx-auto min-w-[200px] text-sm md:text-base"
                 style={{ 
-                  background: isSubmitting || !formData.name || !formData.email || !formData.company || !formData.phone || !formData.selectedPackage
+                 background: isSubmitting || !formData.name || !formData.email || !formData.company || !formData.phone || !formData.selectedPackage
                     ? 'linear-gradient(to right, #6b7280, #6b7280)' 
                     : 'linear-gradient(to right, #8b5cf6, #f43f5e)'
                 }}
