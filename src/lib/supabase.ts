@@ -59,7 +59,7 @@ export interface PackageSelection {
 
 // Database functions
 export const insertConsultationRequest = async (data: ConsultationRequest) => {
-  // Map frontend data to Payload schema
+  // Map frontend data to actual Payload schema columns only
   const payloadData = {
     name: data.name,
     email: data.email,
@@ -67,12 +67,9 @@ export const insertConsultationRequest = async (data: ConsultationRequest) => {
     company: data.company,
     website: data.website,
     message: data.message,
-    services: data.services || [],
+    serviceInterest: data.serviceInterest || 'other',
     budget: data.budget,
-    timeline: data.timeline,
-    serviceInterest: data.services?.[0] ? 'other' : 'digital-marketing', // Map first service or default
-    status: 'new' as const,
-    source: 'website'
+    status: 'new' as const
   }
 
   const { error } = await supabase
